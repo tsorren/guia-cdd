@@ -1,0 +1,2623 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="../repaso-teorico-u1-u4.html">
+      
+      
+        <link rel="next" href="../u2/01-senales-fourier.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Introducción: teleinformática, Internet y normalización - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-teleinformatica-internet-y-normalizacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción: teleinformática, Internet y normalización
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01-introduccion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-telecomunicaciones-y-teleinformatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Telecomunicaciones y teleinformática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-comunicacion-de-datos-y-circuito-teleinformatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Comunicación de datos y circuito teleinformático
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-redes-en-sintesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Redes (en síntesis)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-arquitecturas-propietarias-abiertas-y-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Arquitecturas: propietarias, abiertas y OSI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Internet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-normalizacion-listas-de-la-fuente-tal-cual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Normalización (listas de la fuente, tal cual)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-telecomunicaciones-y-teleinformatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Telecomunicaciones y teleinformática
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-comunicacion-de-datos-y-circuito-teleinformatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Comunicación de datos y circuito teleinformático
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-redes-en-sintesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Redes (en síntesis)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-arquitecturas-propietarias-abiertas-y-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Arquitecturas: propietarias, abiertas y OSI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Internet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-normalizacion-listas-de-la-fuente-tal-cual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Normalización (listas de la fuente, tal cual)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="01-introduccion.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U1
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduccion-teleinformatica-internet-y-normalizacion">Introducción: teleinformática, Internet y normalización<a class="headerlink" href="#introduccion-teleinformatica-internet-y-normalizacion" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U1 · introducción a las comunicaciones. Teoría: <code>Unidad-I-1</code> p.1–38. Práctica: TP1, <strong>solo la parte teórica</strong> (GT 1–18 = C18–35). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=5" title="Teleinformática es el vínculo entre telecomunicaciones e informática">Unidad I-1 p.5</a></p>
+<ul>
+<li>Alcance del 1.er parcial: de TP1 entra la parte teórica y la electricidad (C1–17) queda afuera. Esa electricidad está en la página de Señales y Fourier (<a href="../u2/01-senales-fourier.html">Señales y Fourier</a>).</li>
+<li>nota practica 2026-09-16 09:11 PM: "que sería la parte teórica porque los demás es ley de Ohm"</li>
+<li>nota practica 2026-08-26 07:45 PM: "no te va a pedir algo distinto que no hayan visto en la teoría"</li>
+<li>Obligatorias de la guía de teoría de TP1 (en azul): 3, 8, 11, 12, 13 y 16. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Preguntas.pdf#page=1" title="fig: preguntas 3, 8, 11, 12, 13 y 16 impresas en azul; nota: las preguntas en azul son las obligatorias">GT p.1</a></li>
+<li>Las respuestas breves de examen y de TP1 ya están en <a href="../repaso-teorico-u1-u4.html">Repaso teórico U1–U4</a> (P7), con su número U1-xx. Esta página <strong>enlaza</strong> a P7 y agrega el desarrollo de la diapositiva.</li>
+<li>Hueco: la C36 («Detallar qué es la Internet profunda.») no tiene respuesta oficial ni fuente. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/Comunicaciones-TP01.pdf#page=3" title="Detallar qué es la Internet profunda.">TP1 p.3</a></li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Teleinformática</strong> = telecomunicaciones + informática: permite el procesamiento distribuido y la convergencia de servicios en una sola red. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=5" title="Permite el procesamiento distribuido">Unidad I-1 p.5</a></li>
+<li><strong>Circuito teleinformático:</strong> dos ETD, cada uno conectado a su ECD. El <strong>CD</strong> abarca los ECD y las líneas; el <strong>ED</strong> abarca los dos ETD. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=10" title="fig: ED sobre los dos ETD y CD sobre los dos ECD y las líneas de comunicación">Unidad I-1 p.10</a></li>
+<li><strong>Arquitecturas:</strong> propietarias (SNA de IBM, DNA de Digital) y abiertas (OSI y DARPA con TCP/IP). OSI tiene siete capas. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=15" title="Desarrollada por Digital, basada en siete capas similares a la">Unidad I-1 p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=16" title="Incluye los protocolos conocidos como TCP/IP.">Unidad I-1 p.16</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=17" title="Compuesto por siete capas, cada una con un protocolo.">Unidad I-1 p.17</a></li>
+<li><strong>Internet:</strong> red de redes independientes y autónomas, unidas por protocolos normalizados y direcciones IP únicas. Nació como ARPANET en 1969. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=25" title="operadas en forma autónoma">Unidad I-1 p.25</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=24" title="1969: se crea la red ARPANET con fines de defensa y uso">Unidad I-1 p.24</a></li>
+<li><strong>Normalización:</strong> cuatro organismos principales, UIT, ISO, ISOC e IEEE; ANSI, EIA, ADSL Forum, MFA Forum y FCC van aparte. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="Hay cuatro organismos principales:">Unidad I-1 p.35</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=37" title="FCC: Comisión Federal de Comunicaciones de los Estados">Unidad I-1 p.37</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<p>Esta página no tiene fórmulas ni cálculos (no hay test). Sí tiene siglas y definiciones que se piden de memoria.</p>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Definición de la fuente</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Telecomunicaciones</td>
+<td>Las técnicas que permiten comunicarnos más allá de la simple presencia de las personas</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=2" title="Son las técnicas que permiten comunicarnos más allá de la">Unidad I-1 p.2</a></td>
+</tr>
+<tr>
+<td>Teleinformática</td>
+<td>El vínculo entre telecomunicaciones e informática</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=5" title="Teleinformática es el vínculo entre telecomunicaciones e informática">Unidad I-1 p.5</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=13" title="Teleinformática es el vínculo entre telecomunicaciones e">Clase-01 p.13</a></td>
+</tr>
+<tr>
+<td>ETD</td>
+<td>Equipo terminal de datos</td>
+<td><a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=3" title="EQUIPO TERMINAL DE DATOS">TP1 bis p.3</a></td>
+</tr>
+<tr>
+<td>ECD</td>
+<td>Equipo de comunicación de datos</td>
+<td><a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=3" title="EQUIPO DE COMUNICACIÓN DE DATOS">TP1 bis p.3</a></td>
+</tr>
+<tr>
+<td>CD y ED</td>
+<td>Circuito de datos y enlace de datos</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=10" title="fig: ETD, ECD, CD circuito de datos y ED enlace de datos con las líneas de comunicación">Unidad I-1 p.10</a></td>
+</tr>
+<tr>
+<td>Red</td>
+<td>El conjunto de recursos de comunicaciones y de informática que forman un sistema para el transporte de información</td>
+<td><a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=7" title="RED: ES EL CONJUNTO DE RECURSOS DE COMUNICACIONES Y DE">TP1 bis p.7</a></td>
+</tr>
+<tr>
+<td>Conectividad</td>
+<td>La posibilidad de interconectar equipos de diferentes marcas y proveedores en redes armónicas con normas comunes</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=14" title="Conectividad es la posibilidad de interconectar equipos de">Unidad I-1 p.14</a></td>
+</tr>
+<tr>
+<td>Arquitectura de la red</td>
+<td>Un modelo de interconexión y un conjunto de reglas para comunicar los terminales</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=14" title="un conjunto de reglas para comunicar los terminales">Unidad I-1 p.14</a></td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Red internacional de varias redes independientes, operadas en forma autónoma, interconectadas por protocolos y procedimientos normalizados; dos equipos terminales de cualquier red se comunican si tienen una dirección IP única</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=25" title="Red internacional formada por un conjunto de varias redes">Unidad I-1 p.25</a></td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Procedimiento jerárquico (sistema de nombres de dominio) con nombres separados por puntos</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=27" title="utiliza nombres separados por puntos.">Unidad I-1 p.27</a></td>
+</tr>
+<tr>
+<td>ICANN</td>
+<td>Organización sin fines de lucro, de alcance internacional, que asigna el espacio de direcciones IP, los identificadores de protocolo y gestiona el sistema de nombres</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=29" title="organización sin fines de lucro que opera a nivel internacional">Unidad I-1 p.29</a></td>
+</tr>
+<tr>
+<td>RFC y STD</td>
+<td>Los borradores circulan como RFC (Request for comment) y, ya probados, pasan a STD</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="Los borradores de trabajo comienzan a circular como RFC">Unidad I-1 p.34</a></td>
+</tr>
+<tr>
+<td>Normalización</td>
+<td>Permite la interoperabilidad y el intercambio de las partes; facilita el comercio y la transferencia de la tecnología</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="La estandarización o elaboración de normas permite la">Unidad I-1 p.35</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="1-telecomunicaciones-y-teleinformatica">1. Telecomunicaciones y teleinformática<a class="headerlink" href="#1-telecomunicaciones-y-teleinformatica" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Telecomunicaciones, de <em>tele</em> (lejano o a distancia) y <em>communicatio</em>. Cuatro ejemplos de la diapositiva: telégrafo (mensajes escritos), telefonía (voz), televisión (imágenes) y transmisión de datos (comunicación entre computadoras). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=2" title="Telégrafo: Envío de mensajes escritos a distancia.">Unidad I-1 p.2</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=2" title="Trasmisión de datos: Comunicación entre computadoras">Unidad I-1 p.2</a></li>
+<li><strong>Siglo 19:</strong> transmisor y receptor unidos por un conductor metálico. Hitos locales: 1857, primer enlace telegráfico en Buenos Aires; 1878, primera comunicación telefónica en Buenos Aires. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=3" title="1857: primer enlace telegráfico en Buenos Aires">Unidad I-1 p.3</a></li>
+<li><strong>Siglo 20:</strong> enlaces inalámbricos por radio. 1906 válvula electrónica y amplificadores; 1945 primeras computadoras electrónicas; 1948 transistor; 1964 satélites de comunicaciones; 1970 fibra óptica; 1980 computadora personal. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=4" title="1906: aparece la válvula electrónica y los amplificadores">Unidad I-1 p.4</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=4" title="1964: satélites de comunicaciones">Unidad I-1 p.4</a></li>
+<li><strong>Teleinformática:</strong> permite el procesamiento distribuido y el procesamiento digital de las señales; trae nuevos servicios (telefonía IP, TV/IP) y la <strong>convergencia</strong>: todas las señales por la misma red y un solo proveedor de servicios (3play, 4play). También la globalización y el paso de los monopolios a la desregulación. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=5" title="un solo proveedor de servicios">Unidad I-1 p.5</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=5" title="Pasó de los monopolios a la desregulación">Unidad I-1 p.5</a></li>
+<li><strong>Infocomunicaciones:</strong> las comunicaciones como medio de transporte de información y la informática como forma de comunicaciones; el resultado es la integración. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=8" title="fig: INFOCOMUNICACIONES, las comunicaciones como medio de transporte de información y la informática como forma de comunicaciones, INTEGRACIÓN">Unidad I-1 p.8</a></li>
+<li>Figuras: el gráfico de informática contra comunicaciones (1950 a 2000) converge en «comunicaciones más informática», y la casa convergente reúne telefonía fija y móvil, videoconferencia, Internet de banda ancha más telefonía IP, televisión digital de alta definición y radiodifusión digital. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=7" title="fig: gráfico informática contra comunicaciones de 1950 a 2000 que converge en comunicaciones más informática">Unidad I-1 p.7</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=6" title="fig: casa con telefonía fija y móvil, video conferencia, Internet por banda ancha más telefonía IP, televisión digital de alta definición y radiodifusión digital">Unidad I-1 p.6</a></li>
+<li>Respuesta breve de TP1 (GT1): P7 <strong>U1-01</strong> (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>). <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="Abarca las telecomunicaciones y la informática">GT-RTAS p.1</a></li>
+</ul>
+<h3 id="2-comunicacion-de-datos-y-circuito-teleinformatico">2. Comunicación de datos y circuito teleinformático<a class="headerlink" href="#2-comunicacion-de-datos-y-circuito-teleinformatico" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comunicación de datos:</strong> permitir el intercambio de información entre usuarios del sistema. Su problemática: confiable, sin errores, en tiempo real, flexible y segura. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=4" title="PERMITIR EL INTERCAMBIO DE INFORMACIÓN">Clase-01 p.4</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=9" title="fig: comunicación de datos confiable, sin errores, en tiempo real, flexible y segura">Unidad I-1 p.9</a> (P7 <strong>U1-05</strong>)</li>
+<li><strong>Transmisión de datos (versión de TP1 bis):</strong> la información, previamente codificada por los códigos de línea, de un PaP o de un PaM, a través de señales ópticas, electropticas o eléctricas; puede ser local o remota. <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=2" title="a través de señales ópticas, electropticas o electricas.">TP1 bis p.2</a>, <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=2" title="puede ser: En forma LOCAL En forma REMOTA">TP1 bis p.2</a> PaP y PaM no se expanden en la fuente: [INFERRED] punto a punto y punto a multipunto. La respuesta oficial de GT11 y su diferencia, en Discrepancia 10 (P7 <strong>U1-02</strong>).</li>
+</ul>
+<p><strong>Circuito teleinformático básico</strong> (figura de la p.10). Cada ETD tiene un emisor o receptor y un controlador de comunicaciones y se conecta con una flecha doble a su ECD; entre los ECD hay dos líneas de comunicación en sentidos opuestos. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=10" title="fig: cada ETD tiene emisor o receptor y controlador de comunicaciones y se conecta a su ECD; entre los ECD hay dos líneas de comunicación">Unidad I-1 p.10</a></p>
+<table>
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Qué es</th>
+<th>Dónde está en la figura</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETD</td>
+<td>Equipo terminal de datos</td>
+<td>Los dos extremos, con emisor o receptor y controlador</td>
+</tr>
+<tr>
+<td>ECD</td>
+<td>Equipo de comunicación de datos</td>
+<td>Entre cada ETD y las líneas</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>Circuito de datos</td>
+<td>Flecha a la altura de los ECD y las líneas de comunicación</td>
+</tr>
+<tr>
+<td>ED</td>
+<td>Enlace de datos</td>
+<td>Flecha por encima de los dos ETD</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La tabla sale de la figura: <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=3" title="fig: ED sobre los dos ETD y CD debajo a la altura de los ECD y las líneas de comunicación">TP1 bis p.3</a>. Título al pie: «diagrama de bloques de los componentes de un circuito de datos». P7 <strong>U1-03</strong> lo responde. [INFERRED] ETD = DTE y ECD = DCE, siglas de los exámenes.</li>
+<li><strong>Modelo simplificado (canal analógico):</strong> computador A, módem, red analógica, módem, computador B; señal digital en los extremos y analógica en el medio. La diapositiva rotula los dos módems «proceso de modulación» (Discrepancia 2). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=11" title="fig: computador A, módem con proceso de modulación, red analógica, módem y computador B, con señal digital en los extremos y analógica en el medio">Unidad I-1 p.11</a></li>
+<li><strong>Otras formas (canal digital).</strong> Arriba: teléfono, digitalizador analógico-digital (CODEC), red digital, CODEC, teléfono; señal analógica en los extremos y digital en el medio. Abajo, de izquierda a derecha: ETD, <strong>ECTD</strong>, RR, RR (receptor regenerativo), canal digital, RR, RR, ECTD, ETD; medio físico: fibras ópticas, microondas digitales, etc. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=12" title="fig: arriba teléfono A, CODEC digitalizador, red digital, CODEC y teléfono B con señal analógica en los extremos y digital en el medio; abajo ETD, ECTD, dos RR receptor regenerativo, canal digital, dos RR, ECTD, ETD y medio físico fibras ópticas, microondas digitales">Unidad I-1 p.12</a> El PNG rotula ECTD («equipo terminal del circuito de datos»); [INFERRED] es el mismo equipo que el ECD (Discrepancia 1).</li>
+<li>Módem frente a Codec: no se desarrolla acá. Va en <a href="../u4/03-digitalizacion.html">Digitalización: PCM y Delta</a> (P15) y en P7 <strong>U4-01</strong>.</li>
+</ul>
+<h3 id="3-redes-en-sintesis">3. Redes (en síntesis)<a class="headerlink" href="#3-redes-en-sintesis" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Red: el conjunto de recursos de comunicaciones y de informática que forman un sistema para el transporte de información. TP1 bis agrega «conj nodos y enlaces» y la clasificación por topología y por extensión. <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=7" title="RED: conj nodos y enlaces">TP1 bis p.7</a></li>
+<li>Antes: red telefónica, de TV por cable y de datos. Ahora: redes integradas, multimediales y convergentes. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=13" title="fig: antes red telefónica, de TV por cable y de datos; ahora redes integradas, multimediales y convergentes">Unidad I-1 p.13</a> (P7 <strong>U1-04</strong>)</li>
+<li>Figura de la red pública de transporte de una TELCO: cuatro sitios (instituto público de investigación, banco o empresa, universidades A y B), cada uno con un router hacia la red pública; la universidad A tiene dos LAN (LAN 1 y LAN 2), unidas por un puente; protocolos ruteables TCP/IP, MPLS, ATM y Frame Relay, y conectividad hacia el servidor raíz por la red Internet. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=26" title="fig: red pública de transporte de una TELCO con un router por sitio, puente entre LAN 1 y LAN 2 de la universidad A, protocolos ruteables TCP/IP, MPLS, ATM, Frame Relay y red Internet con servidor raíz">Unidad I-1 p.26</a> Sirve de apoyo para la WAN de GT12 (P7 <strong>U1-20</strong>).</li>
+<li>Topologías, comparación y conmutación: <a href="../u3/02-redes.html">Redes: topologías, OSI y conmutación</a> (P18).</li>
+</ul>
+<h3 id="4-arquitecturas-propietarias-abiertas-y-osi">4. Arquitecturas: propietarias, abiertas y OSI<a class="headerlink" href="#4-arquitecturas-propietarias-abiertas-y-osi" title="Permanent link">&para;</a></h3>
+<p>Las redes necesitan establecer una comunicación, controlar el flujo de datos entre las estaciones y liberarla al terminar el diálogo. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=14" title="controlar el flujo de datos entre las estaciones">Unidad I-1 p.14</a></p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Arquitectura</th>
+<th>Qué dice la diapositiva</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Propietaria</td>
+<td><strong>SNA</strong> (Systems Network Architecture)</td>
+<td>Desarrollada por IBM, fuerte centralización: un procesador central importante (mainframe), computadores medianos y estaciones bobas (terminales de entrada y salida de texto)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=15" title="Desarrollada por IBM para la interconexión de redes de">Unidad I-1 p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=15" title="un procesador central importante">Unidad I-1 p.15</a></td>
+</tr>
+<tr>
+<td>Propietaria</td>
+<td><strong>DNA</strong> (Distributed Network Architecture)</td>
+<td>Desarrollada por Digital, basada en siete capas similares a las de OSI</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=15" title="Desarrollada por Digital, basada en siete capas similares a la">Unidad I-1 p.15</a></td>
+</tr>
+<tr>
+<td>Abierta</td>
+<td><strong>OSI</strong> (Open Systems Interconnection)</td>
+<td>Modelo de referencia diseñado en Europa por ISO y UIT-T</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=16" title="Modelo de referencia diseñado en Europa por la Organización">Unidad I-1 p.16</a></td>
+</tr>
+<tr>
+<td>Abierta</td>
+<td><strong>DARPA</strong> (Defense Advanced Research Project Agency)</td>
+<td>Desarrollo de Estados Unidos; incluye los protocolos TCP/IP</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=16" title="Incluye los protocolos conocidos como TCP/IP.">Unidad I-1 p.16</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Examen: <code>1er-Parcial</code> ej. 1, «¿Cuáles son las distintas arquitecturas que conoce?». Es imagen y no tiene respuesta oficial; P7 <strong>U1-06</strong> la responde con la tabla de arriba (p.14–16). <a href="../fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ejercicio 1, ¿Cuáles son las distintas arquitecturas que conoce?">1er Parcial p.1</a></li>
+<li>GT3 y GT13 (procesamiento centralizado, cerrado y propietario): el ejemplo de la diapositiva es SNA (P7 <strong>U1-07</strong> y <strong>U1-21</strong>).</li>
+<li><strong>Modelo ISO/OSI:</strong> siete capas, cada una con un protocolo; distribuye entre las capas las funciones para una comunicación segura y eficiente. De arriba abajo: 7 Aplicación, 6 Presentación, 5 Sesión, 4 Transporte, 3 Red, 2 Enlace, 1 Física. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=17" title="fig: Capa 7 Aplicación, 6 Presentación, 5 Sesión, 4 Transporte, 3 Red, 2 Enlace y 1 Física">Unidad I-1 p.17</a></li>
+<li>Cada capa presta servicios a la inmediata superior; entre dos computadores, la capa de red intercambia paquetes, la de enlace tramas y la física bits, a través de un conmutador de la red. Las capas pares de sistemas abiertos dialogan entre sí. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=18" title="fig: computadores A y B con las siete capas, paquetes en red, tramas en enlace y bits en física, conmutador de la red y medio físico">Unidad I-1 p.18</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=19" title="fig: sistemas abiertos A, B y C con capas pares unidas por flechas horizontales y medio físico de comunicación">Unidad I-1 p.19</a></li>
+<li><strong>Encabezados:</strong> cada capa agrega un encabezamiento a los datos recibidos. En el PNG, de aplicación a física: AH, PH, SH, TH, NH, DLH y PH (el PH se repite para presentación y para física; Discrepancia 15). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=20" title="fig: cada capa agrega un encabezamiento; rótulos AH, PH, SH, TH, NH, DLH y PH, con PH en presentación y en física">Unidad I-1 p.20</a></li>
+<li><strong>OSI frente a TCP/IP:</strong> TCP/IP tiene cuatro capas (aplicación, transporte, internet e interfaz de red). Su aplicación cubre aplicación, presentación y sesión de OSI. TCP y UDP en transporte; IP, ARP, RARP e ICMP en internet; en interfaz de red, IEEE 802.3, X25, Frame Relay, PPP y ATM, entre otros. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=21" title="fig: modelo OSI de siete capas frente a arquitectura TCP/IP de cuatro capas, aplicación, transporte, internet e interfaz de red, con TCP, UDP, IP, ARP, RARP, ICMP y RP">Unidad I-1 p.21</a> (P7 <strong>U1-09</strong>)</li>
+<li><strong>Capa física:</strong> conecta el computador con el medio de comunicaciones, transfiere bits y establece las especificaciones mecánicas, eléctricas y lógicas para comenzar, mantener y finalizar la conexión física. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=22" title="Establece las especificaciones mecánicas, eléctricas y lógicas">Unidad I-1 p.22</a></li>
+<li>TP1 bis resume cada capa en una frase: 7 procesos de red a aplicaciones; 6 representación de datos; 5 comunicación entre hosts; 4 conexiones de extremo a extremo; 3 direccionamiento y mejor ruta; 2 acceso a los medios; 1 transmisión binaria (cables, conectores, voltajes, velocidades de datos). <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=9" title="fig: las 7 capas del modelo OSI con su función, de procesos de red a aplicaciones hasta transmisión binaria con cables, conectores, voltajes y velocidades de datos">TP1 bis p.9</a></li>
+<li>OSI nivel por nivel, encabezados en detalle y capa 2: <a href="../u3/02-redes.html">Redes: topologías, OSI y conmutación</a> (P18). Respuestas breves en P7: <strong>U1-08</strong> (OSI y capa física) y <strong>U3-07</strong> a <strong>U3-09</strong>.</li>
+</ul>
+<h3 id="5-internet">5. Internet<a class="headerlink" href="#5-internet" title="Permanent link">&para;</a></h3>
+<p><strong>5.1 Historia</strong> (P7 <strong>U1-11</strong>, GT4)</p>
+<ul>
+<li>1969: ARPANET, con fines de defensa y uso académico, que utiliza la conmutación de paquetes. 1974: aparecen los protocolos TCP/IP. 1984: se divide en una red académica, que mantuvo el nombre, y otra de usos militares, MILNET. 1995: ARPANET comenzó a llamarse World Wide Internet o, simplemente, Internet (Discrepancias 9 y 13). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=24" title="1969: se crea la red ARPANET con fines de defensa y uso">Unidad I-1 p.24</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=24" title="otra de usos militares que se llamó MILNET.">Unidad I-1 p.24</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=24" title="1995: ARPANET comenzó a llamarse World Wide Internet o">Unidad I-1 p.24</a></li>
+</ul>
+<p><strong>5.2 Definición y composición</strong> (P7 <strong>U1-10</strong> y <strong>U1-12</strong>, GT7)</p>
+<ul>
+<li>Definición de la tabla de arriba. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=83" title="Red internacional formada por un conjunto de varias redes">Clase-01 p.83</a></li>
+<li>Versión de TP1 bis: miles de redes independientes, con comunicaciones <em>host to host</em>. Composición: ETD (host) con dirección IP, routers y redes. Lo que viene: «Internet de las cosas». <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=8" title="Una red internacional formada por un conjunto de miles de redes independientes">TP1 bis p.8</a>, <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=8" title="fig: composición de Internet con ETD host y dirección IP, routers y redes; lo que viene, Internet de las cosas">TP1 bis p.8</a></li>
+</ul>
+<p><strong>5.3 Nombres y DNS</strong> (P7 <strong>U1-14</strong>, GT8 y GT9)</p>
+<ul>
+<li>Para manejar las direcciones IP con más simplicidad se usan nombres para individualizar los host; un servidor de resolución de nombres de dominio los traduce a direcciones numéricas cuando se usan. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=27" title="mediante un servidor de resolución de nombres de dominio">Unidad I-1 p.27</a></li>
+<li>DNS es jerárquico, con nombres separados por puntos, y hay <strong>dominios geográficos de dos letras por país</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=27" title="Hay dominios geográficos que asignan dos letras a cada país.">Unidad I-1 p.27</a></li>
+<li>La p.28 es una tabla de códigos de país (ccDLD) por región, con errores de transcripción: <strong>no se copia</strong> (Discrepancia 16). Solo se cita un código sin duda, <code>.ar</code> Argentina. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=28" title="fig: tabla de ccDLD con país y ubicación, de .ca Canadá y .ar Argentina hasta .gp Guinea Ecuatorial">Unidad I-1 p.28</a></li>
+<li>La diapositiva trae solo los dominios de país. Los genéricos iniciales (GT9) salen solo de la guía de TP1 y están en P7 <strong>U1-14</strong>. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=3" title="edu – com – gov – mil – net – org">GT-RTAS p.3</a></li>
+</ul>
+<p><strong>5.4 ICANN y servidores raíz</strong> (P7 <strong>U1-15</strong>)</p>
+<ul>
+<li>La responsabilidad del funcionamiento del sistema de nombres es del ICANN, asesorado por el DNS Root Server System Advisory Committee. Hay <strong>13 servicios de raíz</strong> distribuidos en Internet, cada uno a cargo de un operador perfectamente identificado y con una única dirección IP. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=29" title="Hay 13 servicios de raíz distribuidos en Internet">Unidad I-1 p.29</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=29" title="asesorado por el DNS Root Server System Advisory">Unidad I-1 p.29</a></li>
+<li>Glosa de la clase: «Corporación de Internet para la Asignación de Nombres y Números». <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=87" title="Corporación de Internet para la Asignación de Nombres y">Clase-01 p.87</a></li>
+<li>La p.30 es la tabla de los 13 servidores raíz (letras A a M, con operador, ubicación y direcciones IP). Tiene errores de transcripción: <strong>no se transcriben las direcciones</strong>, solo la cantidad (Discrepancia 17). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=30" title="fig: tabla de servidores raíz de la A a la M con operador, ubicación y direcciones IP">Unidad I-1 p.30</a></li>
+</ul>
+<p><strong>5.5 Organización de Internet, RIR e IANA</strong> (P7 <strong>U1-15</strong> y <strong>U1-16</strong>, GT6 y GT10)</p>
+<ul>
+<li>Organización de la p.31, tal cual: Internet Society (ISOC), fundada en 1991; Internet Architecture Board (IAB), comité técnico consultor; Internet Engineering Task Force (IETF), grupo técnico; Internet Engineering Steering Group (IESG), Internet Research Task Force (IRTF) e Internet Research Steering Group (IRSG), grupos técnicos; RFC Editor, dedicado a la documentación; y el ICANN. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=31" title="fundada en 1991 Internet Architecture Board">Unidad I-1 p.31</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=31" title="RFC Editor: dedicado a la documentación">Unidad I-1 p.31</a></li>
+<li>La guía de TP1 describe además tres de ellos, que P7 no transcribe: el IAB decide los estándares de comunicaciones entre plataformas y es responsable de cómo se asignan las direcciones y otros recursos; el IETF es un foro donde los usuarios expresan opiniones sobre cómo implementar soluciones a problemas operacionales; y el World Wide Web Consortium, fundado en octubre de 1994, lidera la estandarización de protocolos comunes para la Web. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="Toma las decisiones acerca de los estándares de comunicaciones">GT-RTAS p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Es un foro en el cual los usuarios de internet expresan sus">GT-RTAS p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Fundado en octubre de 1994 lidera todas las actividades">GT-RTAS p.2</a></li>
+<li>Los <strong>Registros Regionales de Internet (RIR)</strong> distribuyen las direcciones IP en <strong>cinco</strong> agencias según la zona geográfica, por delegación del IANA. El mapa rotula AfriNIC, APNIC, ARIN, LACNIC y RIPE NCC. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=32" title="direcciones IP en cinco agencias según la zona geográfica">Unidad I-1 p.32</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=33" title="fig: mapamundi con las cinco zonas AfriNIC, APNIC, ARIN, LACNIC y RIPE NCC">Unidad I-1 p.33</a></li>
+<li>El IANA solo aparece como quien delega. Ninguna diapositiva lo define; la guía de TP1 dice que antes del ICANN esas funciones las hacía el IANA. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Estas funciones eran realizadas anteriormente por IANA y otras entidades">GT-RTAS p.2</a></li>
+</ul>
+<p><strong>5.6 Normas y recomendaciones de Internet: RFC y STD</strong> (P7 <strong>U1-17</strong>, GT5)</p>
+<ul>
+<li>El responsable primario es la Internet Society, que delega la administración y la organización en el IAB y en el «Internet Engineering Task Group (IETG)» (rótulo de la diapositiva; Discrepancia 6). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="El responsable primario es la Internet Society, pero delega la">Unidad I-1 p.34</a></li>
+<li>Los borradores de trabajo circulan como RFC y, probados, se transforman en STD. Niveles de requerimiento de una especificación técnica: <strong>requerido</strong> (required), <strong>recomendado</strong> (recommended), <strong>electivo</strong> (elective), <strong>de uso limitado</strong> (limited use), <strong>no recomendado su uso</strong> (not recommended). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="Niveles de requerimiento de una especificación técnica:">Unidad I-1 p.34</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=92" title="Niveles de requerimiento de una especificación técnica:">Clase-01 p.92</a></li>
+</ul>
+<h3 id="6-normalizacion-listas-de-la-fuente-tal-cual">6. Normalización (listas de la fuente, tal cual)<a class="headerlink" href="#6-normalizacion-listas-de-la-fuente-tal-cual" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Para qué: la estandarización permite la interoperabilidad y el intercambio de las partes, y facilita el comercio y el manejo y la transferencia de la tecnología. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=36" title="La estandarización o elaboración de normas permite la">Clase-01 p.36</a></li>
+<li><strong>Cuatro organismos principales, en este orden</strong> (p.35). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="Hay cuatro organismos principales:">Unidad I-1 p.35</a><ol>
+<li>Unión Internacional de Telecomunicaciones (UIT), Naciones Unidas, fundada en 1865. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="Naciones Unidas fundada en 1865">Unidad I-1 p.35</a></li>
+<li>Organización Internacional de Estándares (ISO), Naciones Unidas. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="Organización Internacional de Estándares">Unidad I-1 p.35</a></li>
+<li>Sociedad Internet (ISOC).</li>
+<li>Instituto de Ingenieros Eléctricos y Electrónicos (IEEE). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=35" title="Instituto de Ingenieros Eléctricos y Electrónicos">Unidad I-1 p.35</a></li>
+</ol>
+</li>
+<li>La p.36 plantea «¿Por qué normalizar?», define «Standard o Norma» como consenso documentado con especificaciones técnicas para usar como regla, guía o definición de características, y presenta los Estándares Tecnológicos para la Administración Pública (ETAP), con el logo de la ONTI. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=36" title="fig: ¿Por qué normalizar? Standard o Norma como consenso documentado con especificaciones técnicas, y Estándares Tecnológicos para la Administración Pública ETAP con logo ONTI">Unidad I-1 p.36</a></li>
+<li><strong>Otros organismos, en este orden</strong> (p.37): ANSI (American National Standards Institute), EIA (Electronic Industries Alliance), ADSL Forum, <strong>MFA Forum</strong> (une foros de tecnologías nuevas: MPLS, Frame Relay y ATM) y FCC (Comisión Federal de Comunicaciones de los Estados Unidos de América). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=37" title="fig: Otros organismos, ANSI, EIA, ADSL Forum, MFA Forum con MPLS, Frame Relay y ATM, y FCC">Unidad I-1 p.37</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=37" title="MFA Forum une foros de tecnologías nuevas:">Unidad I-1 p.37</a></li>
+<li>La p.38 («Algunos organismos normalizadores») solo trae logos y siglas: ITU, ISO, IEEE, IETF, EIA, FCC, ONTI, ENACOM e IRAM (la diapositiva agrupa estas tres últimas aparte, con las direcciones web de ONTI y ENACOM). La lámina solo da lo que muestran sus logos: ONTI expandido como «Oficina Nacional de Tecnologías de Información» (también en p.36) y direcciones .gob.ar para ONTI y ENACOM. De IRAM no dice el país, y de ninguno de los tres dice qué funciones cumple. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=38" title="fig: algunos organismos normalizadores ITU, ISO, IEEE, IETF, EIA, FCC, ONTI, ENACOM e IRAM">Unidad I-1 p.38</a></li>
+<li><strong>UIT-T, UIT-R y UIT-D:</strong> los sectores solo figuran en la guía de TP1 (GT2); la diapositiva dice únicamente «Naciones Unidas fundada en 1865». <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="UIT-T: Para manejar las telecomunicaciones antes de CCITT">GT-RTAS p.1</a></li>
+<li>P7 <strong>U1-18</strong> responde GT2 y GT15 con las definiciones oficiales (ver Discrepancias 7 y 8).</li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>GT8 = C25 (obligatoria): crear un dominio para una universidad argentina e identificar una PC del laboratorio de sistemas con el esquema DNS. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="crear un dominio para una universidad Argentina, identificar una">GT-RTAS p.2</a> No hay cálculo: es leer un nombre.</p>
+<p><strong>Paso 1. Respuesta oficial.</strong> <code>Apolo.sistemas.utn.edu.ar</code> (el servicio de correo Apolo, en la carrera de sistemas de la UTN de la Argentina). Otro ejemplo de la guía: <code>Server1.alfaomega.com.mx</code> (una editorial en México). <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Apolo.sistemas .utn.edu.ar Otros ejemplo, una empresa editorial en mexico">GT-RTAS p.2</a></p>
+<p><strong>Paso 2. Por qué es un nombre válido.</strong> DNS es jerárquico y usa nombres separados por puntos; el último campo es el dominio geográfico de dos letras del país. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=27" title="Hay dominios geográficos que asignan dos letras a cada país.">Unidad I-1 p.27</a></p>
+<table>
+<thead>
+<tr>
+<th>Campo (de derecha a izquierda)</th>
+<th><code>Apolo.sistemas.utn.edu.ar</code></th>
+<th>Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ar</code></td>
+<td>país: Argentina, según la tabla de la p.28</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>edu</code></td>
+<td>uno de los dominios genéricos iniciales</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>utn</code></td>
+<td>la universidad</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>sistemas</code></td>
+<td>la carrera</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Apolo</code></td>
+<td>la máquina o el servicio</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La lectura de derecha a izquierda y el significado de cada campo son [INFERRED] (el ejemplo de la guía no los rotula, salvo el país y la universidad). Ejemplo propio de lectura, sin cálculo.</li>
+<li>El nombre se traduce a una dirección IP en el momento de usarse, mediante un servidor de resolución de nombres de dominio. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=27" title="mediante un servidor de resolución de nombres de dominio">Unidad I-1 p.27</a></li>
+</ul>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>ECD y ECTD se rotulan distinto en esta unidad.</strong> El circuito básico (p.10) rotula ECD; las figuras de canal digital (p.12) rotulan ECTD. [INFERRED] es el mismo equipo. Respondé con ECD y, si dibujás el canal digital, rotulá ECTD tal cual. Discrepancia 1. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=12" title="fig: ETD, ECTD, RR receptor regenerativo, canal digital y medio físico fibras ópticas, microondas digitales">Unidad I-1 p.12</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>ED abarca los dos ETD; CD abarca los ECD y las líneas.</strong> No los confundas: el enlace de datos incluye a los terminales; el circuito de datos, no. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=10" title="fig: ED sobre los dos ETD y CD sobre los dos ECD y las líneas de comunicación">Unidad I-1 p.10</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>«Cuatro organismos principales» no es la lista de GT15.</strong> La diapositiva pone UIT, ISO, ISOC e IEEE; la pregunta GT15 pide ISO, IEEE, ANSI y EIA, y ANSI y EIA están en «otros organismos». Presentá las dos listas por separado. Discrepancias 7 y 8. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=37" title="American National Standards Institute">Unidad I-1 p.37</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Cinco RIR en la diapositiva, cuatro en la respuesta oficial de GT10.</strong> Con ARIN son cinco; la guía de TP1 no lo nombra. Discrepancia 4. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=3" title="APNIC – Asia y Pacifico LACNIC – America y Caribe">GT-RTAS p.3</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Los mismos datos con distinto rótulo según la fuente.</strong> ISOC: 1991 en la diapositiva y 1990 en la guía. IETF en la p.31 e «IETG» en la p.34. Niveles de RFC: «electivo» y «de uso limitado» en la diapositiva; «Elegido» y «Recurso limitado» en la guía. Discrepancias 3, 5 y 6. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="Niveles de requerimiento de una especificación técnica:">Unidad I-1 p.34</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>DARPA es una arquitectura en la diapositiva y una «red anterior a Internet» en la respuesta de GT4.</strong> Para GT4, contá la historia de la p.24 (ARPANET, TCP/IP, MILNET) y mencioná que la guía lista DARPA. Discrepancia 9. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=16" title="Defense Advanced Research Project Agency">Unidad I-1 p.16</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>No memorices las tablas de las p.28 y 30.</strong> Tienen errores de transcripción (códigos de país y direcciones IP). Quedate con «dos letras por país» y «13 servicios de raíz». Discrepancias 16 y 17. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=29" title="Hay 13 servicios de raíz distribuidos en Internet">Unidad I-1 p.29</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>De TP1 entra la parte teórica, no la electricidad.</strong> Remarcado en clase: nota practica 2026-09-16 09:11 PM: "que sería la parte teórica porque los demás es ley de Ohm". Los ejercicios de GT 1–18 son estos; C1–17 no se estudian para el parcial. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Preguntas.pdf#page=1" title="Indicar que disciplinas abarca la Teleinformática.">GT p.1</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración: la guía de teoría de TP1 (GT 1–18) es la «segunda parte» de <code>Comunicaciones-TP01</code> (C18–35): GT n = C (n + 17). <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/Comunicaciones-TP01.pdf#page=2" title="Indicar qué disciplinas abarca la Teleinformática.">TP1 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/Comunicaciones-TP01.pdf#page=3" title="Indicar qué es un Sistema Autónomo en Internet.">TP1 p.3</a> Las respuestas breves están en P7 (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>); acá solo se dice qué agrega esta página. Respuestas oficiales: <code>GUIA-TP-01-Teoria-Respuestas-RTAS</code>. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="Abarca las telecomunicaciones y la informática">GT-RTAS p.1</a></p>
+<table>
+<thead>
+<tr>
+<th>GT (C)</th>
+<th>Pregunta</th>
+<th>P7</th>
+<th>Qué agrega esta página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (18)</td>
+<td>Disciplinas de la teleinformática</td>
+<td>U1-01</td>
+<td>Cronología y convergencia (Desarrollo 1)</td>
+</tr>
+<tr>
+<td>2 (19)</td>
+<td>UIT-T: qué es, funciones, constitución</td>
+<td>U1-18</td>
+<td>Diapositiva: UIT, Naciones Unidas, 1865; los sectores solo en la guía (Desarrollo 6)</td>
+</tr>
+<tr>
+<td><strong>3</strong> (20)</td>
+<td>Arquitectura de procesamiento centralizado</td>
+<td>U1-07</td>
+<td>SNA de IBM (Desarrollo 4)</td>
+</tr>
+<tr>
+<td>4 (21)</td>
+<td>Redes que dieron origen a Internet</td>
+<td>U1-11</td>
+<td>Historia 1969–1995; Discrepancia 9</td>
+</tr>
+<tr>
+<td>5 (22)</td>
+<td>Niveles de requerimiento de los RFC</td>
+<td>U1-17</td>
+<td>Rótulos de la diapositiva; Discrepancia 5</td>
+</tr>
+<tr>
+<td>6 (23)</td>
+<td>Organización actual de Internet</td>
+<td>U1-15</td>
+<td>Lista de la p.31 y delegación de la p.34; IAB, IETF y W3C de la guía (Desarrollo 5.5); Discrepancias 3 y 6</td>
+</tr>
+<tr>
+<td>7 (24)</td>
+<td>Equipos y topología de Internet</td>
+<td>U1-12</td>
+<td>Composición según TP1 bis p.8; Discrepancia 12</td>
+</tr>
+<tr>
+<td><strong>8</strong> (25)</td>
+<td>Dominio de una universidad argentina (DNS)</td>
+<td>U1-14</td>
+<td>Ejemplo resuelto</td>
+</tr>
+<tr>
+<td>9 (26)</td>
+<td>Dominios genéricos iniciales</td>
+<td>U1-14</td>
+<td>La diapositiva trae solo los de país (Desarrollo 5.3)</td>
+</tr>
+<tr>
+<td>10 (27)</td>
+<td>Organismos dependientes del IANA</td>
+<td>U1-16</td>
+<td>Cinco RIR, con ARIN; Discrepancia 4</td>
+</tr>
+<tr>
+<td><strong>11</strong> (28)</td>
+<td>Transmisión de datos y tipos de señal</td>
+<td>U1-02</td>
+<td>Versión de TP1 bis p.2; Discrepancia 10</td>
+</tr>
+<tr>
+<td><strong>12</strong> (29)</td>
+<td>WAN empresarial de cuatro sitios</td>
+<td>U1-20</td>
+<td>Figura de la red pública de transporte (Desarrollo 3)</td>
+</tr>
+<tr>
+<td><strong>13</strong> (30)</td>
+<td>Procesamiento centralizado con mainframe</td>
+<td>U1-21</td>
+<td>SNA (Desarrollo 4)</td>
+</tr>
+<tr>
+<td>14 (31)</td>
+<td>Red abierta y distribuida</td>
+<td>U1-22</td>
+<td>Arquitecturas abiertas (Desarrollo 4); la oficial es «Es el diagrama del problema 12» y las características son [INFERRED] en P7</td>
+</tr>
+<tr>
+<td>15 (32)</td>
+<td>ISO, IEEE, ANSI y EIA</td>
+<td>U1-18</td>
+<td>Listas de la diapositiva; Discrepancias 7 y 8</td>
+</tr>
+<tr>
+<td><strong>16</strong> (33)</td>
+<td>Funciones de un ISP y tecnologías de acceso residencial</td>
+<td>U1-19</td>
+<td><strong>Hueco parcial</strong> (ver abajo)</td>
+</tr>
+<tr>
+<td>17 (34)</td>
+<td>Internet 2</td>
+<td>U1-13</td>
+<td>Sin diapositiva: solo la guía de práctica</td>
+</tr>
+<tr>
+<td>18 (35)</td>
+<td>Sistema autónomo</td>
+<td>U1-13</td>
+<td>Sin diapositiva que lo defina; Internet = redes «operadas en forma autónoma» (p.25)</td>
+</tr>
+<tr>
+<td>— (36)</td>
+<td>Internet profunda</td>
+<td>—</td>
+<td><strong>Hueco</strong> (ver abajo)</td>
+</tr>
+</tbody>
+</table>
+<p>En negrita, las obligatorias de la guía.</p>
+<ul>
+<li><strong>Hueco, GT16 (C33):</strong> la respuesta oficial es solo «La ISP es una organización que provee el acceso a la red internet.» y no detalla tecnologías. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=4" title="La ISP es una organización que provee el acceso a la red internet.">GT-RTAS p.4</a> Lo único de la teoría: a comienzos del siglo XXI aparecen ADSL sobre la red telefónica y cable módem sobre las redes de TV. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="aparecen las tecnologías ADSL sobre la red telefónica y">Unidad III-3 p.2</a> Desarrollo: <a href="../u8/02-modems.html">Módems y acceso de banda ancha</a> (P22). El resto de las tecnologías de acceso residencial: sin respuesta oficial.</li>
+<li><strong>Hueco, C36:</strong> «Detallar qué es la Internet profunda.» No está en la guía de teoría, no hay respuesta oficial y ninguna diapositiva ni TP1 bis lo trata. Sin respuesta. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/Comunicaciones-TP01.pdf#page=3" title="Detallar qué es la Internet profunda.">TP1 p.3</a></li>
+<li><strong>Examen:</strong> <code>1er-Parcial</code> ej. 1, «¿Cuáles son las distintas arquitecturas que conoce?». Imagen, sin respuesta oficial; P7 <strong>U1-06</strong>. <a href="../fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ejercicio 1, ¿Cuáles son las distintas arquitecturas que conoce?">1er Parcial p.1</a></li>
+<li><strong>Erratas de la respuesta oficial</strong> (versión virtual 2020): «apra», «Froce», «terminale», «Standarization» e «IEEEE». Se transcriben tal cual en esta página. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="creada apra asumir la responsabilidad de administrar las direcciones IP">GT-RTAS p.2</a></li>
+<li>Las diferencias de enunciado entre <code>Comunicaciones-TP01</code> y la guía de teoría (C32 «siglas» contra GT15 «términos»; C33 omite «para el acceso de los usuarios residenciales a Internet») están en la Discrepancia 11.</li>
+</ul>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<p>Las respuestas breves que ya están en P7 se enlazan por su número, sin repetirse (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>). Acá se evalúa lo que agrega esta página.</p>
+<details class="question">
+<summary>Ubicá en el tiempo la válvula electrónica, el transistor, los satélites de comunicaciones, la fibra óptica y la computadora personal.</summary>
+<p>1906, 1948, 1964, 1970 y 1980. En el siglo 19 los hitos locales son 1857 (enlace telegráfico) y 1878 (telefonía) en Buenos Aires. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=4" title="1906: aparece la válvula electrónica y los amplificadores">Unidad I-1 p.4</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=3" title="1857: primer enlace telegráfico en Buenos Aires">Unidad I-1 p.3</a></p>
+</details>
+<details class="question">
+<summary>¿Qué muestran el gráfico de la p.7 y la casa de la p.6?</summary>
+<p>El gráfico, informática contra comunicaciones de 1950 a 2000, converge en «comunicaciones más informática». La casa reúne telefonía fija y móvil, videoconferencia, Internet de banda ancha más telefonía IP, televisión digital de alta definición y radiodifusión digital. Es la convergencia de la teleinformática (P7 <strong>U1-01</strong>). <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=7" title="fig: gráfico informática contra comunicaciones de 1950 a 2000 que converge en comunicaciones más informática">Unidad I-1 p.7</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=6" title="fig: casa con telefonía fija y móvil, video conferencia, Internet por banda ancha más telefonía IP, televisión digital de alta definición y radiodifusión digital">Unidad I-1 p.6</a></p>
+</details>
+<details class="question">
+<summary>Comparando las figuras de las p.11 y 12, ¿dónde va cada tipo de señal y qué equipos aparecen? ¿Qué siglas distintas hay para el equipo del circuito de datos?</summary>
+<p>Canal analógico (p.11): señal digital en los extremos y analógica en el medio, con dos módems. Canal digital (p.12): señal analógica en los extremos (teléfonos) y digital en el medio, con CODEC; abajo ETD, ECTD y receptores regenerativos (RR). La p.10 rotula ECD y la p.12 ECTD: [INFERRED] es el mismo equipo (Discrepancia 1). Módem frente a Codec: P7 <strong>U4-01</strong>. ED y CD: P7 <strong>U1-03</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=11" title="fig: computador A, módem con proceso de modulación, red analógica, módem y computador B, con señal digital en los extremos y analógica en el medio">Unidad I-1 p.11</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=12" title="fig: arriba teléfono A, CODEC digitalizador, red digital, CODEC y teléfono B con señal analógica en los extremos y digital en el medio; abajo ETD, ECTD, dos RR receptor regenerativo, canal digital, dos RR, ECTD, ETD y medio físico fibras ópticas, microondas digitales">Unidad I-1 p.12</a></p>
+</details>
+<details class="question">
+<summary>En la figura de la p.20, ¿qué rótulos de encabezado aparecen de aplicación a física y qué anomalía tiene la figura? ¿Qué intercambian las capas de red, enlace y física en la p.18?</summary>
+<p>AH, PH, SH, TH, NH, DLH y PH. El PH se repite para presentación y para física, y los rótulos de protocolo tienen erratas (Discrepancia 15). En la p.18 la capa de red intercambia paquetes, la de enlace tramas y la física bits. OSI y TCP/IP: P7 <strong>U1-08</strong> y <strong>U1-09</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=20" title="fig: cada capa agrega un encabezamiento; rótulos AH, PH, SH, TH, NH, DLH y PH, con PH en presentación y en física">Unidad I-1 p.20</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=18" title="fig: computadores A y B con las siete capas, paquetes en red, tramas en enlace y bits en física, conmutador de la red y medio físico">Unidad I-1 p.18</a></p>
+</details>
+<details class="question">
+<summary>En la figura de la TELCO (p.26), ¿cuántos sitios hay, qué tiene cada uno y qué tiene de particular la universidad A?</summary>
+<p>Cuatro sitios (instituto público de investigación, banco o empresa, universidades A y B), cada uno con un router hacia la red pública. La universidad A tiene dos LAN unidas por un puente. Los protocolos ruteables son TCP/IP, MPLS, ATM y Frame Relay, y la red Internet da conectividad al servidor raíz. Apoyo de GT12: P7 <strong>U1-20</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=26" title="fig: red pública de transporte de una TELCO con un router por sitio, puente entre LAN 1 y LAN 2 de la universidad A, protocolos ruteables TCP/IP, MPLS, ATM, Frame Relay y red Internet con servidor raíz">Unidad I-1 p.26</a></p>
+</details>
+<details class="question">
+<summary>Leé de derecha a izquierda <code>Server1.alfaomega.com.mx</code> y decí por qué no se copian las tablas de las p.28 y 30.</summary>
+<p><code>mx</code> es el dominio geográfico de México (la guía dice que es una editorial); <code>com</code> es un genérico; <code>alfaomega</code> y <code>Server1</code> son la empresa y la máquina ([INFERRED]: el ejemplo no rotula los campos). Las tablas de las p.28 y 30 tienen errores de transcripción (Discrepancias 16 y 17). El ejemplo de universidad argentina y los genéricos: P7 <strong>U1-14</strong>. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Apolo.sistemas .utn.edu.ar Otros ejemplo, una empresa editorial en mexico">GT-RTAS p.2</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=28" title="fig: tabla de ccDLD con país y ubicación, de .ca Canadá y .ar Argentina hasta .gp Guinea Ecuatorial">Unidad I-1 p.28</a></p>
+</details>
+<details class="question">
+<summary>¿Qué rótulos del mismo organismo difieren entre las p.31 y 34, y qué año de la ISOC trae cada fuente?</summary>
+<p>La p.31 lista el «Internet Engineering Task Force (IETF)» y la p.34 delega en el «Internet Engineering Task Group (IETG)» (Discrepancia 6). La ISOC es de 1991 en la diapositiva y de 1990 en la guía (Discrepancia 3). Organización y RFC: P7 <strong>U1-15</strong> y <strong>U1-17</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="El responsable primario es la Internet Society, pero delega la">Unidad I-1 p.34</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=31" title="fundada en 1991 Internet Architecture Board">Unidad I-1 p.31</a></p>
+</details>
+<details class="question">
+<summary>¿Qué muestran las p.36 y 38 y qué sectores de la UIT trae la diapositiva?</summary>
+<p>La p.36 plantea «¿Por qué normalizar?», define «Standard o Norma» y presenta los ETAP con el logo de la ONTI. La p.38 solo trae logos y siglas (ITU, ISO, IEEE, IETF, EIA, FCC, ONTI, ENACOM e IRAM). Los sectores UIT-T, UIT-R y UIT-D no están en la diapositiva, que dice solo «Naciones Unidas fundada en 1865». Organismos y GT15: P7 <strong>U1-18</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=36" title="fig: ¿Por qué normalizar? Standard o Norma como consenso documentado con especificaciones técnicas, y Estándares Tecnológicos para la Administración Pública ETAP con logo ONTI">Unidad I-1 p.36</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=38" title="fig: algunos organismos normalizadores ITU, ISO, IEEE, IETF, EIA, FCC, ONTI, ENACOM e IRAM">Unidad I-1 p.38</a></p>
+</details>
+<details class="question">
+<summary>¿Cuáles son las obligatorias de la guía de teoría de TP1 y qué número de <code>Comunicaciones-TP01</code> corresponde a la GT 8?</summary>
+<p>Las GT 3, 8, 11, 12, 13 y 16. GT n = C (n + 17), así que la GT 8 es la C25. Ejemplo resuelto de la GT 8: esta página. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Preguntas.pdf#page=1" title="fig: preguntas 3, 8, 11, 12, 13 y 16 impresas en azul; nota: las preguntas en azul son las obligatorias">GT p.1</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de <code>Unidad-I-1</code> (jerarquía 1). La respuesta oficial de TP1 se da aparte, tal cual. Las 3 a 7 ya figuran en P7.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sigla del equipo del circuito de datos</td>
+<td>Circuito básico (p.10, <code>Clase-01</code> p.5, TP1 bis p.3): <strong>ECD</strong>, equipo de comunicación de datos. Figuras de canal digital (p.12, <code>Clase-01</code> p.7, TP1 bis p.5): <strong>ECTD</strong>, equipo terminal del circuito de datos. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=12" title="fig: ETD, ECTD, RR receptor regenerativo, canal digital y medio físico fibras ópticas, microondas digitales">Unidad I-1 p.12</a></td>
+<td>ECD; en el canal digital se rotula ECTD y se aclara [INFERRED] que es el mismo equipo</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dos módems con «proceso de modulación»</td>
+<td>La diapositiva rotula ambos módems igual. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=11" title="fig: computador A, módem con proceso de modulación, red analógica, módem y computador B">Unidad I-1 p.11</a></td>
+<td>Se cita tal cual. [INFERRED] el módem receptor demodula (P7 U4-02)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ISOC: año</td>
+<td>1991 en la diapositiva; «creado en 1990» en la guía. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=31" title="fundada en 1991 Internet Architecture Board">Unidad I-1 p.31</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="creado en 1990 y formado por miembros voluntarios">GT-RTAS p.1</a></td>
+<td>1991; se menciona la variante</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RIR: cantidad</td>
+<td>Cinco agencias y mapa con ARIN en la diapositiva; la guía lista cuatro y no nombra ARIN. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=32" title="direcciones IP en cinco agencias según la zona geográfica">Unidad I-1 p.32</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=3" title="AFRINIC – Africa APNIC – Asia y Pacifico">GT-RTAS p.3</a></td>
+<td>Cinco; GT10 oficial = cuatro, tal cual</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Niveles de requerimiento de RFC</td>
+<td>Diapositiva: requerido, recomendado, electivo, de uso limitado, no recomendado su uso. Guía: Requerido, Recomendado, Elegido, Recurso limitado, No recomendado su uso. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="Niveles de requerimiento de una especificación técnica:">Unidad I-1 p.34</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="Requerido Recomendado Elegido Recurso limitado No recomendado su uso">GT-RTAS p.1</a></td>
+<td>La diapositiva; se menciona la variante</td>
+</tr>
+<tr>
+<td>6</td>
+<td>IETG contra IETF</td>
+<td>La p.34 delega en «Internet Engineering Task Group (IETG)»; la p.31 lista «Internet Engineering Task Force (IETF)». <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=34" title="Internet Engineering Task Group">Unidad I-1 p.34</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=31" title="comité técnico consultor Internet Engineering Task Force">Unidad I-1 p.31</a></td>
+<td>Los dos rótulos tal cual; la guía desarrolla IETF</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Denominaciones de organismos</td>
+<td>Diapositiva: IEEE «Instituto de Ingenieros Eléctricos y Electrónicos», ANSI «American National Standards Institute», EIA «Electronic Industries Alliance», ISO «Organización Internacional de Estándares» (UIT e ISO rotuladas «Naciones Unidas»). Guía: IEEE «Instituto Nacional de Ingenieros Electricos y Electronicos de los EEUU», ANSI «American Standards Institute», EIA «Alianza de Industrias Electrónicas de EEUU», ISO «International Organization for Standarization». <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=37" title="American National Standards Institute">Unidad I-1 p.37</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=4" title="ANSI: American Standards Institute">GT-RTAS p.4</a></td>
+<td>Listas de la diapositiva tal cual; la respuesta oficial de GT15 aparte</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Cuatro principales contra GT15</td>
+<td>La diapositiva: UIT, ISO, ISOC, IEEE. GT15 pide ISO, IEEE, ANSI y EIA, y ANSI y EIA están en «otros organismos».</td>
+<td>Las dos listas por separado</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DARPA y ARPANET</td>
+<td>Diapositiva: ARPANET en 1969 y DARPA como arquitectura abierta con TCP/IP. Guía: «las redes anteriores a internet fueron DARPA, ARPANET (Internet) y MILNET» y ARPANET = «Advances Reserch Project Agency Networks». <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=16" title="Defense Advanced Research Project Agency">Unidad I-1 p.16</a>, <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=1" title="ARPANET: Advances Reserch Project Agency Networks.">GT-RTAS p.1</a></td>
+<td>GT4 con la historia de la diapositiva y la mención de que la guía lista DARPA</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Transmisión de datos</td>
+<td>Guía: señales «eléctricas, electromagnéticas y ópticas», y «desde un punto a una fuente a un sumidero (receptor)» (redacción dudosa). TP1 bis: «ópticas, electropticas o electricas», «de un PaP o de un PaM» sin expandir. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=3" title="Las señales pueden ser, eléctricas, electromagnéticas y ópticas.">GT-RTAS p.3</a>, <a href="../fuentes/practica/oficial/TP01-Teleinformatica/TP-01-Introduccion-a-la-Teleinformatica-bis.pdf#page=2" title="a través de señales ópticas, electropticas o electricas.">TP1 bis p.2</a></td>
+<td>Las dos versiones; PaP y PaM como [INFERRED]</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Enunciados de C contra GT</td>
+<td>C32 dice «siglas» y GT15 «términos»; C33 omite «para el acceso de los usuarios residenciales a Internet» que GT16 trae; C20 dice «Detallar cómo se denomina» y GT3 «¿Cómo se denomina»; C19 agrega «anteriormente» y «Detallar». <code>Comunicaciones-TP01</code> no marca obligatorias; la guía de teoría sí. <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Preguntas.pdf#page=1" title="Que funciones cumple un ISP, detallar las tecnologías que puede emplear">GT p.1</a></td>
+<td>El enunciado de GT, con nota donde C difiere</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Equipos de Internet: GT7 y TP1 bis</td>
+<td>Guía: «Equipos terminale de cables, Routers, Redes». TP1 bis: «ETD (host) con dirección IP, routers, redes». <a href="../fuentes/practica/tucu-leppen/TP01-Fisica-Redes/GUIA-TP-01-Teoria-Respuestas-RTAS.pdf#page=2" title="Equipos terminale de cables Routers Redes">GT-RTAS p.2</a></td>
+<td>[INFERRED] «terminale de cables» es un tipo de equipo terminal; se responde ETD (host) con la variante de la guía</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Año del nombre «Internet»</td>
+<td>La p.24 dice «1995: ARPANET comenzó a llamarse World Wide Internet o simplemente por su última palabra, Internet». Ninguna otra fuente lo confirma ni lo contradice. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=24" title="1995: ARPANET comenzó a llamarse World Wide Internet o">Unidad I-1 p.24</a></td>
+<td>Tal cual, sin ampliar</td>
+</tr>
+<tr>
+<td>14</td>
+<td>ICANN: glosa</td>
+<td><code>Clase-01</code> p.87 agrega «Corporación de Internet para la Asignación de Nombres y Números»; <code>Unidad-I-1</code> p.29 pone la definición en un recuadro. No se contradicen. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-01-Introduccion.pdf#page=87" title="Corporación de Internet para la Asignación de Nombres y">Clase-01 p.87</a></td>
+<td>La definición de la p.29 y la glosa de la clase</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Rótulos de la figura de encabezados</td>
+<td>El PNG de la p.20 escribe «PRTOCOLO DE APLICACIÓN» y «PROTOCOLO DE REPRESENTACIÓN» (para presentación) y repite «PH» para presentación y para física. <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=20" title="fig: PRTOCOLO DE APLICACIÓN, PROTOCOLO DE REPRESENTACIÓN y PH en presentación y en física">Unidad I-1 p.20</a></td>
+<td>Siglas tal cual, con la aclaración de que PH es doble</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Tabla de ccDLD</td>
+<td>El PNG rotula <code>.gp</code> como Guinea Ecuatorial y <code>.ic</code> como Santa Lucía, y trae comas en lugar de puntos en «,sr» y «,gt». <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=28" title="fig: tabla de ccDLD con país y ubicación, de .ca Canadá y .ar Argentina hasta .gp Guinea Ecuatorial">Unidad I-1 p.28</a></td>
+<td>No se copia la tabla; solo <code>.ar</code>. La tabla queda marcada como dudosa</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tabla de servidores raíz</td>
+<td>El PNG tiene errores de transcripción en direcciones y nombres: «001,478.65.53», «193,0.14.129» y dos grafías, «VeriSing» y «VeriSign». <a href="../fuentes/teoria/oficial/unidades/Unidad-I-1.pdf#page=30" title="fig: tabla de servidores raíz de la A a la M con operador, ubicación y direcciones IP">Unidad I-1 p.30</a></td>
+<td>No se transcriben las direcciones; solo la cantidad (13)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../repaso-teorico-u1-u4.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Repaso teórico U1–U4: preguntas tipo examen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Repaso teórico U1–U4: preguntas tipo examen
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u2/01-senales-fourier.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Señales y Fourier">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Señales y Fourier
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

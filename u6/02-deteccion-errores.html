@@ -1,0 +1,2776 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./01-capacidad-canal.html">
+      
+      
+        <link rel="next" href="./03-correccion-errores.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Detección de errores - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deteccion-de-errores" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Detección de errores
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02-deteccion-errores.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-de-transmision-y-causas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Error de transmisión y causas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-tratamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Políticas de tratamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-errores-segun-su-distribucion-en-el-tiempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de errores según su distribución en el tiempo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compromisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compromisos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ber-y-como-se-mide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BER y cómo se mide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-de-paridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Control de paridad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suma-de-verificacion-checksum" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Suma de verificación (checksum)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crc-redundancia-ciclica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CRC (redundancia cíclica)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-que-usan-crc-y-suma-de-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos que usan CRC y suma de verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-de-transmision-y-causas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Error de transmisión y causas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#politicas-de-tratamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Políticas de tratamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-errores-segun-su-distribucion-en-el-tiempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de errores según su distribución en el tiempo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compromisos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compromisos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ber-y-como-se-mide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        BER y cómo se mide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-de-paridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Control de paridad
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suma-de-verificacion-checksum" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Suma de verificación (checksum)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crc-redundancia-ciclica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CRC (redundancia cíclica)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-que-usan-crc-y-suma-de-verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Protocolos que usan CRC y suma de verificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-capacidad-canal.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U6
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="deteccion-de-errores">Detección de errores<a class="headerlink" href="#deteccion-de-errores" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U6 · tratamiento de errores (TP6: causas, BER, paridad, suma de verificación y CRC).
+Alcance del 2.º parcial: inferido (U6 en adelante), no confirmado por la cátedra.</p>
+<ul>
+<li>Del TP6, esta página cubre: causas, políticas, BER, Ethernet, CRC con dos generadores, checksum, protocolos con CRC y con checksum, y cómo se manifiesta y se mide el error (ej. 1, 2, 4 a 10 y 12). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Comunicaciones-TP06.pdf#page=1" title="Cómo se manifiesta el error en las redes de datos">Comunicaciones-TP06 p.1</a></li>
+<li>nota teoria 2026-09-15 07:40 PM: "el control de errores incluye dos acciones" (detección y corrección; esta página es la detección).</li>
+<li>nota teoria 2026-09-15 08:00 PM: "pero lo tiene que saber y el otro es el crc" (sobre la suma de verificación y el CRC).</li>
+<li>nota practica 2026-09-30 07:45 PM: "hay dos mecanismos que vemos y cada uno tiene un solo ejercicio"</li>
+<li>nota practica 2026-09-30 07:47 PM: "lo que van a inventar es un polinomio generador de menor grado" (que los normalizados).</li>
+<li>nota practica 2026-09-30 08:13 PM: "le van a dar el mensaje transmitido" (docente de práctica, sobre el lado del receptor).</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Error de transmisión: alteración del mensaje que cambia su interpretación. Se lo trata con bits extra que no llevan información. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=8" title="que cambia la interpretación de la información">Clase 6 Bis p.8</a></li>
+<li>Más bits de control: más protección y menos eficiencia de transmisión E. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=12" title="disminuye la eficiencia del proceso de transmisión">Clase 6 Bis p.12</a></li>
+<li>Detectar es agregar <span class="arithmatex">\(k\)</span> bits redundantes: el receptor recalcula y compara. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=22" title="Si los bits redundantes coinciden con los calculados se">Clase 6 Bis p.22</a> Hay control de paridad <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=13" title="Sirven para la verificación de la paridad de la secuencia de">Clase 6 Bis p.13</a> y dos métodos más: suma de verificación y CRC. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=22" title="Hay dos métodos: suma de verificación y redundancia cíclica">Clase 6 Bis p.22</a></li>
+<li>Suma de verificación: complemento a 1 con acarreo final. El receptor suma todo, incluido el C1, y debe dar todo unos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=26" title="resultado es 16 bits con valor 1">Clase 6 Bis p.26</a></li>
+<li>CRC: se agregan <span class="arithmatex">\(r\)</span> ceros a M, se divide en módulo 2 por G, el resto R (de <span class="arithmatex">\(r\)</span> bits) va al final. El receptor divide T completo y espera resto cero. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="Definimos un polinomio auxiliar del mismo grado que el generador">Clase 6 Bis p.29</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BER</td>
+<td><span class="arithmatex">\(\mathrm{BER}=\dfrac{\text{bits erróneos}}{\text{bits transmitidos}}\)</span></td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=2" title="fig: TASA DE ERROR, BER = bits erróneos / bits transmitidos, y un recuadro de limitantes físicos de los sistemas de comunicaciones con una flecha a ancho de banda y ruido">Clase 6 Bis p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=1" title="es la relación entre los bits recibidos de manera errónea">RTAS TP6 p.1</a></td>
+</tr>
+<tr>
+<td>Eficiencia de transmisión <span class="arithmatex">\(E\)</span></td>
+<td><span class="arithmatex">\(E=\dfrac{\text{bits con información}}{\text{bits totales}}\)</span></td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=6" title="fig: Detección y corrección de errores, redundancia R, eficiencia de transmisión E = b c/info / b totales con mayor R mayor protección de errores y menor E, y tamaño de bloque Tb en transmisión sincrónica con mayor Tb mayor E pero si error menor E, ambos rotulados compromiso">Clase 6 Bis p.6</a></td>
+</tr>
+<tr>
+<td>Paridad par / impar</td>
+<td>el bit de control hace que el total de unos (datos más bit) sea par / impar</td>
+<td>bits</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=14" title="Paridad par: si el número de unos de la palabra de">Clase 6 Bis p.14</a></td>
+</tr>
+<tr>
+<td>Mensaje a polinomio</td>
+<td><span class="arithmatex">\(11011011=x^7+x^6+x^4+x^3+x+1\)</span></td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=27" title="Un mensaje 11011011 se asimila a un polinomio">Clase 6 Bis p.27</a></td>
+</tr>
+<tr>
+<td>Módulo 2</td>
+<td>suma = resta = XOR (sin acarreo ni préstamo)</td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=28" title="Estas operaciones son sencillas de implementar en">Clase 6 Bis p.28</a></td>
+</tr>
+<tr>
+<td>Paso 1 del CRC</td>
+<td><span class="arithmatex">\(\dfrac{x^r M(x)}{G(x)}=C(x)+R(x)\)</span> (<span class="arithmatex">\(C\)</span> no se usa)</td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="fig: Paso 1 X r M de x sobre G de x igual a C de x más R de x, Paso 2 T de x igual a X r M de x más R de x, Paso 4 T de x igual a T de x más E de x">Clase 6 Bis p.30</a></td>
+</tr>
+<tr>
+<td>Paso 2 del CRC</td>
+<td><span class="arithmatex">\(T(x)=x^r M(x)+R(x)\)</span>; en bits, M seguido de R</td>
+<td>bits</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="que es el polinomio a transmitir">Clase 6 Bis p.29</a></td>
+</tr>
+<tr>
+<td>Verificación</td>
+<td><span class="arithmatex">\(T(x)\)</span> es divisible por <span class="arithmatex">\(G(x)\)</span>; con error se recibe <span class="arithmatex">\(T'(x)=T(x)+E(x)\)</span>, que no lo es</td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="En este caso el polinomio recibido deja de ser divisible por el">Clase 6 Bis p.30</a></td>
+</tr>
+<tr>
+<td>Grado</td>
+<td>G de grado <span class="arithmatex">\(r\)</span> (tiene <span class="arithmatex">\(r+1\)</span> bits): se agregan <span class="arithmatex">\(r\)</span> ceros y R lleva <span class="arithmatex">\(r\)</span> bits</td>
+<td>bits</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="un número de bits igual o menor que r">Clase 6 Bis p.29</a></td>
+</tr>
+<tr>
+<td>Generadores normalizados</td>
+<td>CRC-16: <span class="arithmatex">\(x^{16}+x^{15}+x^2+1\)</span>. UIT-T: <span class="arithmatex">\(x^{16}+x^{12}+x^5+1\)</span>. CRC-12: <span class="arithmatex">\(x^{12}+x^{11}+x^3+x^2+x+1\)</span></td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=31" title="fig: Polinomio CRC-16 para caracteres de 8 bits con X16 + X15 + X2 + 1, polinomio UIT con el rótulo cortado en UIT- y X16 + X12 + X5 + 1 y polinomio CRC-12 para caracteres de 6 bits con X12 + X11 + X3 + X2 + X1 + 1">Clase 6 Bis p.31</a></td>
+</tr>
+<tr>
+<td>Checksum</td>
+<td>C1 de la suma en complemento a 1 con acarreo final</td>
+<td>bits</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=24" title="se toma el complemento a uno para 16 bits">Clase 6 Bis p.24</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=25" title="se debe incrementar el resultado">Clase 6 Bis p.25</a></td>
+</tr>
+<tr>
+<td>Receptor del checksum</td>
+<td>suma de las palabras más C1 = todos unos</td>
+<td>bits</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="ABCD + C1 = 1 1 1 1 - envío sin errores">RTAS TP6 p.14</a></td>
+</tr>
+</tbody>
+</table>
+<p>En toda la página el cálculo se llama <strong>eficiencia de transmisión <span class="arithmatex">\(E\)</span></strong> (p.6). El enunciado del TP dice «rendimiento sincrónico»: es el mismo cociente, datos sobre bits totales. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Comunicaciones-TP06.pdf#page=1" title="Calcular el rendimiento sincrónico de la transmisión">TP6 p.1</a> Ver Discrepancia 7.</p>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="error-de-transmision-y-causas">Error de transmisión y causas<a class="headerlink" href="#error-de-transmision-y-causas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Definición: alteración o mutilación del mensaje recibido, que no es réplica fiel del transmitido. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=8" title="Error de transmisión es toda alteración o mutilación en un">Clase 6 Bis p.8</a> El libro dice lo mismo. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=231" title="Se denomina error de transmisión toda alteración o mutilación en un">Libro p.231</a></li>
+<li>Limitantes físicos de los sistemas de comunicaciones: ancho de banda y ruido. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=2" title="fig: TASA DE ERROR, BER = bits erróneos / bits transmitidos, y un recuadro de limitantes físicos de los sistemas de comunicaciones con una flecha a ancho de banda y ruido">Clase 6 Bis p.2</a></li>
+<li>Causas según la respuesta oficial del TP6 (ej. 1 = teoría 1): <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Las principales causas que producen errores en la transmisión de datos">Teoría TP6 respuestas p.1</a><ol>
+<li>Ruido.</li>
+<li>Atenuación.</li>
+<li>Distorsión.</li>
+<li>Ancho de banda insuficiente. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Ancho de Banda insuficiente">Teoría TP6 respuestas p.1</a> La diapositiva lo muestra: cuanto menor el ancho de banda (de 4000 a 300 Hz), más se deforma el pulso. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=3" title="fig: Efecto del ancho de banda en un canal de comunicaciones sobre una señal digital periódica, con la señal transmitida a 2000 bits/s y las formas recibidas con Δf infinito, 4000 Hz, 900 Hz y 300 Hz">Clase 6 Bis p.3</a> Los pulsos deformados se solapan: interferencia intersímbolos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=4" title="fig: Interferencia intersímbolos, pulsos de ancho tau que se superponen, con dos flechas a la zona de superposición">Clase 6 Bis p.4</a></li>
+<li>Tasa de información mayor que la capacidad del canal.</li>
+</ol>
+</li>
+<li>Entre operadores, la redundancia del mensaje permite detectar y corregir directamente. Entre máquinas, la inteligencia del sistema detecta y acepta o rechaza el mensaje, parcial o totalmente. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=9" title="La redundancia del mensajes permite a los operadores">Clase 6 Bis p.9</a></li>
+</ul>
+<h3 id="politicas-de-tratamiento">Políticas de tratamiento<a class="headerlink" href="#politicas-de-tratamiento" title="Permanent link">&para;</a></h3>
+<p>La diapositiva y la respuesta oficial del TP6 (ej. 2 = teoría 2) no listan lo mismo. Se muestran lado a lado.</p>
+<table>
+<thead>
+<tr>
+<th>Política</th>
+<th>Diapositiva p.9</th>
+<th>Respuesta oficial TP6</th>
+<th>Ejemplo (Clase 6 práctica p.28)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ignorarlos</td>
+<td>sí</td>
+<td>no figura</td>
+<td>no figura</td>
+</tr>
+<tr>
+<td>Detectar y eliminar el paquete</td>
+<td>no figura</td>
+<td>sí</td>
+<td>Ethernet</td>
+</tr>
+<tr>
+<td>Detectar y avisar</td>
+<td>sí</td>
+<td>sí, con eliminar el paquete</td>
+<td>IP</td>
+</tr>
+<tr>
+<td>Detectar y pedir la retransmisión</td>
+<td>sí</td>
+<td>sí, con eliminar el paquete</td>
+<td>TCP</td>
+</tr>
+<tr>
+<td>Detectar y corregir</td>
+<td>sí</td>
+<td>no figura</td>
+<td>no figura</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>p.9, cuatro políticas: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=9" title="Políticas a seguir con los errores">Clase 6 Bis p.9</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=9" title="hay otra capa que se encarga de ellos">Clase 6 Bis p.9</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=9" title="Detectarlos y pedir la retrasmisión del mensaje Detectarlos y corregirlos">Clase 6 Bis p.9</a></li>
+<li>Respuesta oficial, tres políticas: <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Detectar error + eliminar paquete + avisar">Teoría TP6 respuestas p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Detectar error + eliminar paquete + pedir retransmisión">Teoría TP6 respuestas p.1</a></li>
+<li>Clase de práctica, con un protocolo de ejemplo por política: <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=28" title="fig: Políticas de tratamiento de errores, 1 detectar errores y eliminar paquete ej Ethernet, 2 detectar errores más eliminar paquete más avisar ej protocolo IP, 3 detectar errores más eliminar el paquete más pedir la retransmisión ej TCP">Clase 6 práctica p.28</a></li>
+<li>Jerarquía de fuentes: si una respuesta de práctica contradice la diapositiva de teoría, manda la diapositiva (cuatro políticas). Ver Discrepancia 1.</li>
+<li>«Disminuir, detectar y corregir» (p.12) describe el tratamiento con datos adicionales, no es una política. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=12" title="Para disminuir, detectar y corregir errores de transmisión, se">Clase 6 Bis p.12</a></li>
+</ul>
+<h3 id="tipos-de-errores-segun-su-distribucion-en-el-tiempo">Tipos de errores según su distribución en el tiempo<a class="headerlink" href="#tipos-de-errores-segun-su-distribucion-en-el-tiempo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Definición (p.11)</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aislados o simples</td>
+<td>un solo bit por vez; independientes entre sí</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=11" title="Afectan a un solo bit por vez; son independientes entre sí">Clase 6 Bis p.11</a></td>
+</tr>
+<tr>
+<td>En ráfagas</td>
+<td>varios bits consecutivos, en períodos de tiempo indeterminados</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=11" title="Afectan a varios bits consecutivos, se presentan en períodos de">Clase 6 Bis p.11</a></td>
+</tr>
+<tr>
+<td>Agrupados</td>
+<td>tandas sucesivas de cierta duración; no afectan necesariamente a varios bits seguidos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=11" title="Se producen en tandas sucesivas de cierta duración, no afectan">Clase 6 Bis p.11</a></td>
+</tr>
+</tbody>
+</table>
+<p>Son tres tipos distintos: ráfagas y agrupados no se igualan. El libro da la misma clasificación. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=233" title="Son aquellos que se producen en tandas sucesivas de cierta duración">Libro p.233</a></p>
+<h3 id="compromisos">Compromisos<a class="headerlink" href="#compromisos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Efecto</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redundancia <span class="arithmatex">\(R\)</span></td>
+<td>mayor <span class="arithmatex">\(R\)</span>: más protección, menor <span class="arithmatex">\(E\)</span></td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=6" title="fig: Detección y corrección de errores, redundancia R, eficiencia de transmisión E = b c/info / b totales con mayor R mayor protección de errores y menor E, y tamaño de bloque Tb en transmisión sincrónica con mayor Tb mayor E pero si error menor E, ambos rotulados compromiso">Clase 6 Bis p.6</a></td>
+</tr>
+<tr>
+<td>Tamaño de bloque <span class="arithmatex">\(T_b\)</span> (sincrónica)</td>
+<td>mayor <span class="arithmatex">\(T_b\)</span>: mayor <span class="arithmatex">\(E\)</span>, pero si hay error, menor <span class="arithmatex">\(E\)</span> (hay que retransmitir)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=12" title="En la transmisión sincrónica existe el compromiso entre el">Clase 6 Bis p.12</a></td>
+</tr>
+<tr>
+<td>Velocidad de transmisión <span class="arithmatex">\(V_{tx}\)</span></td>
+<td>mayor <span class="arithmatex">\(V_{tx}\)</span>: mayor probabilidad de error, mayor BER</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=7" title="fig: Velocidad de transmisión Vtx, mayor Vtx mayor P error mayor BER, rotulado compromiso">Clase 6 Bis p.7</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ber-y-como-se-mide">BER y cómo se mide<a class="headerlink" href="#ber-y-como-se-mide" title="Permanent link">&para;</a></h3>
+<ul>
+<li>BER: bits recibidos erróneamente sobre bits transmitidos, siempre en la recepción digital del sumidero. Más confiabilidad, menor BER. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=1" title="la tasa de errores está referida siempre a la recepción">RTAS TP6 p.1</a></li>
+<li>Ejemplo de la clase de práctica: enlaces con BER <span class="arithmatex">\(10^{-4}\)</span> y <span class="arithmatex">\(10^{-9}\)</span>. E1 tiene un bit erróneo cada 10.000 bits; E2, uno cada 1.000.000.000. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=27" title="fig: Medición de errores, BER = Nro. de bits erróneos recibidos sobre Cantidad total de Bits Tx, y el ejemplo de dos enlaces E1 y E2 con BER 10^-4 y 10^-9, un bit erróneo en 10.000 bits recibidos y uno en 1000.000.000">Clase 6 práctica p.27</a></li>
+<li>TP6 ej. 4: 20 bits erróneos en 200.000 bits. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=8" title="se reciben 20 bits erróneos en 200.000 bits totales">RTAS TP6 p.8</a> Resolución propia, verificada con test (las fuentes traen solo el enunciado): <span class="arithmatex">\(\mathrm{BER}=20/200.000=10^{-4}=0{,}0001\)</span>.</li>
+<li>TP6 ej. 5 = teoría 4 (misma medición sobre una LAN Ethernet): alta tasa de errores y pérdida importante de paquetes. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="La red tiene una alta tasa de errores">Teoría TP6 respuestas p.1</a></li>
+<li>Ethernet detecta con un CRC de 4 bytes que cubre dirección, tipo y datos, sin los campos de sincronismo. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=29" title="fig: Campos de la trama Ethernet con secuencia de verificación de trama de 4 bytes con protocolo CRC para la detección de errores en dirección, tipo y datos, sin los campos de sincronismo iniciales">Clase 6 práctica p.29</a></li>
+<li>TP6 ej. 12 = teoría 8, cómo se manifiesta y se mide: por pérdida de paquetes, en porcentaje de paquetes perdidos en un tiempo de observación. Algunos contratos especifican el BER. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="Se manifiesta por la pérdida de paquetes">Teoría TP6 respuestas p.2</a></li>
+</ul>
+<h3 id="control-de-paridad">Control de paridad<a class="headerlink" href="#control-de-paridad" title="Permanent link">&para;</a></h3>
+<p>Se agregan bits de control que no transportan información y sirven para verificar la paridad de los datos. Son tres métodos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=13" title="Estos bits de control no transportan información">Clase 6 Bis p.13</a> El árbol de la p.10 los lista como cuatro ítems. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=10" title="fig: árbol con Detección y Corrección; en Detección, control de paridad con vertical VCR, longitudinal LRC, bidimensional o de doble paridad y cíclica o entrelazada, y código polinomial">Clase 6 Bis p.10</a> Ver Discrepancia 2.</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Qué agrega</th>
+<th>Qué detecta o limita</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertical (VRC)</td>
+<td>un bit a cada carácter de 7 bits</td>
+<td>no detecta dos errores juntos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=15" title="No permite detectar dos errores juntos">Clase 6 Bis p.15</a></td>
+</tr>
+<tr>
+<td>Longitudinal (LRC) o bidimensional</td>
+<td>paridad vertical por carácter, más un carácter de control (BCC) para un bloque de <span class="arithmatex">\(N\)</span> caracteres</td>
+<td>fila y columna ubican el bit erróneo</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=18" title="Se aplica a un conjunto compuesto por bloques de N caracteres">Clase 6 Bis p.18</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=236" title="permite encontrar un error en el tercer bit">Libro p.236</a></td>
+</tr>
+<tr>
+<td>Entrelazada o cíclica</td>
+<td>dos bits: paridad de los bits 1.º, 3.º y 5.º, y de los 2.º, 4.º y 6.º</td>
+<td>nivel superior al vertical e inferior al longitudinal</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=21" title="El primer bit de paridad proporciona la paridad de los bits">Clase 6 Bis p.21</a></td>
+</tr>
+</tbody>
+</table>
+<p>Regla: paridad par, si la cantidad de unos de la palabra es impar el bit agregado es 1. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=14" title="agregar será un uno, para que la suma total de ellos resulte">Clase 6 Bis p.14</a> Paridad impar: el bit agregado deja la cantidad total de unos impar. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=14" title="Paridad impar: el bit de control que se debería agregar sería">Clase 6 Bis p.14</a> La p.14 solo dice «agregar un cero»; el caso general sale del ejemplo de la p.16.</p>
+<ul>
+<li>Dato <code>0110101</code> (cuatro unos): paridad par agrega <code>0</code>; impar agrega <code>1</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=16" title="fig: bit de paridad y 7 bits de datos numerados 7 a 1 con máximo valor 7F hexadecimal, y el ejemplo de dato transmitido 0 1 1 0 1 0 1 donde para paridad par se agregaría un bit 0 y para paridad impar un bit 1">Clase 6 Bis p.16</a></li>
+<li>Doble inversión: se transmite <code>0 | 1101111</code> (seis unos) y se recibe <code>0 | 1101010</code> (cuatro unos). Ambos tienen paridad par correcta, y el error pasa. Cambian dos dígitos: el 5.º y el 7.º contando desde la izquierda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=17" title="fig: carácter transmitido con bit de paridad par 0 y dato 1101111, carácter recibido con doble inversión bit 5 y bit 7 doble error con paridad 0 y dato 1101010, y la leyenda ambos caracteres son recibidos con bit de paridad correcto">Clase 6 Bis p.17</a> El libro lo marca como el inconveniente grave del método. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=234" title="El inconveniente grave de este método es que no permite detectar">Libro p.234</a></li>
+<li>Cíclica, carácter <code>010101</code>: bits 1.º, 3.º y 5.º son <code>000</code> → paridad <code>0</code>. Bits 2.º, 4.º y 6.º son <code>111</code> → paridad <code>1</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=21" title="fig: carácter transmitido 0 1 0 1 0 1 y generación de la paridad cíclica con flechas desde los bits de información hacia dos bits de paridad PAR">Clase 6 Bis p.21</a></li>
+</ul>
+<p>Bloque con paridad par (cinco caracteres de 7 bits), con el BCC a la derecha. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=19" title="fig: tabla de cinco datos por siete bits más una fila de bit de paridad vertical 0 1 0 0 1, con el BCC a la derecha 1 0 1 1 1 0 0 0">Clase 6 Bis p.19</a></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dato 1</th>
+<th>Dato 2</th>
+<th>Dato 3</th>
+<th>Dato 4</th>
+<th>Dato 5</th>
+<th>BCC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bit n.º 1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bit n.º 2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Bit n.º 3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bit n.º 4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bit n.º 5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bit n.º 6</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Bit n.º 7</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Paridad vertical</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Cada columna y cada fila suman un número par de unos (verificado con test).</li>
+<li>Si un bit se invierte, falla la paridad de una fila y de una columna: su cruce ubica el bit (ejemplo propio, verificado con test). La figura de la p.20 marca el cuarto byte recibido con un bit erróneo y rotula los dos controles que fallan. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=20" title="fig: bytes transmitidos con paridad vertical par y un byte de paridad longitudinal, bytes recibidos con el cuarto con un error en una celda resaltada, y los rótulos indica error de paridad longitudinal e indica error de paridad vertical">Clase 6 Bis p.20</a></li>
+</ul>
+<h3 id="suma-de-verificacion-checksum">Suma de verificación (checksum)<a class="headerlink" href="#suma-de-verificacion-checksum" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Esquema común de la detección: el transmisor aplica un algoritmo a los datos y envía <span class="arithmatex">\(k\)</span> bits redundantes; el receptor los separa, recalcula y compara. Si coinciden, acepta; si no, rechaza. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=22" title="Si los bits redundantes coinciden con los calculados se">Clase 6 Bis p.22</a></li>
+<li>Muy usado en Internet (TCP/IP). El transmisor suma palabras de 16 bits y toma el complemento a 1 del resultado. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=23" title="Es muy usado en Internet en el protocolo TCP/IP">Clase 6 Bis p.23</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=23" title="con el resultado se calcula el complemento a 1">Clase 6 Bis p.23</a></li>
+<li>Complemento a 1: si hay acarreo en el bit más significativo, se suma al resultado. Ejemplo de la cátedra con 4 bits: <span class="arithmatex">\(1010+1100\)</span> da <span class="arithmatex">\(0110\)</span> sin el acarreo, y <span class="arithmatex">\(0110\)</span> pasa a <span class="arithmatex">\(0111\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=25" title="es decir que 0110 se convierte en 0111">Clase 6 Bis p.25</a></li>
+<li>Criterio de esta página para el receptor: suma de todas las palabras más el C1, resultado todo unos (<code>1111…</code>) = sin error. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=26" title="incluyendo el campo de checsum">Clase 6 Bis p.26</a> La p.23 dice «se repite el cálculo y se compara». Ver Discrepancia 6.a.</li>
+<li>Usan suma de verificación: TCP, IP, UDP e ICMP (TP6 ej. 10 = teoría 6). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Los protocolos son: TCP, IP, UDP, ICMP, etc.">Teoría TP6 respuestas p.1</a></li>
+<li>Alcance en la familia TCP/IP: IP solo la cabecera; UDP todo el datagrama, no obligatorio; TCP todo el segmento, obligatorio. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=36" title="fig: El método de suma de verificación lo emplea toda la familia TCP/IP; IP solo lo aplica a la cabecera, UDP a todo el datagrama pero no es obligatorio, TCP a todo el segmento y es obligatorio, y un ejemplo de checksum con A 0011, B 1000, C 0010 y D 0101">Clase 6 práctica p.36</a></li>
+</ul>
+<h3 id="crc-redundancia-ciclica">CRC (redundancia cíclica)<a class="headerlink" href="#crc-redundancia-ciclica" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Método polinomial: el mensaje se asimila a un polinomio y se divide por un generador <span class="arithmatex">\(G\)</span> conocido en ambos extremos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=27" title="Es un método polinomial que utiliza un algoritmo matemático">Clase 6 Bis p.27</a></li>
+<li>Las cuentas son en módulo 2. Ejemplo de la cátedra: <span class="arithmatex">\(11101001+10011100=01110101\)</span> y <span class="arithmatex">\(11010001-10010110=01000111\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=28" title="fig: suma 11101001 más 10011100 igual 01110101 y resta 11010001 menos 10010110 igual 01000111, en módulo 2">Clase 6 Bis p.28</a></li>
+<li>Bits a polinomio: el dígito de la izquierda es el de mayor exponente. <span class="arithmatex">\(x^4+x+1\)</span> es <code>10011</code>: grado 4, cinco bits. <span class="arithmatex">\(x^8+x^3+x^2+x+1\)</span> es <code>100001111</code>.</li>
+</ul>
+<p>Procedimiento: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="Definimos un polinomio auxiliar del mismo grado que el generador">Clase 6 Bis p.29</a></p>
+<ol>
+<li><span class="arithmatex">\(M(x)\)</span> es el mensaje (en bits) y <span class="arithmatex">\(G(x)\)</span> de grado <span class="arithmatex">\(r\)</span> es el generador.</li>
+<li>Se agregan <span class="arithmatex">\(r\)</span> ceros a M: queda <span class="arithmatex">\(M(x)\,x^r\)</span>, de <span class="arithmatex">\(n+r\)</span> bits.</li>
+<li>Se divide <span class="arithmatex">\(M(x)\,x^r\)</span> por <span class="arithmatex">\(G(x)\)</span> en módulo 2. El cociente no se usa.</li>
+<li>El resto <span class="arithmatex">\(R(x)\)</span> se escribe siempre con <span class="arithmatex">\(r\)</span> bits, con ceros a la izquierda. Ver Discrepancia 3.</li>
+<li><span class="arithmatex">\(T(x)\)</span> es M seguido de R: lo que se transmite.</li>
+<li>
+<p>El receptor divide <span class="arithmatex">\(T(x)\)</span> completo por <span class="arithmatex">\(G(x)\)</span>. Resto cero: sin errores detectados. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="será siempre divisible por el polinomio generador">Clase 6 Bis p.30</a></p>
+</li>
+<li>
+<p>Con errores se recibe <span class="arithmatex">\(T'(x)=T(x)+E(x)\)</span>, que deja de ser divisible por el generador. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="En este caso el polinomio recibido deja de ser divisible por el">Clase 6 Bis p.30</a></p>
+</li>
+<li>Generadores normalizados: CRC-16 (caracteres de 8 bits), UIT-T y CRC-12 (caracteres de 6 bits). En los tres, <span class="arithmatex">\((x+1)\)</span> es factor primo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=31" title="Están normalizados tres polinomios">Clase 6 Bis p.31</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=7" title="contenido como factor primo">RTAS TP6 p.7</a></li>
+<li>El UIT-T rinde igual que el CRC-16. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=7" title="Su rendimiento es igual al anterior">RTAS TP6 p.7</a> Los porcentajes de detección por tipo de error están en el libro, no en la diapositiva. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=242" title="Este polinomio generador es capaz de detectar entre otros">Libro p.242</a></li>
+<li>Eficiencia de un CRC: <span class="arithmatex">\(E=n/(n+r)\)</span>, con <span class="arithmatex">\(n\)</span> bits de M y <span class="arithmatex">\(r\)</span> de R (resolución propia, verificada con test; el cociente es la E de p.6).</li>
+</ol>
+<h3 id="protocolos-que-usan-crc-y-suma-de-verificacion">Protocolos que usan CRC y suma de verificación<a class="headerlink" href="#protocolos-que-usan-crc-y-suma-de-verificacion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Protocolos (respuesta oficial TP6)</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRC (ej. 9 = teoría 5)</td>
+<td>PPP, Ethernet, HDLC, Frame Relay</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Los protocolos son: PPP, Ethernet, HDLC, Frame Relay, etc.">Teoría TP6 respuestas p.1</a></td>
+</tr>
+<tr>
+<td>Suma de verificación (ej. 10 = teoría 6)</td>
+<td>TCP, IP, UDP, ICMP</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Los protocolos son: TCP, IP, UDP, ICMP, etc.">Teoría TP6 respuestas p.1</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>TP6 ej. 6 = <code>Clase-TP-06-RTAS</code> ej. 2. Enunciado: <span class="arithmatex">\(M(x)=10110101101\)</span> y <span class="arithmatex">\(G(x)=x^4+x+1=10011\)</span>; hallar la información a transmitir, calcular el rendimiento sincrónico y repetir del lado del receptor. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=9" title="Aplicar el método para detección de errores CRC determinando la">RTAS TP6 p.9</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=9" title="1 0 1 1 0 1 0 1 1 0 1">RTAS TP6 p.9</a></p>
+<p>Widget: cambiá M, G o un bit de «T recibido» para ver el resto.</p>
+<div class="cdd-crc" data-m="10110101101" data-g="10011"></div>
+
+<p><strong>Paso 1. Datos.</strong> <span class="arithmatex">\(n=11\)</span> bits, grado <span class="arithmatex">\(r=4\)</span>. Dividendo: M con cuatro ceros, <code>101101011010000</code> (15 bits). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="1 0 1 0 1 1 0 1 0 0 0 0">RTAS TP6 p.10</a></p>
+<p><strong>Paso 2. División en módulo 2.</strong> Cada fila es el resultado del XOR (con ceros a la izquierda) más los bits bajados hasta que el próximo divisor queda alineado con un 1, o hasta agotar el dividendo. <code>desde</code> es la posición del dividendo (desde 0) donde se alinea <code>10011</code>. Filas del transmisor tal como las imprime la cátedra, sin espacios:</p>
+<table>
+<thead>
+<tr>
+<th>Fila</th>
+<th>desde</th>
+<th>Transmisor (p.10)</th>
+<th>Receptor (p.11)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><code>0010110</code></td>
+<td><code>0010110</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td><code>0010111</code></td>
+<td><code>0010111</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>4</td>
+<td><code>0010001</code></td>
+<td><code>0010001</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>6</td>
+<td><code>00010000</code></td>
+<td><code>00010011</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>9</td>
+<td><code>000110</code></td>
+<td><code>000000</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Fuente de las filas del transmisor: <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 1 0 1 1 0">RTAS TP6 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 1 0 1 1 1">RTAS TP6 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 1 0 0 0 1">RTAS TP6 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 0 1 0 0 0 0">RTAS TP6 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 0 1 1 0">RTAS TP6 p.10</a></li>
+<li>Fuente de las filas del receptor (las filas 1 a 3 repiten las del transmisor): <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=11" title="0 0 0 1 0 0 1 1">RTAS TP6 p.11</a></li>
+</ul>
+<p><strong>Paso 3. Resto y T.</strong> Los últimos <span class="arithmatex">\(r=4\)</span> bits de la última fila, <span class="arithmatex">\(R(x)=0110\)</span>. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 0 1 1 0">RTAS TP6 p.10</a> Se transmite <span class="arithmatex">\(T(x)=\)</span> M seguido de R <span class="arithmatex">\(=101101011010110\)</span> (15 bits). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="1 0 1 0 1 1 0 1 0 1 1 0">RTAS TP6 p.10</a></p>
+<p><strong>Paso 4. Receptor.</strong> Se divide <span class="arithmatex">\(T(x)\)</span> completo por <span class="arithmatex">\(G(x)\)</span> (sin agregar ceros). La última fila es <code>000000</code> y el resto, <code>0000</code>: «se corrobora el envío sin errores». <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=11" title="Se corrobora el envío sin errores">RTAS TP6 p.11</a></p>
+<p><strong>Paso 5. Eficiencia de transmisión.</strong> <span class="arithmatex">\(E=\dfrac{11}{15}\approx0{,}73\)</span> (73 %). Resolución propia, verificada con test: la cátedra no imprime esta cuenta en <code>Clase-TP-06-RTAS</code>. El Final 2022-09 imprime la misma cuenta para un mensaje de igual largo. <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="0 1 1 0 0 0 0 E= 11/15 = 0,73">Final 2022-09 p.1</a></p>
+<p><strong>Paso 6. Conclusión.</strong> Sin errores. Si se invierte cualquier bit de <span class="arithmatex">\(T\)</span>, el resto del receptor es distinto de <code>0000</code> (verificado con test para los 15 bits). Por ejemplo, invertir el primer bit deja resto <code>1001</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="En este caso el polinomio recibido deja de ser divisible por el">Clase 6 Bis p.30</a></p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Se agregan tantos ceros como el grado de G, no como bits tiene G.</strong> <span class="arithmatex">\(G=10011\)</span> tiene 5 bits y grado 4: son 4 ceros. Remarcado en clase: nota practica 2026-09-30 07:53 PM: "la misma cantidad de ceros, que es el grado del polinomio". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="Definimos un polinomio auxiliar del mismo grado que el generador">Clase 6 Bis p.29</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>R se escribe con <span class="arithmatex">\(r\)</span> bits, con sus ceros a la izquierda.</strong> En el ejemplo es <code>0110</code>, no <code>110</code>. Remarcado en clase: nota practica 2026-09-30 07:56 PM: "el resto tiene que tener la misma cantidad de bits que tiene el grado del polinomio". <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=10" title="0 0 0 1 1 0">RTAS TP6 p.10</a> Ver Discrepancia 3.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>En el receptor del CRC no se agregan ceros y se divide T completo.</strong> Si el enunciado da T y G, los <span class="arithmatex">\(r\)</span> bits de la derecha son R y el resto es el mensaje. Remarcado en clase: nota practica 2026-09-30 08:13 PM: "ocho me forman el resto y lo que queda me forman el mensaje original". <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=11" title="Se corrobora el envío sin errores">RTAS TP6 p.11</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Checksum: el acarreo final se vuelve a sumar.</strong> En el ejemplo, sumar <code>0011</code>, <code>1011</code>, <code>0110</code>, <code>0010</code> sin el acarreo da <code>0110</code>; con él, <code>0111</code>. Y el receptor, sin el acarreo, daría <code>1110</code> en vez de <code>1111</code> y concluiría que hubo error (verificado con test). Remarcado en clase: nota practica 2026-09-30 08:11 PM: "Se olvidaron del carro y no lo sumaron". <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="AB + C = 1 0 1 0 0">RTAS TP6 p.14</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>BER no es rendimiento.</strong> El BER tiene errores en el numerador; la eficiencia (rendimiento sincrónico), datos. Remarcado en clase: nota practica 2026-09-30 07:48 PM: "es la cantidad de datos sobre la cantidad total de bits". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=6" title="fig: Detección y corrección de errores, redundancia R, eficiencia de transmisión E = b c/info / b totales con mayor R mayor protección de errores y menor E, y tamaño de bloque Tb en transmisión sincrónica con mayor Tb mayor E pero si error menor E, ambos rotulados compromiso">Clase 6 Bis p.6</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Ráfagas y agrupados son tipos distintos.</strong> Las ráfagas son bits consecutivos; los agrupados vienen en tandas y no afectan necesariamente a bits seguidos. Remarcado en clase: nota teoria 2026-09-15 07:52 PM: "Que son distintos los ráfagas". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=11" title="Se producen en tandas sucesivas de cierta duración, no afectan">Clase 6 Bis p.11</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>La paridad vertical no ve una doble inversión.</strong> Con un solo bit erróneo la cuenta da mal, pero no dice dónde. Con dos, la cuenta da bien. Remarcado en clase: nota teoria 2026-09-15 07:54 PM: "si hay una doble inversión, No me voy a dar cuenta". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=17" title="Carácter con doble inversión de bits">Clase 6 Bis p.17</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>TP6 práctico = <code>Clase-TP-06-RTAS</code> (numeración <code>GUIA-TP-06-Practica</code>); el TP completo es <code>Comunicaciones-TP06</code>. La corrección de errores (TP6 ej. 3 = teoría 3 y ej. 11 = teoría 7) está en <a href="03-correccion-errores.html">Corrección de errores</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP6 ej. 7 = RTAS ej. 3</td>
+<td><span class="arithmatex">\(M=10110001110001\)</span>, <span class="arithmatex">\(G=x^8+x^3+x^2+x+1=100001111\)</span>. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="1 0 1 1 0 0 0 1 1 1 0 0">RTAS TP6 p.12</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="1 0 0 0 0 1 1 1 1">RTAS TP6 p.12</a></td>
+<td>Oficial: <span class="arithmatex">\(R=11101010\)</span> (8 bits) y <span class="arithmatex">\(T=1011000111000111101010\)</span> (22 bits). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="1 1 1 0 1 0 1 0">RTAS TP6 p.12</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="0 0 0 1 1 1 1 0 1 0 1 0">RTAS TP6 p.12</a> Receptor: resto <code>00000000</code>, sin errores (resolución propia, verificada con test: el PDF pide verificar y no lo imprime). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="Verificar si hubo error en la transmisión">RTAS TP6 p.12</a> <span class="arithmatex">\(E=14/22=7/11\approx0{,}64\)</span> (resolución propia, verificada con test).</td>
+</tr>
+<tr>
+<td>TP6 ej. 8 = RTAS ej. 4</td>
+<td>Checksum de A <code>0011</code>, B <code>1011</code>, C <code>0110</code>, D <code>0010</code>; rendimiento sincrónico; receptor. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=13" title="Obtener el mensaje a transmitir utilizando un CHECKSUM en las siguientes representaciones">RTAS TP6 p.13</a></td>
+<td>Oficial: <span class="arithmatex">\(A+B=1110\)</span>; <span class="arithmatex">\(+C=10100\)</span>, el acarreo vuelve: <span class="arithmatex">\(0101\)</span>; <span class="arithmatex">\(+D=0111\)</span>; C1 <span class="arithmatex">\(=1000\)</span>. Se envían A, B, C, D y C1. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="AB + C = 0 1 0 1">RTAS TP6 p.14</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="Complemento 1 - C1 1 0 0 0">RTAS TP6 p.14</a> Receptor: <span class="arithmatex">\(0111+1000=1111\)</span>, sin errores. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="ABCD + C1 = 1 1 1 1 - envío sin errores">RTAS TP6 p.14</a> <span class="arithmatex">\(E=16/20=0{,}8\)</span> (resolución propia, verificada con test).</td>
+</tr>
+<tr>
+<td>TP6 ej. 4 = RTAS ej. 1</td>
+<td>20 bits erróneos en 200.000 bits totales: ¿cuál es el BER? <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Practica-Preguntas.pdf#page=1" title="En una red de transmisión de datos se reciben 20 bits erróneos">Práctica TP6 p.1</a></td>
+<td><span class="arithmatex">\(10^{-4}\)</span> (resolución propia, verificada con test; sin resolución impresa).</td>
+</tr>
+<tr>
+<td>Final 2023-02, ej. 5</td>
+<td>M = <code>1011011011001</code>, <span class="arithmatex">\(G=x^4+x+1\)</span>: información a transmitir, eficiencia, receptor. <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Calcular la eficiencia de la transmisión">Final 2023-02 p.1</a></td>
+<td>Oficial: <span class="arithmatex">\(T=10110110110010010\)</span> y <span class="arithmatex">\(E=13/17=0{,}76\)</span> (76 %). <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="10110110110010010 E= 13/17 = 0,76">Final 2023-02 p.1</a> Recálculo propio con test: <span class="arithmatex">\(R=0010\)</span> y receptor <code>0000</code>.</td>
+</tr>
+<tr>
+<td>Final 2019-09, ej. 5</td>
+<td>M = <code>10111101101</code>, <span class="arithmatex">\(G=x^4+x+1\)</span>. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="1 0 1 1 1 1 0 1 1 0 1">Final 2019-09 p.1</a></td>
+<td>Recálculo propio con test: <span class="arithmatex">\(R=0001\)</span>, <span class="arithmatex">\(T=101111011010001\)</span>, <span class="arithmatex">\(E=11/15\)</span>. La salida impresa tiene errores: Discrepancia 4.</td>
+</tr>
+<tr>
+<td>Final 2022-09, ej. 5</td>
+<td>M = <code>10100101101</code>, <span class="arithmatex">\(G=x^4+x+1\)</span>. <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="1 0 1 0 0 1 0 1 1 0 1">Final 2022-09 p.1</a></td>
+<td>Recálculo propio con test: <span class="arithmatex">\(R=1000\)</span>, <span class="arithmatex">\(T=101001011011000\)</span>, <span class="arithmatex">\(E=11/15\)</span>. La salida impresa tiene un dígito de más: Discrepancia 4.</td>
+</tr>
+<tr>
+<td>2.º Parcial 2022, ej. 2</td>
+<td>«¿Qué métodos de detección de errores conoce? Desarrolle CRC.» <a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Que métodos de detección de de errores conoce? Desarrolle CRC">2.º Parcial 2022 p.1</a></td>
+<td>Sin respuesta oficial en el repo. Armala con esta página: paridad (vertical, longitudinal o bidimensional, cíclica), suma de verificación y CRC con los seis pasos del procedimiento.</td>
+</tr>
+</tbody>
+</table>
+<p>Preguntas teóricas del TP6 de esta página, con la respuesta oficial. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Las principales causas que producen errores en la transmisión de datos">Teoría TP6 respuestas p.1</a></p>
+<table>
+<thead>
+<tr>
+<th>TP6 (<code>Comunicaciones-TP06</code>)</th>
+<th>Teoría (<code>GUIA-TP-06-Teoria</code>)</th>
+<th>Respuesta oficial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ej. 1, causas</td>
+<td>teoría 1</td>
+<td>ruido, atenuación, distorsión, ancho de banda insuficiente, tasa de información mayor que la capacidad del canal</td>
+</tr>
+<tr>
+<td>ej. 2, políticas</td>
+<td>teoría 2</td>
+<td>detectar y eliminar el paquete; más avisar; más pedir retransmisión (ver Discrepancia 1)</td>
+</tr>
+<tr>
+<td>ej. 5, Ethernet</td>
+<td>teoría 4</td>
+<td>alta tasa de errores, pérdida importante de paquetes</td>
+</tr>
+<tr>
+<td>ej. 9, protocolos con CRC</td>
+<td>teoría 5</td>
+<td>PPP, Ethernet, HDLC, Frame Relay</td>
+</tr>
+<tr>
+<td>ej. 10, protocolos con checksum</td>
+<td>teoría 6</td>
+<td>TCP, IP, UDP, ICMP</td>
+</tr>
+<tr>
+<td>ej. 12, cómo se manifiesta y se mide</td>
+<td>teoría 8</td>
+<td>pérdida de paquetes; % de paquetes perdidos en un tiempo; a veces el BER</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Cuántos ceros se agregan a M en el CRC con <span class="arithmatex">\(G=x^8+x^3+x^2+x+1\)</span> y de cuántos bits es R?</summary>
+<p>8 ceros y R de 8 bits: el grado de G es 8 (G tiene 9 bits). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="Definimos un polinomio auxiliar del mismo grado que el generador">Clase 6 Bis p.29</a></p>
+</details>
+<details class="question">
+<summary>El receptor del CRC obtiene resto <code>0000</code>. ¿Qué concluye?</summary>
+<p>Que T es divisible por G: no se detectaron errores. Con errores, <span class="arithmatex">\(T'(x)=T(x)+E(x)\)</span> deja de ser divisible. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="En este caso el polinomio recibido deja de ser divisible por el">Clase 6 Bis p.30</a></p>
+</details>
+<details class="question">
+<summary>Si T = <code>1011000111000111101010</code> y G = <code>100001111</code>, ¿cuál es R y cuál M?</summary>
+<p>Es el ej. 3 del TP6. R son los 8 bits de la derecha, <code>11101010</code>; M son los 14 de la izquierda, <code>10110001110001</code>. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=12" title="1 1 1 0 1 0 1 0">RTAS TP6 p.12</a></p>
+</details>
+<details class="question">
+<summary>Calculá el checksum de <code>0011</code>, <code>1011</code>, <code>0110</code>, <code>0010</code> y verificalo en el receptor.</summary>
+<p>C1 = <code>1000</code>. Receptor: la suma <code>0111</code> más C1 da <code>1111</code>. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=14" title="ABCD + C1 = 1 1 1 1 - envío sin errores">RTAS TP6 p.14</a></p>
+</details>
+<details class="question">
+<summary>¿Por qué la paridad vertical no detecta una doble inversión?</summary>
+<p>Al invertirse dos bits, la cantidad de unos mantiene su paridad: el carácter llega con el bit de paridad correcto. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=15" title="No permite detectar dos errores juntos">Clase 6 Bis p.15</a></p>
+</details>
+<details class="question">
+<summary>¿Qué ventaja tiene el control bidimensional sobre el vertical?</summary>
+<p>Un bit erróneo hace fallar una fila y una columna: su cruce ubica el bit. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=236" title="permite encontrar un error en el tercer bit">Libro p.236</a></p>
+</details>
+<details class="question">
+<summary>Una red tiene BER <span class="arithmatex">\(10^{-4}\)</span>. ¿Cuántos bits erróneos hay en 200.000 bits transmitidos?</summary>
+<p><span class="arithmatex">\(200.000\cdot10^{-4}=20\)</span>, el enunciado del TP6 ej. 4 (resolución propia, verificada con test). <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=8" title="se reciben 20 bits erróneos en 200.000 bits totales">RTAS TP6 p.8</a></p>
+</details>
+<details class="question">
+<summary>¿Qué protocolos usan CRC y cuáles suma de verificación?</summary>
+<p>CRC: PPP, Ethernet, HDLC, Frame Relay. Suma de verificación: TCP, IP, UDP, ICMP. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Los protocolos son: PPP, Ethernet, HDLC, Frame Relay, etc.">Teoría TP6 respuestas p.1</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Políticas: cuatro o tres</td>
+<td>La p.9 lista cuatro (ignorarlos, avisar, retransmisión, corregirlos). La respuesta oficial del TP6 y la clase de práctica listan tres, todas con «eliminar paquete», sin «ignorarlos» ni «corregirlos». Dicho en clase: nota teoria 2026-09-15 07:48 PM: "son como cuatro políticas bien distintas". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=9" title="Detectarlos y pedir la retrasmisión del mensaje Detectarlos y corregirlos">Clase 6 Bis p.9</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/GUIA-TP-06-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Detectar error + eliminar paquete + avisar">Teoría TP6 respuestas p.1</a></td>
+<td>Manda la diapositiva: cuatro. La tabla muestra las dos listas.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>LRC y bidimensional: ¿uno o dos métodos?</td>
+<td>El árbol de la p.10 los lista como ítems distintos. La p.13 y la p.18 los igualan. La p.13 escribe VCR y LCR; la p.15 y la p.18, VRC y LRC. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=13" title="Estos bits de control no transportan información">Clase 6 Bis p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=18" title="Se aplica a un conjunto compuesto por bloques de N caracteres">Clase 6 Bis p.18</a></td>
+<td>Un solo método (como p.13 y p.18, que lo desarrollan), con las siglas VRC y LRC.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tamaño del resto</td>
+<td>La p.29 y RTAS p.5 dicen «un número de bits igual o menor que r». Los ejemplos oficiales escriben R siempre con <span class="arithmatex">\(r\)</span> bits: <code>0110</code>, <code>11101010</code>, <code>0000</code>. Dicho en clase: nota practica 2026-09-30 07:56 PM: "el resto tiene que tener la misma cantidad de bits que tiene el grado del polinomio". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=29" title="un número de bits igual o menor que r">Clase 6 Bis p.29</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-TP-06-RTAS.pdf#page=5" title="o menor que r, grado del polinomio resto">RTAS TP6 p.5</a></td>
+<td>R siempre con <span class="arithmatex">\(r\)</span> bits.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Salidas oficiales con error en dos finales</td>
+<td>Final 2019-09: R impreso <code>1001</code> (recálculo <code>0001</code>) y E = 9/13 (correcto 11/15). Final 2022-09: T impreso de 16 dígitos (recálculo, 15: <code>101001011011000</code>); su E = 11/15 corresponde a 15. El Final 2023-02 es consistente. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="1 1 0 1 1 0 1 1 0 0 1">Final 2019-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="0 1 1 0 0 0 0 E= 11/15 = 0,73">Final 2022-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="10110110110010010 E= 13/17 = 0,76">Final 2023-02 p.1</a></td>
+<td>Recálculo propio con test; el Final 2023-02 es la única salida oficial usada como referencia.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>TCP: ¿suma de verificación o CRC?</td>
+<td>La p.23, la respuesta oficial del TP6 y Clase 6 p.36 ponen a TCP con suma de verificación. Clase 6 p.31 marca «TCP» junto a X.25, HDLC y ATM en una trama con campo CRC, en la política de retransmisión. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=23" title="Es muy usado en Internet en el protocolo TCP/IP">Clase 6 Bis p.23</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=31" title="fig: Detectar + Eliminar + Pedir retransmisión, trama FLAG DIR CONTROL DATOS CRC FLAG con TCP, X.25, HDLC y ATM marcados y la leyenda si hay errores se tira la trama pero hay retransmisión, se usa el campo de control">Clase 6 práctica p.31</a></td>
+<td>TCP = suma de verificación. El CRC de esa figura es el de la trama de enlace.</td>
+</tr>
+<tr>
+<td>6.a</td>
+<td>Receptor del checksum</td>
+<td>La p.23 dice que el receptor repite el cálculo y compara. La p.26 y RTAS p.14 dicen que suma todo, con el campo, y que el resultado debe ser todo unos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=23" title="si ambos coinciden se considerará que la transmisión no">Clase 6 Bis p.23</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=26" title="resultado es 16 bits con valor 1">Clase 6 Bis p.26</a></td>
+<td>La segunda (todo unos); la primera se menciona.</td>
+</tr>
+<tr>
+<td>6.b</td>
+<td>«Da cero» o «todo unos»</td>
+<td>Dicho en clase: nota teoria 2026-09-15 07:59 PM: "le da cero es porque no hubo errores" (valor tras complementar) y nota practica 2026-09-30 08:11 PM: "me queda la suma todo uno" (suma sin complementar). Son lo mismo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=26" title="resultado es 16 bits con valor 1">Clase 6 Bis p.26</a></td>
+<td>Todo unos.</td>
+</tr>
+<tr>
+<td>6.c</td>
+<td>«Bit 5 y bit 7» en la doble inversión</td>
+<td>La p.17 dice «bit 5 y bit 7»: en la figura difieren el 5.º y el 7.º dígito contando desde la izquierda. Con la numeración 7…1 de la p.16 serían los bits 3 y 1. Es otra numeración, no otro resultado. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=17" title="Carácter con doble inversión de bits">Clase 6 Bis p.17</a></td>
+<td>Se cuenta desde la izquierda.</td>
+</tr>
+<tr>
+<td>6.d</td>
+<td>Fórmulas del CRC</td>
+<td>Clase 6 p.33 escribe <span class="arithmatex">\(M(x)\times G(x)=C(x)+R(x)\)</span>, que no coincide con la p.30 (<span class="arithmatex">\(x^rM(x)/G(x)=C(x)+R(x)\)</span>). La p.30 imprime <span class="arithmatex">\(T(x)=T(x)+E(x)\)</span>, sin apóstrofo. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=33" title="fig: Métodos para detectar errores, CRC con Mx polinomio a transmitir, Gx generador, Rx resto y Cx cociente, la expresión M x X G x = Cx + Rx y Mx + Rx dividido Gx = Cx + 0 con Tx y Rx rotulados">Clase 6 práctica p.33</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=30" title="será siempre divisible por el polinomio generador">Clase 6 Bis p.30</a></td>
+<td>Manda la p.30; el recibido se escribe <span class="arithmatex">\(T'(x)\)</span>.</td>
+</tr>
+<tr>
+<td>6.e</td>
+<td>Libro, ejemplo 3-21 de checksum</td>
+<td>El libro (nivel 3) da suma de 5 bytes <code>10010111</code> y checksum <code>01101000</code>. Recálculo propio con acarreo final: suma <code>00011000</code> y C1 <code>11100111</code>. No se usa ese ejemplo. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=239" title="Luego, el campo de checksum será 01101000">Libro p.239</a></td>
+<td>No se usa.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>«Rendimiento»</td>
+<td>Todas las fuentes que lo calculan usan datos sobre bits totales (la E de p.6). <code>Unidad-III-1</code> p.12 titula «Eficiencia o rendimiento» pero lo desarrolla con la velocidad real Vrtd: otra magnitud. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=12" title="Tiempo a emplear [seg] = Long.del archivo [bit] / Vrtd [bps]">Unidad III-1 p.12</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Bis-Tratamiento-de-errores.pdf#page=6" title="fig: Detección y corrección de errores, redundancia R, eficiencia de transmisión E = b c/info / b totales con mayor R mayor protección de errores y menor E, y tamaño de bloque Tb en transmisión sincrónica con mayor Tb mayor E pero si error menor E, ambos rotulados compromiso">Clase 6 Bis p.6</a></td>
+<td>Sin discrepancia de fórmula: no se mezclan las dos magnitudes.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./01-capacidad-canal.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Capacidad del canal">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Capacidad del canal
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./03-correccion-errores.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Corrección de errores: ARQ, FEC y código de Hamming">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Corrección de errores: ARQ, FEC y código de Hamming
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

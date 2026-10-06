@@ -1,0 +1,2677 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./examenes.html">
+      
+      
+        <link rel="next" href="./repaso-teorico-u1-u4.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="./assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Parcial 1: alcance, formato y simulacro - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="./assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="./assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL(".",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parcial-1-alcance-formato-y-simulacro" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="./index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parcial 1: alcance, formato y simulacro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="parcial-1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-reportado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato reportado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-se-tomo-en-la-otra-comision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Qué se tomó en la otra comisión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enfasis-del-docente-de-teoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Énfasis del docente de teoría
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-y-metodos-del-docente-de-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Criterios y métodos del docente de práctica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Checklist
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-preguntas-reales-del-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Banco de preguntas reales del alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulacro-3-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Simulacro 3 + 3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuera-del-1er-parcial-2o-parcial-o-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fuera del 1.er parcial (2.º parcial o final)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formato-reportado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Formato reportado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-se-tomo-en-la-otra-comision" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Qué se tomó en la otra comisión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enfasis-del-docente-de-teoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Énfasis del docente de teoría
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criterios-y-metodos-del-docente-de-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Criterios y métodos del docente de práctica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Checklist
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-preguntas-reales-del-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Banco de preguntas reales del alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulacro-3-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Simulacro 3 + 3
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fuera-del-1er-parcial-2o-parcial-o-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fuera del 1.er parcial (2.º parcial o final)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="parcial-1-alcance-formato-y-simulacro">Parcial 1: alcance, formato y simulacro<a class="headerlink" href="#parcial-1-alcance-formato-y-simulacro" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<ul>
+<li><strong>Teoría:</strong> U1 a U5. U6 en adelante no entra.<ul>
+<li>nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive"</li>
+<li>nota teoria 2026-09-08 07:05 PM: "las seis que no entran en el primer parcial"</li>
+</ul>
+</li>
+<li><strong>Práctica:</strong> TP1 (solo la parte teórica) a TP4. TP5 y TP6 no entran.<ul>
+<li>nota practica 2026-09-16 09:48 PM: "ahora va a entrar hasta el cuatro"</li>
+<li>nota practica 2026-09-16 09:45 PM: "el trabajo práctico cinco y seis no va"</li>
+</ul>
+</li>
+<li><strong>Agregado de TP7:</strong> ejercicio 1 (interpolación) y la parte de enlace del ejercicio 10.<ul>
+<li>nota practica 2026-09-16 09:48 PM: "bonus tracks vayan a El ejercicio 1 del trabajo prácticos siete"</li>
+<li>nota practica 2026-09-30 08:21 PM: "la primera parte ustedes tranquilamente entra en el primer parcial"</li>
+</ul>
+</li>
+<li><strong>Capacidad de canal:</strong> entra el canal ideal.<ul>
+<li>nota practica 2026-09-16 09:45 PM: "lo que le va a entrar ahora es capacidad del Canal ideal"</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Fecha sin respaldo en las fuentes</p>
+<ul>
+<li>El estudiante confirmó el 2026-10-04 que el parcial es el 6/10/2026. Ninguna fuente del repo lo dice.</li>
+<li>Las notas dicen otra cosa:<ul>
+<li>nota teoria 2026-09-08 07:05 PM: "Es el 29 de septiembre y hoy es 8"</li>
+<li>nota teoria 2026-09-15 08:31 PM: "la semana que sigue, es el parcial"</li>
+</ul>
+</li>
+<li>Confirmar fecha, hora y sede con la cátedra.</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Entra teoría U1–U5 y práctica TP1–TP4, más TP7 ej. 1 y el enlace del ej. 10. No entran U6, TP5 ni TP6.</li>
+<li>Formato reportado: 3 teóricos + 3 ejercicios. Lo dice el docente de práctica de las dos comisiones (la propia y la otra); no es una regla. Los parciales 2022 del repo piden desarrollar cada respuesta en no menos de 15 renglones (<a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Desarrollar la respuesta en no menos de 15 renglones">1er Parcial 2022 p.1</a>, <a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Desarrollar la respuesta en no menos de 15 renglones">2do Parcial 2022 p.1</a>).</li>
+<li>Se repiten tres temas en los exámenes del repo:<ul>
+<li>enlace de fibra en mW: ej. 4 (<a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Calcular la potencia necesaria en el transmisor en mW">1er Parcial 2022 p.1</a>) y ej. 3 (<a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Longitud de cable de FO por carrete: 300 metros">Final 2022-09 p.1</a>);</li>
+<li>M-PSK con asignación Gray: ej. 4 de <a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="a una velocidad de transmisión de 7200 bps">Final 2019-09 p.1</a>, de <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="a una velocidad de transmisión de 9600 bps">Final 2022-09 p.1</a> y de <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Qué relación existe entre la Velocidad de transmisión">Final 2023-02 p.1</a>;</li>
+<li>información y entropía: ej. 3 de <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Que entiende por entropía y tasa de información">1er Parcial 2022 p.1</a>, ej. 2 de <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 2 pregunta qué son la entropía y la tasa de información">1er Parcial sin año p.1</a>, Tema 2 ej. 3 de <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="entiende por entropía y tasa de información de una fuente">Final 2020-12 p.1</a>, Tema 1 ej. 3 de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="entiende por entropía y tasa de información de una fuente">Final 2021-02 p.1</a> y ej. 6 de <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="imagen de 800 líneas horizontales y 300 puntos discretos">Final 2023-02 p.1</a>.</li>
+</ul>
+</li>
+<li>El docente de teoría remarcó construcción de códigos (U5), WDM vs SONET y amplificadores ópticos. Detalle en "Énfasis".</li>
+<li>Los parciales se arman con ejercicios ya tomados, cambiando datos de entrada, y son muy parecidos a los de los TP:<ul>
+<li>nota practica 2026-08-26 07:50 PM: "tiene un montón de parciales hechos"</li>
+<li>nota practica 2026-08-26 07:50 PM: "copiar y pegar y cambiarle algún dato de entrada"</li>
+<li>nota practica 2026-08-26 07:50 PM: "eran parecidos a los trabajos prácticos y muy parecidos"</li>
+</ul>
+</li>
+</ul>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="alcance">Alcance<a class="headerlink" href="#alcance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ítem</th>
+<th>Estado</th>
+<th>Dicho en clase</th>
+<th>Guía</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Teoría U1 a U5</td>
+<td>entra</td>
+<td>nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive"</td>
+<td>todas (ver checklist)</td>
+</tr>
+<tr>
+<td>Teoría U6 en adelante (errores, CRC, Hamming, ruido)</td>
+<td>no entra</td>
+<td>nota teoria 2026-09-08 07:05 PM: "las seis que no entran en el primer parcial"</td>
+<td>no cubierta</td>
+</tr>
+<tr>
+<td>TP1</td>
+<td>solo la parte teórica</td>
+<td>nota practica 2026-09-16 09:40 PM: "trabajo práctico uno entra la parte teórica"</td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>TP2</td>
+<td>entra la parte de velocidades. Valor medio, eficaz y Fourier: sin ejercicios en la práctica, pueden venir por teoría</td>
+<td>nota practica 2026-09-09 07:08 PM: "esos ejercicios no se toman porque terminamos corrigiendo cálculo numérico"; nota practica 2026-09-16 09:48 PM: "no quiere decir que no le vayan a pedir la teoría"</td>
+<td><a href="u3/01-velocidades.html">P4</a> y <a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>TP3</td>
+<td>entra</td>
+<td>nota practica 2026-09-16 09:48 PM: "ahora va a entrar hasta el cuatro"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td>TP4</td>
+<td>entra, "incompleto": la práctica da información; banda base la da el docente de teoría</td>
+<td>nota practica 2026-09-16 09:48 PM: "al cuatro es lo incompleto"; nota practica 2026-09-16 08:37 PM: "hay una parte que nosotros no la vemos acá"</td>
+<td><a href="u2/04-banda-base.html">P3</a> y <a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>TP5 y TP6</td>
+<td>no entran</td>
+<td>nota practica 2026-09-16 09:45 PM: "el trabajo práctico cinco y seis no va"</td>
+<td>no cubiertos</td>
+</tr>
+<tr>
+<td>TP7</td>
+<td>solo ej. 1 (interpolación) y el enlace del ej. 10. Sin ancho de banda de la fibra ni pérdida en espacio libre</td>
+<td>nota practica 2026-09-16 09:48 PM: "bonus tracks vayan a El ejercicio 1 del trabajo prácticos siete"; nota practica 2026-09-30 08:20 PM: "nos vamos a olvidar el ancho de banda"; nota practica 2026-09-30 08:43 PM: "la pérdida en el espacio libre que no lo vimos"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td>Capacidad de canal</td>
+<td>entra el canal ideal. El canal real (con ruido) solo como teoría</td>
+<td>nota practica 2026-09-16 09:45 PM: "lo que le va a entrar ahora es capacidad del Canal ideal"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="formato-reportado">Formato reportado<a class="headerlink" href="#formato-reportado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Comisión propia, 3 + 3 y 50/50:</strong><ul>
+<li>nota practica 2026-08-26 07:49 PM: "da tres teorías y tres prácticas los parciales". Lo dice el docente de práctica sobre el docente de teoría de esta comisión.</li>
+<li>nota practica 2026-09-16 08:38 PM: "Lo normal es que vaya cincuenta y cincuenta"</li>
+</ul>
+</li>
+<li><strong>Otra comisión:</strong> nota practica 2026-09-30 07:16 PM: "tres ejercicios y tres teóricos".</li>
+<li><strong>Un docente puede tomar solo una parte:</strong> nota practica 2026-08-26 07:49 PM: "Hoy le voy a tomar todo práctica nada más". Es un antecedente de otro semestre.</li>
+<li><strong>Preguntar el formato al docente de teoría unos 15 días antes:</strong> nota practica 2026-08-26 07:46 PM: "que hablen con el profesor de la teoría".</li>
+<li><strong>Sin sorpresas de datos:</strong><ul>
+<li>nota practica 2026-09-09 07:10 PM: "nada raro que no se haya visto en clase"</li>
+<li>nota practica 2026-09-09 07:21 PM: "mientras sobre y no falte está todo bien"</li>
+</ul>
+</li>
+<li><strong>Modalidad dicha el 2026-09-15 (ver aviso de fecha):</strong> nota teoria 2026-09-15 08:31 PM: "en la sede de Medrano presencial a las siete".</li>
+<li><strong>Estructura de los exámenes del repo:</strong><ul>
+<li>1er Parcial 2022: 5 puntos. Los puntos 1 a 3 son de desarrollo y el 4 y el 5 son numéricos (<a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Resolver el siguiente ejercicio de unidades de transmisión">ej. 4 p.1</a>, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="calcular la información suministrada con la aparición de un uno">ej. 5 p.1</a>).</li>
+<li>2do Parcial 2022: 5 puntos. El 1 es un ejercicio (<a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Se quiere transmitir por un canal telefónico a 9600 bps">ej. 1 p.1</a>) y el resto es de desarrollo.</li>
+<li>1er Parcial sin año (imagen): 6 puntos. Cinco de desarrollo y el ej. 6 es un ejercicio de enlace (<a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 6 enlace con cable de 500 m, 12 km y resultado en mW">ej. 6 p.1</a>).</li>
+<li>Final 2020-12 y Final 2021-02: tres Temas de cinco preguntas, sin resolución oficial (<a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Dentro de las funciones ejecutadas por las redes está la conmutación">Final 2020-12 p.1</a>).</li>
+</ul>
+</li>
+</ul>
+<h3 id="que-se-tomo-en-la-otra-comision">Qué se tomó en la otra comisión<a class="headerlink" href="#que-se-tomo-en-la-otra-comision" title="Permanent link">&para;</a></h3>
+<p>Todo es de segunda mano: lo cuenta el docente de práctica o alumnos de esa comisión.</p>
+<ul>
+<li><strong>Ya lo rindieron:</strong> nota practica 2026-09-30 07:16 PM: "Ya me comentaron algunos del parcial".</li>
+<li><strong>Corte en TP4:</strong><ul>
+<li>nota practica 2026-09-30 07:16 PM: "no se pasen del trabajo práctico número cuatro"</li>
+<li>nota practica 2026-09-30 08:37 PM: "que no le pidiera nada de trabajo práctico cinco"</li>
+</ul>
+</li>
+<li><strong>Enlace:</strong> la dificultad fue contar conectores y empalmes. nota practica 2026-09-30 08:37 PM: "resolver ese temita nomás de los conectores y el empalme". Ver Discrepancias. Va a <a href="u2/02-enlace.html">P2</a>.</li>
+<li><strong>Banda base:</strong> dibujar la secuencia en binario, Manchester y Manchester diferencial. nota practica 2026-09-30 08:37 PM: "dibujar el pulso en binario, el pulso de Manchester". Va a <a href="u2/04-banda-base.html">P3</a>.</li>
+<li><strong>Frecuencia de repetición de pulso:</strong> nota practica 2026-09-30 08:37 PM: "la frecuencia repetición de pulso que lo vimos". Va a <a href="u2/04-banda-base.html">P3</a>.</li>
+<li><strong>Teórica de canal:</strong> pasar de canal ideal a canal real.<ul>
+<li>nota practica 2026-09-30 08:37 PM: "pasar de capacidad de canal ideal la capacidad de canal real"</li>
+<li>nota practica 2026-09-30 07:23 PM: "Esta parte se entiende que eso es teoría"</li>
+<li>Va a <a href="u5/01-informacion.html">P5</a>.</li>
+</ul>
+</li>
+<li><strong>Valoración del docente de práctica:</strong> nota practica 2026-09-30 08:37 PM: "la parte práctica no estaba difícil".</li>
+</ul>
+<h3 id="enfasis-del-docente-de-teoria">Énfasis del docente de teoría<a class="headerlink" href="#enfasis-del-docente-de-teoria" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>Qué remarcó</th>
+<th>Nota de clase</th>
+<th>Guía</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Información (U5)</td>
+<td>Tiene ejercitación y muchas preguntas teóricas, aunque la clase sea corta</td>
+<td>nota teoria 2026-09-08 07:05 PM: "hay ejercitación de esta unidad y hay muchas preguntas teóricas"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>Construcción de códigos (U5)</td>
+<td>Cómo se construye un código y qué hay que decidir al hacerlo</td>
+<td>nota teoria 2026-09-08 08:07 PM: "Es decir me dicen bueno Construye un código"; nota teoria 2026-09-08 08:10 PM: "Entonces cuando uno Construye un código tiene que determinar"; nota teoria 2026-09-08 08:13 PM: "aspectos que hay que tener en cuenta cuando uno construye el código"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>Resumen de la clase</td>
+<td>Estudiarlo bien</td>
+<td>nota teoria 2026-09-08 08:25 PM: "Así que el resumen estudiarlo bien"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>TDM</td>
+<td>Aclaró que no es un ahorro de banda: se aprovecha el medio</td>
+<td>nota teoria 2026-09-01 07:39 PM: "no te ahorras mucho de banda"</td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>WDM vs SONET</td>
+<td>Pregunta anunciada</td>
+<td>nota teoria 2026-09-01 08:19 PM: "Esta filmina es importante porque esto sí lo pregunto"</td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>Amplificadores ópticos</td>
+<td>Pueden preguntar cuál elegir entre los tres tipos</td>
+<td>nota teoria 2026-09-01 08:27 PM: "si de ahí preguntan cuál elegirías"</td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+</tbody>
+</table>
+<p>No hay notas de teoría de U1, U2, U3, modulación ni digitalización. Para esos temas, estudiar <a href="repaso-teorico-u1-u4.html">P7</a> completo.</p>
+<h3 id="criterios-y-metodos-del-docente-de-practica">Criterios y métodos del docente de práctica<a class="headerlink" href="#criterios-y-metodos-del-docente-de-practica" title="Permanent link">&para;</a></h3>
+<p>Son 21 de los 61 relevados. Todos son dichos del docente de práctica.</p>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>Criterio</th>
+<th>Nota de clase</th>
+<th>Guía</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enlace</strong></td>
+<td>Dibujar el esquema (transmisor, medio, receptor) y poner todos los datos</td>
+<td>nota practica 2026-09-16 07:27 PM: "poner todos los datos que me da"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Identificar primero la incógnita y despejar</td>
+<td>nota practica 2026-09-16 07:29 PM: "cuál es mi incógnita"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Pérdida total = atenuaciones + factor de diseño</td>
+<td>nota practica 2026-09-16 07:30 PM: "es la suma de todas las atenciones más el factor de diseño"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Dejar el cálculo auxiliar a la vista: un valor sin cálculo puede objetarse</td>
+<td>nota practica 2026-09-16 07:30 PM: "Que esté calculado en algún lado"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Pasar a mW (o a W si lo piden) al final. Un error en el pasaje de unidad echa a perder el ejercicio</td>
+<td>nota practica 2026-09-16 07:15 PM: "Pasen de de dbm a Mili watts"; nota practica 2026-09-16 07:17 PM: "calcularon mal el pasaje de milwauke a watts"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Enunciado con la sensibilidad en mW: pasarla a dBm antes de usar la ecuación general</td>
+<td>nota practica 2026-09-16 07:52 PM: "Esto es sensibilidad no es potencia"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Empalmes = carretes − 1</td>
+<td>nota practica 2026-09-30 08:24 PM: "Si yo tengo 25 carretes, voy a usar 24 empalmes"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Amplificador: preguntar si se cuentan conectores en el amplificador</td>
+<td>nota practica 2026-09-16 08:20 PM: "por ahí siempre es conveniente preguntar"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Interpolación (TP7 ej. 1): regla de tres simple, con el cálculo auxiliar escrito. El valor pedido no será el punto medio</td>
+<td>nota practica 2026-09-16 09:29 PM: "en realidad es una regla de tres simple"; nota practica 2026-09-16 09:30 PM: "lo pongan como un cálculo auxiliar"</td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td><strong>Banda base</strong></td>
+<td>Los códigos marcados en la guía de la práctica suelen ser los que entran. Depende del docente de teoría</td>
+<td>nota practica 2026-09-16 08:37 PM: "Generalmente son los que entran"</td>
+<td><a href="u2/04-banda-base.html">P3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Piden dibujar una secuencia en los códigos, de a pares, para ver si saben armarlos</td>
+<td>nota practica 2026-09-16 09:40 PM: "para ver si más o menos saben Cómo se arman los códigos"</td>
+<td><a href="u2/04-banda-base.html">P3</a></td>
+</tr>
+<tr>
+<td><strong>Velocidades</strong></td>
+<td>Decir "carácter", no "byte"</td>
+<td>nota practica 2026-09-09 07:16 PM: "decir que es una transmisión con respecto al carácter"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Si el enunciado no da los bits por carácter, asumir 8 y escribirlo</td>
+<td>nota practica 2026-09-09 07:27 PM: "asumo que un carácter es igual a ocho bits"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>"Cuándo coinciden Vm y Vt" se pregunta en la parte teórica</td>
+<td>nota practica 2026-09-09 07:19 PM: "Esto también se lo van a preguntar en la parte teórica"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Los niveles son 2, 4, 8 o 16. Otro valor indica que no se entendió la teoría</td>
+<td>nota practica 2026-09-09 07:43 PM: "si le ponen cualquier otro número distinto"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Rendimiento = bits de datos sobre bits totales transmitidos</td>
+<td>nota practica 2026-09-09 07:48 PM: "Cómo sacamos el rendimiento es la cantidad de bits de datos"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td></td>
+<td>El rendimiento asincrónico es menor que el sincrónico</td>
+<td>nota practica 2026-09-09 07:51 PM: "el rendimiento de las transmisiones asincrónicas es menor que de la sincrónica"</td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td><strong>Información</strong></td>
+<td>Logaritmo en base 2 (en el TP3 era base 10)</td>
+<td>nota practica 2026-09-16 08:38 PM: "teoría de la información es logaritmo en base dos"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td></td>
+<td>"Equiprobable" fija el valor de N</td>
+<td>nota practica 2026-09-16 09:06 PM: "Generalmente va pegada Sí al valor que va a tener n"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Con relación señal/ruido en el enunciado, el cálculo es de canal real (TP5, no entra)</td>
+<td>nota practica 2026-09-30 07:43 PM: "me está pidiendo el canal real y no el ideal"</td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td><strong>Teoría de señales</strong></td>
+<td>Si piden la serie de Fourier, elegir la función más fácil de graficar y calcular</td>
+<td>nota practica 2026-09-09 07:31 PM: "Elijan la más fácil que ustedes puedan graficar"</td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="checklist">Checklist<a class="headerlink" href="#checklist" title="Permanent link">&para;</a></h3>
+<p>En el orden del <a href="index.html">índice</a> de la guía.</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Alcance y fecha confirmados (esta página).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="u2/02-enlace.html">P2 Enlace</a>: dB, dBm, ecuación del enlace, empalmes y conectores, interpolación (TP3 y TP7).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="u2/04-banda-base.html">P3 Banda base</a>: códigos y cómo dibujarlos, HDB3, frecuencia de repetición de pulso (TP4).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="u3/01-velocidades.html">P4 Velocidades</a>: baudios y bit/s, rendimiento, protocolos de enlace, M-PSK con Gray (TP2).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="u5/01-informacion.html">P5 Información</a>: información, entropía, tasa, capacidad ideal, construcción de códigos (TP4).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="u4/04-multiplexacion.html">P6 Multiplexación</a>: FDM, TDM, PCM, E1, SDH, WDM.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="repaso-teorico-u1-u4.html">P7 Repaso teórico</a>: U1 a U4, TP1 teoría y TP2 primera parte.</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Simulacro de más abajo, resuelto sin mirar.</li>
+</ul>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Canal ideal o real.</strong> Remarcado en clase: con relación señal/ruido el cálculo es de canal real y queda fuera. La otra comisión sí tuvo como pregunta teórica el paso de ideal a real.<ul>
+<li>nota practica 2026-09-16 09:47 PM: "van a ver que le aparece la relación señal ruido"</li>
+<li>nota practica 2026-09-30 08:37 PM: "pasar de capacidad de canal ideal la capacidad de canal real"</li>
+<li>Va a <a href="u5/01-informacion.html">P5</a>.</li>
+</ul>
+</li>
+<li><strong>Contar conectores y empalmes.</strong> Remarcado en clase: es donde se trabó la otra comisión. nota practica 2026-09-30 08:25 PM: "el problema acá era saber la cantidad de Empalme". La resolución oficial de <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="At empalmes 49*0,5=24,5; At Conectores= 2*0,6=1,2">Final 2022-09 p.1</a> cuenta los empalmes aparte de los conectores. Va a <a href="u2/02-enlace.html">P2</a>.</li>
+<li><strong>Datos de más no restan; los que faltan, sí.</strong> Remarcado en clase: nota practica 2026-09-09 07:21 PM: "mientras sobre y no falte está todo bien".</li>
+<li><strong>Los códigos de banda base se piden de a pares y hay que dibujarlos.</strong> Remarcado en clase: nota practica 2026-09-30 08:37 PM: "dibujar el pulso en binario, el pulso de Manchester". El examen sin año pide describir HDB-3 (<a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 5 pide describir el funcionamiento del código banda base HDB-3">1er Parcial sin año p.1</a>). Va a <a href="u2/04-banda-base.html">P3</a>.</li>
+<li><strong>RS-232 / V.24 salió en el 1er Parcial 2022 pero no es de U1–U5.</strong> Marca de la guía: U8 del programa analítico FRBA Plan 2023. Va como pregunta citada en <a href="repaso-teorico-u1-u4.html">P7</a>: <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="interfaz digital serie estándar RS 232">1er Parcial 2022 p.1</a>.</li>
+</ul>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<h3 id="banco-de-preguntas-reales-del-alcance">Banco de preguntas reales del alcance<a class="headerlink" href="#banco-de-preguntas-reales-del-alcance" title="Permanent link">&para;</a></h3>
+<p>Ordenado por la página que resuelve cada una. Los exámenes de 2020-12 y 2021-02 se citan por Tema y número de pregunta.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Pregunta</th>
+<th>Fuente</th>
+<th>Resuelve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Enlace de fibra monomodo, carretes de 400 m, 10 km: potencia del transmisor en mW</td>
+<td>ej. 4, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Calcular la potencia necesaria en el transmisor en mW">1er Parcial 2022 p.1</a></td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enlace con cable de 500 m y 12 km, resultado en mW</td>
+<td>ej. 6, <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 6 enlace con cable de 500 m, 12 km y resultado en mW">1er Parcial sin año p.1</a></td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Enlace de fibra monomodo, carretes de 300 m y 15 km, con resolución oficial</td>
+<td>ej. 3, <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Longitud de cable de FO por carrete: 300 metros">Final 2022-09 p.1</a></td>
+<td><a href="u2/02-enlace.html">P2</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Describir el funcionamiento del código banda base HDB-3</td>
+<td>ej. 5, <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 5 pide describir el funcionamiento del código banda base HDB-3">1er Parcial sin año p.1</a></td>
+<td><a href="u2/04-banda-base.html">P3</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Por qué hay que codificar la señal original en banda base</td>
+<td>ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="por qué es necesario codificar la señal original">Final 2019-09 p.1</a></td>
+<td><a href="u2/04-banda-base.html">P3</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Objetivos buscados en la codificación de los códigos banda base</td>
+<td>Tema 3 ej. 1, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="objetivos buscados en la codificación de los códigos banda">Final 2020-12 p.1</a>; igual en el Tema 3 ej. 1 de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="objetivos buscados en la codificación de los códigos banda">Final 2021-02 p.1</a></td>
+<td><a href="u2/04-banda-base.html">P3</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Tipos de velocidad y cuándo coinciden baudios y bit/s</td>
+<td>Tema 1 ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Qué distintos tipos de velocidad conoce">Final 2020-12 p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Funcionamiento y características de un protocolo sincrónico</td>
+<td>ej. 4, <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 4 pide funcionamiento y características de un protocolo sincrónico">1er Parcial sin año p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>9600 bps con módem de 2400 baudios y PSK: tipo de PSK, diagrama vectorial y asignación de fases</td>
+<td>ej. 1, <a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Se quiere transmitir por un canal telefónico a 9600 bps">2do Parcial 2022 p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>2400 baudios y 7200 bps con M-PSK: fases, bits, diagrama de estados y asignación</td>
+<td>ej. 4, <a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="a una velocidad de transmisión de 7200 bps">Final 2019-09 p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>2400 baudios y 9600 bps con M-PSK: fases, bits, diagrama de estados y asignación</td>
+<td>ej. 4, <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="a una velocidad de transmisión de 9600 bps">Final 2022-09 p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>El mismo ejercicio más la relación entre velocidad de transmisión y de modulación</td>
+<td>ej. 4, <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Qué relación existe entre la Velocidad de transmisión">Final 2023-02 p.1</a></td>
+<td><a href="u3/01-velocidades.html">P4</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Qué son la entropía y la tasa de información; graficar la entropía de una fuente binaria de memoria nula</td>
+<td>ej. 3, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Que entiende por entropía y tasa de información">1er Parcial 2022 p.1</a>; casi igual en el ej. 2 de <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 2 pregunta qué son la entropía y la tasa de información">1er Parcial sin año p.1</a></td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Secuencia 010101000001: información de un uno y de un cero, y entropía</td>
+<td>ej. 5, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Dado un tren de pulsos correspondientes a la siguiente secuencia">1er Parcial 2022 p.1</a></td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Entropía y tasa de información de una fuente y cómo se calculan</td>
+<td>Tema 2 ej. 3, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="entiende por entropía y tasa de información de una fuente">Final 2020-12 p.1</a>; igual en el Tema 1 ej. 3 de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="entiende por entropía y tasa de información de una fuente">Final 2021-02 p.1</a></td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Imagen de 800 × 300 puntos con 16 niveles: palabras necesarias y velocidad del enlace</td>
+<td>ej. 6, <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="imagen de 800 líneas horizontales y 300 puntos discretos">Final 2023-02 p.1</a></td>
+<td><a href="u5/01-informacion.html">P5</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Técnica de multiplexación WDM</td>
+<td>Tema 1 ej. 5, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique la técnica de multiplexación WDM">Final 2020-12 p.1</a></td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Técnica de multiplexación TDM</td>
+<td>Tema 2 ej. 5, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique la técnica de multiplexación TDM">Final 2020-12 p.1</a>; igual en <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Explique la técnica de multiplexación TDM">Final 2021-02 p.1</a> (Tema 1 ej. 5)</td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Explicar PCM-30</td>
+<td>Tema 2 ej. 5, <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Fibras Ópticas? 5. Explique PCM-30">Final 2021-02 p.1</a></td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Diferencia entre SONET y WDM</td>
+<td>ej. 1, <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Qué diferencia existe entre SONET y WDM">Final 2023-02 p.1</a>; igual en el Tema 3 ej. 5 de <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Qué diferencia existe entre SONET y WDM">Final 2020-12 p.1</a> y de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Qué diferencia existe entre SONET y WDM">Final 2021-02 p.1</a></td>
+<td><a href="u4/04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Distintas arquitecturas que conoce</td>
+<td>ej. 1, <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 1 pregunta cuáles son las distintas arquitecturas que conoce">1er Parcial sin año p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Definir ancho de banda de señal y de canal</td>
+<td>Tema 2 ej. 1, <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Defina ancho de banda de señal y de canal">Final 2021-02 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Capas del modelo OSI y servicio y funciones de la capa dos</td>
+<td>ej. 1, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Enuncie las capas del Modelo OSI">1er Parcial 2022 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Capas OSI y en qué capa se realiza la encriptación</td>
+<td>ej. 5, <a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Diga en que capa se realiza la encriptación">2do Parcial 2022 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Técnicas básicas de conmutación de redes, con un ejemplo</td>
+<td>ej. 3, <a href="fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ej. 3 pregunta por las técnicas básicas de conmutación de redes">1er Parcial sin año p.1</a>; parecida en el Tema 1 ej. 1 de <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="técnicas básicas de conmutación que conoce">Final 2020-12 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Modulación M-QAM</td>
+<td>Tema 1 ej. 4, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="4. Explique modulación M-QAM">Final 2020-12 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Qué equipo transmite una señal analógica en una red digital y cuál una digital en una red analógica</td>
+<td>ej. 1, <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="equipo se utiliza para transmitir una señal analógica">Final 2022-09 p.1</a>; mismo texto en el Tema 2 ej. 1 de <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Qué equipo se utiliza para transmitir una señal analógica">Final 2020-12 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Tipos de cuantificación en la digitalización</td>
+<td>ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="En la digitalización de señales que tipos de cuantificación conoce">Final 2022-09 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Pasos para digitalizar una señal analógica</td>
+<td>ej. 4, <a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Explique cada uno de los pasos para digitalizar una señal analógica">2do Parcial 2022 p.1</a>; parecida en el Tema 3 ej. 4 de <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique los pasos para la digitalización de señales">Final 2020-12 p.1</a></td>
+<td><a href="repaso-teorico-u1-u4.html">P7</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="simulacro-3-3">Simulacro 3 + 3<a class="headerlink" href="#simulacro-3-3" title="Permanent link">&para;</a></h3>
+<p>Armado con el formato reportado (no es una regla). Mismo orden que el banco.</p>
+<ul>
+<li><strong>Ejercicios:</strong> filas 1 (enlace), 11 (M-PSK con Gray) y 14 (entropía).</li>
+<li><strong>Teóricos:</strong> filas 4 (HDB-3), 20 (SONET vs WDM) y 25 (conmutación).</li>
+<li>Resolverlo sin mirar las páginas y recién después corregir con cada una.</li>
+</ul>
+<h3 id="fuera-del-1er-parcial-2o-parcial-o-final">Fuera del 1.er parcial (2.º parcial o final)<a class="headerlink" href="#fuera-del-1er-parcial-2o-parcial-o-final" title="Permanent link">&para;</a></h3>
+<p>Salieron en el 2do Parcial 2022 o en finales. Ninguna fuente del repo las ubica en U1–U5 ni las asigna a este parcial. Excepción: RS-232 / V.24 salió en el 1er Parcial 2022, pero la guía lo marca como U8, fuera de U1–U5. Se listan para saber que existen.</p>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>Preguntas reales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pérdidas y dispersión en fibra óptica</td>
+<td>ej. 3, <a href="fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Explique cuales son las perdidas en las Fibras Ópticas">2do Parcial 2022 p.1</a>; ej. 1, <a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="causas de pérdidas en las Fibras Ópticas">Final 2019-09 p.1</a>; Tema 2 ej. 4, <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="causas de pérdidas en las Fibras Ópticas">Final 2021-02 p.1</a>; ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Explique los fenómenos de dispersión modal y cromática en las FO">Final 2023-02 p.1</a></td>
+</tr>
+<tr>
+<td>Cableado estructurado</td>
+<td>Tema 3 ej. 3, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="aspectos más relevantes a medir en el cableado estructurado">Final 2020-12 p.1</a>; igual en el Tema 3 ej. 3 de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="aspectos más relevantes a medir en el cableado estructurado">Final 2021-02 p.1</a></td>
+</tr>
+<tr>
+<td>Módems xDSL</td>
+<td>Tema 2 ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Explique los modem Xdsl">Final 2021-02 p.1</a></td>
+</tr>
+<tr>
+<td>Interfaz RS-232 / V.24 (marca: U8, fuera de U1–U5)</td>
+<td>ej. 2, <a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="interfaz digital serie estándar RS 232">1er Parcial 2022 p.1</a>. Está en <a href="repaso-teorico-u1-u4.html">P7</a> como pregunta citada</td>
+</tr>
+<tr>
+<td>Niveles de normalización de las interfaces digitales</td>
+<td>Tema 2 ej. 2, <a href="fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="niveles de normalización en las interfaces digitales">Final 2020-12 p.1</a>; igual en el Tema 1 ej. 2 de <a href="fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="niveles de normalización en las interfaces digitales">Final 2021-02 p.1</a>. El tema está en <a href="fuentes/teoria/oficial/arroyo-arzubi/Clase-04-Bis-Capa-Fisica.pdf#page=3" title="Niveles de normalización de las interfaces de la capa física">Clase-04-Bis p.3</a>, la misma presentación donde la guía ubica RS-232 como U8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Qué se toma del TP7?</summary>
+<p>Solo el ej. 1 (interpolación) y la parte de enlace del ej. 10: carretes, empalmes y conectores. No el ancho de banda de la fibra ni la pérdida en espacio libre.</p>
+<ul>
+<li>nota practica 2026-09-30 08:20 PM: "nos vamos a olvidar el ancho de banda"</li>
+<li>nota practica 2026-09-30 08:43 PM: "la pérdida en el espacio libre que no lo vimos"</li>
+<li>Ver <a href="u2/02-enlace.html">P2</a>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>El enunciado de capacidad trae la relación señal/ruido en dB. ¿Se calcula?</summary>
+<p>Es canal real: el cálculo es del TP5 y no entra. Del canal real solo entra el concepto; el cálculo que entra es el del canal ideal.</p>
+<ul>
+<li>nota practica 2026-09-30 07:43 PM: "me está pidiendo el canal real y no el ideal"</li>
+<li>nota practica 2026-09-16 09:45 PM: "lo que le va a entrar ahora es capacidad del Canal ideal"</li>
+<li>Ver <a href="u5/01-informacion.html">P5</a>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>En el ejercicio de 2400 baudios y 9600 bps, ¿alcanza con decir cuántas fases y cuántos bits?</summary>
+<p>No. El enunciado pide también el diagrama de estados y el cuadro de asignación de bits, y la resolución oficial usa código de Gray.</p>
+<ul>
+<li><a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Proponer el diagrama de estados y el cuadro con la mejor asignación">Final 2022-09 p.1</a></li>
+<li><a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Asignación de bits a cada fase según Código de Gray">Final 2022-09 p.1</a></li>
+<li>Ver <a href="u3/01-velocidades.html">P4</a>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>¿Para qué se codifica la señal en banda base?</summary>
+<p>Cuatro objetivos: eliminar o disminuir la componente continua, transmitir sincronismo, detectar la presencia de la señal y acomodar el espectro a la banda del medio.</p>
+<ul>
+<li><a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Eliminar o disminuir la componente continua de la señal">Final 2019-09 p.1</a></li>
+<li><a href="fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Acomodar el espectro de la señal dentro de la banda pasante">Final 2019-09 p.1</a></li>
+<li>Ver <a href="u2/04-banda-base.html">P3</a>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>¿Qué diferencia hay entre SONET y WDM?</summary>
+<p>Las dos usan fibra óptica. SONET usa TDM; WDM es otra técnica, por división de longitud de onda. El docente de teoría anunció esta pregunta.</p>
+<ul>
+<li><a href="fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Si bien las dos usan FO, SONET utiliza la tecnica TDM">Final 2023-02 p.1</a></li>
+<li>nota teoria 2026-09-01 08:19 PM: "Esta filmina es importante porque esto sí lo pregunto"</li>
+<li>Ver <a href="u4/04-multiplexacion.html">P6</a>.</li>
+</ul>
+</details>
+<details class="question">
+<summary>En un enlace con amplificador, ¿los conectores del amplificador se cuentan como conectores o como empalmes?</summary>
+<p>No hay respuesta única: la práctica los cuenta como conectores y el docente de teoría de la otra comisión los tomó como empalmes. Preguntar y escribir el supuesto. Ver Discrepancias y <a href="u2/02-enlace.html">P2</a>.</p>
+<ul>
+<li><a href="fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="At empalmes 49*0,5=24,5; At Conectores= 2*0,6=1,2">Final 2022-09 p.1</a> muestra empalmes y conectores contados por separado en un ejercicio sin amplificador.</li>
+</ul>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Fecha del parcial.</strong> Las notas dicen 29/9 y "la semana que sigue"; el estudiante confirmó 6/10. Ninguna fuente respalda el 6/10.<ul>
+<li>nota teoria 2026-09-08 07:05 PM: "Es el 29 de septiembre y hoy es 8"</li>
+<li>nota teoria 2026-09-15 08:31 PM: "la semana que sigue, es el parcial"</li>
+</ul>
+</li>
+<li><strong>Formato 3 + 3 contra los exámenes del repo.</strong> El docente de práctica habla de tres y tres, de cincuenta y cincuenta y, para la otra comisión, de tres ejercicios y tres teóricos. Los PDFs no son 3 + 3: el 1er Parcial 2022 tiene tres de desarrollo y dos numéricos, el 2do Parcial 2022 un ejercicio y cuatro de desarrollo, y el 1er Parcial sin año cinco de desarrollo y un ejercicio. No hay contradicción dura, son exámenes distintos.<ul>
+<li>nota practica 2026-08-26 07:49 PM: "da tres teorías y tres prácticas los parciales"</li>
+<li>nota practica 2026-09-30 07:16 PM: "tres ejercicios y tres teóricos"</li>
+<li><a href="fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Resolver el siguiente ejercicio de unidades de transmisión">1er Parcial 2022 p.1</a></li>
+</ul>
+</li>
+<li><strong>Amplificador: conector o empalme.</strong> Dicho en clase, la práctica los cuenta como conectores y el docente de teoría de la otra comisión los tomó como empalmes. Ambos turnos recomiendan preguntar al docente del examen.<ul>
+<li>nota practica 2026-09-16 08:20 PM: "necesito agregar un conector del lado de la recepción"</li>
+<li>nota practica 2026-09-30 08:36 PM: "los dos que tengo en el amplificador de los toma como Empalme"</li>
+<li>nota practica 2026-09-30 08:37 PM: "considerábamos conectores y no como Empalme"</li>
+</ul>
+</li>
+<li><strong>Hamming "a fondo" contra "hasta la unidad cinco".</strong> El mismo docente de teoría, en la misma clase. Prevalece el corte en U5; Hamming no está en esta guía y queda como riesgo si el docente lo incluye.<ul>
+<li>nota teoria 2026-09-15 08:30 PM: "El código hamil lo tiene conocer a fondo"</li>
+<li>nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive"</li>
+</ul>
+</li>
+<li><strong>TP2: práctica y teoría.</strong> Dicho en clase, la práctica no toma valor medio, eficaz ni Fourier, pero aclara que pueden venir por teoría. Depende de lo que dio el docente de teoría; estudiar <a href="repaso-teorico-u1-u4.html">P7</a>.<ul>
+<li>nota practica 2026-09-09 07:08 PM: "esos ejercicios no se toman porque terminamos corrigiendo cálculo numérico"</li>
+<li>nota practica 2026-09-16 09:48 PM: "no quiere decir que no le vayan a pedir la teoría"</li>
+</ul>
+</li>
+<li><strong>Transcripción del alcance.</strong> La nota dice "dos uno dos tres cuatro y cinco"; por el contexto se lee U1 a U5, y lo fija la clase del 2026-09-15.<ul>
+<li>nota teoria 2026-09-08 07:05 PM: "involucra la unidad dos uno dos tres cuatro y cinco inclusive"</li>
+<li>nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive"</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./examenes.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Índice de exámenes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Índice de exámenes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./repaso-teorico-u1-u4.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Repaso teórico U1–U4: preguntas tipo examen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Repaso teórico U1–U4: preguntas tipo examen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":".","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"./assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="./assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="./javascripts/katex.js"></script>
+      
+        <script src="./javascripts/cdd.js"></script>
+      
+        <script src="./javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

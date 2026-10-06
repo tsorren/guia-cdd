@@ -1,0 +1,2801 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./02-modulacion-digital.html">
+      
+      
+        <link rel="next" href="./04-multiplexacion.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Digitalización: PCM y Delta - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#digitalizacion-pcm-y-delta" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Digitalización: PCM y Delta
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="03-digitalizacion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulacion-por-pulsos-variante-analogica-p3843" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modulación por pulsos, variante analógica (p.38–43)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-tres-pasos-y-el-muestreo-p4445" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Los tres pasos y el muestreo (p.44–45)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuantificacion-niveles-error-y-tipos-p4650" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cuantificación: niveles, error y tipos (p.46–50)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compansion-y-leyes-y-a-p5155-y-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compansión y leyes µ y A (p.51–55 y 60)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacion-p56" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Codificación (p.56)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mic-o-pcm-p5760-y-que-la-diferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MIC o PCM (p.57–60) y qué la diferencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delta-delta-adaptativa-y-pcm-diferencial-p6166" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Delta, delta adaptativa y PCM diferencial (p.61–66)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modem-frente-a-codec" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Módem frente a Codec
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gt-2-c2-muestreo-a-3-f-y-64-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GT 2 / C2: muestreo a 3 Δf y 64 niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicional-9-2-senales-de-tv-512-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adicional 9: 2 señales de TV, 512 niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mas-ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Más ejercicios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preguntas-de-multiplexion-del-tp8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Preguntas de multiplexión del TP8
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulacion-por-pulsos-variante-analogica-p3843" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modulación por pulsos, variante analógica (p.38–43)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#los-tres-pasos-y-el-muestreo-p4445" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Los tres pasos y el muestreo (p.44–45)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuantificacion-niveles-error-y-tipos-p4650" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cuantificación: niveles, error y tipos (p.46–50)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compansion-y-leyes-y-a-p5155-y-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Compansión y leyes µ y A (p.51–55 y 60)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacion-p56" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Codificación (p.56)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mic-o-pcm-p5760-y-que-la-diferencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        MIC o PCM (p.57–60) y qué la diferencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delta-delta-adaptativa-y-pcm-diferencial-p6166" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Delta, delta adaptativa y PCM diferencial (p.61–66)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modem-frente-a-codec" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Módem frente a Codec
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gt-2-c2-muestreo-a-3-f-y-64-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GT 2 / C2: muestreo a 3 Δf y 64 niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adicional-9-2-senales-de-tv-512-niveles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Adicional 9: 2 señales de TV, 512 niveles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mas-ejercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Más ejercicios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preguntas-de-multiplexion-del-tp8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Preguntas de multiplexión del TP8
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-modulacion-analogica.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U4
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="digitalizacion-pcm-y-delta">Digitalización: PCM y Delta<a class="headerlink" href="#digitalizacion-pcm-y-delta" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U4 · modulación por pulsos y digitalización: <code>Unidad-IV-1</code> p.38–66. Alcance del 2.º parcial: inferido (entra con el TP8), no confirmado por la cátedra. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=44" title="Hay tres pasos en la digitalización">Unidad IV-1 p.44</a></p>
+<ul>
+<li>TP8 de la guía: C2, C9, C11 y C13 a C18 de <code>Comunicaciones-TP08</code>, y el adicional 9 de <code>Clase-TP-08-RTAS</code>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=2" title="Este dispositivo utiliza 15 niveles cuánticos uniformes. Hallar:">TP08 guía p.2</a></li>
+<li>nota teoria 2026-09-01 06:59 PM: "vimos todo lo que es modulación y digitalización de señales" (la digitalización se dio antes de multiplexación).</li>
+<li>nota teoria 2026-09-01 07:42 PM: "Vieron este modulación por impulsos codificados" (el docente remite a PCM al llegar a TDM: ver <a href="04-multiplexacion.html">Multiplexación</a>).</li>
+<li>No hay nota de la clase en que se dio la digitalización. Los hechos técnicos salen de los PDF.</li>
+<li><strong>Esta página no repite lo que ya está en otras:</strong><ul>
+<li><a href="04-multiplexacion.html">Multiplexación</a> (P6): PCM de 64 kbit/s, E1 y T1, RTAS ej. 1 (PCM de 4 kHz con 128 y 256 niveles), adicionales 8 y 10, y GT 11 y GT 12 a y b.</li>
+<li><a href="../repaso-teorico-u1-u4.html">Repaso teórico U1–U4</a> (P7): respuestas breves U4-01 (módem y Codec), U4-10 y U4-11 (pulsos), U4-12 (pasos), U4-13 (Nyquist), U4-14 y U4-15 (cuantificación), U4-16 (PCM) y U4-17 (delta). Acá va el desarrollo de la diapositiva.</li>
+<li><a href="02-modulacion-digital.html">Modulación digital</a> (P14): ASK, FSK, PSK y QAM (el módem). U4-03, el árbol de modulaciones, está ahí.</li>
+<li><a href="../u6/01-capacidad-canal.html">Capacidad del canal</a> (P10): Shannon-Hartley y niveles máximos, que usa GT 2.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Digitalizar una señal analógica son tres pasos: <strong>muestreo, cuantificación y codificación</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=44" title="Hay tres pasos en la digitalización">Unidad IV-1 p.44</a></li>
+<li><strong>Nyquist:</strong> se muestrea a <span class="arithmatex">\(f_m\ge 2f_{\max}\)</span>. En telefonía, 8.000 muestras por segundo. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=45" title="se muestrea a una frecuencia igual o mayor a 2 fmax, la">Unidad IV-1 p.45</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Se generan 8.000 muestras por segundo">Unidad IV-1 p.59</a></li>
+<li><strong>PCM (MIC):</strong> <span class="arithmatex">\(V_t=f_{muestreo}\cdot\text{bits por muestra}\)</span>. Ley A: 8 bits, 64 kbit/s. Ley µ: 7 bits, 56 kbit/s. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 8 bits = 64 kbps">Unidad IV-1 p.59</a></li>
+<li>La cuantificación <strong>no uniforme</strong> (compansión, leyes µ y A) busca una relación señal/ruido de cuantificación constante. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="El objetivo es tener una relación señal/ruido de cuantificación">Unidad IV-1 p.52</a></li>
+<li><strong>Delta</strong> manda un impulso por muestra (sube o baja) y tiene dos problemas: ruido granular y sobrecarga de pendiente. La delta adaptativa los resuelve; la PCM diferencial manda la diferencia cuantificada. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=64" title="la modulación delta: el ruido granular y la sobrecarga de">Unidad IV-1 p.64</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nyquist</td>
+<td><span class="arithmatex">\(f_{m\,\min}=2f_{\max}\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=45" title="fig: fmmin = 2 fmax">Unidad IV-1 p.45</a></td>
+</tr>
+<tr>
+<td>Muestreo telefónico</td>
+<td><span class="arithmatex">\(2\cdot 4\ \mathrm{kHz}=8\ \mathrm{kHz}\)</span> = 8.000 muestras/s</td>
+<td>muestras/s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Se generan 8.000 muestras por segundo">Unidad IV-1 p.59</a></td>
+</tr>
+<tr>
+<td>Bits por muestra</td>
+<td><span class="arithmatex">\(\text{bits}=\log_2 N\)</span> (<span class="arithmatex">\(N\)</span> niveles)</td>
+<td>bit</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Bits x muestra = Log2 (64) = 6 bits">Guía TP8 teoría p.1</a></td>
+</tr>
+<tr>
+<td>Velocidad PCM</td>
+<td><span class="arithmatex">\(V_t=f_{muestreo}\cdot\text{bits por muestra}\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="VtPCM = FrecuenciaMuestreo * BitsPorMuestra">Guía TP8 teoría p.4</a></td>
+</tr>
+<tr>
+<td>Tiempo de bit</td>
+<td><span class="arithmatex">\(t_{bit}=1/V_t\)</span></td>
+<td>s</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="TiempoBit = DuraciónBit = 1 / 8.000 bps">Guía TP8 teoría p.4</a></td>
+</tr>
+<tr>
+<td>Período y pulsación</td>
+<td><span class="arithmatex">\(T=1/f\)</span>; <span class="arithmatex">\(\omega=2\pi f\)</span></td>
+<td>s; rad/s; Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="fig: ωm = 2000 π radianes/seg; ωm = 2 π fm; fm = ωm / 2 π; fm = 1000Hz">Guía TP8 teoría p.3</a></td>
+</tr>
+<tr>
+<td>PCM europeo (ley A)</td>
+<td><span class="arithmatex">\(8000\cdot 8=64\)</span> kbit/s; 256 niveles (<span class="arithmatex">\(2^8\)</span>)</td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 8 bits = 64 kbps">Unidad IV-1 p.59</a></td>
+</tr>
+<tr>
+<td>PCM americano (ley µ)</td>
+<td><span class="arithmatex">\(8000\cdot 7=56\)</span> kbit/s; 128 niveles (<span class="arithmatex">\(2^7\)</span>)</td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 7 bits = 56 kbps">Unidad IV-1 p.59</a></td>
+</tr>
+<tr>
+<td>S/N en dB</td>
+<td><span class="arithmatex">\(S/N\,[\mathrm{dB}]=10\log_{10}(S/N)\)</span></td>
+<td>dB; S/N en veces</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="S/N [dB] = 10 ∙ Log10">Guía TP8 teoría p.2</a></td>
+</tr>
+<tr>
+<td>Capacidad con ruido, forma de la cátedra (Sh)</td>
+<td><span class="arithmatex">\(C=2\Delta f'\,\log_2(1+S/N)^{1/2}=\Delta f'\log_2(1+S/N)\)</span></td>
+<td>bit/s; Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: Capacidad de Canal = 2Δf' · Log2 (1+S/N) elevado a 1/2">Guía TP8 teoría p.1</a></td>
+</tr>
+<tr>
+<td>Capacidad con <span class="arithmatex">\(N\)</span> niveles (adicional 9)</td>
+<td><span class="arithmatex">\(C=2\,\Delta f\,\log_2 N\)</span>, que la resolución rotula «fórmula de Nyquist»</td>
+<td>bit/s; Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Capacidad = 2 * Δf * log2 N">RTAS TP8 p.20</a></td>
+</tr>
+<tr>
+<td>Capacidad del vínculo PCM</td>
+<td><span class="arithmatex">\(C=V_t=\text{velocidad binaria}\cdot\text{cantidad de canales}\)</span> (cuentas en P6)</td>
+<td>bit/s</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=4" title="C = Vt = Velocidad Binaria * Cantidad de Canales">RTAS TP8 p.4</a></td>
+</tr>
+</tbody>
+</table>
+<p>Las fuentes imprimen el punto decimal (<code>108.37</code>, <code>0.001</code>); la guía escribe coma, como la cátedra. Ver Discrepancia 9.</p>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="modulacion-por-pulsos-variante-analogica-p3843">Modulación por pulsos, variante analógica (p.38–43)<a class="headerlink" href="#modulacion-por-pulsos-variante-analogica-p3843" title="Permanent link">&para;</a></h3>
+<p>La moduladora modifica un tren de pulsos portador. Se puede alterar la amplitud, el período o la posición del pulso. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=38" title="La señal moduladora modifica una señal portadora constituida">Unidad IV-1 p.38</a> Respuestas breves: <a href="../repaso-teorico-u1-u4.html">P7</a>, U4-10 y U4-11.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué varía</th>
+<th>Qué no cambia</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAM</td>
+<td>la amplitud</td>
+<td>duración y ubicación</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="varía su amplitud siguiendo la señal moduladora, sin cambiar la">Unidad IV-1 p.43</a></td>
+</tr>
+<tr>
+<td>PDM</td>
+<td>la duración: p.43 dice «la duración de su periodo» y titula «variación del ancho del pulso» (Discrepancia 12). Requiere mayor ancho de banda</td>
+<td>amplitud y ubicación</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="la señal de salida varía la duración de su periodo siguiendo la">Unidad IV-1 p.43</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="Requiere mayor ancho de banda.">Unidad IV-1 p.43</a></td>
+</tr>
+<tr>
+<td>PPM</td>
+<td>la posición: el pulso se retarda o avanza</td>
+<td>ancho y amplitud</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="la señal de salida se retarda o avanza siguiendo la señal">Unidad IV-1 p.43</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>PDM y PPM se usan en comunicaciones especiales y en aplicaciones militares. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="PDM y PPM se utilizan en comunicaciones especiales, y en">Unidad IV-1 p.43</a></li>
+<li>La figura de p.42 pone las tres juntas: el tren de la portadora, la moduladora analógica y debajo PAM (alturas que siguen la envolvente), PDM (el ancho cambia) y PPM (pulsos angostos que se corren). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=42" title="fig: tren de pulsos de la portadora, señal analógica de entrada de la moduladora, PAM por amplitud, PDM por duración y PPM por posición de pulsos">Unidad IV-1 p.42</a></li>
+<li><strong>Analógica o digital:</strong> si el tren toma infinitos valores es analógica (PAM, PDM, PPM). Si toma un número finito, es digital (PCM, delta, delta diferencial). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="El tren de pulsos puede ser modulado tomando infinitos">Unidad IV-1 p.40</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="El tren de pulsos puede ser modulado tomando un número">Unidad IV-1 p.40</a></li>
+<li><strong>Frente a la onda continua:</strong> potencia en ráfagas cortas, multiplexado y más calidad. Cuesta convertir analógico-digital-analógico, más ancho de banda para señales analógicas y sincronismo (respuesta breve: <a href="../repaso-teorico-u1-u4.html">P7</a>, U4-11). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=41" title="Permiten realizar procesos de multiplexado.">Unidad IV-1 p.41</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=41" title="Las señales digitales requieren sincronización del">Unidad IV-1 p.41</a></li>
+</ul>
+<h3 id="los-tres-pasos-y-el-muestreo-p4445">Los tres pasos y el muestreo (p.44–45)<a class="headerlink" href="#los-tres-pasos-y-el-muestreo-p4445" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Muestreo.</strong> Nyquist: si la energía está en un ancho de banda de frecuencia máxima <span class="arithmatex">\(f_{\max}\)</span> y se muestrea a <span class="arithmatex">\(2f_{\max}\)</span> o más, un filtro pasa bajos ideal recupera la señal. <span class="arithmatex">\(f_{m\,\min}=2f_{\max}\)</span> es la «frecuencia de Nyquist». Las muestras forman una señal PAM. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=45" title="se muestrea a una frecuencia igual o mayor a 2 fmax, la">Unidad IV-1 p.45</a></li>
+<li><strong>Cuantificación.</strong> Niveles de amplitud continuos pasan a niveles discretos. Ver abajo.</li>
+<li><strong>Codificación.</strong> Cada nivel pasa a un grupo de bits. Ver abajo.</li>
+</ol>
+<p>Es la respuesta a «Explique cada uno de los pasos para digitalizar una señal analógica». Los tres enunciados son de examen y ninguno trae resolución oficial impresa:</p>
+<ul>
+<li><a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Explique cada uno de los pasos para digitalizar una señal analógica.">2do Parcial 2022 (Arroyo) ej. 4 p.1</a> (pide no menos de 15 renglones: <a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Desarrollar la respuesta en no menos de 15 renglones.">p.1</a>);</li>
+<li><a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique los pasos para la digitalización de señales">Final 2020-12 Tema 3 n.4 p.1</a>;</li>
+<li><a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Explique los pasos para la digitalización de señales">Final 2021-02 Tema 3 n.4 p.1</a>.</li>
+</ul>
+<p>El período de muestreo es el tiempo entre muestras. Con <span class="arithmatex">\(f_{m}=2f_{\max}\)</span> caben dos muestras por ciclo de la señal más rápida. En la figura de p.49, <span class="arithmatex">\(T_m\)</span> rotula los instantes de muestreo y <span class="arithmatex">\(f_m=1/T_m\)</span>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=49" title="fig: curva A del cuantificador, pulsos modulados en amplitud y cuantificados, instantes de muestreo con Tm y fm = 1/Tm, error de cuantificación como diferencia entre la señal analógica y los pulsos cuánticos">Unidad IV-1 p.49</a> Ojo con la notación de GT 4 (Discrepancia 1).</p>
+<h3 id="cuantificacion-niveles-error-y-tipos-p4650">Cuantificación: niveles, error y tipos (p.46–50)<a class="headerlink" href="#cuantificacion-niveles-error-y-tipos-p4650" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Qué es:</strong> transforma los niveles de amplitud continuos en un conjunto de niveles discretos (nivel cuántico o escalón), potencias de 2: 64, 128 o 256. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=46" title="Es la transformación de los niveles de amplitud continuos de">Unidad IV-1 p.46</a> Son 6, 7 y 8 bits por muestra.</li>
+<li><strong>Error de cuantificación:</strong> diferencia entre la señal de entrada <span class="arithmatex">\(S(t)\)</span> y su versión cuantificada <span class="arithmatex">\(C(t)\)</span>. También se llama ruido o distorsión por cuantificación. Hay pérdida de información: no se puede reconstruir exactamente la señal. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=47" title="Error de cuantificación es la diferencia entre:">Unidad IV-1 p.47</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=47" title="La cuantificación implica una pérdida de información y será">Unidad IV-1 p.47</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Uniforme o lineal</th>
+<th>No uniforme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Niveles</td>
+<td>todos de la misma medida. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=48" title="Cuantificación uniforme o lineal: los distintos niveles cuánticos">Unidad IV-1 p.48</a></td>
+<td>comprimidos cerca de cero, expandidos hacia los extremos. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=50" title="comprimen en proximidades al valor cero y se expanden hacia">Unidad IV-1 p.50</a></td>
+</tr>
+<tr>
+<td>Error</td>
+<td>constante, independiente de la señal; no apta para señales de bajo nivel. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=48" title="No es apta para señales de bajo nivel porque el error de">Unidad IV-1 p.48</a></td>
+<td>menor en señales pequeñas</td>
+</tr>
+<tr>
+<td>Cómo se logra</td>
+<td>un solo cuantificador</td>
+<td>compresor y luego cuantificador uniforme. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=50" title="Equivale a hacer pasar la señal por un compresor y luego">Unidad IV-1 p.50</a></td>
+</tr>
+</tbody>
+</table>
+<p>Respuesta oficial impresa del <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Rta: Uniforme o Lineal: Niveles cuánticos con la misma medida.">Final 2022-09 ej. 2 p.1</a>: uniforme o lineal con niveles de la misma medida y elevado número de niveles (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Uso de un elevado número de niveles.">Final 2022-09 p.1</a>); no uniforme (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="No Uniforme: Niveles cuánticos variables.">Final 2022-09 p.1</a>) con niveles variables y compansión; ley µ americana de 15 segmentos y ley A europea de 13 (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Americana de 15 segmentos y Ley A Europea de 13 segmentos">p.1</a>).</p>
+<h3 id="compansion-y-leyes-y-a-p5155-y-60">Compansión y leyes µ y A (p.51–55 y 60)<a class="headerlink" href="#compansion-y-leyes-y-a-p5155-y-60" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Compansión:</strong> comprimir la señal en la fuente y expandirla en el destino con una ley logarítmica. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=51" title="Consiste en comprimir la señal en la fuente y expandirla en el">Unidad IV-1 p.51</a></li>
+<li><strong>Leyes µ y A,</strong> definidas por la UIT-T en G.711, aproximadas por segmentos de recta: A en 13, µ en 15. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="Se usan dos tipos de leyes de características logarítmicas">Unidad IV-1 p.52</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=53" title="fig: leyes de cuantificación UIT G.711, curvas mu-law y A-law entre -1 y 1; Ley µ 15 segmentos americana; Ley A 13 segmentos europea">Unidad IV-1 p.53</a></li>
+<li><strong>Objetivo:</strong> relación señal/ruido de cuantificación constante. Señal pequeña: más niveles y menos ruido. Señal alta: menos niveles y más ruido, con la misma relación. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="Cuando la señal es pequeña se toman más niveles cuánticos,">Unidad IV-1 p.52</a></li>
+<li><strong>Código de la ley A:</strong> 8 bits. <span class="arithmatex">\(n_1\)</span> es la polaridad (1 = +, 0 = −), <span class="arithmatex">\(n_2\)</span> a <span class="arithmatex">\(n_4\)</span> el segmento y <span class="arithmatex">\(n_5\)</span> a <span class="arithmatex">\(n_8\)</span> el nivel dentro del segmento. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=55" title="fig: tabla Codificación de segmentos Ley A, código de 8 bits: n1 polaridad 1 más 0 menos, n2 a n4 segmento, n5 a n8 nivel dentro del segmento">Unidad IV-1 p.55</a></li>
+<li><strong>Para PCM:</strong> ley A (Europa y América del Sur), 256 niveles y 8 bits por muestra; ley µ (EEUU y Japón), 128 niveles y 7 bits por muestra. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=60" title="fig: Digitalización para PCM; ley A Europa y América del Sur 256 niveles 8 bits por muestra; ley µ EEUU y Japón 128 niveles 7 bits por muestra">Unidad IV-1 p.60</a> Este es el criterio de P7 (U4-16). Ver Discrepancia 5.</li>
+<li><strong>Límite de las fuentes:</strong> las diapositivas dan las curvas, los segmentos y la tabla de la ley A, pero no las expresiones de compresión ni la tabla de la ley µ. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="En la práctica se usa una aproximación por trazos que divide las">Unidad IV-1 p.52</a> No se inventan.</li>
+</ul>
+<h3 id="codificacion-p56">Codificación (p.56)<a class="headerlink" href="#codificacion-p56" title="Permanent link">&para;</a></h3>
+<p>Convierte los pulsos cuantificados en un grupo de pulsos binarios de amplitud constante, según una tabla. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=56" title="Convierte los pulsos cuantificados en un grupo de pulsos">Unidad IV-1 p.56</a> En la lámina, una tabla de 8 niveles (0 a 7 V ↔ 000 a 111) codifica los pulsos 7, 6, 4 y 5 como 111, 110, 100 y 101. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=56" title="fig: pulsos cuantificados 7, 6, 4 y 5 y pulsos codificados 111 110 100 101; tabla de niveles 0 a 7 volts con códigos 000 a 111">Unidad IV-1 p.56</a> El ejemplo resuelto arma la tabla de 15 niveles.</p>
+<h3 id="mic-o-pcm-p5760-y-que-la-diferencia">MIC o PCM (p.57–60) y qué la diferencia<a class="headerlink" href="#mic-o-pcm-p5760-y-que-la-diferencia" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PCM (MIC):</strong> transmisión de información analógica como señales digitales, con un proceso continuo de muestreo, cuantificación y codificación. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=57" title="Transmisión de información analógica en forma de señales">Unidad IV-1 p.57</a></li>
+<li><strong>Transmisor,</strong> cuatro etapas: filtros pasa bajos, muestreador, cuantificador y codificador. <strong>Receptor,</strong> tres: regeneración, decodificador y filtro de reconstrucción. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=57" title="El transmisor tiene cuatro etapas:">Unidad IV-1 p.57</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=57" title="El receptor tiene tres etapas:">Unidad IV-1 p.57</a></li>
+<li><strong>Diagrama completo:</strong> ETD fuente, filtro, muestreador, cuantificador y codificador, canal con repetidores regenerativos, decodificador, regeneración, filtro de reconstrucción y ETD colector. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=58" title="fig: diagrama PCM con ETD fuente, filtro pasa bajos, muestreador, cuantificador, codificación, repetidores regenerativos, decodificador, circuito de regeneración y filtro de reconstrucción, ETD colector">Unidad IV-1 p.58</a></li>
+<li><strong>Velocidad:</strong> filtro de 4 kHz y 8.000 muestras/s; 8 bits (256 niveles) en el europeo y 7 bits (128 niveles) en el americano. Las cuentas, 64 y 56 kbit/s, están en la tabla de Definiciones. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 8 bits = 64 kbps">Unidad IV-1 p.59</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 7 bits = 56 kbps">Unidad IV-1 p.59</a> Cómo se multiplexan (E1, T1) y la diferencia 56/64: <a href="04-multiplexacion.html">P6</a>.</li>
+<li><strong>Qué diferencia a la MIC (C11 / GT 7).</strong> Respuesta oficial: la MIC, Modulación por Impulsos Codificados (también PCM), se diferencia del resto en que representa la información de la señal digitalizada mediante códigos discretos y determinados para cada nivel de cuantificación asignado. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="señal digitalizada mediante códigos discretos y determinados para cada">Guía TP8 teoría p.5</a> La diapositiva agrupa a la MIC con la delta como modulación por pulsos digital (Discrepancia 4): lo que la distingue de la delta es que codifica <strong>cada muestra cuantificada</strong> con una palabra de <span class="arithmatex">\(n\)</span> bits.</li>
+</ul>
+<h3 id="delta-delta-adaptativa-y-pcm-diferencial-p6166">Delta, delta adaptativa y PCM diferencial (p.61–66)<a class="headerlink" href="#delta-delta-adaptativa-y-pcm-diferencial-p6166" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Delta (DM):</strong> genera una onda escalonada <span class="arithmatex">\(s(t)\)</span> que sigue a la entrada <span class="arithmatex">\(e(t)\)</span>. Manda impulsos de igual polaridad si la señal crece y de polaridad contraria si disminuye. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=61" title="Consiste en generar una onda escalonada que siga las">Unidad IV-1 p.61</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=61" title="Se emplean impulsos de igual polaridad si crece la señal, o de">Unidad IV-1 p.61</a></li>
+<li><strong>Figura de p.61:</strong> la escalera tiene tres tramos rotulados «Arranque», «Persecución» y «Sobrecarga de pendiente». Debajo, <span class="arithmatex">\(p(t)\)</span> trae impulsos hacia arriba cuando la señal sube y hacia abajo cuando baja, separados por <span class="arithmatex">\(T_s\)</span>. La lámina rotula los dos sentidos «- A» (sin «+A»). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=61" title="fig: e(t) y escalera s(t) con arranque, persecución y sobrecarga de pendiente; p(t) con impulsos hacia arriba y hacia abajo, rótulos - A y - A, separados Ts">Unidad IV-1 p.61</a></li>
+<li><strong>Modulador (p.62–63):</strong> un amplificador diferencial resta la escalera realimentada <span class="arithmatex">\(s(t)\)</span> a la entrada <span class="arithmatex">\(e(t)\)</span> y da <span class="arithmatex">\(A(t)\)</span>. Con los pulsos <span class="arithmatex">\(d(t)\)</span> del generador, el modulador de pulsos entrega <span class="arithmatex">\(p(t)\)</span>. Un integrador de <span class="arithmatex">\(p(t)\)</span> produce <span class="arithmatex">\(s(t)\)</span>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=62" title="fig: diagrama del modulador delta, entrada e(t), amplificador diferencial, A(t), generador de pulsos d(t), modulador de pulsos, p(t) salida, integrador y s(t)">Unidad IV-1 p.62</a></li>
+<li><strong>Delta adaptativa:</strong> resuelve el ruido granular y la sobrecarga de pendiente, que nacen del tamaño del escalón. Ajusta el escalón según la variación de la entrada. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=64" title="la modulación delta: el ruido granular y la sobrecarga de">Unidad IV-1 p.64</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=64" title="La modulación delta adaptativa ajusta este valor en función de">Unidad IV-1 p.64</a> En la figura la altura del escalón varía entre <span class="arithmatex">\(A_{\min}\)</span> y <span class="arithmatex">\(A_{\max}\)</span>.</li>
+<li><strong>PCM diferencial (DPCM):</strong> otros nombres de la misma modulación: «Modulación Delta Diferencial» (p.40), «Modulación diferencial CM o de Q niveles» (p.5, árbol de modulaciones) y «DPCM» (p.6, tabla de tipos). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=5" title="fig: árbol de métodos de modulación; en modulación por pulsos digital: PCM, delta, delta adaptativa y Modulación diferencial CM o de Q niveles">Unidad IV-1 p.5</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=6" title="fig: tabla Tipos de modulación; por pulsos digital: PCM (MIC), DPCM, DELTA, DELTA ADAPTIVA">Unidad IV-1 p.6</a> Combina la delta con la codificación PCM. Reemplaza el modulador de pulsos por un cuantificador-muestreador: los pulsos tienen la polaridad de los de la delta y amplitud proporcional a la diferencia entre la entrada y la escalera. Cada muestra de error cuantificada se transmite como palabra código de <span class="arithmatex">\(n\)</span> bits. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=65" title="Combina la modulación delta con la codificación PCM.">Unidad IV-1 p.65</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=66" title="fig: modulación PCM diferencial DPCM, diagrama delta con bloque Muestreador Cuantificador y Codificador a la salida; P(t) con amplitud proporcional a la diferencia entre e(t) y s(t), transmitida codificada">Unidad IV-1 p.66</a></li>
+<li><strong>Límite de las fuentes:</strong> no hay definición escrita del ruido granular ni ejercicio numérico de delta, PAM/PDM/PPM o DPCM. No se inventan.</li>
+</ul>
+<h3 id="modem-frente-a-codec">Módem frente a Codec<a class="headerlink" href="#modem-frente-a-codec" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Red</th>
+<th>Equipo</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analógica (señal digital)</td>
+<td><strong>Modem</strong></td>
+<td>modula una portadora: técnicas de modulación (<a href="02-modulacion-digital.html">P14</a>)</td>
+</tr>
+<tr>
+<td>Digital (señal analógica)</td>
+<td><strong>Codec</strong></td>
+<td>digitaliza: muestreo, cuantificación y codificación (esta página)</td>
+</tr>
+</tbody>
+</table>
+<p>La pregunta se repitió en tres finales (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Qué equipo se utiliza para transmitir una señal analógica en una">Final 2020-12 Tema 2 n.1 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Qué equipo se utiliza para transmitir una señal analógica en una">Final 2021-02 Tema 1 n.1 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Qué equipo se utiliza para transmitir una señal analógica en una">Final 2022-09 n.1 p.1</a>). Solo el de 2022-09 trae la respuesta oficial impresa: «Rta: Red analógica Modem (técnicas de modulación), red digital Codec (Digitalización de señales analógicas)». <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Rta: Red analógica Modem">Final 2022-09 p.1</a> Apoyo de teoría: <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=5" title="misma debe ser digitalizada mediante un equipo codec">Unidad II-1 p.5</a>. Respuesta breve: <a href="../repaso-teorico-u1-u4.html">P7</a>, U4-01.</p>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>CODEC de 15 niveles: <code>Comunicaciones-TP08</code> ej. 9 a–e = <code>GUIA-TP-08-Teoria-Preguntas</code> 4 (a–d) y 5 (e). Enunciado: señal <span class="arithmatex">\(e(t)=E\operatorname{sen}\omega_m t\)</span> con <span class="arithmatex">\(E=7\)</span> V y <span class="arithmatex">\(\omega_m=2000\pi\)</span> rad/s, digitalizada con un CODEC de 15 niveles cuánticos uniformes. Hallar la frecuencia de muestreo mínima, <span class="arithmatex">\(T_m\)</span> y <span class="arithmatex">\(T_M\)</span>, los niveles en voltios con su código, un código de reserva, y el tiempo de bit y la velocidad a la salida. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="debe ser digitalizada mediante un CODEC. Este dispositivo utiliza 15 niveles cuánticos">Guía TP8 teoría p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="Partiendo del ejercicio anterior: ¿Cuál es el tiempo de bit y la">Guía TP8 teoría p.4</a></p>
+<p>Resolución oficial (Guía TP8 teoría, RTAS p.3–4), con coma decimal.</p>
+<p><strong>Paso 1 (a). Frecuencia de muestreo.</strong> Acá <span class="arithmatex">\(f_m\)</span> es la frecuencia de la moduladora (en el resto de la página, la de muestreo; Discrepancia 1). <span class="arithmatex">\(\omega_m=2\pi f_m\)</span>, entonces <span class="arithmatex">\(f_m=\omega_m/2\pi=1000\)</span> Hz. Por Nyquist, <span class="arithmatex">\(F_M=2\Delta f\)</span>: <strong>2000 muestras/s</strong>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="FM = 2000 muestras por segundo">Guía TP8 teoría p.3</a></p>
+<p><strong>Paso 2 (b). Períodos.</strong> <span class="arithmatex">\(T_m=1/f_m=0{,}001\)</span> s (período de la moduladora, un ciclo de la senoidal). <span class="arithmatex">\(T_M=1/F_M=0{,}0005\)</span> s (período de muestreo, tiempo entre muestras). La resolución solo rotula «Período Moduladora» y «Período Muestreo»; el significado es lectura de la guía desde Unidad IV-1 p.45 y p.49. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="Tm = 0.001 Seg">Guía TP8 teoría p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="TM = 0.0005 Seg">Guía TP8 teoría p.3</a> Ver Discrepancia 1.</p>
+<p><strong>Paso 3 &copy;. Niveles y códigos.</strong> Quince niveles de 1 V de paso entre −7 V y +7 V. Hacen falta 4 bits: <span class="arithmatex">\(2^3=8&lt;15\le 16=2^4\)</span>. El código es el índice del nivel menos 1, en binario de 4 bits creciente. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="fig: tabla de asignación Nivel, Amplitud, Código; 15 filas de -7 Volt 0000 a 7 Volt 1110">Guía TP8 teoría p.3</a></p>
+<table>
+<thead>
+<tr>
+<th>Nivel</th>
+<th>Amplitud</th>
+<th>Código</th>
+<th>Nivel</th>
+<th>Amplitud</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>−7 V</td>
+<td>0000</td>
+<td>9</td>
+<td>1 V</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>−6 V</td>
+<td>0001</td>
+<td>10</td>
+<td>2 V</td>
+<td>1001</td>
+</tr>
+<tr>
+<td>3</td>
+<td>−5 V</td>
+<td>0010</td>
+<td>11</td>
+<td>3 V</td>
+<td>1010</td>
+</tr>
+<tr>
+<td>4</td>
+<td>−4 V</td>
+<td>0011</td>
+<td>12</td>
+<td>4 V</td>
+<td>1011</td>
+</tr>
+<tr>
+<td>5</td>
+<td>−3 V</td>
+<td>0100</td>
+<td>13</td>
+<td>5 V</td>
+<td>1100</td>
+</tr>
+<tr>
+<td>6</td>
+<td>−2 V</td>
+<td>0101</td>
+<td>14</td>
+<td>6 V</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>7</td>
+<td>−1 V</td>
+<td>0110</td>
+<td>15</td>
+<td>7 V</td>
+<td>1110</td>
+</tr>
+<tr>
+<td>8</td>
+<td>0 V</td>
+<td>0111</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Paso 4 (d). Reserva.</strong> Sobra una combinación: <strong>1111</strong>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="Código disponible de reserva: 1111">Guía TP8 teoría p.3</a></p>
+<p><strong>Paso 5 (e). Salida del CODEC.</strong> <span class="arithmatex">\(V_{tPCM}=F_M\cdot\log_2(16)=2000\cdot 4=\)</span> <strong>8.000 bit/s</strong>. <span class="arithmatex">\(t_{bit}=1/8000=\)</span> <strong>125 µs</strong>. La resolución usa <span class="arithmatex">\(\log_2(16)\)</span> y no <span class="arithmatex">\(\log_2(15)\)</span>: son los 16 códigos de 4 bits. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="VtPCM = 2000 * log2 (16) = 8.000 bps">Guía TP8 teoría p.4</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="TiempoBit = DuraciónBit = 1 / 8.000 bps">Guía TP8 teoría p.4</a> El enunciado de GT 5 está marcado «Corregido» en la fuente.</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>15 niveles no son 3 bits ni una potencia de 2.</strong> Hacen falta 4 bits, sobra el código 1111 y la velocidad se calcula con <span class="arithmatex">\(\log_2 16=4\)</span>, no con <span class="arithmatex">\(\log_2 15\)</span>. La diapositiva dice que los niveles son potencias de 2 (64, 128, 256): el CODEC de 15 niveles es un caso con reserva (Discrepancia 2). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=46" title="Es la transformación de los niveles de amplitud continuos de">Unidad IV-1 p.46</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong><span class="arithmatex">\(T_m\)</span>, <span class="arithmatex">\(T_M\)</span> y <span class="arithmatex">\(f_m\)</span> no significan lo mismo en GT 4 y en la diapositiva.</strong> En GT 4, <span class="arithmatex">\(T_m\)</span> es el período de la moduladora, <span class="arithmatex">\(T_M\)</span> el de muestreo y <span class="arithmatex">\(f_m\)</span> la frecuencia de la moduladora (1000 Hz). En p.49, <span class="arithmatex">\(T_m\)</span> es el período de muestreo y <span class="arithmatex">\(f_m=1/T_m\)</span> la frecuencia de muestreo. Definí cada símbolo antes de usarlo (Discrepancia 1). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=49" title="fig: curva A del cuantificador, pulsos modulados en amplitud y cuantificados, instantes de muestreo con Tm y fm = 1/Tm, error de cuantificación como diferencia entre la señal analógica y los pulsos cuánticos">Unidad IV-1 p.49</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>GT 2 muestrea a <span class="arithmatex">\(3\Delta f\)</span>, no a <span class="arithmatex">\(2\Delta f\)</span>.</strong> Es un dato del enunciado, no una contradicción de Nyquist (que pide <span class="arithmatex">\(2f_{\max}\)</span> o más). Y la S/N que entra en la fórmula va en veces; los dB se calculan al final. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Suponer una señal analógica que se muestrea a una f muestreo">Guía TP8 teoría p.1</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Adicional 9: el 6 es MHz y hay que multiplicar por las dos señales.</strong> La resolución escribe <code>2 * 6 * log2 512</code> sin unidades y da 108 Mbps por señal; el enlace lleva 2: 216 Mbps. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Capacidad = 108 Mbps * 2">RTAS TP8 p.20</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Módem y Codec van al revés que el orden del enunciado.</strong> El enunciado pregunta primero por la señal analógica en red digital (Codec) y después por la digital en red analógica (Modem). La respuesta oficial va por tipo de red: analógica, Modem; digital, Codec. <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Rta: Red analógica Modem">Final 2022-09 p.1</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>MIC, delta y delta diferencial son las tres «por pulsos digital».</strong> No digas que solo la MIC es digital: lo que la distingue es que codifica cada muestra cuantificada con <span class="arithmatex">\(n\)</span> bits (Discrepancia 4). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="El tren de pulsos puede ser modulado tomando un número">Unidad IV-1 p.40</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración del TP8 en los tres documentos. Siglas: C = <code>Comunicaciones-TP08</code>; GT = <code>GUIA-TP-08-Teoria-Preguntas</code> (con sus respuestas, <code>…-Respuestas-RTAS</code>); RTAS = <code>Clase-TP-08-RTAS</code>, que numera igual que <code>GUIA-TP-08-Practica-Preguntas</code> (GP).</p>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>C</th>
+<th>GT</th>
+<th>GP = RTAS</th>
+<th>Dónde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muestreo a 3 Δf, 64 niveles, canal a la mitad</td>
+<td>2</td>
+<td>2</td>
+<td>—</td>
+<td>acá</td>
+</tr>
+<tr>
+<td>PCM con filtro de 4000 Hz</td>
+<td>3</td>
+<td>—</td>
+<td>1</td>
+<td><a href="04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>CODEC de 15 niveles</td>
+<td>9 a–e</td>
+<td>4 y 5</td>
+<td>—</td>
+<td>Ejemplo resuelto</td>
+</tr>
+<tr>
+<td>Qué diferencia a la MIC</td>
+<td>11</td>
+<td>7</td>
+<td>—</td>
+<td>Desarrollo</td>
+</tr>
+<tr>
+<td>Multiplexión: FDM, TDM, STDM, concentrador</td>
+<td>13 a 18</td>
+<td>9 a 14</td>
+<td>—</td>
+<td>tabla de abajo y <a href="04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>2 señales de TV, 512 niveles</td>
+<td>—</td>
+<td>—</td>
+<td>adic. 9</td>
+<td>acá</td>
+</tr>
+<tr>
+<td>12 señales, 6 bits</td>
+<td>—</td>
+<td>—</td>
+<td>adic. 10</td>
+<td><a href="04-multiplexacion.html">P6</a></td>
+</tr>
+</tbody>
+</table>
+<p>Enunciados que confirman la numeración: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Suponer una señal analógica que se muestrea a una f muestreo">TP08 guía p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas.pdf#page=1" title="Suponer una señal analógica que se muestrea a una f muestreo">Teoría TP8 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Se desea transmitir 2 señales de TV digitalizadas mediante un enlace PCM">RTAS TP8 p.20</a>.</p>
+<h3 id="gt-2-c2-muestreo-a-3-f-y-64-niveles">GT 2 / C2: muestreo a 3 Δf y 64 niveles<a class="headerlink" href="#gt-2-c2-muestreo-a-3-f-y-64-niveles" title="Permanent link">&para;</a></h3>
+<p><strong>Enunciado oficial.</strong> Una señal analógica se muestrea a <span class="arithmatex">\(f_{muestreo}=3\Delta f_{\max}\)</span> con 64 niveles de cuantificación. Si el ancho de banda del canal es la mitad del necesario, ¿cuál es la S/N? <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="que el ancho de banda del canal es la mitad del necesario">Guía TP8 teoría p.1</a> La <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Suponer una señal analógica que se muestrea a una f muestreo">guía C p.1</a> dice «3 f max» (Discrepancia 6).</p>
+<p><strong>Resolución oficial, con la forma de la cátedra tal cual</strong> (<code>Log2 (1+S/N)^1/2</code>): <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: Capacidad de Canal = 2Δf' · Log2 (1+S/N) elevado a 1/2">Guía TP8 teoría p.1</a></p>
+<ol>
+<li>Bits por muestra: <span class="arithmatex">\(\log_2 64=6\)</span>.</li>
+<li>Velocidad de transmisión: <span class="arithmatex">\(3\Delta f\cdot 6=18\Delta f\)</span>.</li>
+<li>Canal a la mitad: <span class="arithmatex">\(\Delta f'=\Delta f/2\)</span>. La fuente marca esto con un <code>[*]</code> rojo sin nota al pie.</li>
+<li>Capacidad del canal: <span class="arithmatex">\(18\Delta f=2\,\dfrac{\Delta f}{2}\,\log_2(1+S/N)^{1/2}\)</span>.</li>
+<li>El exponente <span class="arithmatex">\(1/2\)</span> sale como factor: <span class="arithmatex">\(18\Delta f=\dfrac{2\Delta f}{4}\log_2(1+S/N)=\dfrac{\Delta f}{2}\log_2(1+S/N)\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="fig: 18Δf = 2Δf/4 · Log2 (1+S/N)">Guía TP8 teoría p.2</a></li>
+<li>Despeje: <span class="arithmatex">\(\log_2(1+S/N)=18\Delta f\cdot 2/\Delta f=36\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="36 = Log2 (1+S/N)">Guía TP8 teoría p.2</a></li>
+<li><span class="arithmatex">\(S/N=2^{36}-1=\)</span> <strong>68.719.476.735</strong> veces. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="fig: 2 elevado a 36 menos 1 = S/N">Guía TP8 teoría p.2</a></li>
+<li>En dB: <span class="arithmatex">\(10\log_{10}(68\,719\,476\,735)\approx\)</span> <strong>108,37 dB</strong> (la fuente imprime <code>108.37</code>). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="S/N [dB] = 108.37 dB">Guía TP8 teoría p.2</a></li>
+</ol>
+<p>Cómo se lee la forma de la cátedra: <span class="arithmatex">\(\log_2(1+S/N)^{1/2}\)</span> es el log de los niveles máximos de Shannon, <span class="arithmatex">\(n_{\max}=(1+S/N)^{1/2}\)</span>. Entonces <span class="arithmatex">\(2\Delta f'\log_2 n_{\max}=\Delta f'\log_2(1+S/N)\)</span>, que es Shannon-Hartley (Sh) con el ancho de banda reducido. Concepto en <a href="../u6/01-capacidad-canal.html">P10</a>. Ver Discrepancia 11.</p>
+<h3 id="adicional-9-2-senales-de-tv-512-niveles">Adicional 9: 2 señales de TV, 512 niveles<a class="headerlink" href="#adicional-9-2-senales-de-tv-512-niveles" title="Permanent link">&para;</a></h3>
+<p><strong>Enunciado oficial.</strong> 2 señales de TV digitalizadas por un enlace PCM de 512 niveles de cuantificación por muestra. La señal original tiene <span class="arithmatex">\(\Delta f\)</span> de 6 MHz. Calcular la capacidad del canal. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="posee un Δf que se extiende a los 6 MHz.">RTAS TP8 p.20</a></p>
+<p><strong>Resolución oficial:</strong> <span class="arithmatex">\(C=2\cdot\Delta f\cdot\log_2 N\)</span> («fórmula de Nyquist»), <span class="arithmatex">\(C=2\cdot 6\cdot\log_2 512=108\)</span> Mbps. Como son 2 señales, <span class="arithmatex">\(108\cdot 2=216\)</span> Mbps. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Capacidad = 108 Mbps">RTAS TP8 p.20</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Capacidad = 216 Mbps">RTAS TP8 p.20</a></p>
+<p><strong>Lectura de la guía</strong> (coherente con PCM): <span class="arithmatex">\(2\cdot 6\)</span> MHz son 12 millones de muestras/s (Nyquist) y <span class="arithmatex">\(\log_2 512=9\)</span> bits por muestra. <span class="arithmatex">\(12\cdot 10^6\cdot 9=108\cdot 10^6\)</span> bit/s por señal; por dos, <span class="arithmatex">\(216\cdot 10^6\)</span> bit/s. Ver Discrepancia 8.</p>
+<h3 id="mas-ejercicios">Más ejercicios<a class="headerlink" href="#mas-ejercicios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RTAS ej. 1 (PCM de 4000 Hz, 128 y 256 niveles) y adicional 10 (12 señales): resueltos en <a href="04-multiplexacion.html">P6</a>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=6" title="Hallar la capacidad que debe tener el vínculo de salida del modulador.">RTAS TP8 p.6</a></li>
+<li>Preguntas de examen de la página (pasos de la digitalización; módem y Codec; tipos de cuantificación): enunciados y respuesta oficial en el Desarrollo.</li>
+</ul>
+<h3 id="preguntas-de-multiplexion-del-tp8">Preguntas de multiplexión del TP8<a class="headerlink" href="#preguntas-de-multiplexion-del-tp8" title="Permanent link">&para;</a></h3>
+<p>Las que <a href="04-multiplexacion.html">P6</a> no responde con la resolución oficial: GT 9, 10, 12 c, 13 y 14. P6 resuelve GT 11 y GT 12 a y b. Respuestas de la <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="se obtienen después de un proceso de multiplexión">Guía TP8 teoría p.5</a>, RTAS p.5–7.</p>
+<table>
+<thead>
+<tr>
+<th>C</th>
+<th>GT</th>
+<th>Pregunta</th>
+<th>Respuesta oficial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>9</td>
+<td>¿Qué señales (analógicas o digitales) se obtienen tras FDM y TDM?</td>
+<td><strong>FDM:</strong> sirve para señales analógicas y digitales; la resultante es analógica. <strong>TDM:</strong> sirve para señales digitales; la resultante es digital. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="La señal resultante de este proceso es Analógica.">p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="La señal resultante de este proceso es digital.">p.5</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>10</td>
+<td>Cuadro comparativo: multiplexor (FDM, TDM, STDM) y concentrador</td>
+<td>Cuadro de cuatro columnas, abajo (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="Asigna parte del ancho de banda en forma constante a cada subcanal.">p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=6" title="Reducción de costos a costa de una reducción de la calidad del">p.6</a>)</td>
+</tr>
+<tr>
+<td>16 c</td>
+<td>12 c</td>
+<td>Esquema c: seis entradas de 2400 bit/s y salida de 14400 bit/s. ¿Multiplexor o concentrador?</td>
+<td><strong>Multiplexor TDM</strong> (<span class="arithmatex">\(6\cdot 2400=14400\)</span>). Asigna slots de tiempo fijos a cada canal de entrada sin importar si lo usa. La capacidad otorgada a cada canal es fija, lo que lleva a costos innecesarios si el medio está infrautilizado. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="fig: esquema c con seis entradas de 2400 bps y salida de 14400 bps">p.7</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="asigna slots de tiempo fijos a cada canal de entrada sin">p.7</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>13</td>
+<td>¿En qué casos y bajo qué condición es un multiplexor STDM?</td>
+<td>Cuando los requerimientos de capacidad de los subcanales entrantes no son homogéneos y se busca aprovechar al máximo la capacidad del canal saliente. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="requerimientos de capacidades de los subcanales entrantes no son homogéneos">p.7</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>14</td>
+<td>Concentrador: calidad del servicio y ahorro cuando el primer término de la inecuación es igual al segundo</td>
+<td>Inecuación <span class="arithmatex">\(C_c\le\sum_i C_i\)</span> (<span class="arithmatex">\(C_c\)</span>: capacidad saliente; <span class="arithmatex">\(C_i\)</span>: la del subcanal <span class="arithmatex">\(i\)</span>). Cuanto menor la capacidad de salida, más ahorro a costa de calidad. Si son iguales no hay ahorro de costos, pero la calidad (QoS) queda inalterada y óptima para cada subcanal. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="Donde Cc es la capacidad salente del concentrador y Ci es la">p.7</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="inalterada y óptima para cada uno de los subcanales.">p.7</a></td>
+</tr>
+</tbody>
+</table>
+<p>Cuadro de GT 10 (C14), según la respuesta oficial:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>FDM</th>
+<th>TDM</th>
+<th>STDM</th>
+<th>Concentrador</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Señales</td>
+<td>analógicas y digitales</td>
+<td>digitales</td>
+<td>digitales</td>
+<td>digitales</td>
+</tr>
+<tr>
+<td>Resultante</td>
+<td>analógica</td>
+<td>digital</td>
+<td>digital</td>
+<td>digital</td>
+</tr>
+<tr>
+<td>Asignación</td>
+<td>parte del ancho de banda, constante, a cada subcanal</td>
+<td>todo el ancho de banda en intervalos fijos</td>
+<td>como TDM, con intervalos variables según estadística de uso</td>
+<td>toda la capacidad del canal en intervalos variables según el uso, con posible detrimento de la calidad</td>
+</tr>
+<tr>
+<td>Costo</td>
+<td>bajo</td>
+<td>más elevado</td>
+<td>mucho más elevado</td>
+<td>reducción de costos a costa de calidad</td>
+</tr>
+<tr>
+<td>Otros</td>
+<td>más apto para largas distancias; no usa todo el ancho de banda (separar canales por ruido de intermodulación)</td>
+<td>menos apto para largas distancias; uso más eficiente</td>
+<td>uso mucho más eficiente</td>
+<td>pensado para terminales de baja densidad de mensajes; mucho más eficiente en costos respecto de la capacidad de salida</td>
+</tr>
+</tbody>
+</table>
+<p>Fuentes: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="Asigna todo el ancho de banda en intervalos de tiempo fijo">Guía TP8 teoría p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="Uso mucho más eficiente del ancho de banda.">p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=6" title="Pensado para el uso de terminales con baja densidad de mensajes.">p.6</a>.</p>
+<p>C18 y GT 14 no piden lo mismo (Discrepancia 6): la respuesta oficial responde GT 14.</p>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Cuáles son los pasos de la digitalización y qué hace cada uno?</summary>
+<p>Muestreo (Nyquist, <span class="arithmatex">\(f_m\ge 2f_{\max}\)</span>; las muestras son una señal PAM), cuantificación (niveles discretos, con error de cuantificación) y codificación (cada nivel a un grupo de bits según una tabla). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=44" title="Hay tres pasos en la digitalización">Unidad IV-1 p.44</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=56" title="Convierte los pulsos cuantificados en un grupo de pulsos">Unidad IV-1 p.56</a></p>
+</details>
+<details class="question">
+<summary>¿Qué equipo transmite una señal analógica por una red digital y cuál una digital por una red analógica?</summary>
+<p>Red digital: Codec (digitaliza). Red analógica: Modem (modula). <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Rta: Red analógica Modem">Final 2022-09 p.1</a></p>
+</details>
+<details class="question">
+<summary>Un CODEC usa 15 niveles uniformes y una senoidal de 1000 Hz. ¿Cuántos bits por muestra, qué velocidad y qué tiempo de bit?</summary>
+<p>4 bits por muestra, con 1111 de reserva. Se muestrea a 2000 muestras/s: <span class="arithmatex">\(V_t=2000\cdot 4=8000\)</span> bit/s y <span class="arithmatex">\(t_{bit}=125\)</span> µs. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="VtPCM = 2000 * log2 (16) = 8.000 bps">Guía TP8 teoría p.4</a></p>
+</details>
+<details class="question">
+<summary>¿Por qué se usa cuantificación no uniforme y qué es la compansión?</summary>
+<p>La uniforme tiene error constante y no sirve para señales de bajo nivel. La no uniforme comprime los niveles cerca de cero. Comprimir en la fuente y expandir en el destino con una ley logarítmica (µ o A, UIT-T G.711) mantiene constante la relación señal/ruido de cuantificación. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="El objetivo es tener una relación señal/ruido de cuantificación">Unidad IV-1 p.52</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=48" title="No es apta para señales de bajo nivel porque el error de">Unidad IV-1 p.48</a></p>
+</details>
+<details class="question">
+<summary>¿Qué diferencia a la MIC del resto de las modulaciones?</summary>
+<p>Representa la señal digitalizada con códigos discretos y determinados para cada nivel de cuantificación. Cada muestra cuantificada va como una palabra de <span class="arithmatex">\(n\)</span> bits. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="señal digitalizada mediante códigos discretos y determinados para cada">Guía TP8 teoría p.5</a></p>
+</details>
+<details class="question">
+<summary>¿Qué problemas tiene la modulación delta y cómo los resuelve la adaptativa?</summary>
+<p>Ruido granular y sobrecarga de pendiente, ambos por el tamaño del escalón. La adaptativa ajusta el escalón según la variación de la entrada. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=64" title="la modulación delta: el ruido granular y la sobrecarga de">Unidad IV-1 p.64</a></p>
+</details>
+<details class="question">
+<summary>¿En qué casos un multiplexor es STDM y qué pasa en un concentrador si las capacidades de entrada y salida son iguales?</summary>
+<p>STDM: requerimientos no homogéneos de los subcanales y se busca aprovechar al máximo el canal de salida. Concentrador con <span class="arithmatex">\(C_c=\sum C_i\)</span>: sin ahorro de costos, QoS inalterada. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="aprovechar al máximo la capacidad del canal saliente.">Guía TP8 teoría p.7</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué hace la guía</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="arithmatex">\(T_m\)</span> y <span class="arithmatex">\(T_M\)</span></td>
+<td>La diapositiva rotula los instantes de muestreo con <span class="arithmatex">\(T_m\)</span> y escribe <span class="arithmatex">\(f_m=1/T_m\)</span> (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=49" title="fig: curva A del cuantificador, pulsos modulados en amplitud y cuantificados, instantes de muestreo con Tm y fm = 1/Tm, error de cuantificación como diferencia entre la señal analógica y los pulsos cuánticos">Unidad IV-1 p.49</a>). GT 4 usa <span class="arithmatex">\(T_m\)</span> para el período de la moduladora y <span class="arithmatex">\(T_M\)</span> para el de muestreo (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="Tm = 0.001 Seg">p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="TM = 0.0005 Seg">p.3</a>)</td>
+<td>No cambia ningún resultado. También <span class="arithmatex">\(f_m\)</span> cambia de significado: frecuencia de muestreo en la diapositiva, de la moduladora en GT 4. Manda la diapositiva; el ejemplo usa la notación de GT 4 y la define</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Niveles potencias de 2 contra 15 niveles</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=46" title="Es la transformación de los niveles de amplitud continuos de">Unidad IV-1 p.46</a> dice potencias de 2 (64, 128, 256); GT 4 usa 15 niveles y GT 5 calcula con <span class="arithmatex">\(\log_2 16\)</span> (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="VtPCM = 2000 * log2 (16) = 8.000 bps">p.4</a>)</td>
+<td>No se contradicen: 15 niveles más 1 código de reserva son 16 = <span class="arithmatex">\(2^4\)</span>. La regla general es la de la diapositiva; el ejercicio es un caso con reserva</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Nombre de la variante diferencial</td>
+<td>p.40 la lista como «Modulación Delta Diferencial»; p.5 como «Modulación diferencial CM o de Q niveles»; p.65 «Modulación PCM diferencial»; p.6 y p.66 «DPCM» (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="El tren de pulsos puede ser modulado tomando un número">p.40</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=65" title="Combina la modulación delta con la codificación PCM.">p.65</a>)</td>
+<td>Es la misma modulación. La guía usa «PCM diferencial (DPCM)», como p.65–66, y relaciona los otros nombres en el Desarrollo (con p.5 y p.6)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>MIC contra delta</td>
+<td>GT 7 dice que la MIC se diferencia «del resto de los tipos» por los códigos por nivel (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="señal digitalizada mediante códigos discretos y determinados para cada">GT p.5</a>). La diapositiva agrupa MIC, delta y delta diferencial como pulsos digitales (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="El tren de pulsos puede ser modulado tomando un número">p.40</a>)</td>
+<td>Manda la diapositiva. La respuesta de GT 7 se cita tal cual; lo que distingue a la MIC de la delta es la palabra de <span class="arithmatex">\(n\)</span> bits por muestra</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Ley µ: 7 bits y 15 segmentos contra G.711</td>
+<td>p.52–53 y p.60: ley A en 13 segmentos, 256 niveles y 8 bits; ley µ en 15 segmentos, 128 niveles y 7 bits (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=60" title="fig: Digitalización para PCM; ley A Europa y América del Sur 256 niveles 8 bits por muestra; ley µ EEUU y Japón 128 niveles 7 bits por muestra">p.60</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=52" title="En la práctica se usa una aproximación por trazos que divide las">p.52</a>)</td>
+<td>Criterio de la guía y de P7. El paso de 56 a 64 kbit/s del canal americano está en las Discrepancias de <a href="04-multiplexacion.html">P6</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mismo ejercicio, varias redacciones</td>
+<td>GT 2: C dice «3 f max», GT dice «3 Δf máx» (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Suponer una señal analógica que se muestrea a una f muestreo">C p.1</a>). C18 pregunta por las ventajas para la calidad y el ahorro (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=3" title="qué ventajas tiene para la calidad del">C p.3</a>); GT 14 pide la reflexión con los dos términos iguales (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas.pdf#page=2" title="Respecto a la inecuación definida para representar un concentrador.">GT p.2</a>)</td>
+<td>No cambia la resolución de GT 2. Para C18 se da la respuesta oficial de GT 14, que es la que está impresa</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Orden de la respuesta módem/Codec</td>
+<td>El enunciado de <code>Final-2022-09</code> n.1 pregunta primero por la analógica en red digital; la respuesta oficial va primero por red analógica (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Rta: Red analógica Modem">Final 2022-09 p.1</a>)</td>
+<td>Mismo contenido, orden invertido. Se cita tal cual</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Unidades del adicional 9</td>
+<td>La resolución escribe <code>2 * 6 * log2 512</code> sin MHz y rotula la fórmula «de Nyquist»; en P10 es la capacidad del canal ideal multinivel (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=20" title="Capacidad = 2 * Δf * log2 N">RTAS TP8 p.20</a>)</td>
+<td>Con el 6 en MHz, 108 Mbps. No cambia el número</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Punto decimal en la fuente</td>
+<td>GT-RTAS escribe <code>108.37 dB</code> y <code>0.001 Seg</code> con punto (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="S/N [dB] = 108.37 dB">p.2</a>)</td>
+<td>La guía usa coma decimal, como la cátedra, sin tocar el número</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Nota de clase</td>
+<td>Misma fecha, dos matices: nota teoria 2026-09-01 06:59 PM: "vimos todo lo que es modulación y digitalización de señales" contra nota teoria 2026-09-01 07:04 PM: "vimos la mitad de la unidad cuatro"</td>
+<td>Dicho en clase. Se interpreta como la primera mitad de U4; no afecta el alcance de la página</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Forma de la cátedra de GT 2</td>
+<td>La resolución escribe <span class="arithmatex">\(\log_2(1+S/N)^{1/2}\)</span> (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: Capacidad de Canal = 2Δf' · Log2 (1+S/N) elevado a 1/2">p.1</a>); el texto extraído aplana los superíndices (<code>236 - 1</code>), el PNG los muestra bien (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="fig: 2 elevado a 36 menos 1 = S/N">p.2</a>)</td>
+<td>Manda el PNG. La forma es coherente con Shannon (<span class="arithmatex">\(n_{\max}\)</span> de P10); no contradice ninguna diapositiva</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Qué varía en PDM</td>
+<td>p.43 dice «la duración de su periodo» y titula «variación del ancho del pulso»; p.40 la llama «Duración de Pulso» y p.5 «duración o variación de pulsos» (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=43" title="la señal de salida varía la duración de su periodo siguiendo la">p.43</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=40" title="PDM (Modulación por Duración de Pulso)">p.40</a>)</td>
+<td>La guía dice «la duración» y cita p.43 tal cual. El «periodo» de p.43 se lee como el del pulso, sin que la diapositiva lo aclare</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./02-modulacion-digital.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulación digital: ASK, FSK, PSK y QAM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulación digital: ASK, FSK, PSK y QAM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./04-multiplexacion.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

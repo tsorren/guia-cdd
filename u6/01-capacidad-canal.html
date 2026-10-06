@@ -1,0 +1,2722 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="../u5/01-informacion.html">
+      
+      
+        <link rel="next" href="./02-deteccion-errores.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Capacidad del canal - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#capacidad-del-canal" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Capacidad del canal
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01-capacidad-canal.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canal-fisico-y-canal-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Canal físico y canal de información
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atenuacion-y-distorsion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Atenuación y distorsión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ruido-definicion-y-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ruido: definición y tipos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacion-senal-a-ruido-y-factor-de-ruido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Relación señal a ruido y factor de ruido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acondicionamiento-de-canales-analogicos-eco-y-ecualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acondicionamiento de canales analógicos: eco y ecualización
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-canal-ideal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nyquist: canal ideal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shannon-hartley-canal-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shannon-Hartley: canal real
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corolario-el-ancho-de-banda-crece" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Corolario: el ancho de banda crece
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#canal-fisico-y-canal-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Canal físico y canal de información
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atenuacion-y-distorsion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Atenuación y distorsión
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ruido-definicion-y-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ruido: definición y tipos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacion-senal-a-ruido-y-factor-de-ruido" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Relación señal a ruido y factor de ruido
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acondicionamiento-de-canales-analogicos-eco-y-ecualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Acondicionamiento de canales analógicos: eco y ecualización
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nyquist-canal-ideal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nyquist: canal ideal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shannon-hartley-canal-real" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shannon-Hartley: canal real
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corolario-el-ancho-de-banda-crece" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Corolario: el ancho de banda crece
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="01-capacidad-canal.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U6
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="capacidad-del-canal">Capacidad del canal<a class="headerlink" href="#capacidad-del-canal" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U6 · capacidad del canal (TP5: práctica y parte teórica). Alcance del 2.º parcial: inferido (U6 en adelante), no confirmado por la cátedra. El canal ideal (Nyquist) ya entró en el 1.er parcial: ver <a href="../u5/01-informacion.html">Teoría de la información</a>. Los decibeles están en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a>.</p>
+<ul>
+<li>TP5 de la guía: ej. 1 a 7, con la capacidad del canal real. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="Teniendo en cuenta que en un canal telefónico el valor de la relación">TP5 p.1</a></li>
+<li>nota practica 2026-09-16 09:45 PM: "aparece una componente más que la relación señal ruido"</li>
+<li>nota practica 2026-09-16 09:47 PM: "pongo la fórmula de capacidad del Canal real y no la otra"</li>
+<li>nota practica 2026-09-30 07:16 PM: "le pedían del trabajo práctico cinco que es el canal real" (hasta el TP4 se pedía el canal ideal; en la segunda parte, el real).</li>
+<li>nota practica 2026-09-30 07:23 PM: "la teoría la tiene resuelta ustedes ahí en el classroom" (en clase se trabajan los ejercicios prácticos).</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>El canal es el vínculo entre terminales. Se lo estudia como <strong>canal físico</strong> (medio) y como <strong>canal de información</strong> (teoría de la información), ideal o real. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=3" title="Tiene que ver con las características físicas y eléctricas del">Clase-06 p.3</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=6" title="Concepto vinculado a la teoría de la información y la">Clase-06 p.6</a></li>
+<li>Atenuación, distorsión y ruido producen errores. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=46" title="fig: FENÓMENOS QUE AFECTAN A LOS CANALES, atenuación, distorsión y ruido con una flecha a ERRORES">Clase-06 p.46</a></li>
+<li>Canal ideal (sin ruido): <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span>. Canal real (con ruido): <span class="arithmatex">\(C=\Delta f\log_2(1+S/N)\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es:">Clase-06 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=40" title="La ley de Shannon-Hartley determina la capacidad de un">Clase-06 p.40</a></li>
+<li>Dentro de la fórmula, la S/N va <strong>en veces</strong>, nunca en dB. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="S/N = 1000 veces">RTAS TP5 p.6</a></li>
+<li>Con ruido blanco, subir el ancho de banda no hace crecer <span class="arithmatex">\(C\)</span> sin límite: tiende a <span class="arithmatex">\(1{,}44\,S/\alpha\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="capacidad del canal tiende a un valor finito que no depende">Clase-06 p.45</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S/N en dB</td>
+<td><span class="arithmatex">\(S/N\,[\mathrm{dB}]=10\log_{10}(S/N)\)</span>; veces <span class="arithmatex">\(=10^{\mathrm{dB}/10}\)</span></td>
+<td>dB; veces de potencia</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=11" title="Se mide en decibeles y es la relación entre la potencia de la">Clase-06 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="S/N = 1000 veces">RTAS TP5 p.6</a></td>
+</tr>
+<tr>
+<td>S/N con amplitudes</td>
+<td><span class="arithmatex">\(S/N\,[\mathrm{dB}]=20\log_{10}(A_s/A_r)\)</span></td>
+<td>tensiones en V</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="Observa que los datos del enunciado son amplitudes">RTAS TP5 p.12</a></td>
+</tr>
+<tr>
+<td>Atenuación</td>
+<td><span class="arithmatex">\(A\,[\mathrm{dB}]=10\log_{10}(P_2/P_1)\)</span>, siempre negativa</td>
+<td>dB</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=47" title="fig: ATENUACIÓN, Atenuación dB = 10log P2/P1, siempre negativa con P2 menor que P1, lo ideal es una atenuación igual a 0">Clase-06 p.47</a></td>
+</tr>
+<tr>
+<td>Ruido térmico</td>
+<td><span class="arithmatex">\(N=k\,T\,B\)</span>; <span class="arithmatex">\(k=1{,}38\cdot10^{-23}\)</span> J/K</td>
+<td>W; K; Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=48" title="fig: RUIDO térmico blanco gaussiano o de Johnson, N = k T B, k = 1,38 por 10 a la menos 23 Joule/Kelvin, T Kelvin, B ancho de banda en Hz">Clase-06 p.48</a></td>
+</tr>
+<tr>
+<td>NEXT</td>
+<td><span class="arithmatex">\(\mathrm{NEXT}\,[\mathrm{dB}]=10\log_{10}(P_2/P_1)\)</span></td>
+<td>dB</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=49" title="fig: RUIDO diafonía crosstalk, NEXT extremo cercano, FEXT extremo lejano, NEXT dB = 10log P2/P1, lo ideal es una diafonía infinitamente negativa con P2 = 0">Clase-06 p.49</a></td>
+</tr>
+<tr>
+<td>Factor de ruido</td>
+<td><span class="arithmatex">\(F=\dfrac{(S/N)_i}{(S/N)_o}=\dfrac{N_2}{G\,N_1}\ge1\)</span></td>
+<td>veces</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=51" title="fig: FACTOR DE RUIDO DE AMPLIFICADORES O CANALES, Fr mayor o igual a 1, Fr = S/N i / S/N o, Fr = No / G Ni">Clase-06 p.51</a></td>
+</tr>
+<tr>
+<td>Nyquist (muestreo)</td>
+<td><span class="arithmatex">\(f_N=2\Delta f\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=34" title="Donde: fN = frecuencia de Nyquist o de muestreo.">Clase-06 p.34</a></td>
+</tr>
+<tr>
+<td>Capacidad ideal, binaria</td>
+<td><span class="arithmatex">\(C=V_{t\max}=2\Delta f\)</span></td>
+<td>bit/s; <span class="arithmatex">\(\Delta f\)</span> en Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="La capacidad de un canal sin ruido de ancho de banda finito">Clase-06 p.35</a></td>
+</tr>
+<tr>
+<td>Capacidad ideal, multinivel</td>
+<td><span class="arithmatex">\(C=2\Delta f\log_2 n\)</span></td>
+<td>bit/s; <span class="arithmatex">\(n\)</span> niveles</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es:">Clase-06 p.35</a></td>
+</tr>
+<tr>
+<td>Niveles máximos</td>
+<td><span class="arithmatex">\(n_{\max}=(1+S/N)^{1/2}\)</span></td>
+<td>niveles</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=39" title="Shannon demostró que el número máximo de niveles tiene">Clase-06 p.39</a></td>
+</tr>
+<tr>
+<td>Shannon-Hartley (Sh)</td>
+<td><span class="arithmatex">\(C=\Delta f\log_2\!\left(1+\dfrac{S}{N}\right)\)</span></td>
+<td>bit/s; <span class="arithmatex">\(\Delta f\)</span> en Hz; S/N en veces</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=41" title="fig: TEOREMA DE SHANNON HARTLEY, C = Δf log2 1 + S/N bps en recuadro rojo, S/N veces, ΔF ancho de banda del canal Hz">Clase-06 p.41</a></td>
+</tr>
+<tr>
+<td>Ruido blanco con densidad <span class="arithmatex">\(\alpha\)</span></td>
+<td><span class="arithmatex">\(N=\alpha B\)</span>; <span class="arithmatex">\(C=B\log_2\!\left(1+\dfrac{S}{\alpha B}\right)\)</span></td>
+<td>W/Hz; Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=44" title="Si el ruido es igual en todas las frecuencias hay una">Clase-06 p.44</a></td>
+</tr>
+<tr>
+<td>Límite con <span class="arithmatex">\(\Delta f\to\infty\)</span></td>
+<td><span class="arithmatex">\(C_\infty=\dfrac{S}{\alpha}\log_2 e\approx1{,}44\,\dfrac{S}{\alpha}\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="C = S/α * log2 e = 1,44 * S/α">Clase-06 p.45</a></td>
+</tr>
+<tr>
+<td>Despeje de S/N</td>
+<td><span class="arithmatex">\(S/N=2^{C/\Delta f}-1\)</span></td>
+<td>veces</td>
+<td><a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="S/N = 2C/W – 1 = 28 – 1 = 255">Respuestas oficial TP5 p.4</a></td>
+</tr>
+<tr>
+<td>Despeje de <span class="arithmatex">\(\Delta f\)</span></td>
+<td><span class="arithmatex">\(\Delta f=\dfrac{C}{\log_2(1+S/N)}\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=18" title="fig: solución, tasa de información 29,9 Mbps, T = C, Δf = 29,9 x 10^6 / log2 1001, Δf = 2,99 MHz">Clase 6 práctica p.18</a></td>
+</tr>
+</tbody>
+</table>
+<p>Notación de la cátedra: <span class="arithmatex">\(\Delta f\)</span>, <span class="arithmatex">\(n\)</span>, coma decimal, <span class="arithmatex">\(\log_2\)</span> y S/N en veces. El cambio de base se escribe <span class="arithmatex">\(\log x/\log 2\)</span>. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=1" title="Bw = Fcs - Fci = 3300Hz - 300 Hz = 3000 Hz">Respuestas oficial TP5 p.1</a></p>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="canal-fisico-y-canal-de-informacion">Canal físico y canal de información<a class="headerlink" href="#canal-fisico-y-canal-de-informacion" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Canal físico</th>
+<th>Canal de información</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qué es</td>
+<td>Características físicas y eléctricas del medio. Ingeniería de comunicaciones. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=3" title="Concepto vinculado a la ingeniería de comunicaciones.">Clase-06 p.3</a></td>
+<td>Especificaciones técnicas y lógicas de la transmisión de la inteligencia. Teoría de la información y codificación. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=6" title="Concepto vinculado a la teoría de la información y la">Clase-06 p.6</a></td>
+</tr>
+<tr>
+<td>Qué lo afecta o lo mide</td>
+<td>Atenuación, distorsión y ruido aditivo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=4" title="La señal sufre pérdida de potencia por la atenuación.">Clase-06 p.4</a></td>
+<td>Velocidad de transmisión y calidad con que se transporta. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=6" title="Usa como criterio de eficiencia la velocidad de transmisión">Clase-06 p.6</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>El canal es el vínculo que permite efectivizar la comunicación entre terminales. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/TP-05-CAPACIDAD-DE-UN-CANAL.pdf#page=2" title="Vínculo que permite efectivizar la COMUNICACIÓN entre terminales.">TP5 oficial p.2</a></li>
+<li><strong>Ideal:</strong> reproduce en su salida exactamente la misma señal de entrada. Es una noción teórica que no existe. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="Es una noción teórica, ya que no existe.">Clase-06 p.7</a></li>
+<li><strong>Real:</strong> transmite la señal solo de manera aproximada. El ruido es aditivo: <span class="arithmatex">\(s(t)=e(t)+r(t)\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="Logra trasmitir la señal solo de manera aproximada.">Clase-06 p.7</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=8" title="fig: entrada a canal ideal, suma con el generador de ruido, filtro pasabanda, canal real, salida igual a entrada más ruido">Clase-06 p.8</a></li>
+<li><strong>Analógicos y digitales:</strong> hoy la mayoría son digitales. Siguen analógicos la red telefónica conmutada (voz), CATV y los pares telefónicos de banda ancha. El canal telefónico típico va de 300 a 3400 Hz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=9" title="El canal telefónico típico tiene un ancho de banda de">Clase-06 p.9</a> Ver Discrepancia 1.</li>
+</ul>
+<h3 id="atenuacion-y-distorsion">Atenuación y distorsión<a class="headerlink" href="#atenuacion-y-distorsion" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Atenuación:</strong> potencia recibida en el destino sobre potencia transmitida en el origen. En dB es negativa (P2 &lt; P1) y lo ideal es 0. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=47" title="fig: ATENUACIÓN, Atenuación dB = 10log P2/P1, siempre negativa con P2 menor que P1, lo ideal es una atenuación igual a 0">Clase-06 p.47</a> Crece con la frecuencia. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=46" title="fig: ATENUACIÓN (disminución de la intensidad de la señal útil)(crece con la frecuencia)">Clase-06 p.46</a></li>
+<li>El TP3 define la <strong>pérdida</strong> en positivo, como <span class="arithmatex">\(10\log_{10}(P_1/P_2)\)</span>: es la misma cantidad con el signo cambiado. <a href="../fuentes/practica/tucu-leppen/TP03-Calculo-Enlaces/Clase-TP-03-final-RTAS.pdf#page=3" title="definiremos la perdida de potencia, tensión y corriente">TP3 RTAS p.3</a> Ver Discrepancia 9.</li>
+<li><strong>Distorsión:</strong> deformación por los efectos reactivos del canal. El pulso rectangular llega con los flancos redondeados. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=4" title="La señal sufre distorsión por los efectos reactivos.">Clase-06 p.4</a></li>
+<li>Tipos: por atenuación (canal ideal plano frente a canal real), por retardo de grupo y por efectos meteorológicos (radio). Se resuelven con técnicas de ecualización. La impedancia del circuito serie es <span class="arithmatex">\(Z=R+j(\omega L-1/\omega C)\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=52" title="fig: DISTORSIÓN por atenuación, por retardo de grupo, por efectos meteorológicos, se resuelven con técnicas de ecualización, impedancia compleja Z igual R más j de wL menos 1 sobre wC">Clase-06 p.52</a></li>
+</ul>
+<h3 id="ruido-definicion-y-tipos">Ruido: definición y tipos<a class="headerlink" href="#ruido-definicion-y-tipos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La pregunta de examen es «¿Qué entiende por ruido? ¿Cuáles conoce?». <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="¿Qué entiende por ruido? ¿Cuáles conoce?">Final 2020-12 p.1</a> El PDF trae solo el enunciado: armala con esta sección.</li>
+<li><strong>Qué es:</strong> perturbación o interferencia no deseada que se suma a la señal útil. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=46" title="fig: FENÓMENOS QUE AFECTAN A LOS CANALES, atenuación, distorsión y ruido con una flecha a ERRORES">Clase-06 p.46</a> Es aditivo respecto de la señal útil. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="El ruido tiene características aditivas, respecto de la señal útil">Clase-06 p.7</a> En los canales reales continuos hay ruido blanco gaussiano aditivo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=37" title="En los canales reales continuos hay ruido blanco gaussiano">Clase-06 p.37</a></li>
+<li>Si el ruido es igual en todas las frecuencias, su densidad espectral es <span class="arithmatex">\(\alpha\)</span> [W/Hz] y <span class="arithmatex">\(N=\alpha B\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=44" title="Si el ruido es igual en todas las frecuencias hay una">Clase-06 p.44</a></li>
+</ul>
+<p>Los cuatro tipos que enumera la cátedra:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué es</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Térmico, blanco, gaussiano o de Johnson</td>
+<td>Agitación térmica de los electrones en medios y dispositivos. <span class="arithmatex">\(N=kTB\)</span> (T en kelvin, B en Hz).</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=48" title="fig: RUIDO térmico blanco gaussiano o de Johnson, agitación térmica de los electrones, N = k T B, k = 1,38 por 10 a la menos 23 Joule/Kelvin, T Kelvin, B ancho de banda en Hz">Clase-06 p.48</a></td>
+</tr>
+<tr>
+<td>Diafonía (crosstalk)</td>
+<td>Acoplamiento inductivo entre líneas que transportan señales. NEXT mide en el extremo donde se inyecta la señal (cercano) y FEXT en el extremo donde se recibe (lejano). Lo ideal es una diafonía infinitamente negativa.</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=49" title="fig: RUIDO diafonía crosstalk, NEXT extremo cercano, FEXT extremo lejano, NEXT dB = 10log P2/P1, lo ideal es una diafonía infinitamente negativa con P2 = 0">Clase-06 p.49</a></td>
+</tr>
+<tr>
+<td>Impulsivo</td>
+<td>Picos de corta duración y gran amplitud, a intervalos irregulares; no aparece en forma continua y es difícil localizar su origen. En la figura produce errores en el 1.º y el 4.º bit.</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=50" title="fig: RUIDO impulsivo, intervalos irregulares, picos de corta duración y gran amplitud, difícil localizar su origen, señal digital 0 1 0 1 0 1 con umbral de detección y errores en el 1º y 4º bit">Clase-06 p.50</a></td>
+</tr>
+<tr>
+<td>Intermodulación</td>
+<td>Producto de no linealidad en el transmisor, el receptor o el sistema de transmisión. Aparecen señales a <span class="arithmatex">\(f_1+f_2\)</span>, <span class="arithmatex">\(f_1-f_2\)</span>, etc.</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=50" title="fig: INTERMODULACIÓN producto de no linealidad en Tx, Rx o sistema de Tx, señales a frecuencias f1 + f2, f1 − f2">Clase-06 p.50</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La clase de práctica muestra otras fuentes de interferencia (un motor y una plancha sobre un par trenzado), sin llamarlas tipos. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=11" title="fig: ruido transmitida recibida y medio de transmisión; motor y plancha como fuentes de interferencia sobre un par trenzado IN y OUT">Clase 6 práctica p.11</a></li>
+<li>El eco no figura entre los tipos de p.48–50: va en el acondicionamiento. Ver Discrepancia 11.</li>
+</ul>
+<h3 id="relacion-senal-a-ruido-y-factor-de-ruido">Relación señal a ruido y factor de ruido<a class="headerlink" href="#relacion-senal-a-ruido-y-factor-de-ruido" title="Permanent link">&para;</a></h3>
+<ul>
+<li>S/N es la relación entre la potencia media de la señal y la del ruido; se mide en dB. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=11" title="Se mide en decibeles y es la relación entre la potencia de la">Clase-06 p.11</a> Cuantifica en qué medida la señal útil supera al ruido. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=2" title="Cuantifica la medida en que la señal útil supera el ruido">RTAS TP5 p.2</a></li>
+<li>En la fórmula de Shannon-Hartley la S/N va en veces y <span class="arithmatex">\(\Delta f\)</span> en Hz. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=15" title="fig: Δf debe expresarse en Hz; S/N debe expresarse en valores nominales de potencia y no en db">Clase 6 práctica p.15</a></li>
+<li>Si el dato son tensiones, el factor es 20: <span class="arithmatex">\(S/N\,[\mathrm{dB}]=20\log_{10}(A_s/A_r)\)</span>, y recién después se pasa a veces. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="Observa que los datos del enunciado son amplitudes">RTAS TP5 p.12</a></li>
+<li><strong>Factor de ruido</strong> (canales y amplificadores): <span class="arithmatex">\(F=(S/N)_i/(S/N)_o\)</span>. Con <span class="arithmatex">\(S_2=S_1G\)</span> queda <span class="arithmatex">\(F=N_2/(G\,N_1)\)</span>. Depende de la ganancia y del ruido propio; <span class="arithmatex">\(F\ge1\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=11" title="usa el factor de ruido o figura de ruido:">Clase-06 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=4" title="Relación que depende exclusivamente de la ganancia y del ruido propio">RTAS TP5 p.4</a> Los pasos de p.13 traen erratas: Discrepancia 8.</li>
+<li>En señales digitales no se usa la S/N como parámetro: se usa el BER. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=4" title="En las señales digitales no se emplea como parámetro de medición">RTAS TP5 p.4</a> El cálculo del BER está en <a href="02-deteccion-errores.html">Detección de errores</a>.</li>
+</ul>
+<h3 id="acondicionamiento-de-canales-analogicos-eco-y-ecualizacion">Acondicionamiento de canales analógicos: eco y ecualización<a class="headerlink" href="#acondicionamiento-de-canales-analogicos-eco-y-ecualizacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Los canales presentan fenómenos (señales de retorno o eco, atenuación y distorsión) que obligan a introducir equipos especiales. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=14" title="obligan a introducir equipos especiales en el canal de">Clase-06 p.14</a></li>
+<li><strong>Eco:</strong> señal no deseada por desadaptación de impedancias; onda reflejada en el receptor producida por la propia señal del transmisor. Es habitual en circuitos muy largos y se reduce con un cancelador de eco. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=15" title="Es una señal no deseada causada por la desadaptación">Clase-06 p.15</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=15" title="Es habitual en circuitos muy largos.">Clase-06 p.15</a></li>
+<li><strong>Ecualización:</strong> compensa la distorsión del canal. Los ecualizadores agregan distorsión en las bandas donde es menor, para igualarla en toda la banda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=17" title="Los ecualizadores son circuitos que agregan distorsión en las">Clase-06 p.17</a></li>
+</ul>
+<h3 id="nyquist-canal-ideal">Nyquist: canal ideal<a class="headerlink" href="#nyquist-canal-ideal" title="Permanent link">&para;</a></h3>
+<p>Recordatorio: el desarrollo del muestreo y de la capacidad ideal está en <a href="../u5/01-informacion.html">Teoría de la información</a>.</p>
+<ul>
+<li>Canal sin ruido: no se puede sobrepasar una velocidad de pulsos que depende de la frecuencia máxima. Para una señal definida en un ancho de banda <span class="arithmatex">\(\Delta f\)</span>, <span class="arithmatex">\(f_N=2\Delta f\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=34" title="Donde: fN = frecuencia de Nyquist o de muestreo.">Clase-06 p.34</a> Ver Discrepancia 12.</li>
+<li>Binaria: <span class="arithmatex">\(C=V_{t\max}=2\Delta f\)</span>. Multinivel: <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span>, con <span class="arithmatex">\(n\)</span> el número de niveles. La unidad es bit/s porque la frecuencia está en Hz y <span class="arithmatex">\(\log_2 n\)</span> en bits. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=6" title="fig: Canal Ideal sin Ruido, Nyquist, Vt máx = 2Δf bps, multinivel V = 2Δf log2 n, n número de niveles, la unidad bps surge porque la frecuencia se mide en Hz y el log2 n en bits">Clase 6 práctica p.6</a></li>
+<li>Ejemplo de la cátedra: 4.000 Hz y dos niveles dan 8.000 bps; con 16 niveles (cuadribits), <span class="arithmatex">\(2\cdot4.000\cdot\log_2 16=32.000\)</span> bps. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=7" title="fig: Ejemplo, canal de 4.000 Hz y dos niveles, Vt max = 2 x 4.000 = 8.000 bps; 16 niveles, Vt max = 2 x 4.000 log2 16 = 32.000 bps">Clase 6 práctica p.7</a></li>
+<li>Con un canal ideal, la capacidad podría aumentar de manera indefinida solo con subir el número de niveles. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=37" title="Si un canal fuese ideal, se podría aumentar de manera">Clase-06 p.37</a> Respuesta oficial de TP5 teoría 1 (= CT05 ej. 3): con <span class="arithmatex">\(N=0\)</span> la fórmula de Shannon da capacidad infinita. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=1" title="si N = 0 porque no hay ruido, entonces la capacidad">Teoría TP5 respuestas p.1</a></li>
+</ul>
+<h3 id="shannon-hartley-canal-real">Shannon-Hartley: canal real<a class="headerlink" href="#shannon-hartley-canal-real" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Con ruido hay un tope de niveles.</strong> Al subir <span class="arithmatex">\(n\)</span>, la separación entre dos niveles se vuelve comparable al nivel de ruido y aparecen errores. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="separación entre dos niveles es comparable al nivel de ruido.">Clase-06 p.38</a></li>
+<li><strong>Niveles máximos.</strong> Hay que hallar el máximo de <span class="arithmatex">\(n\)</span>; Shannon demostró que <span class="arithmatex">\(n_{\max}=(1+S/N)^{1/2}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=39" title="Shannon demostró que el número máximo de niveles tiene">Clase-06 p.39</a></li>
+<li><strong>Ley.</strong> Se reemplaza en Nyquist: <span class="arithmatex">\(C=2\Delta f\log_2(1+S/N)^{1/2}=\Delta f\log_2(1+S/N)\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=40" title="fig: Reemplazando C = 2 Δf log2 1 + S/N a la 1/2; simplificando C = Δf log2 1 + S/N bps">Clase-06 p.40</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=13" title="fig: Expresión de Shannon Hartley, n máx = 1 + S/N elevado a 1/2, reemplazando en Nyquist C = 2 Δf log2 1 + S/N a la 1/2, simplificando C = Δf log2 1 + S/N bps">Clase 6 práctica p.13</a></li>
+<li><strong>Variables.</strong> <span class="arithmatex">\(S\)</span>: potencia media de la señal; <span class="arithmatex">\(N\)</span>: potencia media del ruido blanco gaussiano aditivo; <span class="arithmatex">\(\Delta f\)</span>: ancho de banda del canal. Vale para un canal continuo con ruido blanco gaussiano aditivo limitado en banda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=40" title="N: potencia media ruido blanco gaussiano aditivo.">Clase-06 p.40</a></li>
+<li><strong>Qué aporta.</strong> La velocidad máxima de transmisión en un canal con ruido gaussiano, y la relación entre sus dos parámetros fundamentales: <span class="arithmatex">\(\Delta f\)</span> y S/N. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=42" title="Permite calcular la velocidad máxima de transmisión de">Clase-06 p.42</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=42" title="Relaciona dos parámetros fundamentales en todo canal de">Clase-06 p.42</a> Es un límite teórico máximo. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=14" title="fig: Qué nos brinda esta expresión, el límite teórico máximo de la velocidad de transmisión sobre el canal">Clase 6 práctica p.14</a></li>
+<li><strong>Para transmitir sin errores,</strong> la tasa de información tiene que ser menor o igual que la capacidad del canal. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=19" title="fig: Relación Tasa de información y Capacidad de un canal, Tasa de Información menor o igual que Capacidad del canal">Clase 6 práctica p.19</a></li>
+</ol>
+<p>Ejemplo propio, verificado con test: con 30 dB, <span class="arithmatex">\(n_{\max}=\sqrt{1001}\approx31{,}64\)</span> niveles y <span class="arithmatex">\(2\Delta f\log_2 n_{\max}=\Delta f\log_2(1001)\)</span>.</p>
+<p><strong>Gráfico de <span class="arithmatex">\(C/\Delta f\)</span> contra S/N.</strong> La recta de Shannon queda por encima de las curvas de modulación de fase (detección coherente) y de amplitud (portadora suprimida), con puntos de 2, 4, 8, 16 y 32 niveles y BER fijo. El exponente del BER se lee «10⁴» en la imagen: no se distingue el signo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=43" title="fig: C/Δf contra S/N, recta Velocidad de transmisión máxima teórica Ley de Shannon, curvas de modulación de fase detección coherente y de amplitud portadora suprimida con puntos 2 4 8 16 32">Clase-06 p.43</a></p>
+<h3 id="corolario-el-ancho-de-banda-crece">Corolario: el ancho de banda crece<a class="headerlink" href="#corolario-el-ancho-de-banda-crece" title="Permanent link">&para;</a></h3>
+<ol>
+<li>El ruido depende del ancho de banda. Con densidad <span class="arithmatex">\(\alpha\)</span>: <span class="arithmatex">\(N=\alpha B\)</span> y <span class="arithmatex">\(C=B\log_2\!\left(1+\dfrac{S}{\alpha B}\right)\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=44" title="Si el ruido es igual en todas las frecuencias hay una">Clase-06 p.44</a></li>
+<li>Con <span class="arithmatex">\(x=S/(B\alpha)\)</span> queda <span class="arithmatex">\(C=\dfrac{S}{\alpha}\log_2(1+x)^{1/x}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=44" title="fig: C = B log2 1 + S/αB; x = S/Bα, 1/x = Bα/S; C = S/α 1/x log2 1+x; C = S/α log2 1+x elevado a 1/x">Clase-06 p.44</a></li>
+<li>Para <span class="arithmatex">\(x\to0\)</span>, <span class="arithmatex">\((1+x)^{1/x}\to e\)</span>. Cuando el ancho de banda aumenta, <span class="arithmatex">\(C\)</span> tiende a un valor finito que no depende del ancho de banda: <span class="arithmatex">\(C=\dfrac{S}{\alpha}\log_2 e=1{,}44\,\dfrac{S}{\alpha}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="Del Análisis Matemático sabemos que para x tendiendo a">Clase-06 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="capacidad del canal tiende a un valor finito que no depende">Clase-06 p.45</a> El enunciado del TP dice «x tiende a infinito»: Discrepancia 3.</li>
+</ol>
+<p><strong>Gráfico de <span class="arithmatex">\(C\)</span> contra el ancho de banda</strong> (la guía de teoría TP5 lo pide). Es una curva creciente que se aplana en la asíntota 1,443. En la figura, el eje horizontal es <span class="arithmatex">\(W/W_0\)</span> (<span class="arithmatex">\(W_0\)</span>: banda para la cual <span class="arithmatex">\(P=N\)</span>) y el vertical, <span class="arithmatex">\(C/W_0\)</span>; la curva vale 1,0 en <span class="arithmatex">\(W/W_0=1\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="fig: Channel capacity as a function of bandwidth, asymptotic value = 1.443, W0 = band for which P = N, curva con valor 1,0 en W/W0 igual a 1">Clase-06 p.45</a> Con <span class="arithmatex">\(W_0=S/\alpha\)</span>, los puntos son <span class="arithmatex">\(C/(S/\alpha)=w\log_2(1+1/w)\)</span> (recálculo propio, verificado con test):</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(w=W/W_0\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>10</th>
+<th><span class="arithmatex">\(\to\infty\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(C/(S/\alpha)\)</span></td>
+<td>1,00</td>
+<td>1,17</td>
+<td>1,25</td>
+<td>1,29</td>
+<td>1,32</td>
+<td>1,38</td>
+<td><span class="arithmatex">\(\log_2 e=1{,}44\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>TP5 teoría 2 y 3 (= CT05 ej. 5 y 6): con <span class="arithmatex">\(\alpha=0{,}001\)</span> W/Hz y <span class="arithmatex">\(S=10\)</span> W, la respuesta oficial es <span class="arithmatex">\(C=1{,}44\cdot10\,\mathrm{W}/0{,}001\,\mathrm{W/Hz}=14.400\)</span> bps y la curva crece hasta esa asíntota. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=2" title="C = 1,44 S/α, entonces">Teoría TP5 respuestas p.2</a> Con <span class="arithmatex">\(\log_2 e=1{,}4427\)</span> da 14.427 (recálculo propio, verificado con test); la cátedra redondea a 1,44.</p>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>TP5 ej. 1 (= <code>Comunicaciones-TP05</code> ej. 1 = <code>GUIA-TP-05-Practica-Preguntas-BIS</code> 1 = guía oficial 1 = <code>Clase-TP-05-RTAS</code> 1). Enunciado: en un canal telefónico la S/N típica es 30 dB, FCI = 300 Hz y FCS = 3300 Hz; ¿cuál es el límite superior de la tasa de transmisión de datos confiable? <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=1" title="FCI=300Hz, FCS=3300Hz. ¿Cuál es el límite superior">Práctica TP5 BIS p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="FCS - FCI = 3300Hz - 300 Hz = 3000 Hz">RTAS TP5 p.6</a></p>
+<p>Calculadora: viene cargado con <span class="arithmatex">\(\Delta f=3000\)</span> Hz y 30 dB. Probá cambiar la unidad a «veces» o la S/N. Acepta y muestra coma decimal.</p>
+<div class="cdd-calc" data-df="3000" data-sn="30" data-unidad="dB" data-n="2"></div>
+
+<p><strong>Paso 1. Datos.</strong> <span class="arithmatex">\(\Delta f=\mathrm{FCS}-\mathrm{FCI}=3300-300=3000\)</span> Hz. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="FCS - FCI = 3300Hz - 300 Hz = 3000 Hz">RTAS TP5 p.6</a></p>
+<p><strong>Paso 2. S/N en veces.</strong> <span class="arithmatex">\(30=10\log_{10}(S/N)\)</span>, entonces <span class="arithmatex">\(S/N=1000\)</span> veces. No se puede poner 30 en la fórmula. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="S/N = 1000 veces">RTAS TP5 p.6</a></p>
+<p><strong>Paso 3. Capacidad.</strong> <span class="arithmatex">\(C=3000\cdot\log_2(1+1000)=3000\cdot9{,}9672\approx29.901{,}7\)</span> bps <span class="arithmatex">\(\approx29{,}9\)</span> kbps. La cátedra imprime 29,9 kbps. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="29,9 Kbps">RTAS TP5 p.6</a> La guía oficial resuelve igual con <span class="arithmatex">\(\log_2 1001=9{,}97\)</span>. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=1" title="C=3000x9,97= 29,9 kbps">Respuestas oficial TP5 p.1</a> La clase de práctica imprime 29.902 bps para el mismo cálculo: es el redondeo del 29.901,7. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=16" title="fig: Ejemplos, con 30 db S/N 1:1000, C = 29902 bps">Clase 6 práctica p.16</a></p>
+<p><strong>Paso 4. Variante con FCS = 3400.</strong> El enunciado de <code>Comunicaciones-TP05</code> dice FCS = 3400: <span class="arithmatex">\(\Delta f=3100\)</span> Hz y <span class="arithmatex">\(C=3100\cdot\log_2 1001\approx30.898\)</span> bps (recálculo propio, verificado con test; es el valor de la guía oficial ej. 8). No hay resolución impresa para ese enunciado. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="los extremos FCI=300 Hz, FCS=3400">TP5 p.1</a> Ver Discrepancia 1.</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Los dB se pasan a veces antes de la fórmula.</strong> Con 30 dB, <span class="arithmatex">\(S/N=1000\)</span>, no 30. Poner 30 deja la cuenta «bien» y el concepto mal. Remarcado en clase: nota practica 2026-09-30 07:19 PM: "no podemos meter en la fórmula de la capacidad de canal". Fue trampa de un final: nota practica 2026-09-30 07:25 PM: "a ver cómo metían el 30 acá en la fórmula". <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="S/N = 1000 veces">RTAS TP5 p.6</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Si aparece la S/N, el canal es real.</strong> En el ej. 7 de RT (3 a 4 MHz y 24 dB) la capacidad sale de Shannon-Hartley y los niveles, de la fórmula del canal ideal. Remarcado en clase: nota practica 2026-09-30 07:43 PM: "si me aparece relación señal ruido quiere decir que me está pidiendo el canal real". Y para los niveles: nota practica 2026-09-30 07:43 PM: "En el caso ideal que no tengo ruido, entonces agarro esa fórmula". <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=13" title="n = 16">RTAS TP5 p.13</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Tensiones: 20 log, no 10 log.</strong> En el ej. 6 de RT los datos son 10 V y 5 mV: son amplitudes. Remarcado en clase: nota practica 2026-09-30 07:39 PM: "observe que los datos son amplitudes y no potencias". <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="Observa que los datos del enunciado son amplitudes">RTAS TP5 p.12</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Base del porcentaje del ej. 4 de RT.</strong> Las dos resoluciones oficiales dividen sobre la capacidad reducida <span class="arithmatex">\(C_2\)</span> (17,38 %). Sobre la capacidad original <span class="arithmatex">\(C_1\)</span> da 14,81 %. Escribí siempre la base. Remarcado en clase: nota practica 2026-09-30 07:34 PM: "Porque ahí tengo la reducción Es sobre el nuevo." <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=10" title="% = 17,34">RTAS TP5 p.10</a> Ver Discrepancia 2.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong><span class="arithmatex">\(C\)</span> crece con el logaritmo de la S/N, no linealmente.</strong> Con <span class="arithmatex">\(\Delta f\)</span> constante, pasar de 0 dB a 30 dB multiplica <span class="arithmatex">\(C\)</span> por casi 10, no por 1000. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="manteniendo constante el ancho de banda es">Respuestas oficial TP5 p.5</a> Ver Discrepancia 14.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Tu último dígito puede no coincidir con el de la cátedra.</strong> La cátedra trunca (26.632 en lugar de 26.633). Con el valor exacto <span class="arithmatex">\(C=4000\log_2 101=26.632{,}8\)</span> bps. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=9" title="26.632 bps">RTAS TP5 p.9</a> Ver Discrepancia 7.</p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración de los cinco documentos del TP5. Siglas: CT05 = <code>Comunicaciones-TP05</code> (FCS = 3400); BIS = <code>GUIA-TP-05-Practica-Preguntas-BIS</code> (FCS = 3300); GO = guía oficial práctica (ej. 1–13); RT = <code>Clase-TP-05-RTAS</code> (ej. 1–7, resueltos); COF = <code>Clase-TP-05</code> oficial (repite las diapositivas de RT para ej. 1, 3, 5, 6 y 10; de 2 y 4 trae solo el enunciado); GT = guía de teoría TP5 (ej. 1–3, con su RTAS). En «Resoluciones», «TP5 ej. N» usa la numeración de RT y BIS; la de CT05 va entre paréntesis.</p>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>CT05</th>
+<th>BIS</th>
+<th>GO</th>
+<th>RT / COF</th>
+<th>GT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canal telefónico, 30 dB, FCI y FCS</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1 / 1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S/N en dB dados <span class="arithmatex">\(\Delta f\)</span> y <span class="arithmatex">\(C\)</span>, y gráfico</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2 / solo enunciado</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Capacidad máxima de un canal sin ruido</td>
+<td>3</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Duplicar la capacidad (4 kHz, 20 dB)</td>
+<td>4</td>
+<td>3</td>
+<td>3</td>
+<td>3 / 3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Demostrar el límite <span class="arithmatex">\(1{,}44\,S/\alpha\)</span></td>
+<td>5</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Gráfico de <span class="arithmatex">\(C\)</span> contra <span class="arithmatex">\(\Delta f\)</span> (<span class="arithmatex">\(\alpha=0{,}001\)</span> W/Hz, <span class="arithmatex">\(S=10\)</span> W)</td>
+<td>6</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Ruido al doble (4 kHz, 20 dB)</td>
+<td>7</td>
+<td>4</td>
+<td>4</td>
+<td>4 / solo enunciado</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ruido igual al doble de la señal, 64 kbps</td>
+<td>—</td>
+<td>5</td>
+<td>5</td>
+<td>5 / 5</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Línea de 3,1 kHz, 10 V y 5 mV</td>
+<td>—</td>
+<td>6</td>
+<td>6</td>
+<td>6 / 6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Canal de 3 a 4 MHz, 24 dB: <span class="arithmatex">\(C\)</span> y niveles</td>
+<td>—</td>
+<td>7</td>
+<td>10</td>
+<td>7 / 10</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S/N para una impresora (4 kbps, 500 Hz)</td>
+<td>—</td>
+<td>—</td>
+<td>7</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Línea de 3.100 Hz, 30 dB</td>
+<td>—</td>
+<td>—</td>
+<td>8</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Variación de <span class="arithmatex">\(C\)</span> con la S/N (<span class="arithmatex">\(\Delta f\)</span> constante)</td>
+<td>—</td>
+<td>—</td>
+<td>9</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>3.000 Hz y S/N = <span class="arithmatex">\(10^3\)</span> veces</td>
+<td>—</td>
+<td>—</td>
+<td>11</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Teletipo de 300 Hz, 3 dB</td>
+<td>—</td>
+<td>—</td>
+<td>12</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(C=20\)</span> Mbps con 3 MHz: S/N</td>
+<td>—</td>
+<td>—</td>
+<td>13</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Enunciados que confirman las filas: <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="Necesitamos duplicar la capacidad de transporte de información de un">TP5 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=2" title="Suponer que en el espectro de un canal está situado entre los 3 Mhz">Práctica TP5 BIS p.2</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="Sea un canal con una capacidad de 20 Mbps y el ancho de banda es de 3 Mhz.">Guía oficial TP5 p.2</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/Clase-TP-05.pdf#page=10" title="Suponer que en el espectro de un canal está situado entre los 3 Mhz">Clase-TP-05 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Preguntas.pdf#page=1" title="¿Cuál es la capacidad máxima de un canal sin ruido?">Teoría TP5 p.1</a></li>
+<li>La guía marca en azul las preguntas obligatorias para la carpeta. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=1" title="Las preguntas en azul son las obligatorias que deben contestarse">Respuestas oficial TP5 p.1</a> Según los PNG, en la guía oficial son azules GO ej. 2 (con el gráfico) y GO ej. 4, y el rótulo «PROBLEMAS ADICIONALES» (GO ej. 6 a 13 no lo son); en GT son azules ej. 1 y 2, no el 3. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=1" title="fig: ej. 2 en azul, a. b. c.">Respuestas oficial TP5 p.1</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=3" title="fig: ej. 4 en azul, ej. 3 y 5 en negro">Respuestas oficial TP5 p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=1" title="fig: ej. 1 y 2 en azul">Teoría TP5 respuestas p.1</a></li>
+</ul>
+<p>Resoluciones. «Impreso» es lo que trae la cátedra, que trunca; «recálculo» es propio y está verificado con test.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP5 ej. 2</td>
+<td>a) <span class="arithmatex">\(\Delta f=3000\)</span> Hz, <span class="arithmatex">\(C=10.000\)</span> bps; b) 10 kHz y 10.000 bps; c) 1 kHz y 10 kbps. S/N en dB, gráfico y conclusiones. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=7" title="Calcular la relación señal a ruido S/N expresada en dB para los siguientes casos">RTAS TP5 p.7</a></td>
+<td>Se despeja <span class="arithmatex">\(S/N=2^{C/\Delta f}-1\)</span>. a) <span class="arithmatex">\(2^{10/3}-1=9{,}07\)</span> veces, 9,57 dB impreso (recálculo 9,58). b) 1 vez, 0 dB. c) 1023 veces, 30 dB impreso (recálculo 30,10). A mayor ancho de banda, menor S/N necesaria. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=7" title="S/N = 10 log 9,07 = 9,57 dB">RTAS TP5 p.7</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=8" title="Conclusión a medida que aumenta AB disminuye la relación señal ruido.">RTAS TP5 p.8</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=2" title="S/N = 210-1= 1024-1=1023 veces">Respuestas oficial TP5 p.2</a></td>
+</tr>
+<tr>
+<td>TP5 ej. 3 (CT05 ej. 4)</td>
+<td>Duplicar <span class="arithmatex">\(C\)</span> con el mismo canal (4 kHz, 20 dB): ¿cuántas veces aumentar la potencia de señal?, ¿nueva S/N en dB? <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=1" title="Necesitamos duplicar la capacidad de transporte de información de un canal de datos cuyo">Práctica TP5 BIS p.1</a></td>
+<td>20 dB = 100 veces; <span class="arithmatex">\(C=4000\log_2 101=26.632\)</span> bps; <span class="arithmatex">\(2C=53.265\)</span> bps; <span class="arithmatex">\(S/N=10.198\)</span> veces, 40 dB. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=9" title="S/N = 10.198 veces">RTAS TP5 p.9</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=3" title="S/N = 10198 → S/NdB = 10log10198 =40dB">Respuestas oficial TP5 p.3</a> Recálculo: <span class="arithmatex">\(1+S/N'=(1+S/N)^2\)</span> da 10.200 veces (40,09 dB), unas 102 veces la S/N original. La pregunta «cuántas veces» no tiene respuesta impresa.</td>
+</tr>
+<tr>
+<td>TP5 ej. 4 (CT05 ej. 7)</td>
+<td>Ruido al doble (4 kHz, 20 dB): caída porcentual de <span class="arithmatex">\(C\)</span> y nueva S/N. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="SNR=20dB. Sabiendo que por desperfectos aumenta al doble su potencia">TP5 p.1</a></td>
+<td><span class="arithmatex">\(C_1=26.632\)</span> bps; con <span class="arithmatex">\(S/N=50\)</span>, <span class="arithmatex">\(C_2=22.689\)</span> bps; S/N nueva <span class="arithmatex">\(=10\log 50=16{,}98\)</span> dB. Porcentaje impreso: 17,34 % (RT) y 17,37 % (GO). Recálculo: 17,38 % sobre <span class="arithmatex">\(C_2\)</span> y 14,81 % sobre <span class="arithmatex">\(C_1\)</span>. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=10" title="% = 17,34">RTAS TP5 p.10</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=3" title="S/NdB = 10log50=16,98dB">Respuestas oficial TP5 p.3</a> Ver Discrepancia 2.</td>
+</tr>
+<tr>
+<td>TP5 ej. 5</td>
+<td>Ruido igual al doble de la señal y <span class="arithmatex">\(C=64\)</span> kbps: ¿qué sistema recomendaría?, ¿<span class="arithmatex">\(\Delta f\)</span>?, ¿S/N en dB? <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=1" title="¿Qué sistema recomendaría? ¿Cuál">Práctica TP5 BIS p.1</a></td>
+<td><span class="arithmatex">\(S/N=1/2\)</span> veces, <span class="arithmatex">\(-3\)</span> dB; <span class="arithmatex">\(64.000=\Delta f\cdot0{,}585\)</span>, <span class="arithmatex">\(\Delta f=109{,}4\)</span> kHz. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=11" title="S/N = -3dB">RTAS TP5 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=11" title="= 109,4 KHz">RTAS TP5 p.11</a> La pregunta «¿qué sistema recomendaría?» no tiene respuesta impresa en las fuentes.</td>
+</tr>
+<tr>
+<td>TP5 ej. 6</td>
+<td>Línea de 3,1 kHz; señal de 10 V y ruido de 5 mV: tasa máxima. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=2" title="10 voltios, el ruido es de 5 milivoltios.">Práctica TP5 BIS p.2</a></td>
+<td>Amplitudes: <span class="arithmatex">\(20\log(10/0{,}005)=66\)</span> dB, <span class="arithmatex">\(S/N=3.981.071\)</span> veces, <span class="arithmatex">\(C=67.966\)</span> bps (RT) o 67.890 bps (GO, con <span class="arithmatex">\(\log_2=21{,}9\)</span>). <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="C = 67.966 bps">RTAS TP5 p.12</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="SNRdB=20log As/Ar = 20 log 10/0.005= 66 dB">Respuestas oficial TP5 p.4</a> Ver Discrepancia 5.</td>
+</tr>
+<tr>
+<td>TP5 ej. 7 (GO ej. 10)</td>
+<td>Canal entre 3 y 4 MHz con 24 dB: capacidad y niveles. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas-BIS.pdf#page=2" title="Suponer que en el espectro de un canal está situado entre los 3 Mhz">Práctica TP5 BIS p.2</a></td>
+<td><span class="arithmatex">\(S/N=251{,}18\)</span> veces; <span class="arithmatex">\(C=1\cdot\log_2(1+251{,}18)=7{,}97\)</span> Mbps. Niveles, en el caso ideal: <span class="arithmatex">\(7{,}97=2\cdot1\cdot\log_2 n\)</span>, <span class="arithmatex">\(n=16\)</span>. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=13" title="S/N = 251,18 veces">RTAS TP5 p.13</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=13" title="C = 7,97 Mbps">RTAS TP5 p.13</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="CASO IDEAL → SIN RUIDO">Respuestas oficial TP5 p.5</a> Recálculo: <span class="arithmatex">\(C=7{,}978\)</span> Mbps y <span class="arithmatex">\(n=2^{3{,}989}=15{,}9\approx16\)</span>; con 15 niveles no alcanza.</td>
+</tr>
+<tr>
+<td>GO ej. 7</td>
+<td>S/N para <span class="arithmatex">\(C=4\)</span> kbps con <span class="arithmatex">\(\Delta f=500\)</span> Hz. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="¿Cuál es el SNR necesario para un dispositivo periférico">Guía oficial TP5 p.2</a></td>
+<td><span class="arithmatex">\(S/N=2^8-1=255\)</span>, 24 dB. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="S/N = 2C/W – 1 = 28 – 1 = 255">Respuestas oficial TP5 p.4</a> Recálculo: 24,07 dB.</td>
+</tr>
+<tr>
+<td>GO ej. 8</td>
+<td><span class="arithmatex">\(\Delta f=3.100\)</span> Hz y 30 dB: <span class="arithmatex">\(C\)</span>. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="Una línea telefónica estándar tiene un ancho de banda de 3.100 Hz.">Guía oficial TP5 p.2</a></td>
+<td><span class="arithmatex">\(S/N=10^3\)</span>; <span class="arithmatex">\(C=3100\log_2(1+10^3)=30.898\)</span> bps. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="C = 3100 x lg2 1+103 = 30898 bps">Respuestas oficial TP5 p.4</a></td>
+</tr>
+<tr>
+<td>GO ej. 9</td>
+<td>Cómo varía <span class="arithmatex">\(C\)</span> con la S/N a <span class="arithmatex">\(\Delta f\)</span> constante; dar valores. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="Cómo varia la capacidad máxima de un canal de comunicaciones">Guía oficial TP5 p.2</a></td>
+<td>30 dB y 3100 Hz dan 30.898 bps; 0 dB da <span class="arithmatex">\(3100\log_2 2=3100\)</span> bps. La relación es logarítmica. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="C = 3100 x lg2 1+1 = 3100 bps">Respuestas oficial TP5 p.5</a> Ver Discrepancia 14.</td>
+</tr>
+<tr>
+<td>GO ej. 11</td>
+<td><span class="arithmatex">\(\Delta f=3.000\)</span> Hz y <span class="arithmatex">\(S/N=10^3\)</span> veces. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="Dados los siguientes valores, calcular la capacidad del canal.">Guía oficial TP5 p.2</a></td>
+<td>Impreso: 29.880 bps. Recálculo: 29.901,7 bps. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="C=29880 bps">Respuestas oficial TP5 p.5</a> Ver Discrepancia 4.</td>
+</tr>
+<tr>
+<td>GO ej. 12</td>
+<td>Teletipo de 300 Hz y 3 dB. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="la capacidad para un canal de un teletipo de 300 Hz">Guía oficial TP5 p.2</a></td>
+<td><span class="arithmatex">\(S/N\approx2\)</span> veces; <span class="arithmatex">\(C=300\log_2 3=474\)</span> bps impreso. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=6" title="C=474 bps">Respuestas oficial TP5 p.6</a> Ver Discrepancia 6.</td>
+</tr>
+<tr>
+<td>GO ej. 13</td>
+<td><span class="arithmatex">\(C=20\)</span> Mbps con 3 MHz: S/N admisible. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Preguntas.pdf#page=2" title="Sea un canal con una capacidad de 20 Mbps y el ancho de banda es de 3 Mhz.">Guía oficial TP5 p.2</a></td>
+<td><span class="arithmatex">\(20=3\log_2(1+S/N)\)</span>, <span class="arithmatex">\(S/N\approx100\)</span> veces. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=6" title="S/N=100 veces aprox.">Respuestas oficial TP5 p.6</a> Recálculo: 100,6 veces, 20,03 dB.</td>
+</tr>
+<tr>
+<td>TP5 teoría 1 (CT05 ej. 3)</td>
+<td>Capacidad máxima de un canal sin ruido.</td>
+<td><span class="arithmatex">\(C=2B\log_2 n\)</span> (multinivel) y <span class="arithmatex">\(C=V_{\max}=2B\)</span> (binaria); con <span class="arithmatex">\(N=0\)</span> la fórmula de Shannon da infinito. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=1" title="Donde n es la cantidad de niveles discretos de la señal.">Teoría TP5 respuestas p.1</a></td>
+</tr>
+<tr>
+<td>TP5 teoría 2 y 3 (CT05 ej. 5 y 6)</td>
+<td>Demostrar el límite <span class="arithmatex">\(1{,}44\,S/\alpha\)</span>; graficar <span class="arithmatex">\(C\)</span> contra <span class="arithmatex">\(\Delta f\)</span> con <span class="arithmatex">\(\alpha=0{,}001\)</span> W/Hz y <span class="arithmatex">\(S=10\)</span> W.</td>
+<td>Demostración en «Corolario». <span class="arithmatex">\(C=14.400\)</span> bps. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=2" title="C = 1,44 S/α, entonces">Teoría TP5 respuestas p.2</a> Ver Discrepancia 3.</td>
+</tr>
+<tr>
+<td>Clase 6 práctica: TV</td>
+<td>Imagen de TV en blanco y negro con 300.000 elementos, 10 niveles de brillo, 30 cuadros por segundo y 30 dB: <span class="arithmatex">\(\Delta f\)</span> necesario. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=17" title="fig: Ejemplo, imagen de TV blanco y negro de 300.000 elementos, 10 niveles de brillo equiprobables, 30 cuadros por segundo, S/N de 30 db, calcular el ancho de banda necesario">Clase 6 práctica p.17</a></td>
+<td>Un cuadro: <span class="arithmatex">\(3\cdot10^5\log_2 10=9{,}96\cdot10^5\)</span> bits; tasa 29,9 Mbps; <span class="arithmatex">\(T=C\)</span>, <span class="arithmatex">\(\Delta f=29{,}9\cdot10^6/\log_2 1001=2{,}99\)</span> MHz impreso. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=18" title="fig: solución, I cuadro = 3 x 10^5 x log2 10 = 9,96 x 10^5 bits, tasa de información 29,9 Mbps, T = C, Δf = 29,9 x 10^6 / log2 1001, Δf = 2,99 MHz">Clase 6 práctica p.18</a> Recálculo: 3,00 MHz (2,9996).</td>
+</tr>
+<tr>
+<td>Final 2020-12, T1 n.3</td>
+<td>«¿Qué entiende por ruido? ¿Cuáles conoce?» <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="¿Qué entiende por ruido? ¿Cuáles conoce?">Final 2020-12 p.1</a></td>
+<td>El PDF trae solo el enunciado. Definición y los cuatro tipos de «Ruido: definición y tipos».</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>En un canal de 3.000 Hz la S/N es de 30 dB. ¿Qué valor va en la fórmula de Shannon-Hartley y cuánto da <span class="arithmatex">\(C\)</span>?</summary>
+<p>S/N = 1000 veces (no 30). <span class="arithmatex">\(C=3000\log_2 1001\approx29.901{,}7\)</span> bps, 29,9 kbps. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="S/N = 1000 veces">RTAS TP5 p.6</a></p>
+</details>
+<details class="question">
+<summary>Un canal ideal de 4.000 Hz transmite con 16 niveles. ¿Cuál es su capacidad?</summary>
+<p><span class="arithmatex">\(C=2\cdot4000\cdot\log_2 16=32.000\)</span> bps. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=7" title="fig: Ejemplo, canal de 4.000 Hz y dos niveles, Vt max = 2 x 4.000 = 8.000 bps; 16 niveles, Vt max = 2 x 4.000 log2 16 = 32.000 bps">Clase 6 práctica p.7</a></p>
+</details>
+<details class="question">
+<summary>¿Qué tipos de ruido enumera la cátedra?</summary>
+<p>Térmico (blanco, gaussiano o de Johnson), diafonía (crosstalk), impulsivo e intermodulación. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=50" title="fig: INTERMODULACIÓN producto de no linealidad en Tx, Rx o sistema de Tx, señales a frecuencias f1 + f2, f1 − f2">Clase-06 p.50</a></p>
+</details>
+<details class="question">
+<summary>¿Qué S/N en dB hace falta para <span class="arithmatex">\(C=4\)</span> kbps con <span class="arithmatex">\(\Delta f=500\)</span> Hz?</summary>
+<p><span class="arithmatex">\(S/N=2^{4000/500}-1=255\)</span> veces, unos 24 dB. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="S/N = 2C/W – 1 = 28 – 1 = 255">Respuestas oficial TP5 p.4</a></p>
+</details>
+<details class="question">
+<summary>Si <span class="arithmatex">\(\Delta f\)</span> crece sin límite con ruido blanco, ¿a qué tiende <span class="arithmatex">\(C\)</span>? Dar el valor con <span class="arithmatex">\(S=10\)</span> W y <span class="arithmatex">\(\alpha=0{,}001\)</span> W/Hz.</summary>
+<p>A <span class="arithmatex">\(1{,}44\,S/\alpha\)</span>, un valor finito. Con los datos, 14.400 bps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="capacidad del canal tiende a un valor finito que no depende">Clase-06 p.45</a></p>
+</details>
+<details class="question">
+<summary>Con 4 kHz y 20 dB el ruido se duplica. ¿Sobre qué base es el 17,38 % y cuál es el otro porcentaje?</summary>
+<p>17,38 % es sobre la capacidad reducida <span class="arithmatex">\(C_2\)</span> (3943/22689), la base de la cátedra. Sobre la capacidad original <span class="arithmatex">\(C_1\)</span> (3943/26632) es 14,81 %. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=10" title="C = 22.689 bps">RTAS TP5 p.10</a></p>
+</details>
+<details class="question">
+<summary>Los datos son 10 V de señal y 5 mV de ruido. ¿Cómo se pasa a veces?</summary>
+<p>Son amplitudes: <span class="arithmatex">\(20\log_{10}(10/0{,}005)=66\)</span> dB (en la cátedra), después <span class="arithmatex">\(10^{6{,}6}=3.981.071\)</span> veces. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="Observa que los datos del enunciado son amplitudes">RTAS TP5 p.12</a></p>
+</details>
+<details class="question">
+<summary>¿Qué mide NEXT y cuál es su valor ideal?</summary>
+<p>La diafonía en el extremo donde se inyecta la señal (extremo cercano). Lo ideal es infinitamente negativa (<span class="arithmatex">\(P_2=0\)</span>). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=49" title="fig: RUIDO diafonía crosstalk, NEXT extremo cercano, FEXT extremo lejano, NEXT dB = 10log P2/P1, lo ideal es una diafonía infinitamente negativa con P2 = 0">Clase-06 p.49</a></p>
+</details>
+<details class="question">
+<summary>En el ej. 7 (3 a 4 MHz, 24 dB), ¿por qué se usan dos fórmulas?</summary>
+<p>La capacidad es del canal real (Shannon-Hartley, <span class="arithmatex">\(C=7{,}97\)</span> Mbps). Los niveles se calculan con el canal ideal (<span class="arithmatex">\(C=2\Delta f\log_2 n\)</span>, <span class="arithmatex">\(n=16\)</span>). <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=13" title="n = 16">RTAS TP5 p.13</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de teoría cuando una resolución la contradice (criterio de la guía: la diapositiva de teoría manda sobre la resolución de práctica).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>FCS 3400 contra 3300 (Δf de 3000 o 3100 Hz)</td>
+<td><code>Comunicaciones-TP05</code> ej. 1 dice FCI = 300 Hz y FCS = 3400 Hz. BIS, la guía oficial y RT dicen FCS = 3300 Hz. La diapositiva da el canal telefónico típico de 300 a 3400 Hz (<span class="arithmatex">\(\Delta f=3100\)</span> Hz). La clase de práctica usa 3000 Hz. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="los extremos FCI=300 Hz, FCS=3400">TP5 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=6" title="FCS - FCI = 3300Hz - 300 Hz = 3000 Hz">RTAS TP5 p.6</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=9" title="El canal telefónico típico tiene un ancho de banda de">Clase-06 p.9</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=16" title="fig: Ejemplos, S/N igual a 100 y 3000 Hz, C = 3000 log2 1 + 100 = 19975 bps">Clase 6 práctica p.16</a></td>
+<td>El ejemplo resuelto usa FCS = 3300 Hz (<span class="arithmatex">\(\Delta f=3000\)</span> Hz, 29,9 kbps), como RT, BIS y la guía oficial. La diapositiva no contradice a RT: da el canal típico (3400 Hz, <span class="arithmatex">\(\Delta f=3100\)</span> Hz), que la página muestra como variante con 30.898 bps.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>TP5 ej. 4: porcentaje y base</td>
+<td>RT: 17,34 %. GO: 17,37 %, con «26032» en el numerador (errata de 26.632; con 26.032 la cuenta daría 14,73 %). RT escribe además «20 = 10 log S/N = 9,57 dB», que sobra: 20 dB son 100 veces. Recálculo: sobre <span class="arithmatex">\(C_2\)</span> (la base de las dos resoluciones), 3943/22689 = 17,378 %: GO imprime el truncado y RT no coincide con ninguno. Sobre <span class="arithmatex">\(C_1\)</span>, 3943/26632 = 14,81 %. Dicho en clase: nota practica 2026-09-30 07:34 PM: "Porque ahí tengo la reducción Es sobre el nuevo." y nota practica 2026-09-30 07:36 PM: "cuánto dice que da catorce ocho". <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=10" title="% = 17,34">RTAS TP5 p.10</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=3" title="26032 − 22689">Respuestas oficial TP5 p.3</a></td>
+<td>Se muestran los dos porcentajes con su base: 17,38 % sobre <span class="arithmatex">\(C_2\)</span> (cátedra) y 14,81 % sobre <span class="arithmatex">\(C_1\)</span>.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Límite con el ancho de banda creciente (TP5 teoría 2 = CT05 ej. 5)</td>
+<td>El enunciado dice «x tiende a infinito» y la resolución de la guía escribe <span class="arithmatex">\(x\to0\)</span>. La diapositiva dice «x tendiendo a cero». Con <span class="arithmatex">\(x=S/(\alpha B)\)</span>, <span class="arithmatex">\(B\to\infty\)</span> implica <span class="arithmatex">\(x\to0\)</span>. La resolución parte de <span class="arithmatex">\(C=2B\log_2(1+S/N)\)</span> y concluye «≅ 1,44 S/N»; la diapositiva usa <span class="arithmatex">\(C=B\log_2(1+S/N)\)</span> y <span class="arithmatex">\(1{,}44\,S/\alpha\)</span> (con <span class="arithmatex">\(2B\)</span> el límite sería <span class="arithmatex">\(2{,}88\,S/\alpha\)</span>). En teoría 3 escribe «C = B . S/N» y «N = 0,001 Watts» (el dato es <span class="arithmatex">\(\alpha\)</span>). El resultado final, 14.400 bps, coincide con <span class="arithmatex">\(1{,}44\,S/\alpha\)</span>. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Comunicaciones-TP05.pdf#page=1" title="cuando x tiende a infinito de la expresión">TP5 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Preguntas.pdf#page=1" title="cuando x tiende a infinito de la expresión">Teoría TP5 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="Del Análisis Matemático sabemos que para x tendiendo a">Clase-06 p.45</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/GUIA-TP-05-Teoria-Respuestas-RTAS.pdf#page=2" title="C = B . S/N">Teoría TP5 respuestas p.2</a></td>
+<td>Manda la diapositiva: <span class="arithmatex">\(x\to0\)</span> y <span class="arithmatex">\(1{,}44\,S/\alpha\)</span>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>GO ej. 11</td>
+<td>La guía oficial da 29.880 bps para 3.000 Hz y <span class="arithmatex">\(S/N=10^3\)</span>. El recálculo, y el mismo caso en la clase de práctica (3000 Hz, 30 dB), dan 29.902 bps (valor exacto 29.901,7). <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="C=29880 bps">Respuestas oficial TP5 p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=16" title="fig: Ejemplos, con 30 db S/N 1:1000, C = 29902 bps">Clase 6 práctica p.16</a></td>
+<td>Se cita el 29.880 como impreso y el 29.901,7 como recálculo.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>TP5 ej. 6: 67.966 contra 67.890</td>
+<td>RT: 67.966 bps. GO: 67.890, porque redondea <span class="arithmatex">\(\log_2\)</span> a 21,9. Recálculo con 66 dB: 67.966. Los 66 dB son el redondeo de 66,02 dB: sin redondear, <span class="arithmatex">\(S/N=(10/0{,}005)^2=4\cdot10^6\)</span> veces y <span class="arithmatex">\(C=67.988\)</span> bps. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=12" title="C = 67.966 bps">RTAS TP5 p.12</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=4" title="SNRdB=20log As/Ar = 20 log 10/0.005= 66 dB">Respuestas oficial TP5 p.4</a></td>
+<td>Se cita 67.966 (RT) como oficial, con el redondeo a 66 dB dicho.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GO ej. 12</td>
+<td>Imprime 474 bps con «S/N = 2 veces aprox.». Con <span class="arithmatex">\(S/N=2\)</span> la cuenta da 475,5; con 3 dB exactos (<span class="arithmatex">\(S/N=1{,}995\)</span>) da 474,8, y 474 es su truncado. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=6" title="S/N = 2 veces aprox.">Respuestas oficial TP5 p.6</a></td>
+<td>Se cita 474 y se aclara que sale de los 3 dB exactos.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Truncado sistemático de la cátedra</td>
+<td>RT imprime 9,57 dB (valor 9,58), 26.632 (26.632,8), 22.689 (22.689,7), 251,18 (251,19), 16,98 dB (16,99) y 7,97 Mbps (7,98); la TV da 2,99 MHz (3,00). GO ej. 5 imprime «19265 / 0,17 = 109,4 KHz»: 0,17 es <span class="arithmatex">\(\log(1{,}5)\)</span> truncado y con ese valor daría 113 kHz. Las resoluciones son correctas al truncar. <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=9" title="26.632 bps">RTAS TP5 p.9</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=3" title="fig: B = 64000 x log 2 / log 1+1/2 = 19265 / 0,17 = 109,4 KHz">Respuestas oficial TP5 p.3</a></td>
+<td>La página da el impreso y el valor exacto.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Erratas del factor de ruido</td>
+<td>En p.13 el desarrollo muestra <span class="arithmatex">\(F=(S_1/N_1)/(S_1/N_2)\)</span> (debería ser <span class="arithmatex">\(S_2\)</span>) y el resultado <span class="arithmatex">\(F=N_2/(G/N_1)\)</span>. En p.12 aparece <span class="arithmatex">\(S_2=S_1G\)</span> y en p.51, <span class="arithmatex">\(S_1=S_2G\)</span>. Ambos rótulos dicen «S2 = señal de entrada» y «N2 = ruido de entrada», cuando son de salida. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=13" title="Como la potencia de la señal a la salida será igual a la">Clase-06 p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=51" title="fig: FACTOR DE RUIDO DE AMPLIFICADORES O CANALES, Fr mayor o igual a 1, Fr = S/N i / S/N o, Fr = No / G Ni">Clase-06 p.51</a>, <a href="../fuentes/practica/tucu-leppen/TP05-Capacidad-Canal/Clase-TP-05-RTAS.pdf#page=4" title="Relación que depende exclusivamente de la ganancia y del ruido propio">RTAS TP5 p.4</a></td>
+<td>La forma consistente, <span class="arithmatex">\(F=N_2/(G\,N_1)\)</span> (p.51 y RT p.4).</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Signo de la atenuación</td>
+<td>La diapositiva define atenuación <span class="arithmatex">\(=10\log(P_2/P_1)\)</span> (negativa). El TP3 define pérdida <span class="arithmatex">\(=10\log(P_1/P_2)\)</span> (positiva). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=47" title="fig: ATENUACIÓN, Atenuación dB = 10log P2/P1, siempre negativa con P2 menor que P1, lo ideal es una atenuación igual a 0">Clase-06 p.47</a>, <a href="../fuentes/practica/tucu-leppen/TP03-Calculo-Enlaces/Clase-TP-03-final-RTAS.pdf#page=3" title="definiremos la perdida de potencia, tensión y corriente">TP3 RTAS p.3</a></td>
+<td>Las dos son de la cátedra: se nombran y se remite a <a href="../u2/02-enlace.html">enlaces</a>.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Numeración entre documentos</td>
+<td>El ej. de 3 a 4 MHz es 7 en RT y BIS y 10 en GO y COF; CT05 no lo trae. CT05 ej. 3, 5 y 6 son GT 1–3; CT05 ej. 4 y 7 son GO 3 y 4. COF solo trae el enunciado de 2 y 4. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/Clase-TP-05.pdf#page=11" title="fig: Ejercicio Nro. 2 y Ejercicio Nro. 4, solo enunciados">Clase-TP-05 p.11</a></td>
+<td>Tabla de equivalencias de «Practicar».</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Dónde están los tipos de ruido</td>
+<td><code>Clase-06</code> p.3–17 no los enumera, y <code>Clase 6 práctica</code> p.9–11 tampoco: solo dibuja ruido, espectro térmico y fuentes de interferencia. Están en p.48–50, que son solo imagen. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=48" title="fig: RUIDO térmico blanco gaussiano o de Johnson, agitación térmica de los electrones, N = k T B, k = 1,38 por 10 a la menos 23 Joule/Kelvin, T Kelvin, B ancho de banda en Hz">Clase-06 p.48</a></td>
+<td>Los cuatro tipos de p.48–50. El libro no hizo falta.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Nyquist: <span class="arithmatex">\(&gt;\)</span> o <span class="arithmatex">\(\ge\)</span></td>
+<td>La p.34 escribe <span class="arithmatex">\(f_N&gt;2f_{\max}\)</span> y la p.36, <span class="arithmatex">\(f_N\ge2f_{\max}\)</span>. Es una diferencia de la propia diapositiva. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=34" title="Donde: fN = frecuencia de Nyquist o de muestreo.">Clase-06 p.34</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=36" title="fig: TEOREMA DE NYQUIST, fN mayor o igual a 2 fmáx, fN = 2 Δf, un canal se comporta como filtro pasabajo, C = Vtmáx = 2 Δf bps, HARTLEY C = 2 Δf log2 n bps capacidad de un canal s. multinivel, permite aumentar la velocidad">Clase-06 p.36</a></td>
+<td>Para el cálculo, <span class="arithmatex">\(f_N=2\Delta f\)</span>.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Constante de Boltzmann</td>
+<td>1,38·10⁻²³ J/K en la diapositiva y 1.3803·10⁻²³ J/K en la clase de práctica: es el mismo valor. <a href="../fuentes/practica/tucu-leppen/TP06-Errores-CRC/Clase-6-Capacidad-Canal-y-Deteccion-de-Errores.pdf#page=10" title="fig: espectro de ruido térmico plano en W/Hz, N0 = kT densidad de potencia de ruido, k constante de Boltzmann 1.3803 por 10 a la menos 23 J/K, T temperatura en Kelvin">Clase 6 práctica p.10</a></td>
+<td><span class="arithmatex">\(k=1{,}38\cdot10^{-23}\)</span> J/K (diapositiva).</td>
+</tr>
+<tr>
+<td>14</td>
+<td>GO ej. 9: proporcional o logarítmica</td>
+<td>La guía oficial dice «la capacidad del canal es directamente proporcional al cociente S/N» y, más abajo, que la relación con la S/N a <span class="arithmatex">\(\Delta f\)</span> constante «es logarítmico». Sus propios valores (30.898 bps con 30 dB, 3100 con 0 dB) son los de la ley logarítmica. <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="directamente proporcional al cociente S/N">Respuestas oficial TP5 p.5</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="manteniendo constante el ancho de banda es">Respuestas oficial TP5 p.5</a></td>
+<td>Lo logarítmico (Shannon-Hartley y los valores de la guía). «Proporcional» se lee como «crece con».</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../u5/01-informacion.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: U5 · Teoría de la información y codificación">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                U5 · Teoría de la información y codificación
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./02-deteccion-errores.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Detección de errores">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Detección de errores
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

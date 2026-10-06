@@ -1,0 +1,3090 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./02-enlace.html">
+      
+      
+        <link rel="next" href="../u3/01-velocidades.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Banda base: códigos de línea - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#banda-base-codigos-de-linea" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Banda base: códigos de línea
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04-banda-base.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-se-codifica-en-banda-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Por qué se codifica en banda base
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-senal-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de señal digital
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-cada-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reglas de cada código
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdb-3-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        HDB-3 paso a paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-normalizados-por-la-uit-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Códigos normalizados por la UIT-T
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frp-y-ancho-de-banda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FRP y ancho de banda
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-dibujar-un-codigo-desde-una-secuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cómo dibujar un código desde una secuencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Probalo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#por-que-se-codifica-en-banda-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Por qué se codifica en banda base
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-senal-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de señal digital
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-de-cada-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reglas de cada código
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdb-3-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        HDB-3 paso a paso
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-normalizados-por-la-uit-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Códigos normalizados por la UIT-T
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frp-y-ancho-de-banda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FRP y ancho de banda
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-dibujar-un-codigo-desde-una-secuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cómo dibujar un código desde una secuencia
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#probalo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Probalo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-senales-fourier.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U2
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="banda-base-codigos-de-linea">Banda base: códigos de línea<a class="headerlink" href="#banda-base-codigos-de-linea" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U2 · transmisión en banda base y códigos UIT-T (TP4, parte banda base).
+Entra en el 1.er parcial: dibujar los códigos a partir de un tren de pulsos.</p>
+<ul>
+<li>Códigos marcados con asterisco en la guía: unipolar NRZ y RZ, polar NRZ y RZ, bipolar RZ, AMI, Manchester, Manchester diferencial y HDB-3. <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=3" title="fig: lista de códigos de banda base con asterisco rojo en nueve de los doce">Clase-TP-04-RTAS p.3</a></li>
+<li>nota practica 2026-09-16 08:37 PM: "Generalmente son los que entran" (docente de práctica, sobre los marcados).</li>
+<li>nota practica 2026-09-16 09:40 PM: "para ver si más o menos saben Cómo se arman los códigos"</li>
+<li>nota practica 2026-09-30 08:37 PM: "iban de la mano Manchester Manchester diferencial"</li>
+<li>nota practica 2026-09-30 08:37 PM: "la frecuencia repetición de pulso que lo vimos"</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Banda base: señal digital que viaja por cables de cobre, sin modular. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=2" title="se aplica a señales digitales que se envían mediante cables de cobre">Unidad II-3 p.2</a></li>
+<li>Se codifica para cuatro cosas: continua, sincronismo, detectar la señal y acomodar el espectro. No se logran todas a la vez. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=15" title="No se puede lograr todo a la vez, depende del contexto.">Unidad II-3 p.15</a></li>
+<li>Un código es una regla bit → nivel (<code>+</code>, <code>-</code>, <code>0</code>). NRZ ocupa todo el bit; RZ, la mitad. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=20" title="pulsos que ocupan una parte la mitad del intervalo significativo">Unidad II-3 p.20</a></li>
+<li>Pulso más angosto, más ancho de banda: <span class="arithmatex">\(\Delta f \approx 1/\tau\)</span>. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=41" title="Existe una relación inversa entre el ancho de un pulso">Unidad II-1 p.41</a></li>
+<li>Los diferenciales dependen de lo anterior. HDB-3 es AMI con los grupos de cuatro ceros sustituidos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=42" title="El HDB-3 se basa en el denominado código AMI.">Clase 5 p.42</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frecuencia de repetición de pulso (FRP)</td>
+<td><span class="arithmatex">\(\mathrm{FRP}=\dfrac{1}{T}\)</span></td>
+<td>pps (pulsos por segundo)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=26" title="La frecuencia también se denomina frecuencia de repetición de">Unidad II-1 p.26</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="FRP = 4pps =&gt; FRP = 1/T">TP2 respuestas p.5</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=103" title="Donde: PPS es pulsos por segundo.">Libro p.103</a></td>
+</tr>
+<tr>
+<td>Ancho de pulso τ</td>
+<td>NRZ: <span class="arithmatex">\(\tau=T\)</span>. RZ: <span class="arithmatex">\(\tau&lt;T\)</span> (la mitad)</td>
+<td>s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=20" title="representados por pulsos que ocupan la totalidad del">Unidad II-3 p.20</a></td>
+</tr>
+<tr>
+<td>Ancho de banda de señal</td>
+<td><span class="arithmatex">\(0&lt;f&lt;\dfrac{1}{\tau}\)</span>, o sea <span class="arithmatex">\(\Delta f\approx\dfrac{1}{\tau}\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=41" title="fig: la mayor parte de la energía entre 0 y 1/τ">Unidad II-1 p.41</a></td>
+</tr>
+<tr>
+<td>Primer nulo del espectro</td>
+<td><span class="arithmatex">\(\omega=\dfrac{2\pi}{\tau}\)</span></td>
+<td>rad/s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=42" title="fig: el primer nulo de Cn es una medida aproximada del ancho de banda, ω = 2π/τ">Unidad II-1 p.42</a></td>
+</tr>
+<tr>
+<td>Ancho de banda relativo</td>
+<td>AMI (<span class="arithmatex">\(\tau=T\)</span>): 1 AB. Bipolar RZ (<span class="arithmatex">\(\tau=T/2\)</span>): 2 AB</td>
+<td>AB</td>
+<td><a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="AMI Requiere 1 AB.">Guía TP4 respuestas p.1</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="Bipolar RZ requiere 2 AB debido a que el ancho">Guía TP4 respuestas p.2</a></td>
+</tr>
+<tr>
+<td>Manchester</td>
+<td><span class="arithmatex">\(C=A\oplus B\)</span> (A: datos, B: reloj)</td>
+<td>nivel lógico</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=37" title="fig: OR exclusiva entre la señal de reloj y la señal original unipolar">Unidad II-3 p.37</a></td>
+</tr>
+<tr>
+<td>HDB-3</td>
+<td>Desde el 2.º grupo: unos desde la última V, par → R00V, impar → 000V. 1.er grupo: 000V (convención, figura del ej. 5)</td>
+<td>sin unidades</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="se debe contar la cantidad de unos que hay entre la última">Clase 5 p.43</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></td>
+</tr>
+<tr>
+<td>4B-3T</td>
+<td>4 bits → 3 símbolos ternarios: <span class="arithmatex">\(1-\tfrac{3}{4}=25\,\%\)</span></td>
+<td>%</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=44" title="Se reduce el ancho de banda necesario en un 25%.">Unidad II-3 p.44</a></td>
+</tr>
+<tr>
+<td>Tren de pulsos (TP2)</td>
+<td><span class="arithmatex">\(n=\dfrac{T}{\tau}\)</span> armónicas; <span class="arithmatex">\(\Delta f=n\,f_0\)</span>; <span class="arithmatex">\(f_0=\dfrac{1}{T}\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="n = T/d = 0.25/0.05 = 5 cinco armónicas">TP2 respuestas p.5</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="por-que-se-codifica-en-banda-base">Por qué se codifica en banda base<a class="headerlink" href="#por-que-se-codifica-en-banda-base" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es la técnica de las redes locales sobre cobre, y sale más barata que los módems. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=15" title="el costo de los equipos usados es más bajo que los modems">Unidad II-3 p.15</a></li>
+<li>El cobre se modela con R en serie y C en derivación. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=4" title="la resistencia del conductor, en serie con la señal">Unidad II-3 p.4</a></li>
+<li>Un pulso más angosto que RC se distorsiona. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=6" title="pulso de la fuente, que debe ser mayor al producto RC del">Unidad II-3 p.6</a></li>
+<li>El cobre es pasabajos. Con transformadores es pasabanda: no pasa la continua (deducción). <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=8" title="filtro pasabanda dejando pasar las señales dentro de un">Unidad II-3 p.8</a></li>
+<li>Los cuatro motivos para codificar (respuesta oficial del Final 2019-09): <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=15" title="Eliminar o disminuir la componente continua de la señal">Unidad II-3 p.15</a>, <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="¿por qué es necesario codificar la señal original?">Final 2019-09 p.1</a><ol>
+<li>Eliminar o disminuir la componente continua.</li>
+<li>Transmitir sincronismo del transmisor al receptor.</li>
+<li>Detectar la presencia de la señal en la línea.</li>
+<li>Acomodar el espectro dentro de la banda pasante del medio.</li>
+</ol>
+</li>
+</ul>
+<h3 id="tipos-de-senal-digital">Tipos de señal digital<a class="headerlink" href="#tipos-de-senal-digital" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Niveles</th>
+<th>Regla</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unipolar</td>
+<td>2: uno es <code>0</code></td>
+<td>un dígito siempre con la misma polaridad (<code>+</code> o <code>-</code>); el otro vale <code>0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=23" title="Unipolares: la señal tiene dos niveles, uno es cero.">Unidad II-3 p.23</a></td>
+</tr>
+<tr>
+<td>Polar</td>
+<td>2: <code>+</code> y <code>-</code></td>
+<td>nunca vale <code>0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=13" title="La señal en la línea nunca toma el valor cero.">Unidad II-3 p.13</a></td>
+</tr>
+<tr>
+<td>Bipolar</td>
+<td>3: <code>+</code>, <code>0</code>, <code>-</code></td>
+<td>un dígito alterna la polaridad; el otro es <code>0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=14" title="Un determinado dígito va tomando valores alternados de">Unidad II-3 p.14</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Las definiciones no están normalizadas: la referencia es el libro de la materia. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=11" title="Cuidado: las definiciones de los códigos no están totalmente">Unidad II-3 p.11</a></li>
+</ul>
+<h3 id="reglas-de-cada-codigo">Reglas de cada código<a class="headerlink" href="#reglas-de-cada-codigo" title="Permanent link">&para;</a></h3>
+<p><code>a/b</code>: primera mitad / segunda mitad del bit. Un solo nivel: todo el bit.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Bit 1</th>
+<th>Bit 0</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unipolar NRZ</td>
+<td><code>+</code></td>
+<td><code>0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=16" title="A este tipo de señal se la conoce también como señal ON/OFF.">Unidad II-3 p.16</a></td>
+</tr>
+<tr>
+<td>Polar NRZ</td>
+<td><code>+</code></td>
+<td><code>-</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=27" title="Se asigna polaridad positiva a los unos y negativa a los ceros">Unidad II-3 p.27</a></td>
+</tr>
+<tr>
+<td>Unipolar RZ</td>
+<td><code>+/0</code></td>
+<td><code>0/0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=22" title="fig: unipolar RZ, pulso en la primera mitad del bit y retorno a cero">Unidad II-3 p.22</a></td>
+</tr>
+<tr>
+<td>Polar RZ</td>
+<td><code>+/0</code></td>
+<td><code>-/0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=28" title="Existirá una corriente positiva breve para los bits que lleven">Unidad II-3 p.28</a></td>
+</tr>
+<tr>
+<td>Bipolar RZ</td>
+<td><code>+/0</code> y <code>-/0</code>, alternando</td>
+<td><code>0/0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=29" title="Se utiliza la bipolaridad solamente en forma alternada y para">Unidad II-3 p.29</a></td>
+</tr>
+<tr>
+<td>AMI (bipolar NRZ)</td>
+<td><code>+</code> y <code>-</code>, alternando</td>
+<td><code>0</code></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=30" title="Bipolar sin retorno a cero Código AMI: utiliza pulsos">Unidad II-3 p.30</a></td>
+</tr>
+<tr>
+<td>Diferencial</td>
+<td>transición (cambia de nivel)</td>
+<td>sin transición</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=31" title="Cuando lo que se detecta es un 0, significa una no transición.">Unidad II-3 p.31</a></td>
+</tr>
+<tr>
+<td>Manchester (IEEE 802.3)</td>
+<td><code>-/+</code> (transición bajo → alto)</td>
+<td><code>+/-</code> (alto → bajo)</td>
+<td><a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=3" title="Una transición de bajo a alto representa un">Consulta TP4 p.3</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=33" title="un bit uno es una transición positiva en la mitad del intervalo">Unidad II-3 p.33</a></td>
+</tr>
+<tr>
+<td>Manchester diferencial</td>
+<td>transición solo en el medio</td>
+<td>transición al inicio y en el medio</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=36" title="se efectúa una transición al inicio y en la mitad del intervalo">Unidad II-3 p.36</a></td>
+</tr>
+<tr>
+<td>Miller</td>
+<td>transición en el medio</td>
+<td>sin transición en el medio; transición al final si el bit siguiente es 0</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=39" title="Para el cero hay una transición al final del intervalo">Unidad II-3 p.39</a></td>
+</tr>
+<tr>
+<td>HDB-3</td>
+<td>como AMI</td>
+<td>como AMI; cuatro ceros seguidos → <code>000V</code> o <code>R00V</code></td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Cuando hay cuatro ceros se reemplaza la secuencia por">Clase 5 p.43</a></td>
+</tr>
+</tbody>
+</table>
+<p>Características que da la cátedra en su cuadro comparativo: <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=47" title="fig: cuadro comparativo de códigos de línea, de Unipolar NRZ a Bipolar NRZ AMI">Unidad II-3 p.47</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=48" title="fig: cuadro comparativo, de Bipolar RZ a HDB-3">Unidad II-3 p.48</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=49" title="fig: cuadro comparativo, Miller, CMI, 4B-3T y B6ZS">Unidad II-3 p.49</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Ancho de banda</th>
+<th>Continua</th>
+<th>Sincronismo</th>
+<th>Depende de lo anterior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unipolar NRZ</td>
+<td>menor que RZ</td>
+<td>sí</td>
+<td>sin transiciones entre bits consecutivos</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Polar NRZ</td>
+<td>menor que RZ</td>
+<td>no</td>
+<td>sin transiciones entre bits consecutivos</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Unipolar RZ</td>
+<td>mayor que NRZ</td>
+<td>sí</td>
+<td>transiciones entre 1 consecutivos; no entre 0</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Polar RZ</td>
+<td>mayor que NRZ</td>
+<td>no</td>
+<td>autosincronizante</td>
+<td>no</td>
+</tr>
+<tr>
+<td>AMI</td>
+<td>menor que RZ</td>
+<td>no</td>
+<td>transiciones entre 1; falta con 0 seguidos</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>Bipolar RZ</td>
+<td>mayor que AMI</td>
+<td>no</td>
+<td>igual que AMI</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>Diferencial (polar)</td>
+<td>similar a NRZ</td>
+<td>no</td>
+<td>pierde sincronismo</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>Manchester</td>
+<td>similar al Polar RZ</td>
+<td>no</td>
+<td>buen sincronismo</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Manchester diferencial</td>
+<td>menor que Manchester</td>
+<td>no</td>
+<td>buen sincronismo</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>Miller</td>
+<td>menor que Manchester</td>
+<td>no</td>
+<td>buen sincronismo</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>HDB-3</td>
+<td>similar a AMI</td>
+<td>no</td>
+<td>soluciona el problema de sincronismo del AMI</td>
+<td>sí</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hdb-3-paso-a-paso">HDB-3 paso a paso<a class="headerlink" href="#hdb-3-paso-a-paso" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Copiar AMI: el 0 es <code>0</code>; el 1 alterna <code>+</code>, <code>-</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=42" title="El cero se representa siempre con polaridad cero, y el">Clase 5 p.42</a></li>
+<li>Cada cuatro ceros seguidos se reemplazan por <code>000V</code> o <code>R00V</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Cuando hay cuatro ceros se reemplaza la secuencia por">Clase 5 p.43</a></li>
+<li><code>V</code> es un 1 que viola la alternancia. <code>R</code> (relleno) tiene la polaridad de <code>V</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="V = 1 se denomina violación">Clase 5 p.43</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="R relleno siempre tiene igual polaridad que V">Clase 5 p.43</a></li>
+<li>Desde el segundo grupo, contar los unos entre la última violación y la actual: par → <code>R00V</code>; impar → <code>000V</code>. El primer grupo va siempre en <code>000V</code> (paso 7). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="si ese número es impar, se usa 000V">Clase 5 p.43</a></li>
+<li>La primera <code>V</code> repite la polaridad del último 1. Las <code>V</code> alternan entre sí. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="la misma polaridad que el último bit uno transmitido.">Clase 5 p.43</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Los pulsos de violación se transmiten con polaridad alternada entre sí">Clase 5 p.43</a></li>
+<li>Sentido de la regla: así el receptor detecta la violación. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=155" title="Esto sirve para que en la recepción pueda detectarse">Libro p.155</a></li>
+<li>Primer grupo de la secuencia: siempre <code>000V</code> (convención de esta página). La figura oficial del ej. 5 lo dibuja así aunque haya cantidad par de unos antes. Ver Discrepancias. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></li>
+</ol>
+<h3 id="codigos-normalizados-por-la-uit-t">Códigos normalizados por la UIT-T<a class="headerlink" href="#codigos-normalizados-por-la-uit-t" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Velocidad de transmisión</th>
+<th>Código</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 Mbps</td>
+<td>HDB-3</td>
+</tr>
+<tr>
+<td>8 Mbps</td>
+<td>HDB-3</td>
+</tr>
+<tr>
+<td>34 Mbps</td>
+<td>HDB-3 o 4B3T</td>
+</tr>
+<tr>
+<td>140 Mbps</td>
+<td>4B3T o CMI</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Fuente de la tabla (es imagen): <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=46" title="fig: tabla de velocidad de transmisión y código, con la nota sobre cable coaxial">Unidad II-3 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=47" title="En los sistemas multiplex digitales se usan estos códigos">Clase 5 p.47</a></li>
+<li>CMI: código de inversión de marcas. La nota de la tabla dice: con cable coaxial.</li>
+<li>4B-3T pasa 4 bits a 3 símbolos ternarios y reduce el ancho de banda 25 %. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=44" title="Es un código ternario, dado que reduce 4 bits a 3 bits,">Unidad II-3 p.44</a></li>
+</ul>
+<h3 id="frp-y-ancho-de-banda">FRP y ancho de banda<a class="headerlink" href="#frp-y-ancho-de-banda" title="Permanent link">&para;</a></h3>
+<ul>
+<li>FRP <span class="arithmatex">\(=1/T\)</span>; τ es el ancho de pulso. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=26" title="muy importante, denominado ancho de pulso">Unidad II-1 p.26</a></li>
+<li>Mayor velocidad de modulación: pulso más angosto y espectro más ancho. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=45" title="disminuye el ancho del pulso y se expande el espectro, por lo">Unidad II-1 p.45</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=49" title="Cuanto mayor es la velocidad de modulación menor es el">Unidad II-1 p.49</a></li>
+<li>Por eso AMI (<span class="arithmatex">\(\tau=T\)</span>) pide 1 AB y Bipolar RZ (<span class="arithmatex">\(\tau=T/2\)</span>) pide 2 AB. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="Bipolar RZ requiere 2 AB debido a que el ancho">Guía TP4 respuestas p.2</a></li>
+<li>Ejemplo del TP2 ej. 6: FRP = 4 pps y <span class="arithmatex">\(V_m\)</span> = 20 Bd. <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="y la velocidad de modulación es de 20 Baudios">TP2 respuestas p.5</a><ul>
+<li><span class="arithmatex">\(T=1/\mathrm{FRP}=1/4=0{,}25\)</span> s.</li>
+<li><span class="arithmatex">\(\tau=1/V_m=1/20=0{,}05\)</span> s. <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="Vm = 1/d =&gt; d = 1/Vm = 1/20seg = 0,05seg">TP2 respuestas p.5</a></li>
+<li><span class="arithmatex">\(n=T/\tau=0{,}25/0{,}05=5\)</span> armónicas; <span class="arithmatex">\(f_0=1/T=4\)</span> Hz.</li>
+<li><span class="arithmatex">\(\Delta f=n\,f_0=5\cdot4=20\)</span> Hz. <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="20 Hz; ancho de banda necesario.">TP2 respuestas p.5</a></li>
+<li>Con <span class="arithmatex">\(V_m\)</span> al doble y la misma FRP: <span class="arithmatex">\(\tau=0{,}025\)</span> s, <span class="arithmatex">\(n=10\)</span>, <span class="arithmatex">\(\Delta f=40\)</span> Hz. <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="Aumenta al doble el requerimiento del ancho de banda.">TP2 respuestas p.5</a></li>
+</ul>
+</li>
+<li>Ejemplo propio, verificado con test: mismo flujo de 20 bit/s, con <span class="arithmatex">\(T=0{,}05\)</span> s por bit.<ul>
+<li>NRZ: <span class="arithmatex">\(\tau=T=0{,}05\)</span> s, <span class="arithmatex">\(\Delta f\approx1/\tau=20\)</span> Hz.</li>
+<li>RZ de medio bit: <span class="arithmatex">\(\tau=T/2=0{,}025\)</span> s, <span class="arithmatex">\(\Delta f\approx40\)</span> Hz. Esa señal RZ tiene <span class="arithmatex">\(V_m=1/\tau=40\)</span> Bd.</li>
+<li>Es el mismo efecto que la regla 1 AB frente a 2 AB.</li>
+</ul>
+</li>
+<li>El desarrollo de Fourier está en el <a href="../repaso-teorico-u1-u4.html">repaso U1–U4</a>.</li>
+</ul>
+<h3 id="como-dibujar-un-codigo-desde-una-secuencia">Cómo dibujar un código desde una secuencia<a class="headerlink" href="#como-dibujar-un-codigo-desde-una-secuencia" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Escribir la secuencia arriba y dividir el eje en intervalos de bit.</li>
+<li>Fijar el nivel inicial.<ul>
+<li>AMI y HDB-3: el primer 1 es <code>+</code>. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=30" title="fig: AMI de 1 0 0 1 0 1 0 1 1 0 con el primer 1 en positivo">Unidad II-3 p.30</a></li>
+<li>Manchester diferencial: un 0 inicial va alto → bajo. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=5" title="al principio indica un alto-bajo catedra">Consulta TP4 p.5</a></li>
+<li>Miller: arranca en alto. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=9" title="fig: Miller de la secuencia de 17 bits, la señal arranca en alto">Consulta TP4 p.9</a></li>
+</ul>
+</li>
+<li>Unipolar: 1 → <code>+</code>, 0 → <code>0</code>. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=47" title="fig: cuadro comparativo de códigos de línea, fila Unipolar NRZ con 1 V + o - y 0 V 0">Unidad II-3 p.47</a><ul>
+<li>Polar: 1 → <code>+</code>, 0 → <code>-</code>. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=27" title="Se asigna polaridad positiva a los unos y negativa a los ceros">Unidad II-3 p.27</a></li>
+<li>NRZ ocupa todo el bit. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=20" title="representados por pulsos que ocupan la totalidad del">Unidad II-3 p.20</a></li>
+<li>RZ solo la primera mitad y vuelve a <code>0</code> (unipolar +). <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=22" title="fig: señal RZ unipolar +, pulsos que retornan a cero antes de finalizar el ancho de pulso τ">Unidad II-3 p.22</a></li>
+</ul>
+</li>
+<li>Bipolares: 0 → <code>0</code>; los 1 alternan <code>+</code>, <code>-</code>.</li>
+<li>HDB-3: copiar AMI y buscar grupos de cuatro ceros. El primero va en <code>000V</code>; desde el segundo, contar los unos desde la última <code>V</code>.</li>
+<li>Manchester: 1 → <code>-/+</code>, 0 → <code>+/-</code>. Manchester diferencial: transición siempre en el medio; si el bit es 0, además al inicio. Miller: 1 → transición en el medio; 0 → sin transición, y al final si sigue otro 0. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=6" title="Si el siguiente bit es 0 habrá una transición">Consulta TP4 p.6</a></li>
+</ol>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>Secuencia del TP4 ej. 3 (17 bits): <code>0 1 1 0 0 1 1 0 1 1 1 1 1 0 0 0 0</code>.</p>
+<ul>
+<li>En la guía y en la consulta: 17 bits; piden Manchester, Manchester diferencial y Miller. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=7" title="Secuencia binaria: 0 1 1 0 0 1 1 0 1 1">Consulta TP4 p.7</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Manchester, Manchester Diferencial y Miller. Indicar sus principales características.">Guía TP4 preguntas p.1</a></li>
+<li>En Comunicaciones-TP04: 20 bits (tres <code>0</code> más), sin Miller. <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="0110 0110 1111 1000 0000">Comunicaciones-TP04 p.1</a></li>
+</ul>
+<p>Notación: <code>a/b</code> es primera mitad / segunda mitad; un solo nivel ocupa todo el bit.</p>
+<p><strong>Dibujados por la cátedra</strong> (Manchester con la polaridad IEEE 802.3). <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=7" title="fig: Manchester IEEE 802.3 de la secuencia de 17 bits en la grilla de la cátedra">Consulta TP4 p.7</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=8" title="fig: Manchester diferencial de la secuencia de 17 bits">Consulta TP4 p.8</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=9" title="fig: Miller de la secuencia de 17 bits, la señal arranca en alto">Consulta TP4 p.9</a></p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manchester IEEE 802.3</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+</tr>
+<tr>
+<td>Manchester diferencial</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+</tr>
+<tr>
+<td>Miller</td>
+<td>+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>+</td>
+<td>-</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>&plusmn;</td>
+<td>-/+</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Calculados aplicando la regla</strong> (ejemplo propio, verificado con test). Reglas: Unipolar NRZ, Polar NRZ, Unipolar RZ, Polar RZ y AMI, de <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=47" title="fig: cuadro comparativo de códigos de línea, filas Unipolar NRZ a Bipolar NRZ AMI con su regla de formación">Unidad II-3 p.47</a>; Bipolar RZ y Diferencial (polar), de <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=48" title="fig: cuadro comparativo de códigos de línea, filas Bipolar RZ a HDB-3 con su regla de formación">Unidad II-3 p.48</a>. En los RZ, p.47 y p.48 dicen solo "τ menor T"; la primera mitad sale de <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=20" title="pulsos que ocupan una parte la mitad del intervalo significativo">Unidad II-3 p.20</a> y <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=22" title="fig: señal RZ unipolar +, pulsos que retornan a cero antes de finalizar el ancho de pulso τ">p.22</a>. HDB-3, de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="si ese número es par, se usa R00V">Clase 5 p.43</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unipolar NRZ (+)</td>
+<td>0</td>
+<td>+</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+<td>+</td>
+<td>0</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Polar NRZ</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Unipolar RZ</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>0/0</td>
+</tr>
+<tr>
+<td>Polar RZ</td>
+<td>-/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>-/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>-/0</td>
+<td>-/0</td>
+<td>-/0</td>
+</tr>
+<tr>
+<td>Diferencial (polar, inicia en -)</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>AMI</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Bipolar RZ</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>0/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>+/0</td>
+<td>-/0</td>
+<td>+/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>0/0</td>
+<td>0/0</td>
+</tr>
+<tr>
+<td>HDB-3</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>0</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>V+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>HDB-3, aplicando la regla de Clase 5 p.43: los cuatro ceros finales son el primer grupo → <code>000V</code>. La <code>V</code> repite la polaridad del último 1 (<code>+</code>). Con 9 unos antes (impar), la regla de paridad da lo mismo.</li>
+<li>AMI y HDB-3 son iguales hasta el bit 16: no hay cuatro ceros seguidos antes del final.</li>
+<li>Diferencial: el nivel inicial (<code>-</code>) es convención. La figura de <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=32" title="fig: señal diferencial que arranca en el nivel bajo y cambia en cada 1">Unidad II-3 p.32</a> arranca en el nivel bajo.</li>
+<li>Comunicaciones-TP04 ej. 3 pide Manchester y Manchester diferencial con 20 bits (tres <code>0</code> más). Los 17 primeros niveles de cada código no cambian. Bits 18 a 20 (el bit 17 termina en <code>+</code> en el diferencial): <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="Graficar las señales resultantes utilizando los códigos Manchester y el">Comunicaciones-TP04 p.1</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manchester IEEE 802.3, 20 bits</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+<td>&plusmn;</td>
+</tr>
+<tr>
+<td>Manchester diferencial, 20 bits</td>
+<td>-/+</td>
+<td>-/+</td>
+<td>-/+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Segundo caso: <code>000V</code> y después <code>R00V</code></strong> (ejemplo de la cátedra, 16 bits). <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=42" title="fig: ejemplo de 16 bits con señal unipolar, AMI y HDB-3">Unidad II-3 p.42</a></p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unipolar</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+</tr>
+<tr>
+<td>AMI</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>-</td>
+<td>0</td>
+<td>0</td>
+<td>+</td>
+</tr>
+<tr>
+<td>HDB-3</td>
+<td>+</td>
+<td>-</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>V+</td>
+<td>R-</td>
+<td>0</td>
+<td>0</td>
+<td>V-</td>
+<td>0</td>
+<td>+</td>
+<td>0</td>
+<td>0</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Primer grupo (bits 4 a 7): es el primero → <code>000V</code>; <code>V</code> = <code>+</code>, como el último 1. Con 3 unos antes (impar), la regla de paridad da lo mismo.</li>
+<li>Segundo grupo (bits 8 a 11): 0 unos desde la <code>V</code> (par) → <code>R00V</code>; la <code>V</code> alterna a <code>-</code> y <code>R</code> tiene su polaridad. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=154" title="Si ese número es par, la secuencia de reemplazo será R00V">Libro p.154</a></li>
+<li>Los 1 siguientes alternan a partir de la última <code>V</code>: <code>+</code> y <code>-</code>.</li>
+</ul>
+<h3 id="probalo">Probalo<a class="headerlink" href="#probalo" title="Permanent link">&para;</a></h3>
+<div class="cdd-linea" data-bits="0 1 1 0 0 1 1 0 1 1 1 1 1 0 0 0 0"></div>
+
+<p>Elegí un código y cambiá los bits: dibuja la forma de onda y, en HDB-3, marca las <code>V</code> y las <code>R</code>.</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Manchester tiene dos polaridades opuestas.</strong> La cátedra usa IEEE 802.3: 1 = bajo → alto, 0 = alto → bajo. Con la convención de Thomas es al revés. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=1" title="el bit 1 es una transición alto-bajo y el bit 0 bajo-alto.">Consulta TP4 p.1</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=2" title="Usa la catedra IEEE 802.3">Consulta TP4 p.2</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>HDB-3: se cuentan los unos desde la última violación, no desde el principio.</strong> El primer grupo no tiene violación previa: va en <code>000V</code> (convención de esta página; así lo dibuja la figura oficial del ej. 5). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="se debe contar la cantidad de unos que hay entre la última">Clase 5 p.43</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>AMI y HDB-3 son iguales mientras no haya cuatro ceros seguidos.</strong> Remarcado en clase: nota practica 2026-09-30 08:37 PM: "estarían dibujando dos gráficas iguales". HDB-3 solo cambia los grupos de cuatro ceros. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Cuando hay cuatro ceros se reemplaza la secuencia por">Clase 5 p.43</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Los diferenciales dependen del nivel anterior.</strong> Remarcado en clase: nota teoria 2026-09-08 07:58 PM: "teníamos que saber la historia". Fijá el nivel inicial antes de dibujar. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=31" title="se detecta un 1, se produce un cambio de estado o transición">Unidad II-3 p.31</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>RZ no es Manchester.</strong> RZ vuelve a <code>0</code> en la segunda mitad del bit; Manchester conmuta entre <code>+</code> y <code>-</code> y no usa <code>0</code>. RZ pide más ancho de banda: Bipolar RZ 2 AB frente a 1 AB de AMI. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="emplea las fases positivas y negativas de los pulsos para">Guía TP4 respuestas p.2</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El examen pide dibujar.</strong> Escribí primero el tren de bits y debajo cada código. Remarcado en clase: nota practica 2026-09-30 08:37 PM: "tenían que dibujar el pulso en binario"; nota practica 2026-09-16 08:38 PM: "es el tren de pulso y es dibujar". <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Polar NRZ, Bipolar RZ y Unipolar NRZ. Indicar sus principales características.">Guía TP4 preguntas p.1</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Ejercicios del TP4, parte banda base. Numeración: Comunicaciones-TP04 / guía TP4 de teoría (en ej. 2, 3 y 5 difieren las secuencias).</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ej. 1 / ej. 1</td>
+<td>Características de la banda base y cuándo se emplea. <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="Para la transmisión en banda base:">Comunicaciones-TP04 p.1</a></td>
+<td>Redes locales y bajo costo; los ETCD codifican y no modulan ("módem banda base"). Objetivos: ver Discrepancia 1. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="Bajo costo de los equipos intervinientes.">Guía TP4 respuestas p.1</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="Los equipos ETCD no realizan la operación de modulación,">Guía TP4 respuestas p.1</a></td>
+</tr>
+<tr>
+<td>ej. 1 / ej. 1 (otro tipo)</td>
+<td>Qué otro tipo de transmisión existe.</td>
+<td>Señal digital modulada con módem; la guía no lo desarrolla. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-1.pdf#page=5" title="misma debe ser modulada mediante un equipo modem">Unidad II-1 p.5</a></td>
+</tr>
+<tr>
+<td>ej. 2 / ej. 2 (AMI)</td>
+<td>AMI de <code>1001 0000 0110 0001 1100 0000 0001 0000 1100</code> (36 bits). <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="1001 0000 0110 0001 1100 0000 0001 0000 1100">Comunicaciones-TP04 p.1</a> La guía usa 34 bits. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Secuencia binaria: 1 0 0 1 0 0 0 0 0 1">Guía TP4 preguntas p.1</a></td>
+<td>34 bits, figura oficial: <code>+00- 0000 0+-0 000+ -+00 0000 000- 0000 +-</code>. Con 36 bits se agregan dos <code>0</code>. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="fig: AMI de 34 bits, pulsos que alternan polaridad">Guía TP4 respuestas p.1</a></td>
+</tr>
+<tr>
+<td>ej. 2 / ej. 2 (Bipolar RZ)</td>
+<td>Bipolar RZ de la misma secuencia.</td>
+<td>Mismos signos que el AMI, cada pulso solo en la primera mitad (<code>+/0</code>, <code>-/0</code>). <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="fig: Bipolar RZ de 34 bits, pulsos de medio bit">Guía TP4 respuestas p.2</a></td>
+</tr>
+<tr>
+<td>ej. 2 / ej. 2 (ancho de banda)</td>
+<td>Ancho de banda de cada código.</td>
+<td>AMI 1 AB; Bipolar RZ 2 AB. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="AMI Requiere 1 AB.">Guía TP4 respuestas p.1</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="Bipolar RZ requiere 2 AB debido a que el ancho">Guía TP4 respuestas p.2</a></td>
+</tr>
+<tr>
+<td>ej. 3 / ej. 3</td>
+<td>Manchester y Manchester diferencial (la guía agrega Miller); 17 bits en la guía, 20 en Comunicaciones-TP04.</td>
+<td>Ver Ejemplo resuelto: 17 bits y bits 18 a 20.</td>
+</tr>
+<tr>
+<td>ej. 3 / ej. 3 (Manchester)</td>
+<td>Características del Manchester.</td>
+<td>No es diferencial; al menos una transición por bit. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="por lo menos una transición por bit">Guía TP4 respuestas p.2</a></td>
+</tr>
+<tr>
+<td>ej. 3 / ej. 3 (Manchester diferencial)</td>
+<td>Características del Manchester diferencial.</td>
+<td>Es diferencial; no hace falta identificar la polaridad de cada intervalo. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="Tiene la Ventaja de que no es necesario identificar la polaridad">Guía TP4 respuestas p.2</a></td>
+</tr>
+<tr>
+<td>ej. 3 / ej. 3 (Miller)</td>
+<td>Características del Miller.</td>
+<td>Es diferencial; al menos una transición cada 2 intervalos; menos ancho de banda que Manchester. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="Por lo menos habrá una transición cada 2 intervalos significativos">Guía TP4 respuestas p.3</a></td>
+</tr>
+<tr>
+<td>ej. 4 / ej. 4</td>
+<td>Demostrar que el aporte a la continua del Manchester es nulo. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Demostrar que el aporte a la CC del código Manchester">Guía TP4 preguntas p.1</a></td>
+<td>Cada bit tiene una mitad <code>+</code> y otra <code>-</code>: hay tantos niveles positivos como negativos en el bloque. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="asegura que haya tantos niveles positivos como negativos en el bloque">Guía TP4 respuestas p.3</a></td>
+</tr>
+<tr>
+<td>ej. 5 / ej. 5 (Comunicaciones-TP04)</td>
+<td>AMI de <code>0010 0000 1100 0011 1000 0000 0010 0001 1000</code>. <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="0010 0000 1100 0011 1000 0000 0010 0001 1000">Comunicaciones-TP04 p.1</a></td>
+<td>Resolución propia, verificada con test: <code>00+0 0000 -+00 00-+ -000 0000 00+0 000- +000</code>.</td>
+</tr>
+<tr>
+<td>ej. 5 / ej. 5 (guía)</td>
+<td>HDB-3 de la secuencia del ej. 2 (34 bits). <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="graficar la señal resultante de aplicar el código HDB-3">Guía TP4 preguntas p.1</a></td>
+<td>Figura oficial: <code>+00- 000- 0+-+ 00+- +-00 0-+0 0+0- 000- +-</code>. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></td>
+</tr>
+<tr>
+<td>ej. 5 / ej. 5 (guía, marcas)</td>
+<td>Dónde van <code>V</code> y <code>R</code>.</td>
+<td><code>V</code> en los bits 8, 15, 22, 26 y 32; <code>R</code> en los bits 12 y 23. El primer grupo (bits 5 a 8) es <code>000V</code>.</td>
+</tr>
+<tr>
+<td>ej. 6 / ej. 6 (niveles)</td>
+<td>Polar NRZ, Bipolar RZ y Unipolar NRZ de <code>0000 0011 1111</code>. <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=1" title="Dada la siguiente secuencia binaria: 0000 0011 1111">Comunicaciones-TP04 p.1</a></td>
+<td>Polar NRZ: <code>------++++++</code>. Unipolar NRZ: <code>000000++++++</code>. Bipolar RZ: seis <code>0/0</code> y luego <code>+/0 -/0 +/0 -/0 +/0 -/0</code>.</td>
+</tr>
+<tr>
+<td>ej. 6 / ej. 6 (características)</td>
+<td>Características de cada código.</td>
+<td>Polar NRZ: pierde sincronismo, reduce el ancho de banda. Unipolar NRZ: dos niveles, uno es <code>0</code>. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=4" title="Tiene 2 niveles de los cuales uno de ellos es el cero.">Guía TP4 respuestas p.4</a></td>
+</tr>
+<tr>
+<td>ej. 6 / ej. 6 (Bipolar RZ)</td>
+<td>Características del Bipolar RZ.</td>
+<td>Alterna solo para los 1, pide más ancho de banda y no aporta al reloj. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=4" title="Bipolaridad alternada solo para la transmisión de unos.">Guía TP4 respuestas p.4</a></td>
+</tr>
+<tr>
+<td>ej. 7 / ej. 7 (Polar RZ)</td>
+<td>Codificación autosincronizante de la secuencia anterior. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Dada la secuencia anterior aplicarle una codificación autosincronizante.">Guía TP4 preguntas p.1</a></td>
+<td>Polar RZ, figura oficial: <code>-/0 -/0 -/0 -/0 -/0 -/0 +/0 +/0 +/0 +/0 +/0 +/0</code>. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=4" title="fig: Polar RZ de 0000 0011 1111, seis pulsos negativos y seis positivos">Guía TP4 respuestas p.4</a></td>
+</tr>
+<tr>
+<td>ej. 7 / ej. 7 (Manchester)</td>
+<td>Otra opción autosincronizante.</td>
+<td>Manchester (ejemplo propio, verificado con test): <code>+/- +/- +/- +/- +/- +/- -/+ -/+ -/+ -/+ -/+ -/+</code>.</td>
+</tr>
+<tr>
+<td>ej. 8 / ej. 8</td>
+<td>Decodificar la señal dada, como Manchester y como Manchester diferencial. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Preguntas.pdf#page=1" title="Decodificar la siguiente señal sabiendo que:">Guía TP4 preguntas p.1</a></td>
+<td>Manchester: <code>0 0 1 1 1 0 0 0 0 1 0 0 1 0 1</code>. Manchester diferencial: <code>1 0 1 0 0 1 0 0 0 1 1 0 1 1 1</code>. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=5" title="Manchester: 0 0 1 1 1 0 0 0 0 1">Guía TP4 respuestas p.5</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=5" title="Manchester Diferencial: 1 0 1 0 0 1 0 0 0 1">Guía TP4 respuestas p.5</a></td>
+</tr>
+<tr>
+<td>ej. 8 / ej. 8 (lectura)</td>
+<td>Por qué las dos respuestas son la misma señal.</td>
+<td>La figura dibuja el nivel previo alto antes del bit 1. Con ese nivel, el bit 1 del diferencial es <code>1</code>; con nivel previo bajo daría <code>0</code>. Del bit 2 al 15 coinciden (verificado con test). <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=5" title="fig: señal con el nivel previo alto antes del primer bit">Guía TP4 respuestas p.5</a></td>
+</tr>
+<tr>
+<td>ej. 9 y 10</td>
+<td>Entropía de la fuente binaria y fuente de un solo símbolo.</td>
+<td>Son de información: ver <a href="../u5/01-informacion.html">información</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Preguntas de examen:</p>
+<table>
+<thead>
+<tr>
+<th>Examen</th>
+<th>Pregunta</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Final 2019-09, teórico 2</td>
+<td>¿Por qué es necesario codificar la señal original? <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="¿por qué es necesario codificar la señal original?">Final 2019-09 p.1</a></td>
+<td>Respuesta oficial: los cuatro motivos (ver Desarrollo).</td>
+</tr>
+<tr>
+<td>Final 2020-12 y Final 2021-02, Tema 3, pregunta 1</td>
+<td>Objetivos buscados en la codificación de los códigos de banda base. <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="objetivos buscados en la codificación de los códigos banda">Final 2020-12 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="objetivos buscados en la codificación de los códigos banda">Final 2021-02 p.1</a></td>
+<td>Sin respuesta oficial en estos exámenes; es la misma pregunta que Final 2019-09 ej. 2, con otra redacción: usar los cuatro motivos de su respuesta oficial.</td>
+</tr>
+<tr>
+<td>1er Parcial, ej. 5</td>
+<td>Describa el funcionamiento del código banda base HDB-3. <a href="../fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ejercicio 5, Describa el funcionamiento del código banda base HDB-3">1er Parcial p.1</a></td>
+<td>Sin respuesta oficial. Modelo armado con la regla, debajo.</td>
+</tr>
+</tbody>
+</table>
+<p>Modelo de respuesta del 1er Parcial ej. 5 (armado con la regla de la cátedra):</p>
+<ol>
+<li>Base AMI: tres niveles; el 0 es <code>0</code> y el 1 alterna <code>+</code>, <code>-</code>; sin continua. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=42" title="No posee componente de continua, ni bajas frecuencias.">Clase 5 p.42</a></li>
+<li>Problema que resuelve: con muchos ceros seguidos se pierde el reloj. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=42" title="Cuando aparece una larga secuencia de ceros se pierde">Clase 5 p.42</a></li>
+<li>Cada cuatro ceros seguidos se reemplazan por <code>000V</code> o <code>R00V</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Cuando hay cuatro ceros se reemplaza la secuencia por">Clase 5 p.43</a></li>
+<li><code>V</code> viola la alternancia; <code>R</code> tiene la polaridad de <code>V</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="R relleno siempre tiene igual polaridad que V">Clase 5 p.43</a></li>
+<li>La primera <code>V</code> lleva la polaridad del último 1; las <code>V</code> alternan entre sí. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="la misma polaridad que el último bit uno transmitido.">Clase 5 p.43</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Los pulsos de violación se transmiten con polaridad alternada entre sí">Clase 5 p.43</a></li>
+<li>Desde el segundo grupo, unos desde la última <code>V</code>: par → <code>R00V</code>, impar → <code>000V</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="si ese número es par, se usa R00V">Clase 5 p.43</a> El primer grupo va en <code>000V</code> (convención, figura del ej. 5). <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></li>
+<li>Se usa hasta 34 Mbps sobre cobre. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=44" title="El código HDB-3 se emplea hasta 34 Mbps sobre cables de">Unidad II-3 p.44</a></li>
+</ol>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Por qué se codifica una señal en banda base?</summary>
+<p>Cuatro motivos: eliminar o disminuir la continua, mandar sincronismo, detectar la señal en la línea y acomodar el espectro en la banda del medio. No se logran todos a la vez. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=15" title="Acomodar el espectro de la señal dentro de la banda">Unidad II-3 p.15</a></p>
+</details>
+<details class="question">
+<summary>Codificá <code>1 0 0 0 0 0 0 0 0 1</code> en HDB-3.</summary>
+<p><code>+000+-00-+</code> (ejemplo propio, verificado con test).
+Primer grupo: es el primero → <code>000V</code>, con <code>V</code> = <code>+</code> (el último 1).
+Segundo grupo: 0 unos desde la <code>V</code> (par) → <code>R00V</code>; la <code>V</code> alterna a <code>-</code> y <code>R</code> también.
+El último 1 alterna: <code>+</code>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="si ese número es par, se usa R00V">Clase 5 p.43</a></p>
+</details>
+<details class="question">
+<summary>¿Cómo se codifica un 1 en Manchester IEEE 802.3 y en Manchester diferencial?</summary>
+<p>Manchester: <code>-/+</code> (transición bajo → alto). Manchester diferencial: sin transición al inicio y transición en el medio. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=3" title="Una transición de bajo a alto representa un">Consulta TP4 p.3</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=36" title="para enviar un uno: solo hay transición en la mitad del">Unidad II-3 p.36</a></p>
+</details>
+<details class="question">
+<summary>¿Cuándo coinciden AMI y HDB-3?</summary>
+<p>Cuando no hay cuatro ceros seguidos: HDB-3 solo cambia esos grupos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=43" title="Cuando hay cuatro ceros se reemplaza la secuencia por">Clase 5 p.43</a></p>
+</details>
+<details class="question">
+<summary>¿Cuánto ancho de banda pide Bipolar RZ frente a AMI?</summary>
+<p>2 AB frente a 1 AB: el ancho del pulso se reduce a la mitad. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=2" title="Bipolar RZ requiere 2 AB debido a que el ancho">Guía TP4 respuestas p.2</a></p>
+</details>
+<details class="question">
+<summary>¿Qué código normalizado usa la UIT-T a 2, 8, 34 y 140 Mbps?</summary>
+<p>2 y 8 Mbps: HDB-3. 34 Mbps: HDB-3 o 4B3T. 140 Mbps: 4B3T o CMI. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=46" title="fig: tabla de velocidad de transmisión y código, con la nota sobre cable coaxial">Unidad II-3 p.46</a></p>
+</details>
+<details class="question">
+<summary>Con FRP = 4 pps y <span class="arithmatex">\(V_m\)</span> = 20 Bd, ¿cuánto vale <span class="arithmatex">\(\Delta f\)</span>?</summary>
+<p><span class="arithmatex">\(T=0{,}25\)</span> s, <span class="arithmatex">\(\tau=0{,}05\)</span> s, <span class="arithmatex">\(n=5\)</span>, <span class="arithmatex">\(f_0=4\)</span> Hz, <span class="arithmatex">\(\Delta f=5\cdot4=20\)</span> Hz. <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Practica-Respuestas-1P-RTAS.pdf#page=5" title="20 Hz; ancho de banda necesario.">TP2 respuestas p.5</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Objetivos de la codificación: cuatro o tres.</strong> Cuatro en la presentación y en la respuesta del Final 2019-09. Tres en la guía de respuestas del TP4 (sin el espectro). Para el examen, usar los cuatro. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=15" title="Acomodar el espectro de la señal dentro de la banda">Unidad II-3 p.15</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=1" title="Permitir detectar la presencia de la señal en la línea.">Guía TP4 respuestas p.1</a></li>
+<li><strong>HDB-3, primer grupo de ceros.</strong><ul>
+<li>Regla escrita: par → <code>R00V</code>.</li>
+<li>Resolución oficial del ej. 5: hay 2 unos antes del primer grupo (par), pero la figura dibuja <code>000V</code>, con <code>V</code> = <code>-</code>, la polaridad del último 1. <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Teoria-Respuestas.pdf#page=3" title="fig: HDB-3 de 34 bits, primera violación en el bit 8 sin relleno">Guía TP4 respuestas p.3</a></li>
+<li>Los demás grupos de esa figura siguen la regla escrita.</li>
+<li>Deducción: en un primer grupo <code>R00V</code>, <code>R</code> repetiría la polaridad del último 1 y no alternaría. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=154" title="El primer pulso de violación de la serie siempre lleva">Libro p.154</a></li>
+<li>En esta página: primer grupo → <code>000V</code>.</li>
+</ul>
+</li>
+<li><strong>UIT-T: coaxil o cobre.</strong><ul>
+<li>La tabla dice que los códigos se emplean con cable coaxial. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=46" title="fig: tabla de velocidad de transmisión y código, con la nota sobre cable coaxial">Unidad II-3 p.46</a></li>
+<li>El texto dice que HDB-3 se emplea hasta 34 Mbps sobre cables de cobre y que 4B-3T es para 140 Mbps sobre coaxil. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=44" title="El código HDB-3 se emplea hasta 34 Mbps sobre cables de">Unidad II-3 p.44</a></li>
+</ul>
+</li>
+<li><strong>AMI: bipolar o polar.</strong> Las fuentes escritas lo clasifican como bipolar sin retorno a cero. Dicho en clase: nota practica 2026-09-30 08:37 PM: "y el ami es también es un polar". <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=30" title="Bipolar sin retorno a cero Código AMI: utiliza pulsos">Unidad II-3 p.30</a></li>
+<li><strong>Miller: figuras de las presentaciones.</strong><ul>
+<li>Unidad II-3 p.40: los primeros seis bits siguen la regla; el tramo final tiene una anotación manual. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=40" title="fig: Miller con anotación manual sobre los últimos bits">Unidad II-3 p.40</a></li>
+<li>Clase 5 p.41: el 8.º bit (un 1) se dibuja constante en <code>-</code>, sin transición en el medio. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-05-Transmision-en-Banda-Base.pdf#page=41" title="fig: Miller con el último 1 dibujado sin transición en el medio">Clase 5 p.41</a></li>
+<li>Usar la figura de Consulta TP4 p.9.</li>
+</ul>
+</li>
+<li><strong>Manchester diferencial: texto ambiguo de la consulta.</strong><ul>
+<li>Dice que un 1 «indica transición» y que un cero junto a un uno «mantiene el mismo nivel». <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/Clase-Consulta-TP-04-Codigos-Banda-Base-final.pdf#page=5" title="cero a lado del uno este mantiene el mismo nivel">Consulta TP4 p.5</a></li>
+<li>Se usan el dibujo de Consulta TP4 p.8 y la regla de Unidad II-3 p.36: 0, transición al inicio y en el medio; 1, solo en el medio. <a href="../fuentes/teoria/oficial/unidades/Unidad-II-3.pdf#page=36" title="para enviar un uno: solo hay transición en la mitad del">Unidad II-3 p.36</a></li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./02-enlace.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Unidades de medida y cálculo de enlaces">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Unidades de medida y cálculo de enlaces
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u3/01-velocidades.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Velocidades, multinivel, protocolos de enlace y M-PSK con Gray">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

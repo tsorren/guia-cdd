@@ -1,0 +1,2710 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="../u4/04-multiplexacion.html">
+      
+      
+        <link rel="next" href="../u6/01-capacidad-canal.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>U5 · Teoría de la información y codificación - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#u5-teoria-de-la-informacion-y-codificacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              U5 · Teoría de la información y codificación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01-informacion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#informacion-y-unidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Información y unidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entropia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Entropía
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasa-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tasa de información
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidad-del-canal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capacidad del canal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Codificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construccion-de-codigos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Construcción de códigos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#informacion-y-unidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Información y unidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entropia" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Entropía
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasa-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tasa de información
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capacidad-del-canal" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Capacidad del canal
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Codificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construccion-de-codigos" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Construcción de códigos
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="01-informacion.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U5
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="u5-teoria-de-la-informacion-y-codificacion">U5 · Teoría de la información y codificación<a class="headerlink" href="#u5-teoria-de-la-informacion-y-codificacion" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<ul>
+<li><strong>Entra completa.</strong> Es el último tema de teoría del 1.er parcial.</li>
+<li>nota teoria 2026-09-08 07:03 PM: "hoy es el último tema que entra para el primer parcial".</li>
+<li>nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive".</li>
+<li><strong>Cuentas y teoría.</strong> nota teoria 2026-09-08 07:05 PM: "hay ejercitación de esta unidad y hay muchas preguntas teóricas".</li>
+<li><strong>Codificación.</strong> nota teoria 2026-09-08 08:25 PM: "este tema es muy importante, tienen práctica de esto".</li>
+<li><strong>Práctica:</strong> TP4, parte de información. De capacidad entra el canal ideal. nota practica 2026-09-16 09:45 PM: "lo que le va a entrar ahora es capacidad del Canal ideal".</li>
+<li><strong>Fuera:</strong> canal físico, ruido, eco y ecualización, y Shannon-Hartley con números (U6; TP5 y TP6). El canal real va solo como concepto.</li>
+<li><strong>Fuente base:</strong> <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=18" title="La teoría de la información estudia cuatro aspectos">Clase-06 p.18</a> y siguientes, hasta p.45.</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Información:</strong> un hecho seguro no informa; cuanto menos probable el suceso, más informa (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=19" title="Un suceso contendrá mayor cantidad de información cuanto">Clase-06 p.19</a>). Se mide con <span class="arithmatex">\(I=\log_2\frac{1}{P}\)</span> en Shannon (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=22" title="fig: I de xi igual a log base b de 1 sobre P de xi; b=2 Shannon, b=e Nat, b=10 Hartley">Clase-06 p.22</a>).</li>
+<li><strong>Entropía</strong> <span class="arithmatex">\(H\)</span>: información media por símbolo de una fuente de memoria nula (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=26" title="Representa la incertidumbre media en la probabilidad de que">Clase-06 p.26</a>). Es máxima, <span class="arithmatex">\(\log_2 N\)</span>, con símbolos equiprobables (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="igual probabilidad la entropía tiene valor máximo">Clase-06 p.28</a>).</li>
+<li><strong>Tasa</strong> <span class="arithmatex">\(T=H/\tau\)</span> en Sh/s (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=31" title="Es el cociente entre la entropía de la fuente y la duración">Clase-06 p.31</a>). <strong>Capacidad</strong> <span class="arithmatex">\(C\)</span>: velocidad máxima del canal, en bit/s (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=29" title="Es la velocidad de transmisión máxima en bps que se puede">Clase-06 p.29</a>).</li>
+<li><strong>Canal ideal</strong> (sin ruido): <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a>). Con ruido manda Shannon-Hartley, solo como concepto.</li>
+<li><strong>Codificar</strong> es pasar del alfabeto fuente al alfabeto código; más redundancia, menos eficiencia (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="Es la operación de pasar del alfabeto fuente al alfabeto codigo">Resumen cap. V p.5</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="esto ocasiona una disminución de la eficiencia">Resumen cap. V p.7</a>).</li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Información de un suceso</td>
+<td><span class="arithmatex">\(I(x)=\log_2\frac{1}{P(x)}\)</span></td>
+<td>Sh (Hartley con <span class="arithmatex">\(\log_{10}\)</span>, nat con <span class="arithmatex">\(\ln\)</span>)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=22" title="fig: I de xi igual a log base b de 1 sobre P de xi; b=2 Shannon, b=e Nat, b=10 Hartley">Clase-06 p.22</a></td>
+</tr>
+<tr>
+<td>Equivalencias</td>
+<td><span class="arithmatex">\(1\,\text{Hartley}=3{,}32\,\text{Sh}\)</span>; <span class="arithmatex">\(1\,\text{nat}=1{,}44\,\text{Sh}\)</span>; <span class="arithmatex">\(1\,\text{Hartley}=2{,}30\,\text{nat}\)</span></td>
+<td>adimensionales</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=6" title="1 HARTLEY = 2,30 NAT">Clase-TP-04 p.6</a></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(N\)</span> sucesos equiprobables</td>
+<td><span class="arithmatex">\(P=\frac{1}{N}\)</span>; <span class="arithmatex">\(I=\log_2 N\)</span></td>
+<td>Sh</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=5" title="= 1/N">Clase-TP-04 p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=5" title="La información es inversamente proporcional a la probabilidad de ocurrencia">Clase-TP-04 p.5</a></td>
+</tr>
+<tr>
+<td>Bits para elegir entre <span class="arithmatex">\(n\)</span> posibilidades</td>
+<td><span class="arithmatex">\(n=2^M\)</span>, o sea <span class="arithmatex">\(M=\log_2 n\)</span></td>
+<td>bit</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=32" title="número de bits necesarios para discriminar entre n">Clase-06 p.32</a></td>
+</tr>
+<tr>
+<td>Entropía</td>
+<td><span class="arithmatex">\(H=-\sum_{k=1}^{n}P(x_k)\log_2 P(x_k)\)</span></td>
+<td>Sh/símbolo</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=8" title="fig: H igual a menos suma de k de 1 a n de log2 P de xk por P de xk en Shannon por símbolo">Clase-TP-04 p.8</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=26" title="Se mide en H = Shannon/símbolo">Clase-06 p.26</a></td>
+</tr>
+<tr>
+<td>Entropía máxima</td>
+<td><span class="arithmatex">\(0\le H\le\log_2 N\)</span>, con <span class="arithmatex">\(N\)</span> = cantidad de símbolos de la fuente</td>
+<td>Sh/símbolo</td>
+<td><a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=14" title="N =nº símbolos de la fuente">TP-04 Codif. p.14</a></td>
+</tr>
+<tr>
+<td>Fuente binaria</td>
+<td><span class="arithmatex">\(H(x)=-x\log_2 x-(1-x)\log_2(1-x)\)</span>; <span class="arithmatex">\(H(0)=H(1)=0\)</span>; <span class="arithmatex">\(H(0{,}5)=1\)</span></td>
+<td>Sh/símbolo</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=209" title="para x = 0,5 la función entropía se maximiza">Libro p.209</a></td>
+</tr>
+<tr>
+<td>Duración media</td>
+<td><span class="arithmatex">\(\tau=\sum_i p_i t_i\)</span></td>
+<td>s/símbolo</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=21" title="2/3 * 0,2 seg + 1/3 * 0,4 seg">Clase-TP-04 p.21</a></td>
+</tr>
+<tr>
+<td>Tasa de información</td>
+<td><span class="arithmatex">\(T=\dfrac{H}{\tau}\)</span></td>
+<td>Sh/s (= bit/s si la fuente es digital de símbolos equiprobables)</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=9" title="si la fuente es digital de símbolos equiprobables">Clase-TP-04 p.9</a></td>
+</tr>
+<tr>
+<td>Tasa de la fuente binaria equiprobable</td>
+<td><span class="arithmatex">\(T=V_m\cdot H\)</span>, con <span class="arithmatex">\(V_m=1/t\)</span></td>
+<td>Sh/s; baudios; s</td>
+<td><a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=15" title="FUENTE BINARIA EQUIPROBABLE">TP-04 Codif. p.15</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=15" title="V mod = 1 / t">TP-04 Codif. p.15</a></td>
+</tr>
+<tr>
+<td>Nyquist</td>
+<td><span class="arithmatex">\(f_N\ge 2f_{\max}\)</span>; <span class="arithmatex">\(f_N=2\Delta f\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=36" title="fig: fN mayor o igual a 2 fmáx; fN = 2 Δf; C = 2 Δf bps; C = 2 Δf log2 n bps multinivel Hartley">Clase-06 p.36</a></td>
+</tr>
+<tr>
+<td>Capacidad, canal ideal binario</td>
+<td><span class="arithmatex">\(C=V_{t\max}=2\Delta f\)</span></td>
+<td>bit/s; <span class="arithmatex">\(\Delta f\)</span> en Hz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="La capacidad de un canal sin ruido de ancho de banda finito">Clase-06 p.35</a></td>
+</tr>
+<tr>
+<td>Capacidad, canal ideal multinivel</td>
+<td><span class="arithmatex">\(C=2\Delta f\log_2 n\)</span></td>
+<td>bit/s; <span class="arithmatex">\(n\)</span> niveles</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a></td>
+</tr>
+<tr>
+<td>Shannon-Hartley (solo concepto)</td>
+<td><span class="arithmatex">\(C=\Delta f\log_2\!\left(1+\frac{S}{N}\right)\)</span></td>
+<td>bit/s; <span class="arithmatex">\(S/N\)</span> en veces</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=41" title="fig: n máx igual a raíz de 1 más S sobre N; C igual a Δf log2 de 1 más S sobre N en bps, recuadro rojo">Clase-06 p.41</a></td>
+</tr>
+<tr>
+<td>Eficiencia y redundancia</td>
+<td><span class="arithmatex">\(\eta=\dfrac{\text{bits de información}}{\text{bits transmitidos}}\)</span>; <span class="arithmatex">\(R=1-\eta\)</span></td>
+<td>adimensionales</td>
+<td>Fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=22" title="es la relación entre el número de bits de información">Resumen cap. V p.22</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=22" title="Redundancia = R = 1 - Eficiencia">Resumen cap. V p.22</a></td>
+</tr>
+<tr>
+<td>Símbolos de un código bloque</td>
+<td><span class="arithmatex">\(n\)</span> dígitos binarios dan <span class="arithmatex">\(2^n\)</span> símbolos; el código 4 de 8 tiene 70 palabras válidas</td>
+<td>símbolos</td>
+<td>Fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="con n digitos binarios se podran representar 2 a la n símbolos">Resumen cap. V p.6</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=11" title="pero permite 70 combinaciones, 6">Resumen cap. V p.11</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="informacion-y-unidades">Información y unidades<a class="headerlink" href="#informacion-y-unidades" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La teoría estudia cuatro aspectos: medir la información, la capacidad del canal, aumentarla con codificación y usar el canal a plena capacidad con error mínimo (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=18" title="La teoría de la información estudia cuatro aspectos">Clase-06 p.18</a>).</li>
+<li>Un hecho seguro no contiene información (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=19" title="Un hecho que se sabe con seguridad que va a ocurrir no">Clase-06 p.19</a>).</li>
+<li>La base del logaritmo fija la unidad: base 2, Shannon; base 10, Hartley; base <span class="arithmatex">\(e\)</span>, nat (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=21" title="La base del logaritmo determina la unidad con la que se">Clase-06 p.21</a>). Con logaritmo en base 2 la unidad es el Shannon (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=21" title="Si tomamos logaritmo en base 2, la unidad es el Shannon">Clase-06 p.21</a>); el TP4 trabaja en esa base (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=8" title="H = log2 N">Clase-TP-04 p.8</a>).</li>
+<li>Fuente: dispositivo que genera mensajes formados por símbolos (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=23" title="Es un dispositivo que genera mensajes formados por">Clase-06 p.23</a>). Es de <strong>memoria nula</strong> si sus símbolos son estadísticamente independientes (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=23" title="Fuente de memoria nula: es la que emite símbolos que son">Clase-06 p.23</a>).</li>
+<li>Fuente binaria equiprobable: <span class="arithmatex">\(I(0)=I(1)=\log_2 2=1\)</span> Sh (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=24" title="fig: fuente binaria equiprobable, I de 0 igual a log2 de 1 sobre 0,5 igual a 1 Shannon, 1 Shannon igual a 1 bit">Clase-06 p.24</a>).</li>
+<li>Bits para elegir entre <span class="arithmatex">\(n\)</span> posibilidades: <span class="arithmatex">\(n=2^M\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=32" title="número de bits necesarios para discriminar entre n">Clase-06 p.32</a>).</li>
+<li>Un nivel de tensión transporta <span class="arithmatex">\(\log_2 n\)</span> bits: con 4 niveles, 2 bits por nivel (código 2B1Q, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=33" title="fig: señal 2B1Q con niveles menos 3 V, menos 1 V, 1 V y 3 V; un nivel por cada par de bits">Clase-06 p.33</a>).</li>
+</ul>
+<h3 id="entropia">Entropía<a class="headerlink" href="#entropia" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es la incertidumbre media por símbolo de una fuente de memoria nula y se mide en Sh/símbolo (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=26" title="Entropía de una fuente de memoria nula de n símbolos">Clase-06 p.26</a>).</li>
+<li>Propiedades: continuidad, simetría, aditividad y maximilidad (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=27" title="Simetría: el orden en que se presentan los distintos">Clase-06 p.27</a>).</li>
+<li>Con símbolos equiprobables la entropía es máxima (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=27" title="nula son equiprobables, entonces la entropía es máxima">Clase-06 p.27</a>). Vale <span class="arithmatex">\(H=\log_2 N\)</span> (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=8" title="H = log2 N">Clase-TP-04 p.8</a>).</li>
+<li>Una fuente de un solo símbolo tiene <span class="arithmatex">\(P=1\)</span>, <span class="arithmatex">\(I=0\)</span> y <span class="arithmatex">\(H=0\)</span>: no aporta información (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Teoria-Respuestas-BIS-RTAS.pdf#page=6" title="ya que no aporta información">Guía teoría BIS p.6</a>).</li>
+<li><strong>Fuente binaria:</strong> el 1 sale con probabilidad <span class="arithmatex">\(x\)</span> y el 0 con <span class="arithmatex">\(1-x\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="La función entropía de una fuente binaria">Clase-06 p.28</a>). La curva es un arco simétrico: <span class="arithmatex">\(H=0\)</span> en <span class="arithmatex">\(x=0\)</span> y en <span class="arithmatex">\(x=1\)</span>, máximo <span class="arithmatex">\(H=1\)</span> en <span class="arithmatex">\(x=0{,}5\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="fig: curva de H de X contra Pr de X igual a 1, vale 0 en 0 y en 1, máximo 1 en 0,5">Clase-06 p.28</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=209" title="y H = 0 cuando x = 1">Libro p.209</a>).</li>
+</ul>
+<p>Puntos para dibujar la curva (ejemplo propio, verificado con test):</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(x=P(1)\)</span></th>
+<th>0</th>
+<th>0,1</th>
+<th>0,25</th>
+<th>0,5</th>
+<th>0,75</th>
+<th>0,9</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(H(x)\)</span> en Sh/símbolo</td>
+<td>0</td>
+<td>0,469</td>
+<td>0,811</td>
+<td>1</td>
+<td>0,811</td>
+<td>0,469</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tasa-de-informacion">Tasa de información<a class="headerlink" href="#tasa-de-informacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dos fuentes con la misma entropía pueden meter distinta información en el canal si una es más rápida; por eso se agrega la tasa (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=30" title="Varias fuentes pueden tener la misma entropía pero si una de">Clase-06 p.30</a>).</li>
+<li><span class="arithmatex">\(T=H/\tau\)</span>, con <span class="arithmatex">\(\tau\)</span> la duración media de los símbolos, en s/símbolo (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=31" title="duración media de los símbolos">Clase-06 p.31</a>). Por eso <span class="arithmatex">\(T\)</span> sale en Sh/s.</li>
+<li>Si los símbolos duran distinto, <span class="arithmatex">\(\tau\)</span> es el promedio ponderado <span class="arithmatex">\(\sum p_i t_i\)</span> (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=21" title="2/3 * 0,2 seg + 1/3 * 0,4 seg">Clase-TP-04 p.21</a>).</li>
+<li>Fuente de dos símbolos equiprobables: la tasa coincide con la velocidad en bit/s (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=31" title="Para una fuente de dos símbolos equiprobables la tasa de">Clase-06 p.31</a>).</li>
+<li>Fuente binaria equiprobable: <span class="arithmatex">\(T=V_m\cdot H\)</span>, con <span class="arithmatex">\(V_m=1/t\)</span> (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=15" title="FUENTE BINARIA EQUIPROBABLE">TP-04 Codif. p.15</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=15" title="V mod = 1 / t">TP-04 Codif. p.15</a>).</li>
+</ul>
+<h3 id="capacidad-del-canal">Capacidad del canal<a class="headerlink" href="#capacidad-del-canal" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La capacidad es la velocidad máxima, en bit/s, que se puede cursar libre de errores (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=29" title="cursar por el canal libres de errores">Clase-06 p.29</a>).</li>
+<li>No es la tasa de la fuente. Si la tasa supera la capacidad no se puede transmitir sin errores (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="ES MAYOR QUE LA CAPACIDAD DEL CANAL NO ES POSIBLE">Resumen cap. V p.5</a>).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Canal</th>
+<th>Qué es</th>
+<th>Capacidad</th>
+<th>En el parcial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ideal</td>
+<td>Reproduce exactamente la señal; es una noción teórica (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="Es una noción teórica, ya que no existe.">Clase-06 p.7</a>)</td>
+<td><span class="arithmatex">\(C=2\Delta f\log_2 n\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a>)</td>
+<td>Con cálculo</td>
+</tr>
+<tr>
+<td>Real</td>
+<td>Solo aproximado: introduce ruido y distorsión (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="Logra trasmitir la señal solo de manera aproximada.">Clase-06 p.7</a>)</td>
+<td><span class="arithmatex">\(C=\Delta f\log_2(1+S/N)\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=41" title="fig: n máx igual a raíz de 1 más S sobre N; C igual a Δf log2 de 1 más S sobre N en bps, recuadro rojo">Clase-06 p.41</a>)</td>
+<td>Solo concepto</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Canal ideal, con cálculo</strong></p>
+<ul>
+<li>Nyquist: en un canal sin ruido hay un tope de velocidad de pulsos que depende de la frecuencia máxima (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=34" title="velocidad de pulsos que depende de la frecuencia máxima de">Clase-06 p.34</a>). Vale <span class="arithmatex">\(f_N\ge 2f_{\max}\)</span>, y <span class="arithmatex">\(f_N=2\Delta f\)</span> si la señal está definida en un ancho de banda <span class="arithmatex">\(\Delta f\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=36" title="fig: fN mayor o igual a 2 fmáx; fN = 2 Δf; C = 2 Δf bps; C = 2 Δf log2 n bps multinivel Hartley">Clase-06 p.36</a>).</li>
+<li>Señal binaria: <span class="arithmatex">\(C=2\Delta f\)</span>. Señal multinivel (Hartley): <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span>. Más niveles permiten aumentar la velocidad (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=36" title="fig: fN mayor o igual a 2 fmáx; fN = 2 Δf; C = 2 Δf bps; C = 2 Δf log2 n bps multinivel Hartley">Clase-06 p.36</a>).</li>
+<li>Despejes (álgebra de la fórmula anterior): <span class="arithmatex">\(n=2^{C/(2\Delta f)}\)</span> y <span class="arithmatex">\(\Delta f=C/(2\log_2 n)\)</span>.</li>
+<li>TP4 ej. 10 (= ej. 20 de Comunicaciones-TP04): la capacidad necesaria del canal es la tasa de la fuente, <span class="arithmatex">\(C=43\,750\,000\)</span> bit/s (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=6" title="CCanalImagen = 43750000 bps">Guía TP4 resp. p.6</a>).</li>
+</ul>
+<p><strong>Canal real, solo concepto</strong></p>
+<ul>
+<li>Con un canal ideal la capacidad podría crecer sin límite aumentando los niveles (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=37" title="Si un canal fuese ideal, se podría aumentar de manera">Clase-06 p.37</a>). En los reales hay ruido blanco gaussiano aditivo (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=37" title="En los canales reales continuos hay ruido blanco gaussiano">Clase-06 p.37</a>).</li>
+<li>Al subir los niveles, la separación entre dos niveles se vuelve comparable al nivel de ruido (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="separación entre dos niveles es comparable al nivel de ruido">Clase-06 p.38</a>) y la señal recibida trae errores (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="fig: tribits 000 a 111 como 0 a 7 volts; señal recibida con errores respecto de la transmitida">Clase-06 p.38</a>).</li>
+<li>Shannon demostró que el máximo de niveles depende de <span class="arithmatex">\(S/N\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=39" title="Shannon demostró que el número máximo de niveles tiene">Clase-06 p.39</a>): <span class="arithmatex">\(n_{\max}=\sqrt{1+S/N}\)</span>. Reemplazando en la capacidad ideal sale <span class="arithmatex">\(C=\Delta f\log_2(1+S/N)\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=41" title="fig: n máx igual a raíz de 1 más S sobre N; C igual a Δf log2 de 1 más S sobre N en bps, recuadro rojo">Clase-06 p.41</a>).</li>
+<li>Importa porque da la velocidad máxima en un canal con ruido y relaciona <span class="arithmatex">\(\Delta f\)</span> con <span class="arithmatex">\(S/N\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=42" title="Permite calcular la velocidad máxima de transmisión de">Clase-06 p.42</a>).</li>
+<li>Corolario: al crecer el ancho de banda, <span class="arithmatex">\(C\)</span> tiende a un valor finito, <span class="arithmatex">\(1{,}44\,S/\alpha\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=45" title="capacidad del canal tiende a un valor finito que no depende">Clase-06 p.45</a>).</li>
+<li>El cálculo numérico con ruido es TP5 y U6: no entra.</li>
+</ul>
+<h3 id="codificacion">Codificación<a class="headerlink" href="#codificacion" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Fuente secundaria</p>
+<p>Las presentaciones de la cátedra no traen el capítulo de codificación. Esta parte y la siguiente se apoyan en el resumen del capítulo V del libro (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="Correspondencia que se puede establecer entre los símbolos fn">Resumen cap. V p.5</a>). Lo dicho en clase está en Trampas.</p>
+</div>
+<ul>
+<li><strong>Código:</strong> correspondencia entre los símbolos del alfabeto fuente y los del alfabeto código. Codificar es pasar de fuente a código (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="Es la operación de pasar del alfabeto fuente al alfabeto codigo">Resumen cap. V p.5</a>).</li>
+<li><strong>Bloque o compacto</strong> (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="Se pueden clasificar en Codigos Bloque y Codigos Compacto">Resumen cap. V p.5</a>):<ul>
+<li>Bloque: todos los caracteres tienen la misma longitud; en teleinformática solo se usan códigos bloque (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="solamente se usan codigos bloque">Resumen cap. V p.6</a>).</li>
+<li>Compacto: longitud variable, con el menor número posible de símbolos; en Morse, las letras más frecuentes llevan menos símbolos (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="las letras cuya frecuencia de utilización es mayor">Resumen cap. V p.6</a>).</li>
+</ul>
+</li>
+<li><strong>No singular o singular:</strong> no singular, una única codificación por símbolo, como ASCII (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Un ejemplo de este codigo es el ASCII">Resumen cap. V p.6</a>); singular, dos o más codificaciones por símbolo, como Baudot (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="a cada símbolo le corresponde dos o mas codificaciones">Resumen cap. V p.6</a>).</li>
+<li><strong>Eficiencia y redundancia:</strong> la redundancia es información que no sirve para interpretar el carácter; se agrega para detectar errores, por ejemplo el bit de paridad (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=22" title="Ej: bit de paridad, digito de verificación, totales de comprobación">Resumen cap. V p.22</a>).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Bits</th>
+<th>Combinaciones</th>
+<th>Detalle</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCII</td>
+<td>7</td>
+<td><span class="arithmatex">\(2^7=128\)</span></td>
+<td>Se puede agregar un octavo bit de paridad</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=14" title="El código ASCII es un código de siete bits que permite codificar">Resumen cap. V p.14</a></td>
+</tr>
+<tr>
+<td>BCD (según el resumen)</td>
+<td>6</td>
+<td><span class="arithmatex">\(2^6=64\)</span></td>
+<td>Solo mayúsculas; los dígitos usan 4 bits numéricos de pesos 8-4-2-1</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=10" title="Es un código de 6 bits que dispone de 64 combinaciones">Resumen cap. V p.10</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=10" title="C B A 8 4 2 1">Resumen cap. V p.10</a></td>
+</tr>
+<tr>
+<td>4 de 8</td>
+<td>8</td>
+<td>70 válidas</td>
+<td>Válidas: 4 unos y 4 ceros; son 6 más que el BCD y sirven como funciones de control</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=11" title="4 de 8 bits son unos y los 4 restantes ceros">Resumen cap. V p.11</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=11" title="mas que el BCD, las cuales son funciones de control">Resumen cap. V p.11</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>El TP4 ej. 8 trabaja con ASCII de 8 bits: 256 símbolos y 8 Sh por carácter (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Practica-Preguntas.pdf#page=1" title="utilizando un código ASCII de 8 bits">Guía TP4 p.1</a>).</li>
+</ul>
+<p>Eficiencia con <span class="arithmatex">\(\eta=\log_2 N/L\)</span> (ejemplo propio, verificado con test; la lectura de "bits de información" como <span class="arithmatex">\(\log_2 N\)</span> está en Discrepancias). El valor <span class="arithmatex">\(\log_2 10=3{,}32\)</span> sale de la equivalencia 1 Hartley = 3,32 Sh (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=22" title="fig: recuadro EQUIVALENCIAS, 1 Hartley = 3,32 Shannon">Clase-06 p.22</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Cuenta</th>
+<th><span class="arithmatex">\(\eta\)</span></th>
+<th><span class="arithmatex">\(R=1-\eta\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCII de 7 bits, sin paridad</td>
+<td><span class="arithmatex">\(\log_2 128/7\)</span></td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ASCII de 7 bits con paridad</td>
+<td><span class="arithmatex">\(7/8\)</span></td>
+<td>0,875</td>
+<td>0,125</td>
+</tr>
+<tr>
+<td>BCD de dígitos, 4 bits</td>
+<td><span class="arithmatex">\(\log_2 10/4=3{,}32/4\)</span></td>
+<td>0,83</td>
+<td>0,17</td>
+</tr>
+<tr>
+<td>4 de 8</td>
+<td><span class="arithmatex">\(\log_2 70/8\)</span></td>
+<td>0,766</td>
+<td>0,234</td>
+</tr>
+</tbody>
+</table>
+<h3 id="construccion-de-codigos">Construcción de códigos<a class="headerlink" href="#construccion-de-codigos" title="Permanent link">&para;</a></h3>
+<p>Es lo que remarcó el docente de teoría (ver Trampas). Según el resumen (fuente secundaria), la construcción considera eficacia, valores numéricos, ordenamiento y seguridad (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Parámetros considerados en la construcción de codigos">Resumen cap. V p.7</a>). La cantidad y los tipos de símbolos a codificar están en p.6 (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Cantidad de símbolos a codificar">Resumen cap. V p.6</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Qué pide</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cantidad de símbolos</td>
+<td>Fija la longitud: <span class="arithmatex">\(n\)</span> dígitos dan <span class="arithmatex">\(2^n\)</span> símbolos</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Cantidad de símbolos a codificar">Resumen cap. V p.6</a></td>
+</tr>
+<tr>
+<td>Tipos de símbolos</td>
+<td>Numéricos, alfabéticos, especiales, y de operación y control</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Las diez cifras del sistema numerico decimal">Resumen cap. V p.6</a>, <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Caracteres para facilitar la operación, la transmisión, el control">Resumen cap. V p.7</a></td>
+</tr>
+<tr>
+<td>Eficacia</td>
+<td>Longitud mínima posible</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="La longitud del codigo debe ser la minima posible.">Resumen cap. V p.7</a></td>
+</tr>
+<tr>
+<td>Valores numéricos</td>
+<td>Facilitar el reconocimiento de las cifras decimales</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Debera facilitar el reconocimiento de cifas decimales">Resumen cap. V p.7</a></td>
+</tr>
+<tr>
+<td>Ordenamiento</td>
+<td>Facilitar el orden alfabético: el valor binario de la a menor que el de la b</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="El codigo debe facilitar el ordenamiento alfabetico">Resumen cap. V p.7</a></td>
+</tr>
+<tr>
+<td>Seguridad</td>
+<td>Proteger la información con redundancia; baja la eficiencia</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Es deseable que proteja la información en la transmisión">Resumen cap. V p.7</a></td>
+</tr>
+<tr>
+<td>Verificación</td>
+<td>Control de paridad: se añade un bit a la representación del símbolo</td>
+<td><a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="El metodo mas usado es el de control de paridad">Resumen cap. V p.7</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p><strong>Entropía de la secuencia 010101000001.</strong> Es el ej. 5 del <a href="../fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Dado un tren de pulsos correspondientes a la siguiente secuencia: 010101000001">1er Parcial 2022 p.1</a>, el ej. 2 de la <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Practica-Preguntas.pdf#page=1" title="Dado un tren de pulsos correspondientes a la siguiente secuencia: 010101000001">Guía TP4 p.1</a> y el ej. 10 de <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Comunicaciones-TP04.pdf#page=2" title="Dado un tren de pulsos correspondientes a la secuencia 0101 0100 0001">Comunic. TP04 p.2</a>. Piden la información de un 1 y de un 0, y la entropía.</p>
+<table>
+<thead>
+<tr>
+<th>Paso</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Contar (cuenta propia)</td>
+<td>12 símbolos: 8 ceros y 4 unos</td>
+<td></td>
+</tr>
+<tr>
+<td>2. Probabilidades</td>
+<td><span class="arithmatex">\(P(0)=\frac{8}{12}=\frac{2}{3}\)</span>; <span class="arithmatex">\(P(1)=\frac{4}{12}=\frac{1}{3}\)</span> (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=11" title="se refiere a la cantidad de caracteres de la secuencia">Clase-TP-04 p.11</a>)</td>
+<td></td>
+</tr>
+<tr>
+<td>3. Información de cada símbolo</td>
+<td><span class="arithmatex">\(I(0)=\log_2\frac{3}{2}\)</span>; <span class="arithmatex">\(I(1)=\log_2 3\)</span></td>
+<td>0,585 Sh; 1,585 Sh (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=11" title="= 0,585 SHANNON">Clase-TP-04 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=11" title="= 1,585 SHANNON">Clase-TP-04 p.11</a>)</td>
+</tr>
+<tr>
+<td>4. Entropía</td>
+<td><span class="arithmatex">\(H=\frac{2}{3}\cdot 0{,}585+\frac{1}{3}\cdot 1{,}585=0{,}39+0{,}53\)</span></td>
+<td><strong>0,92 Sh/símbolo</strong> (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=2" title="HS = 0,92 Shannon/Símbolo">Guía TP4 resp. p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=11" title="H = 0,92 Shannon/Símbolo">Clase-TP-04 p.11</a>)</td>
+</tr>
+<tr>
+<td>5. Sin redondear</td>
+<td>mismas probabilidades</td>
+<td>0,9183; la cátedra redondea a 0,92 (diferencia 0,0017)</td>
+</tr>
+</tbody>
+</table>
+<p>La fuente tiene 2 símbolos (el 0 y el 1), no 12. Ver Discrepancias.</p>
+<p><strong>Canal ideal con cálculo</strong> (ejemplo propio, verificado con test). Supuesto: <span class="arithmatex">\(\Delta f=3000\)</span> Hz. Fórmulas: <span class="arithmatex">\(C=2\Delta f\)</span> y <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="La capacidad de un canal sin ruido de ancho de banda finito">Clase-06 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=36" title="fig: fN mayor o igual a 2 fmáx; fN = 2 Δf; C = 2 Δf bps; C = 2 Δf log2 n bps multinivel Hartley">Clase-06 p.36</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a) Señal binaria</td>
+<td><span class="arithmatex">\(C=2\cdot 3000\)</span></td>
+<td>6000 bit/s</td>
+</tr>
+<tr>
+<td>b) 4 niveles</td>
+<td><span class="arithmatex">\(C=2\cdot 3000\cdot\log_2 4\)</span></td>
+<td>12 000 bit/s</td>
+</tr>
+<tr>
+<td>c) Niveles para 24 000 bit/s</td>
+<td><span class="arithmatex">\(\log_2 n=\frac{24\,000}{2\cdot 3000}=4\)</span></td>
+<td><span class="arithmatex">\(n=16\)</span></td>
+</tr>
+<tr>
+<td>d) <span class="arithmatex">\(\Delta f\)</span> mínimo, señal binaria, para los 43 750 000 bit/s de la TV del TP4 ej. 10</td>
+<td><span class="arithmatex">\(\Delta f=\frac{C}{2}\)</span></td>
+<td>21 875 000 Hz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>Shannon y bit no son sinónimos.</p>
+<ul>
+<li>En la fuente binaria equiprobable, 1 Shannon = 1 bit (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=12" title="1 SHANNON = 1 BIT">TP-04 Codif. p.12</a>).</li>
+<li>El bit es el dígito binario y puede tener o no información (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=12" title="BIT dígito binario. Puede tener o no información">TP-04 Codif. p.12</a>).</li>
+<li>Con sucesos no equiprobables la igualdad no vale (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=2" title="es asi cuando se trata de sucesos equiprobables">Resumen cap. V p.2</a>).</li>
+<li>Remarcado en clase: nota teoria 2026-09-08 07:25 PM: "cuando son equiprobables, puedo asociar un llanon a un bit". Llanon es Shannon mal transcripto.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>Trampa</th>
+<th>Qué hacer</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La entropía no es la información de un símbolo</td>
+<td>Solo coinciden con símbolos equiprobables: <span class="arithmatex">\(H=\log_2 N=I\)</span>. Si no, <span class="arithmatex">\(H\)</span> promedia. Remarcado en clase: nota practica 2026-09-16 08:54 PM: "cuando le piden calcular la entropía en realidad es para trampearlo"</td>
+<td><a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=3" title="HS = 7 Shannon/Símbolo">Guía TP4 resp. p.3</a></td>
+</tr>
+<tr>
+<td>La información de un mensaje se suma</td>
+<td><span class="arithmatex">\(I(\text{CABLE})=3+2+2+3+2=12\)</span> Sh. La guía oficial llama <span class="arithmatex">\(H\)</span> a esa suma (<span class="arithmatex">\(H_{5\text{caras}}\)</span>), pero <span class="arithmatex">\(H\)</span> es Sh/símbolo</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=15" title="CABLE = 3 + 2 + 2 + 3 + 2">Clase-TP-04 p.15</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=4" title="H5CarasSeguidas = 5 Shannon">Guía TP4 resp. p.4</a></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\tau\)</span> no es el ancho de pulso</td>
+<td>En <span class="arithmatex">\(T=H/\tau\)</span>, <span class="arithmatex">\(\tau\)</span> es la duración media de los símbolos. Remarcado en clase: nota teoria 2026-09-08 07:39 PM: "no es el Tao que vimos en el ancho del pulso"</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=31" title="duración media de los símbolos">Clase-06 p.31</a></td>
+</tr>
+<tr>
+<td>El logaritmo va sobre <span class="arithmatex">\(1/P\)</span></td>
+<td>La diapositiva dice "inversa del logaritmo", pero la fórmula es el logaritmo de la inversa</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=20" title="igual a la inversa del logaritmo de la probabilidad de que ese">Clase-06 p.20</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=22" title="fig: I de xi igual a log base b de 1 sobre P de xi; b=2 Shannon, b=e Nat, b=10 Hartley">Clase-06 p.22</a></td>
+</tr>
+<tr>
+<td>Capacidad no es tasa</td>
+<td><span class="arithmatex">\(C\)</span> es del canal, en bit/s; <span class="arithmatex">\(T\)</span> es de la fuente, en Sh/s. Con <span class="arithmatex">\(T&gt;C\)</span> hay errores</td>
+<td>Fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=5" title="ES MAYOR QUE LA CAPACIDAD DEL CANAL NO ES POSIBLE">Resumen cap. V p.5</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Remarcado en clase.</strong> Lo que no tiene PDF de cátedra se rotula.</p>
+<ul>
+<li><strong>Canal ideal y real, fórmulas distintas.</strong><ul>
+<li>Ideal: <span class="arithmatex">\(2\Delta f\log_2 n\)</span>. Real: <span class="arithmatex">\(\Delta f\log_2(1+S/N)\)</span>, sin números (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=37" title="En los canales reales continuos hay ruido blanco gaussiano">Clase-06 p.37</a>).</li>
+<li>nota practica 2026-09-16 09:47 PM: "lo que vimos de capacidad de canal, lo vimos sin esa componente".</li>
+<li>Se reportó que en la otra comisión una pregunta teórica pedía pasar del canal ideal al real: nota practica 2026-09-30 08:37 PM: "pasar de capacidad de canal ideal la capacidad de canal real".</li>
+</ul>
+</li>
+<li><strong>Eficiencia contra redundancia.</strong><ul>
+<li><span class="arithmatex">\(R=1-\eta\)</span>: más seguridad, menos eficiencia (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="esto ocasiona una disminución de la eficiencia">Resumen cap. V p.7</a>).</li>
+<li>nota teoria 2026-09-08 07:11 PM: "la eficiencia va a ir en contra de la redundancia".</li>
+</ul>
+</li>
+<li><strong>Construcción contra transmisión.</strong><ul>
+<li>ASCII no tiene redundancia por construcción, pero al transmitir se le puede agregar un bit de paridad (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=14" title="se agrega un octavo bit para el control de la">Resumen cap. V p.14</a>).</li>
+<li>nota teoria 2026-09-08 08:20 PM: "una cosa es la construcción y otra cosa la transmisión".</li>
+</ul>
+</li>
+<li><strong>Construcción de códigos.</strong><ul>
+<li>La lista que enumeró el docente de teoría coincide con el resumen (fuente secundaria): cantidad de símbolos (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Cantidad de símbolos a codificar">Resumen cap. V p.6</a>); valores numéricos, ordenamiento y seguridad (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Parámetros considerados en la construcción de codigos">Resumen cap. V p.7</a>).</li>
+<li>nota teoria 2026-09-08 08:07 PM: "Es la cantidad de símbolos que quiero representar".</li>
+<li>nota teoria 2026-09-08 08:11 PM: "los valores numéricos de los números".</li>
+<li>nota teoria 2026-09-08 08:13 PM: "el ordenamiento siempre va a estar para poder ordenar".</li>
+</ul>
+</li>
+<li><strong>Fuente contra canal; <span class="arithmatex">\(m\)</span> de <span class="arithmatex">\(n\)</span>.</strong> Solo dicho en clase: no figura en ningún PDF.<ul>
+<li>Código de fuente: compresión, menor redundancia. nota teoria 2026-09-08 07:50 PM: "tenemos código fuente también se llama código de compresión".</li>
+<li>Código de canal: corrección de errores, mayor redundancia. nota teoria 2026-09-08 07:54 PM: "por otro lado tenemos los códigos de canal".</li>
+<li>Código <span class="arithmatex">\(m\)</span> de <span class="arithmatex">\(n\)</span>: palabras de <span class="arithmatex">\(n\)</span> bits con exactamente <span class="arithmatex">\(m\)</span> unos. nota teoria 2026-09-08 08:22 PM: "de los cuales exactamente m, son uno y el resto son cero".</li>
+<li>Por escrito solo están las dos metas de la teoría (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=18" title="Cómo aumentar la capacidad mediante la codificación de la">Clase-06 p.18</a>) y el caso 4 de 8 (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=11" title="4 de 8 bits son unos y los 4 restantes ceros">Resumen cap. V p.11</a>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración: la guía práctica de TP4 y <code>Clase-TP-04-RTAS</code> numeran 1 a 11. <code>Comunicaciones-TP04</code> numera 9 a 21: los ej. 1 a 7 de la guía son sus ej. 9 a 15, y los ej. 8 a 11 son sus ej. 18 a 21. De la guía de teoría BIS, los ej. 9 y 10 son sus ej. 16 y 17.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guía TP4 ej. 1 (= Comunic. TP04 ej. 9)</td>
+<td>Palabra de 4 caracteres, alfabeto de 32 símbolos equiprobables</td>
+<td><span class="arithmatex">\(I=4\log_2 32=20\)</span> Sh (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=1" title="Hpalabra = 20 Shannon/Palabra">Guía TP4 resp. p.1</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 2 (= Comunic. TP04 ej. 10)</td>
+<td>Secuencia 010101000001</td>
+<td>Ver Ejemplo resuelto: <span class="arithmatex">\(H=0{,}92\)</span> Sh/símbolo</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 3 (= Comunic. TP04 ej. 11)</td>
+<td>Mensajes con <span class="arithmatex">\(p=0{,}2;\ 0{,}5;\ 0{,}3\)</span></td>
+<td><span class="arithmatex">\(I=2{,}322;\ 1;\ 1{,}737\)</span> Sh; <span class="arithmatex">\(H=1{,}4855\)</span> Sh/símbolo (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=13" title="H = 1,4855 Shannon/Símbolo">Clase-TP-04 p.13</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=2" title="HS = 1,4855 Shannon/Símbolo">Guía TP4 resp. p.2</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 4 (= Comunic. TP04 ej. 12)</td>
+<td>128 símbolos equiprobables; palabra de 6</td>
+<td><span class="arithmatex">\(P=\frac{1}{128}\)</span>; <span class="arithmatex">\(I=7\)</span> Sh; palabra 42 Sh; <span class="arithmatex">\(H=7\)</span> Sh/símbolo (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=3" title="Hpalabra = 42 Shannon/Palabra">Guía TP4 resp. p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=14" title="H = 7 Shannon/Símbolo">Clase-TP-04 p.14</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 5 (= Comunic. TP04 ej. 13)</td>
+<td>Símbolos A B C E L con <span class="arithmatex">\(\frac14,\frac14,\frac18,\frac14,\frac18\)</span>; mensaje CABLE</td>
+<td>12 Sh (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=15" title="CABLE = 12 Shannon">Clase-TP-04 p.15</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 6 (= Comunic. TP04 ej. 14)</td>
+<td>Moneda y 5 caras; dado y el número 4 repetido (la cátedra toma 5 veces)</td>
+<td>Moneda 1 Sh; 5 caras 5 Sh. Dado 2,585 Sh; cinco 4 seguidos 12,925 Sh (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=4" title="H5CuatrosSeguidas = 12,925 Shannon">Guía TP4 resp. p.4</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 7 (= Comunic. TP04 ej. 15)</td>
+<td>Imagen de 600 líneas por 300 puntos, 8 niveles, contra 1000 palabras de un vocabulario de 100 000</td>
+<td>3 Sh por punto; imagen 540 000 Sh; palabra 16,609 Sh; 1000 palabras 16 609 Sh; la imagen vale más (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=5" title="Htexto = 16609 Shannon/Texto">Guía TP4 resp. p.5</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=4" title="Himagen = 540000 Shannon/Imagen">Guía TP4 resp. p.4</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 8 (= Comunic. TP04 ej. 18)</td>
+<td>Imagen de 640 por 480, 256 niveles, a 33 600 Sh/s; comparar con texto de 25 por 80 en ASCII de 8 bits</td>
+<td>Imagen 2 457 600 Sh, 73,143 s. Texto 16 000 Sh, 0,476 s (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=5" title="TTotalTxImagen = 73,143 Segundos/Imagen">Guía TP4 resp. p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=19" title="TTTImagen = 0,476 Segundos">Clase-TP-04 p.19</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 9 (= Comunic. TP04 ej. 19)</td>
+<td>Telégrafo: <span class="arithmatex">\(P=\frac23,\frac13\)</span>; <span class="arithmatex">\(t=0{,}2\)</span> y <span class="arithmatex">\(0{,}4\)</span> s</td>
+<td><span class="arithmatex">\(H=0{,}92\)</span>; <span class="arithmatex">\(\tau=0{,}266\)</span> s/símbolo; <span class="arithmatex">\(T=3{,}459\)</span> Sh/s (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=6" title="Ttelégrafo = 3,459 Shannon/Segundo">Guía TP4 resp. p.6</a>). Ver Discrepancias</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 10 (= Comunic. TP04 ej. 20)</td>
+<td>TV de 625 por 500, 128 niveles, 20 imágenes por segundo: tasa y capacidad</td>
+<td>2 187 500 Sh por imagen; <span class="arithmatex">\(T=43\,750\,000\)</span> Sh/s; <span class="arithmatex">\(C=43\,750\,000\)</span> bit/s (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=22" title="T = 43.750.000 SHANNON/segundo">Clase-TP-04 p.22</a>, <a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=6" title="CCanalImagen = 43750000 bps">Guía TP4 resp. p.6</a>)</td>
+</tr>
+<tr>
+<td>Guía TP4 ej. 11 (= Comunic. TP04 ej. 21)</td>
+<td>Palabras para igualar una imagen de 400 por 500, 128 niveles, vocabulario de 10 000</td>
+<td>Imagen 1 400 000 Sh; palabra 13,288 Sh; 105 359 palabras (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=7" title="Palabras = 105359 Palabra/Imagen">Guía TP4 resp. p.7</a>). Ver Discrepancias</td>
+</tr>
+<tr>
+<td>Teoría BIS ej. 9 (= Comunic. TP04 ej. 16)</td>
+<td>Fuente binaria equiprobable: <span class="arithmatex">\(H\)</span> y curva contra la probabilidad</td>
+<td><span class="arithmatex">\(H=1\)</span> Sh/símbolo (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Teoria-Respuestas-BIS-RTAS.pdf#page=5" title="HS = 1 Shannon/Símbolo">Guía teoría BIS p.5</a>); la curva, en Desarrollo</td>
+</tr>
+<tr>
+<td>Teoría BIS ej. 10 (= Comunic. TP04 ej. 17)</td>
+<td>Demostrar que una fuente de un solo símbolo no es fuente de información</td>
+<td><span class="arithmatex">\(I=0\)</span>; <span class="arithmatex">\(H=0\)</span> (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Teoria-Respuestas-BIS-RTAS.pdf#page=6" title="HS = 0 Shannon/Símbolo">Guía teoría BIS p.6</a>)</td>
+</tr>
+<tr>
+<td>1er Parcial 2022 ej. 3</td>
+<td>Entropía y tasa de información; graficar la de una fuente binaria</td>
+<td>Teórico: ver Autoevaluación 1 (<a href="../fuentes/examenes/parciales/oficial/1er-Parcial-2022-Arroyo.pdf#page=1" title="Que entiende por entropía y tasa de información">1er Parcial 2022 p.1</a>)</td>
+</tr>
+<tr>
+<td>1er Parcial ej. 2</td>
+<td>Mismo pedido, en el examen escaneado</td>
+<td>Teórico: ver Autoevaluación 1 (<a href="../fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ítem 2 pide qué son la entropía y la tasa de información y graficar la entropía de una fuente binaria de memoria nula">1er Parcial p.1</a>)</td>
+</tr>
+<tr>
+<td>Final 2020-12, Tema 2, pregunta 3, y Final 2021-02, Tema 1, pregunta 3</td>
+<td>Entropía y tasa de información de una fuente y cómo se calculan</td>
+<td>Teórico: ver Autoevaluación 1 (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="entropía y tasa de información de una fuente y como se">Final 2020-12 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="entropía y tasa de información de una fuente y como se">Final 2021-02 p.1</a>)</td>
+</tr>
+<tr>
+<td>Final 2023-02 ej. 6</td>
+<td>Imagen de 800 por 300, 16 niveles, vocabulario de 170 000; video de 300 imágenes en 10 minutos</td>
+<td>Imagen 960 000 Sh; palabra 17,375 Sh; unas 55 251 palabras; 480 000 Sh/s (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Vel tx = 480000 Sh / s">Final 2023-02 p.1</a>). Ver Discrepancias</td>
+</tr>
+<tr>
+<td>TP5 ej. 10 b), práctica del 2.º parcial</td>
+<td>Niveles de señalización en el caso ideal, con <span class="arithmatex">\(C=7{,}97\)</span> Mbit/s y <span class="arithmatex">\(\Delta f=1\)</span> MHz</td>
+<td><span class="arithmatex">\(n=2^{7{,}97/2}\approx 15{,}8\)</span>; la cátedra redondea a 16 (<a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="Cantidad de niveles de señalización">GUIA-TP-05 resp. p.5</a>, <a href="../fuentes/practica/oficial/TP05-Capacidad-Canal/GUIA-TP-05-Practica-Respuestas.pdf#page=5" title="8/2 = lg2 n">GUIA-TP-05 resp. p.5</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>1. ¿Qué entiende por entropía y tasa de información de una fuente, y cómo se calculan? Grafique la entropía de una fuente binaria de memoria nula.</summary>
+<ul>
+<li>Entropía: incertidumbre media por símbolo de una fuente de memoria nula, <span class="arithmatex">\(H=-\sum P(x_k)\log_2 P(x_k)\)</span>, en Sh/símbolo (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=26" title="Representa la incertidumbre media en la probabilidad de que">Clase-06 p.26</a>).</li>
+<li>Tasa: cociente entre la entropía y la duración media de los símbolos, <span class="arithmatex">\(T=H/\tau\)</span>, en Sh/s (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=31" title="Es el cociente entre la entropía de la fuente y la duración">Clase-06 p.31</a>).</li>
+<li>Gráfico: <span class="arithmatex">\(H\)</span> contra <span class="arithmatex">\(x=P(1)\)</span>; arco simétrico, 0 en los extremos y 1 en <span class="arithmatex">\(x=0{,}5\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="fig: curva de H de X contra Pr de X igual a 1, vale 0 en 0 y en 1, máximo 1 en 0,5">Clase-06 p.28</a>).</li>
+</ul>
+</details>
+<details class="question">
+<summary>2. ¿Cuándo 1 Shannon equivale a 1 bit?</summary>
+<ul>
+<li>En la fuente binaria equiprobable: 1 Shannon = 1 bit (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/TP-04-CODIFICACION-Y-TEORIA-INFO.pdf#page=12" title="1 SHANNON = 1 BIT">TP-04 Codif. p.12</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=24" title="fig: fuente binaria equiprobable, I de 0 igual a log2 de 1 sobre 0,5 igual a 1 Shannon, 1 Shannon igual a 1 bit">Clase-06 p.24</a>).</li>
+<li>El bit es el dígito binario; con sucesos no equiprobables no equivale al Shannon (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=2" title="es asi cuando se trata de sucesos equiprobables">Resumen cap. V p.2</a>).</li>
+</ul>
+</details>
+<details class="question">
+<summary>3. ¿Qué entropía tiene una fuente de un solo símbolo? ¿Y una binaria equiprobable?</summary>
+<ul>
+<li>Un solo símbolo: <span class="arithmatex">\(H=0\)</span> Sh/símbolo (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Teoria-Respuestas-BIS-RTAS.pdf#page=6" title="HS = 0 Shannon/Símbolo">Guía teoría BIS p.6</a>).</li>
+<li>Binaria equiprobable: <span class="arithmatex">\(H=1\)</span> Sh/símbolo (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/GUIA-TP-04-Teoria-Respuestas-BIS-RTAS.pdf#page=5" title="HS = 1 Shannon/Símbolo">Guía teoría BIS p.5</a>).</li>
+</ul>
+</details>
+<details class="question">
+<summary>4. Dos fuentes tienen la misma entropía. ¿Qué las puede distinguir?</summary>
+<p>La velocidad. La más rápida introduce más información en el canal; por eso se usa la tasa (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=30" title="La tasa de información representa la cantidad de información">Clase-06 p.30</a>).</p>
+</details>
+<details class="question">
+<summary>5. ¿Qué diferencia hay entre canal ideal y real? ¿Qué límite aparece con ruido?</summary>
+<ul>
+<li>Ideal: reproduce la señal exactamente y es teórico (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=7" title="Reproduce en su salida exactamente la misma señal aplicada">Clase-06 p.7</a>). Su capacidad es <span class="arithmatex">\(C=2\Delta f\log_2 n\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a>).</li>
+<li>Real: el ruido hace que los niveles cercanos se confundan; el máximo de niveles depende de <span class="arithmatex">\(S/N\)</span> y resulta <span class="arithmatex">\(C=\Delta f\log_2(1+S/N)\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=39" title="Shannon demostró que el número máximo de niveles tiene">Clase-06 p.39</a>).</li>
+</ul>
+</details>
+<details class="question">
+<summary>6. Un canal ideal de 3000 Hz transmite una señal de 16 niveles. ¿Qué capacidad tiene?</summary>
+<p><span class="arithmatex">\(C=2\cdot 3000\cdot\log_2 16=24\,000\)</span> bit/s (ejemplo propio, verificado con test; fórmula de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=35" title="Para señales multinivel, la capacidad de un canal ideal es">Clase-06 p.35</a>).</p>
+</details>
+<details class="question">
+<summary>7. Defina eficiencia y redundancia de un código. ¿Por qué una va contra la otra?</summary>
+<p><span class="arithmatex">\(\eta\)</span> = bits de información sobre bits transmitidos; <span class="arithmatex">\(R=1-\eta\)</span>. Se agrega redundancia (paridad, verificación) para detectar errores, y eso baja la eficiencia (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=22" title="La redundancia de un código esta relacionada con la información">Resumen cap. V p.22</a>).</p>
+</details>
+<details class="question">
+<summary>8. ¿Qué parámetros se consideran al construir un código?</summary>
+<p>Fuente secundaria. Cantidad y tipo de símbolos (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=6" title="Cantidad de símbolos a codificar">Resumen cap. V p.6</a>); eficacia (longitud mínima), valores numéricos, ordenamiento y seguridad (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=7" title="Parámetros considerados en la construcción de codigos">Resumen cap. V p.7</a>).</p>
+</details>
+<details class="question">
+<summary>9. ¿Cuántas palabras válidas tiene el código 4 de 8 y por qué es redundante?</summary>
+<p>70: las de 4 unos y 4 ceros. Se podrían representar hasta <span class="arithmatex">\(2^8=256\)</span> combinaciones, así que sobran muchas; por eso es redundante y poco eficiente (fuente secundaria: <a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=11" title="pero permite 70 combinaciones, 6">Resumen cap. V p.11</a>). Eficiencia propia: <span class="arithmatex">\(\log_2 70/8\approx 0{,}766\)</span>.</p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Eficiencia de un código.</strong><ul>
+<li>El resumen (fuente secundaria) la define como bits de información sobre bits transmitidos (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=22" title="es la relación entre el número de bits de información">Resumen cap. V p.22</a>).</li>
+<li>Dicho en clase: el docente de teoría calculó el BCD como 3,32 sobre 4, es decir, información por símbolo (<span class="arithmatex">\(\log_2 10\)</span>) sobre bits por símbolo (nota teoria 2026-09-08 08:18 PM: "tres coma 32 dividido 4 0 83 este número que está acá").</li>
+<li>Las dos coinciden si "bits de información" se lee como <span class="arithmatex">\(\log_2 N\)</span>, que es lo que usan las tablas de arriba.</li>
+<li>Lo confirma nota teoria 2026-09-15 07:42 PM: "la eficiencia es los bitcoin información sobre los totales que transmití" (bitcoin es "bits de" mal transcripto).</li>
+</ul>
+</li>
+<li><strong>BCD.</strong><ul>
+<li>El resumen (fuente secundaria) lo describe de 6 bits y 64 combinaciones (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=10" title="Es un código de 6 bits que dispone de 64 combinaciones">Resumen cap. V p.10</a>).</li>
+<li>Además reparte <span class="arithmatex">\(10+26+28+5=69\)</span> símbolos, más que las 64 combinaciones (<a href="../fuentes/resumenes/capitulos-castro-fusario/Resumen-Capitulo-05.pdf#page=10" title="28 símbolos especiales y 5 adicionales de programación">Resumen cap. V p.10</a>).</li>
+<li>Dicho en clase: el docente de teoría usó el BCD de 4 bits para los dígitos (nota teoria 2026-09-08 08:16 PM: "Este es un código de 4 bits decimal codificado en binario").</li>
+<li>La tabla de eficiencia de esta página usa el BCD de dígitos con 4 bits, como en clase.</li>
+</ul>
+</li>
+<li><strong>Final 2023-02 ej. 6.</strong><ul>
+<li>La resolución oficial escribe <span class="arithmatex">\(I(\text{imagen})=9\,600\,000\)</span> Sh (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="imagen = 9600000 Sh">Final 2023-02 p.1</a>).</li>
+<li>Pero <span class="arithmatex">\(800\cdot 300\cdot\log_2 16=960\,000\)</span> Sh, que es lo coherente con los 480 000 Sh/s (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Vel tx = 480000 Sh / s">Final 2023-02 p.1</a>).</li>
+<li>Las 55 267 palabras salen de truncar <span class="arithmatex">\(I(\text{palabra})\)</span> a 17,37 (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Cantidad de palabras necesarias = 55267 palabras">Final 2023-02 p.1</a>); con 17,375 dan unas 55 251.</li>
+</ul>
+</li>
+<li><strong>TP4 ej. 9 (telégrafo).</strong><ul>
+<li>La cátedra da <span class="arithmatex">\(T=3{,}459\)</span> Sh/s con <span class="arithmatex">\(H=0{,}92\)</span> y <span class="arithmatex">\(\tau=0{,}266\)</span> redondeados (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=21" title="T = 3,459 [Shannon/seg]">Clase-TP-04 p.21</a>).</li>
+<li>Sin redondear: <span class="arithmatex">\(0{,}9183/0{,}26667=3{,}444\)</span> Sh/s.</li>
+<li>Dicho en clase: el docente de práctica llegó a 3,5 (nota practica 2026-09-16 09:17 PM: "me queda que la tasa es 3,5"), que es 3,459 redondeado a un decimal.</li>
+</ul>
+</li>
+<li><strong>TP4 ej. 11.</strong><ul>
+<li><code>Clase-TP-04-RTAS</code> da 105 358 palabras (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=23" title="Cantidad Palabras = 105.358">Clase-TP-04 p.23</a>) y la guía oficial 105 359 (<a href="../fuentes/practica/oficial/TP04-Banda-Base-Info/GUIA-TP-04-Practica-Respuestas.pdf#page=7" title="Palabras = 105359 Palabra/Imagen">Guía TP4 resp. p.7</a>).</li>
+<li>Con 13,288 el cociente es 105 358,2: una trunca y la otra redondea hacia arriba.</li>
+<li>Con <span class="arithmatex">\(\log_2 10\,000\)</span> sin redondear da 105 360,5.</li>
+</ul>
+</li>
+<li><strong>TP4 ej. 2, el alfabeto.</strong><ul>
+<li><code>Clase-TP-04-RTAS</code> dice "alfabeto es 12 = N" (<a href="../fuentes/practica/tucu-leppen/TP04-Banda-Base/Clase-TP-04-RTAS.pdf#page=11" title="alfabeto es 12 = N">Clase-TP-04 p.11</a>).</li>
+<li>Pero 12 es la longitud de la secuencia: la fuente tiene 2 símbolos y las probabilidades salen de las frecuencias 8/12 y 4/12.</li>
+<li>Con <span class="arithmatex">\(N=12\)</span> la entropía máxima sería <span class="arithmatex">\(\log_2 12\)</span>, contra la regla de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="Si la fuente de memoria nula puede emitir N símbolos con">Clase-06 p.28</a>.</li>
+<li>Dicho en clase: el docente de práctica repite lo mismo (nota practica 2026-09-16 08:48 PM: "el alfabeto sí es igual a 12").</li>
+<li>Lo coherente con <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=28" title="igual probabilidad la entropía tiene valor máximo">Clase-06 p.28</a> es <span class="arithmatex">\(N=2\)</span>.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../u4/04-multiplexacion.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u6/01-capacidad-canal.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Capacidad del canal">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Capacidad del canal
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

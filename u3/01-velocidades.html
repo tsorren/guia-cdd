@@ -1,0 +1,2779 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="../u2/04-banda-base.html">
+      
+      
+        <link rel="next" href="./02-redes.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Velocidades, multinivel, protocolos de enlace y M-PSK con Gray - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#velocidades-multinivel-protocolos-de-enlace-y-m-psk-con-gray" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01-velocidades.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-baudios-y-bps" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Baudios y bps
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-serie-y-paralelo-sincronismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Serie y paralelo; sincronismo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-asincronica-vs-sincronica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Asincrónica vs sincrónica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tiempo-rendimiento-y-tasa-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Tiempo, rendimiento y tasa de error
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-simplex-semiduplex-y-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Simplex, semidúplex y dúplex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-protocolos-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Protocolos de enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-m-psk-con-codigo-de-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. M-PSK con código de Gray
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-asincronica-seudo-baudot-guia-2p-ej-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 1: asincrónica seudo-Baudot (GUIA 2P ej. 4)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-final-2022-09-ej-4-16-psk-con-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 2: Final 2022-09 ej. 4 (16-PSK con Gray)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-baudios-y-bps" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Baudios y bps
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-serie-y-paralelo-sincronismo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Serie y paralelo; sincronismo
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-asincronica-vs-sincronica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Asincrónica vs sincrónica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tiempo-rendimiento-y-tasa-de-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Tiempo, rendimiento y tasa de error
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-simplex-semiduplex-y-duplex" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Simplex, semidúplex y dúplex
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-protocolos-de-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Protocolos de enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-m-psk-con-codigo-de-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. M-PSK con código de Gray
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-asincronica-seudo-baudot-guia-2p-ej-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 1: asincrónica seudo-Baudot (GUIA 2P ej. 4)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-final-2022-09-ej-4-16-psk-con-gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 2: Final 2022-09 ej. 4 (16-PSK con Gray)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="01-velocidades.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U3
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="velocidades-multinivel-protocolos-de-enlace-y-m-psk-con-gray">Velocidades, multinivel, protocolos de enlace y M-PSK con Gray<a class="headerlink" href="#velocidades-multinivel-protocolos-de-enlace-y-m-psk-con-gray" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<ul>
+<li><strong>Teoría:</strong> <code>Unidad-III-1</code> (velocidades, serie/paralelo, asincrónica/sincrónica, protocolos), <code>Clase-03</code> p.25–41 y <code>Unidad-IV-1</code> p.23–32 (M-PSK, Gray, QAM).</li>
+<li><strong>Práctica:</strong> TP2 Segunda Parte (ej. 1–11) y TP8 ej. 4, 5 y 7 (M-PSK con Gray).</li>
+<li><strong>Remarcado por el docente de práctica:</strong><ul>
+<li>nota practica 2026-09-09 08:13 PM: "lo único que hicimos es velocidad de modulación velocidad de transmisión"</li>
+<li>nota practica 2026-09-09 07:19 PM: "Esto también se lo van a preguntar en la parte teórica" (cuándo <span class="arithmatex">\(V_m = V_t\)</span>)</li>
+<li>nota practica 2026-09-09 07:58 PM: "este ejercicio también es de parcial" (sincrónica vs asincrónica, ej. 8)</li>
+</ul>
+</li>
+<li><strong>Remarcado por el docente de teoría:</strong> nota teoria 2026-09-08 07:42 PM: "habría que hacer el código de Gray y demás"</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Baudios cuentan pulsos; bps cuentan bits.</strong> <span class="arithmatex">\(V_m = 1/T\)</span> y <span class="arithmatex">\(V_t = V_m\log_2 n\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=26" title="Vtx = Vm log2 n">Clase-03 p.26</a>).</li>
+<li><strong>Multinivel sube <span class="arithmatex">\(V_t\)</span> sin subir <span class="arithmatex">\(V_m\)</span></strong> (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=7" title="Aumenta la velocidad de información sin incrementar la">Unidad III-1 p.7</a>), pero con más niveles la separación entre niveles se acerca al nivel de ruido y aumentan los errores (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="la separación entre dos niveles es comparable al nivel de ruido">Clase-06 p.38</a>).</li>
+<li><strong>Rendimiento = datos / total transmitido.</strong> La asincrónica paga arranque, paridad y parada en cada carácter; la sincrónica paga cabecera y terminación por bloque (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="Bits de Datos Transmitidos / Total de Bits Transmitidos">Clase-TP-02 p.6</a>).</li>
+<li><strong>Ejercicio recurrente de examen:</strong> de <span class="arithmatex">\(V_m\)</span> y <span class="arithmatex">\(V_t\)</span> salen <span class="arithmatex">\(M = 2^{V_t/V_m}\)</span> fases, <span class="arithmatex">\(\log_2 M\)</span> bits por fase y la tabla en Gray, con estados vecinos a 1 bit (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="estados vecinos difieren en un bit">Unidad IV-1 p.31</a>).</li>
+<li><strong>Protocolos de enlace:</strong> el sincrónico es Header · Datos · Final (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Encabezamiento Datos de usuario Final o End o Header">Clase-03 p.41</a>); BSC (carácter) y HDLC (bit) solo figuran en la taxonomía (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=39" title="PROTOCOLO ASOCIADO A UNA TRANSMISIÓN">Clase-03 p.39</a>).</li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Velocidad de modulación</td>
+<td><span class="arithmatex">\(V_m = \dfrac{1}{T}\)</span>, con <span class="arithmatex">\(T\)</span> = ancho del pulso más corto</td>
+<td>baudios (1/s)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=3" title="Es la inversa de la medida del intervalo de tiempo nominal">Unidad III-1 p.3</a></td>
+</tr>
+<tr>
+<td>Velocidad de transmisión, <span class="arithmatex">\(m\)</span> canales</td>
+<td><span class="arithmatex">\(V_t = \displaystyle\sum_{i=1}^{m}\dfrac{1}{T_i}\log_2 n_i\)</span></td>
+<td>bps</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=3" title="Para un enlace de m canales, y de n niveles">Clase-TP-02 p.3</a></td>
+</tr>
+<tr>
+<td>Un solo canal (serie)</td>
+<td><span class="arithmatex">\(V_t = V_m\log_2 n\)</span></td>
+<td>bps</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=26" title="Vtx = Vm log2 n">Clase-03 p.26</a></td>
+</tr>
+<tr>
+<td>Niveles y bits por pulso</td>
+<td><span class="arithmatex">\(n = 2^{i}\)</span>; <span class="arithmatex">\(i=1\)</span> binaria, 2 dibit, 3 tribit, 4 cuadribit</td>
+<td>niveles; bits</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=7" title="cada pulso transmitido puede contener más de">Unidad III-1 p.7</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=8" title="i = 3 n = 8 tribits">Clase-TP-02 p.8</a></td>
+</tr>
+<tr>
+<td>Ancho de pulso</td>
+<td><span class="arithmatex">\(\tau = 1/V_m\)</span> (en binario <span class="arithmatex">\(T=\tau\)</span>)</td>
+<td>s</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=16" title="T= Duración del pulso en segundos">Clase-TP-02 p.16</a></td>
+</tr>
+<tr>
+<td>Ancho de banda de la señal</td>
+<td><span class="arithmatex">\(\Delta f = 1/\tau\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="1/d = 1200 Hz">GUIA 2P p.1</a></td>
+</tr>
+<tr>
+<td>Velocidad de transferencia de datos</td>
+<td><span class="arithmatex">\(V_{td} = \dfrac{\text{bits con información}}{\text{tiempo empleado}}\)</span></td>
+<td>bps</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=9" title="Es el número medio de bits por unidad de tiempo que se">Unidad III-1 p.9</a></td>
+</tr>
+<tr>
+<td>Velocidad real de transferencia</td>
+<td><span class="arithmatex">\(V_{rtd} = \dfrac{\text{bits con información sin errores}}{\text{tiempo empleado}}\)</span>; <span class="arithmatex">\(V_{tx}&gt;V_{td}&gt;V_{rtd}\)</span></td>
+<td>bps</td>
+<td><a href="../fuentes/practica/oficial/TP02-Fourier-Senales/TP-02-COMUNICACIONES-4ta-Parte.pdf#page=5" title="Vrtd = cant bits con info sin Errores / tiempo empleado">TP-02 4.ª parte p.5</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=11" title="receptor los acepta como válidos">Unidad III-1 p.11</a></td>
+</tr>
+<tr>
+<td>Tiempo de un archivo</td>
+<td><span class="arithmatex">\(t = L_{[\text{bit}]}/V_{rtd}\)</span></td>
+<td>s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=12" title="El tiempo a emplear para trasmitir un archivo sale de">Unidad III-1 p.12</a></td>
+</tr>
+<tr>
+<td>Tiempo de <span class="arithmatex">\(N\)</span> caracteres de <span class="arithmatex">\(b_c\)</span> bits</td>
+<td><span class="arithmatex">\(t = N\,b_c/V_m\)</span> (binaria); con multinivel, además se divide por <span class="arithmatex">\(\log_2 n\)</span></td>
+<td>s</td>
+<td><a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="x 1500 caracteres x 1/75 seg/bit = 230 seg">GUIA 2P p.1</a>, <a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="Tx con multinivel = 7.5 mseg / 4 = 1.87 mseg">GUIA 2P p.2</a></td>
+</tr>
+<tr>
+<td>Rendimiento</td>
+<td><span class="arithmatex">\(\eta = \dfrac{\text{bits de datos}}{\text{total de bits transmitidos}}\cdot 100\)</span></td>
+<td>%</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="Bits de Datos Transmitidos / Total de Bits Transmitidos">Clase-TP-02 p.6</a></td>
+</tr>
+<tr>
+<td>Tasa de error</td>
+<td><span class="arithmatex">\(\mathrm{BER} = \dfrac{\text{bits con errores}}{\text{bits transmitidos}}\)</span></td>
+<td>adimensional</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=10" title="La tasa de errores se suele expresar mediante la sigla BER">Unidad III-1 p.10</a></td>
+</tr>
+<tr>
+<td>M-PSK</td>
+<td><span class="arithmatex">\(M = 2^{V_t/V_m}\)</span>; bits por fase <span class="arithmatex">\(=\log_2 M\)</span>; <span class="arithmatex">\(\theta = 360^\circ/M\)</span></td>
+<td>fases; bits; grados</td>
+<td><a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="Vt/Vm = log2 n =&gt; n = 2Vt/Vm">GUIA 2P p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=1" title="por un ángulo definido por la expresión">TP08 p.1</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="1-baudios-y-bps">1. Baudios y bps<a class="headerlink" href="#1-baudios-y-bps" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(n\)</span></th>
+<th>Bits por pulso</th>
+<th>Nombre</th>
+<th><span class="arithmatex">\(V_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>binaria</td>
+<td><span class="arithmatex">\(V_m\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>dibit</td>
+<td><span class="arithmatex">\(2V_m\)</span></td>
+</tr>
+<tr>
+<td>8</td>
+<td>3</td>
+<td>tribit</td>
+<td><span class="arithmatex">\(3V_m\)</span></td>
+</tr>
+<tr>
+<td>16</td>
+<td>4</td>
+<td>cuadribit</td>
+<td><span class="arithmatex">\(4V_m\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Fuente de la tabla: <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=8" title="i = 3 n = 8 tribits">Clase-TP-02 p.8</a> y <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=4" title="log2 4=2 log2 8=3 log2 16=4">Clase-TP-02 p.4</a>.</p>
+<ul>
+<li>Sin multinivel, <span class="arithmatex">\(V_m\)</span> y <span class="arithmatex">\(V_t\)</span> coinciden (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=2" title="si las transmisiones no son del tipo multinivel, ambas coinciden">Clase-TP-02 p.2</a>). Condición: un canal (<span class="arithmatex">\(m=1\)</span>) y 2 niveles (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=18" title="y si tenemos sólo 2 estados niveles de modulación">Clase-TP-02 p.18</a>).</li>
+<li>Más <span class="arithmatex">\(V_m\)</span> = pulso más corto (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=25" title="Cuanto mayor es la velocidad de modulación menor es el">Clase-03 p.25</a>), más ancho de banda y más BER (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="Si aumenta el ancho de banda, también aumentará el BER">Clase-TP-02 p.6</a>).</li>
+<li>Multinivel sube <span class="arithmatex">\(V_t\)</span> sin subir <span class="arithmatex">\(V_m\)</span>, pero con más niveles la separación entre niveles se acerca al nivel de ruido y aumentan los errores (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="la separación entre dos niveles es comparable al nivel de ruido">Clase-06 p.38</a>). La práctica lo plantea distinto: ver Discrepancias.</li>
+<li>En asincrónica <span class="arithmatex">\(V_t\)</span> "carece de sentido" porque los espacios entre caracteres varían (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=2" title="En las transmisiones asíncronas este concepto carece de sentido">Clase-TP-02 p.2</a>).</li>
+</ul>
+<h3 id="2-serie-y-paralelo-sincronismo">2. Serie y paralelo; sincronismo<a class="headerlink" href="#2-serie-y-paralelo-sincronismo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Paralelo</th>
+<th>Serie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bits</td>
+<td>Los <span class="arithmatex">\(n\)</span> bits del carácter, a la vez, en un ciclo de reloj</td>
+<td>Uno por ciclo, uno detrás del otro</td>
+</tr>
+<tr>
+<td>Dónde</td>
+<td>Computadoras; cortas distancias</td>
+<td>Sistemas de comunicaciones</td>
+</tr>
+<tr>
+<td>Fuente</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=16" title="se transmiten a la vez en un solo ciclo de reloj">Unidad III-1 p.16</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=16" title="cortas distancias porque varía el tiempo de llegada de los bits">p.16</a></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=18" title="se transmiten uno detrás del otro con cada ciclo">Unidad III-1 p.18</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=19" title="El modo serie es típico de los sistemas de comunicaciones">p.19</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Los bits salen por orden de pesos crecientes, al revés de cómo se escribe el binario; la paridad va última (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=19" title="orden de pesos crecientes">Unidad III-1 p.19</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=19" title="Cuando se transmite con bit de paridad">p.19</a>).</li>
+<li>Los sistemas de telecomunicaciones trabajan en serie (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=10" title="Los sistemas de telecomunicaciones trabajan en modo serie">Clase-TP-02 p.10</a>).</li>
+<li><strong>Sincronismo de bit:</strong> el reloj muestrea a 8 o 9 veces <span class="arithmatex">\(V_m\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=37" title="una velocidad 8 o 9 veces mayor que la velocidad de modulación">Clase-03 p.37</a>).</li>
+<li><strong>Sincronismo de carácter:</strong> importa en la asincrónica. <strong>De bloque:</strong> importa en la sincrónica (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=38" title="muchísima importancia en el caso de la transmisión asincrónica">Clase-03 p.38</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=38" title="muchísima importancia en el caso de la transmisión SINCRÓNICA">p.38</a>).</li>
+</ul>
+<h3 id="3-asincronica-vs-sincronica">3. Asincrónica vs sincrónica<a class="headerlink" href="#3-asincronica-vs-sincronica" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Asincrónica</th>
+<th>Sincrónica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qué se envía</td>
+<td>Carácter por carácter, en forma irregular</td>
+<td>Bloques de caracteres, en forma regular</td>
+</tr>
+<tr>
+<td>Marcas</td>
+<td>Arranque (1 t de bit), datos, paridad opcional, parada (1; 1,5 o 2 t de bit)</td>
+<td>Encabezamiento · Datos de usuario · Final</td>
+</tr>
+<tr>
+<td>Rendimiento</td>
+<td>Bajo</td>
+<td>Alto</td>
+</tr>
+<tr>
+<td>Equipos</td>
+<td>Menos complejos, relojes menos precisos</td>
+<td>Más complejos, relojes más precisos</td>
+</tr>
+<tr>
+<td>Con errores</td>
+<td>Se pierden pocos caracteres</td>
+<td>Se pierden más, según el tamaño del bloque</td>
+</tr>
+<tr>
+<td>Fuente</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=40" title="Bajo rendimiento de transmisión">Clase-03 p.40</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=40" title="Transmisión carácter por carácter, en forma irregular">p.40</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=40" title="Menor complejidad de equipos, relojes menos precisos">p.40</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=40" title="Si errores, menos pérdidas de caracteres">p.40</a></td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Alto rendimiento de transmisión">Clase-03 p.41</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Mayor complejidad de equipos, relojes más precisos">p.41</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Si errores, mayor pérdida de caracteres según el tamaño del">p.41</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Bit de parada:</strong> Baudot 1,42 bit; seudo-Baudot 1,5 bit; el resto, 1 o 2 bits (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=11" title="En el Sistema Baudot, 1,42 bit">Clase-TP-02 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=11" title="Sistema Seudo-Baudot, es de 1,5 bit">p.11</a>).</li>
+<li><strong>Carácter seudo-Baudot con ASCII y paridad:</strong> 1 arranque + 8 datos + 1 paridad + 1,5 parada = 11,5 bits (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="1 bit paridad Total =11.5 bits/carácter">GUIA 2P p.1</a>).</li>
+<li><strong>Télex:</strong> Baudot de 5 bits con 1 arranque y 1,5 de parada (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=4" title="cada carácter tiene un bit de arranque y 1,5 de parada">Unidad III-1 p.4</a>). El cálculo a 50 Bd está en Practicar.</li>
+<li><strong>Sincrónica:</strong> bloques de 128 a 1024 bytes; con 1024 bytes y no más de 10 de control, <span class="arithmatex">\(1024/1034 = 99{,}03\,\%\)</span>, más del 99 % (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=13" title="tiene un tamaño que oscila entre los 128 y 1024 Bytes">Clase-TP-02 p.13</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=13" title="con no más de 10 Bytes de cabecera y terminación">p.13</a>).</li>
+<li><strong>Asincrónica:</strong> velocidades de hasta 1200 baudios (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=11" title="Usa velocidades de transmisión de hasta 1200 Baudios">Clase-TP-02 p.11</a>). <strong>Sincrónica:</strong> aptas para altas velocidades (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=14" title="Aptos para ser usados en transmisiones de altas velocidades">Clase-TP-02 p.14</a>).</li>
+</ul>
+<h3 id="4-tiempo-rendimiento-y-tasa-de-error">4. Tiempo, rendimiento y tasa de error<a class="headerlink" href="#4-tiempo-rendimiento-y-tasa-de-error" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Orden de las velocidades: <span class="arithmatex">\(V_{tx} &gt; V_{td} &gt; V_{rtd}\)</span> (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/TP-02-COMUNICACIONES-4ta-Parte.pdf#page=5" title="Vtx&gt; Vtd &gt; Vrtd">TP-02 4.ª parte p.5</a>).</li>
+<li>BER típico: línea telefónica <span class="arithmatex">\(10^{-6}\)</span> (1 error cada 1.000.000 de bits); LAN <span class="arithmatex">\(10^{-8}\)</span> a <span class="arithmatex">\(10^{-10}\)</span> (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="BER línea telefónica es 10 -6">Clase-TP-02 p.6</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="BER en una LAN es de 10 -8">p.6</a>).</li>
+<li>Si el enunciado da el rendimiento, los bits totales salen de <span class="arithmatex">\(x = \text{bits de datos}/\eta\)</span> (ej. 11).</li>
+</ul>
+<h3 id="5-simplex-semiduplex-y-duplex">5. Simplex, semidúplex y dúplex<a class="headerlink" href="#5-simplex-semiduplex-y-duplex" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué es</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simplex</td>
+<td>Una estación siempre es fuente y la otra siempre colector</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=13" title="una estación siempre actúa como fuente y la otra">Unidad III-1 p.13</a></td>
+</tr>
+<tr>
+<td>Semidúplex</td>
+<td>Una es fuente y la otra colector durante un período; luego intercambian</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=14" title="Una estación es fuente y otra estación es">Unidad III-1 p.14</a></td>
+</tr>
+<tr>
+<td>Dúplex</td>
+<td>Las dos son fuente y colector a la vez</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=15" title="dos estaciones actúan a la vez como fuente y">Unidad III-1 p.15</a></td>
+</tr>
+</tbody>
+</table>
+<p>Dúplex exige tres condiciones: medio físico bidireccional, sistema que envíe y reciba a la vez y protocolo que lo permita (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=15" title="Medio físico capaz de transmitir en ambos sentidos">Unidad III-1 p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=15" title="Sistema de transmisión capaz de enviar y recibir a la vez">p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=15" title="Protocolo de comunicaciones que lo permita">p.15</a>).</p>
+<h3 id="6-protocolos-de-enlace">6. Protocolos de enlace<a class="headerlink" href="#6-protocolos-de-enlace" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Transmisión serie
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├─ Asincrónicos
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└─ Sincrónicos
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   ├─ Orientados al carácter: KERMIT, BSC
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   └─ Orientados al bit:      HDLC, LAP, LLC
+</span></code></pre></div>
+<p>Fuente: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=39" title="PROTOCOLO ASOCIADO A UNA TRANSMISIÓN">Clase-03 p.39</a> y <a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=24" title="fig: árbol de protocolos con KERMIT y BSC orientados al carácter; HDLC, LAP y LLC orientados al bit">Unidad III-1 p.24</a>.</p>
+<ul>
+<li><strong>Límite de las fuentes:</strong> BSC y HDLC solo figuran en esta taxonomía. No hay trama, campos ni banderas en las fuentes de cátedra, y la sigla BSC no se expande. No inventar detalle.</li>
+<li><strong>Respuesta modelo, 1er Parcial ej. 4</strong> (<a href="../fuentes/examenes/parciales/oficial/1er-Parcial.pdf#page=1" title="fig: ejercicio 4 Describa el funcionamiento y características de un protocolo sincrónico">1er Parcial p.1</a>):<ol>
+<li>Estructura: Encabezamiento (Header) · Datos de usuario · Final (End) (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=26" title="fig: tres cuadros Encabezamiento o Header, Datos de Usuario, Final o End">Unidad III-1 p.26</a>).</li>
+<li>Características: las de la columna "Sincrónica" de Desarrollo 3.</li>
+<li>Sincronismo de bloque: Desarrollo 2.</li>
+<li>El tamaño de bloque es un compromiso de diseño (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Tamaño de bloque es un compromiso de diseño">Clase-03 p.41</a>).</li>
+<li>Orientado al carácter o al bit, según la taxonomía de arriba.</li>
+</ol>
+</li>
+</ul>
+<h3 id="7-m-psk-con-codigo-de-gray">7. M-PSK con código de Gray<a class="headerlink" href="#7-m-psk-con-codigo-de-gray" title="Permanent link">&para;</a></h3>
+<p>Receta para "de <span class="arithmatex">\(V_m\)</span> y <span class="arithmatex">\(V_t\)</span> a la tabla":</p>
+<ol>
+<li>Bits por fase: <span class="arithmatex">\(b = V_t/V_m\)</span>.</li>
+<li>Fases: <span class="arithmatex">\(M = 2^b\)</span>. Nombre: <span class="arithmatex">\(M\)</span>-PSK.</li>
+<li>Salto de fase: <span class="arithmatex">\(\theta = 360^\circ/M\)</span>.</li>
+<li>Lista de Gray de <span class="arithmatex">\(b\)</span> bits por espejo (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=28" title="fig: construcción del código de Gray por espejo con 3 bits: 0 1, 00 01 11 10, 000 001 011 010 110 111 101 100">Unidad IV-1 p.28</a>). Se asigna en orden de fase creciente, en sentido antihorario (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: cuadro de asignación con Código Reflejo o de Gray y flecha de sentido de variación de la fase">Unidad IV-1 p.27</a>).</li>
+<li>Verificar: fases adyacentes difieren en 1 bit, incluida la última con la primera; fases opuestas, en 2 bits (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=11" title="Entre fases adyacentes varía 1 bit">TP08 p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=14" title="Entre fases opuestas varía 2 bits">TP08 p.14</a>).</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(V_t/V_m\)</span></th>
+<th><span class="arithmatex">\(M\)</span></th>
+<th>Modulación</th>
+<th><span class="arithmatex">\(\theta\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>2-PSK (portadora y su versión invertida)</td>
+<td><span class="arithmatex">\(180^\circ\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>4-PSK o QPSK</td>
+<td><span class="arithmatex">\(90^\circ\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>8</td>
+<td>8-PSK</td>
+<td><span class="arithmatex">\(45^\circ\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>16</td>
+<td>16-PSK</td>
+<td><span class="arithmatex">\(22{,}5^\circ\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Fuente de la tabla: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=25" title="Es una llave electrónica controlada por la señal de datos">Unidad IV-1 p.25</a> para 2-PSK y <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=29" title="Si M = 4 tenemos el método 4 PSK o QPSK">Unidad IV-1 p.29</a> para 4-PSK.</p>
+<p><strong>4-PSK</strong> (dibit):</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th><span class="arithmatex">\(0^\circ\)</span></th>
+<th><span class="arithmatex">\(90^\circ\)</span></th>
+<th><span class="arithmatex">\(180^\circ\)</span></th>
+<th><span class="arithmatex">\(270^\circ\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bits</td>
+<td>00</td>
+<td>01</td>
+<td>11</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: cuadro de asignación 00 a 0°, 01 a 90°, 11 a 180°, 10 a 270°">Unidad IV-1 p.27</a> y <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=17" title="Debe emplearse una modulación de 4-PSK">TP08 p.17</a>. Con 4-PSK el ancho de banda es la mitad que con 2-PSK (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="el ancho de banda de este último es la mitad">Unidad IV-1 p.30</a>), pero el sistema 4 PSK es más sensible a los fenómenos de interferencia y aumenta la tasa de error (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="sensible a los fenómenos de interferencia y aumenta la tasa de error">Unidad IV-1 p.30</a>).</p>
+<p><strong>8-PSK</strong> (tribit), tabla de la cátedra:</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th><span class="arithmatex">\(0^\circ\)</span></th>
+<th><span class="arithmatex">\(45^\circ\)</span></th>
+<th><span class="arithmatex">\(90^\circ\)</span></th>
+<th><span class="arithmatex">\(135^\circ\)</span></th>
+<th><span class="arithmatex">\(180^\circ\)</span></th>
+<th><span class="arithmatex">\(225^\circ\)</span></th>
+<th><span class="arithmatex">\(270^\circ\)</span></th>
+<th><span class="arithmatex">\(315^\circ\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bits</td>
+<td>000</td>
+<td>001</td>
+<td>011</td>
+<td>010</td>
+<td>110</td>
+<td>111</td>
+<td>101</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=10" title="Las combinaciones posibles de bits son 8">TP08 p.10</a> y <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="Cada fase representa un grupo de 3 dígitos binarios o tribits">Unidad IV-1 p.31</a>. La teoría trae otra tabla válida: ver Discrepancias.</p>
+<p><strong>QAM</strong> combina desplazamiento de fase y amplitud; 16QAM trasmite 4 bits por transición (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="QAM es modulación en cuadratura, combina el desplazamiento">Unidad IV-1 p.32</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="una trasmite cuatro bits con una sola transición">p.32</a>).</p>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<h3 id="ejemplo-1-asincronica-seudo-baudot-guia-2p-ej-4">Ejemplo 1: asincrónica seudo-Baudot (GUIA 2P ej. 4)<a class="headerlink" href="#ejemplo-1-asincronica-seudo-baudot-guia-2p-ej-4" title="Permanent link">&para;</a></h3>
+<p><strong>Enunciado:</strong> 1500 caracteres seguidos, asincrónica a 75 Bd, código seudo-Baudot, caracteres ASCII de 8 bits con paridad; tiempo total (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="Calcular el tiempo total de transmisión de 1500 caracteres enviados uno a">GUIA 2P p.1</a>).</p>
+<ol>
+<li>Bits por carácter: <span class="arithmatex">\(1 + 8 + 1 + 1{,}5 = 11{,}5\)</span>.</li>
+<li>Tiempo de bit: <span class="arithmatex">\(T = 1/75\)</span> s.</li>
+<li>Tiempo total: <span class="arithmatex">\(t = 11{,}5\cdot 1500/75 = 230\)</span> s (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="11.5 bits/carácter x 1500 caracteres x 1/75 seg/bit = 230 seg">GUIA 2P p.1</a>). La clase imprime 229,99 s por redondear <span class="arithmatex">\(T\)</span> (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=23" title="TTT1500C = 229,99 seg">Clase-TP-02 p.23</a>).</li>
+<li>Rendimiento del carácter, con la fórmula de rendimiento (cálculo propio, verificado con test): <span class="arithmatex">\(\eta = 8/11{,}5 = 69{,}6\,\%\)</span>.</li>
+</ol>
+<h3 id="ejemplo-2-final-2022-09-ej-4-16-psk-con-gray">Ejemplo 2: Final 2022-09 ej. 4 (16-PSK con Gray)<a class="headerlink" href="#ejemplo-2-final-2022-09-ej-4-16-psk-con-gray" title="Permanent link">&para;</a></h3>
+<p><strong>Enunciado:</strong> canal telefónico de 2400 baudios y 9600 bps, módem M-PSK; cuántas fases y bits, diagrama de estados, cuadro de asignación y nombre (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="velocidad de modulación de 2400 baudios">Final 2022-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="velocidad de transmisión de 9600 bps">p.1</a>).</p>
+<p><strong>Respuesta oficial:</strong> "16 saltos de fase. Cuatro bit.", asignación según Código de Gray y "Multifase 16-PSK"; no imprime la tabla (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="16 saltos de fase. Cuatro bit.">Final 2022-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Asignación de bits a cada fase según Código de Gray">p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="según Código de Gray. Multifase 16-PSK">p.1</a>).</p>
+<p><strong>Resolución completa:</strong></p>
+<ul>
+<li><strong>Paso 1.</strong> <span class="arithmatex">\(b = 9600/2400 = 4\)</span> bits por fase (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=12" title="9600 = 2400 * log2 n">TP08 p.12</a>).</li>
+<li><strong>Paso 2.</strong> <span class="arithmatex">\(M = 2^4 = 16\)</span> fases: <strong>16-PSK</strong>.</li>
+<li><strong>Paso 3.</strong> <span class="arithmatex">\(\theta = 360^\circ/16 = 22{,}5^\circ\)</span>.</li>
+<li><strong>Paso 4.</strong> Cuadro de asignación en Gray (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=13" title="Las combinaciones posibles de bits son 16">TP08 p.13</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=13" title="fig: tabla de 16 combinaciones en Gray, de 0000 a 0° hasta 1000 a 337,5°">TP08 p.13</a>):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Bits</th>
+<th>Fase</th>
+<th>Bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(0^\circ\)</span></td>
+<td>0000</td>
+<td><span class="arithmatex">\(180^\circ\)</span></td>
+<td>1100</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(22{,}5^\circ\)</span></td>
+<td>0001</td>
+<td><span class="arithmatex">\(202{,}5^\circ\)</span></td>
+<td>1101</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(45^\circ\)</span></td>
+<td>0011</td>
+<td><span class="arithmatex">\(225^\circ\)</span></td>
+<td>1111</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(67{,}5^\circ\)</span></td>
+<td>0010</td>
+<td><span class="arithmatex">\(247{,}5^\circ\)</span></td>
+<td>1110</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(90^\circ\)</span></td>
+<td>0110</td>
+<td><span class="arithmatex">\(270^\circ\)</span></td>
+<td>1010</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(112{,}5^\circ\)</span></td>
+<td>0111</td>
+<td><span class="arithmatex">\(292{,}5^\circ\)</span></td>
+<td>1011</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(135^\circ\)</span></td>
+<td>0101</td>
+<td><span class="arithmatex">\(315^\circ\)</span></td>
+<td>1001</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(157{,}5^\circ\)</span></td>
+<td>0100</td>
+<td><span class="arithmatex">\(337{,}5^\circ\)</span></td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Paso 5.</strong> Diagrama de estados, de fases o vectorial (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: título Diagrama de Estados, de Fases o Vectorial junto al diagrama vectorial de un sistema 4 PSK">Unidad IV-1 p.27</a>): 16 vectores desde el origen, uno cada <span class="arithmatex">\(22{,}5^\circ\)</span>, con la fase creciendo en sentido antihorario desde <span class="arithmatex">\(0^\circ\)</span> (eje derecho). Cada vector se rotula con su código de la tabla: 0000 a la derecha (<span class="arithmatex">\(0^\circ\)</span>), 0110 arriba (<span class="arithmatex">\(90^\circ\)</span>), 1100 a la izquierda (<span class="arithmatex">\(180^\circ\)</span>), 1010 abajo (<span class="arithmatex">\(270^\circ\)</span>), y entre ellos los demás según el cuadro. La cátedra marca como par opuesto 0111 (<span class="arithmatex">\(112{,}5^\circ\)</span>) y 1011 (<span class="arithmatex">\(292{,}5^\circ\)</span>), que difieren en 2 bits (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=14" title="fig: diagrama vectorial de 16 vectores rotulados en Gray; 0000 a la derecha, 0110 arriba, 1100 a la izquierda, 1010 abajo y par opuesto 0111 y 1011">TP08 p.14</a>).</li>
+<li><strong>Paso 6.</strong> Verificación (con test): las 16 combinaciones son distintas y salen del espejo de 4 bits; vecinos, incluido <span class="arithmatex">\(1000\to 0000\)</span>, difieren en 1 bit; opuestos, en 2.</li>
+</ul>
+<p><strong>Mismo ejercicio, otros datos:</strong> con 7200 bps, <span class="arithmatex">\(7200/2400 = 3\)</span> bits, <span class="arithmatex">\(M = 8\)</span>, <span class="arithmatex">\(\theta = 45^\circ\)</span> y tabla de 8-PSK (<a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="8 saltos de fase 3 bits">Final 2019-09 p.1</a>). Final 2023-02 agrega la relación <span class="arithmatex">\(V_t = 4V_m\)</span> (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Se emplean 16 fases, 4 bit por fase">Final 2023-02 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Código de Gray, 16-PSK, Vt=4Vm">p.1</a>).</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Carácter, no byte; sin dato, 8 bits y se escribe la hipótesis.</strong> Se dice "carácter" y, si el enunciado no da bits por carácter, se asume 8 y se anota (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=1" title="Normalmente se asocia un byte = 8 bits">Clase-TP-02 p.1</a>, <a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="1000 caracteres = 8000 Bits">GUIA 2P p.1</a>). Remarcado en clase: nota practica 2026-09-09 07:16 PM: "sino decir que es una transmisión con respecto al carácter"; nota practica 2026-09-09 07:27 PM: "asumo que un carácter es igual a ocho bits".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Rendimiento dado (ej. 11):</strong> los bits de datos no son los bits totales; hay que despejar el total con la fórmula de rendimiento (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=33" title="Bits de Datos Transmitidos / Total de Bits Transmitidos">Clase-TP-02 p.33</a>). La cuenta está en Practicar. Remarcado en clase: nota practica 2026-09-09 08:09 PM: "Tiene una vuelta de rosca".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Rendimiento no es BER.</strong> El rendimiento cuenta datos sobre total; el BER cuenta bits recibidos con error sobre bits transmitidos (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=10" title="recibidos de manera errónea respecto de la cantidad total de">Unidad III-1 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="Bits de Datos Transmitidos / Total de Bits Transmitidos">Clase-TP-02 p.6</a>). Remarcado en clase: nota practica 2026-09-30 07:48 PM: "que no es lo mismo que esto, por eso se lo recalco".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Parada de 1,42 o de 1,5.</strong> No mezclar el bit de parada de Baudot con el de seudo-Baudot (valores en Desarrollo 3). Remarcado en clase: nota practica 2026-09-09 07:13 PM: "esto lo redondearon los profes de la teoría".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Más niveles, más errores.</strong> Con más niveles o fases a <span class="arithmatex">\(V_m\)</span> constante el ruido pesa más; no afirmar "BER constante" (desarrollo en Discrepancias, fila "Multinivel y BER"). Remarcado en clase: nota teoria 2026-09-15 07:46 PM: "a mayor velocidad de transmisión y mayor probabilidad de error".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Tamaño de bloque: compromiso entre eficiencia y retransmisión</strong> (fuente en Desarrollo 6). Remarcado en clase: nota teoria 2026-09-15 07:46 PM: "mayor tamaño de bloque más eficiente".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Los tribits en amplitud de la diapositiva no son Gray</strong> [INFERRED]. La tabla va de 000 a 0 V hasta 111 a 7 V; un error de un nivel entre 3 V y 4 V cambia 3 bits (011 y 100). Por eso las fases de M-PSK se asignan en Gray (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=8" title="fig: tabla TRIBITS de 000 a 0 volt hasta 111 a 7 volts">Unidad III-1 p.8</a>).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>"16 fases, 4 bits" solo es respuesta incompleta.</strong> El enunciado pide diagrama de estados y cuadro de asignación: hay que entregar la tabla en Gray y el diagrama vectorial rotulado (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Proponer el diagrama de estados y el cuadro con la mejor asignación">Final 2022-09 p.1</a>).</p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración de <code>GUIA-TP-02-Practica-Respuestas-2P</code> ("GUIA 2P"); entre paréntesis, la de <code>Comunicaciones-TP02</code> ("TP02") y la de <code>Clase-TP-02-final</code> ("Clase"). "TP08" es <code>Clase-TP-08-RTAS</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GUIA 2P ej. 1 (TP02 ej. 17; Clase Nro 1)</td>
+<td>Módem a 1200 baudios: tiempo para 1000 caracteres.</td>
+<td>Sin dato, 8 bits por carácter: 8000 bits. <span class="arithmatex">\(t = 8000/1200 = 6{,}667\)</span> s; la guía trunca a 6,66 s (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="Tiempo de transmisión = 8000 x 833 useg = 6.66 seg">GUIA 2P p.1</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 2 (TP02 ej. 18; Clase Nro 2)</td>
+<td>Serie, cuadribits, pulsos de 833,32 µs: <span class="arithmatex">\(V_t\)</span>, <span class="arithmatex">\(V_m\)</span> y ancho de banda.</td>
+<td><span class="arithmatex">\(V_m = 1/833{,}32\ \mu\text{s} = 1200\)</span> Bd; <span class="arithmatex">\(V_t = 1200\log_2 16 = 4800\)</span> bps; <span class="arithmatex">\(\Delta f = 1200\)</span> Hz (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=21" title="Vt = 1200 x log2 16 = 4800 bit/seg">Clase-TP-02 p.21</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 3 (TP02 ej. 19; Clase Nro 3)</td>
+<td>¿Cuándo <span class="arithmatex">\(V_m = V_t\)</span>?</td>
+<td>Ver Desarrollo 1 (la guía responde igual: <a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=1" title="Cuando la transmisión es serie, utiliza un solo canal y dos niveles">GUIA 2P p.1</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 4 (TP02 ej. 20, otro enunciado; Clase Nro 4)</td>
+<td>Asincrónica de 75 Bd, 1500 caracteres seudo-Baudot.</td>
+<td>Ver Ejemplo 1.</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 5 (TP02 ej. 21; Clase Nro 5)</td>
+<td>De 1200 Bd a 4800 bps: cómo y qué ancho de pulso.</td>
+<td><span class="arithmatex">\(4800/1200 = 4\)</span> bits por pulso, <span class="arithmatex">\(n = 2^4 = 16\)</span> niveles (cuadribits), <span class="arithmatex">\(T = 833{,}3\ \mu\text{s}\)</span>. Variante 2400 Bd y 7200 bps: <span class="arithmatex">\(n = 8\)</span>, <span class="arithmatex">\(T = 416{,}67\ \mu\text{s}\)</span> (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=25" title="n = 8, la forma de aumentar la velocidad es utilizando tribits">Clase-TP-02 p.25</a>). Ver Discrepancias.</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 6 (TP02 ej. 22; Clase Nro 6)</td>
+<td>Sincrónica, bloques de 1500 bytes con 14 de cabecera y 4 de terminación: rendimiento.</td>
+<td>La guía imprime la cuenta y su resultado es ilegible; recálculo propio, verificado con test: <span class="arithmatex">\(\eta = 1500/(14+1500+4)\cdot 100 = 98{,}81\,\%\)</span> (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="14 + 1500 + 4">GUIA 2P p.2</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 7 (TP02 ej. 23, solo con paridad; Clase Nro 7)</td>
+<td>Asincrónica con 1 arranque, 1 parada y 7 datos, con y sin paridad.</td>
+<td>Sin paridad <span class="arithmatex">\(7/9 = 77{,}78\,\%\)</span> (recálculo propio: la guía imprime el resultado ilegible); con paridad <span class="arithmatex">\(7/10 = 70\,\%\)</span> (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="1 + 1 + 7 + 1">GUIA 2P p.2</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 8 (TP02 ej. 24 y 25; Clase Nro 8)</td>
+<td>1024 bytes a 2400 Bd: sincrónica sin cabecera ni cola vs asincrónica de 8 datos, 1 paridad, 2 de parada y 1 de arranque.</td>
+<td>Sincrónica <span class="arithmatex">\(100\,\%\)</span>; asincrónica <span class="arithmatex">\(8/12 = 66{,}7\,\%\)</span>. <span class="arithmatex">\(t_1 = 1024\cdot 8/2400 = 3{,}41\)</span> s; <span class="arithmatex">\(t_2 = 1024\cdot 12/2400 = 5{,}12\)</span> s (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="1024 bytes x 8 bits/byte x 1/2400 seg/bit = 3.41 seg">GUIA 2P p.2</a>). Tiempo <span class="arithmatex">\(+50\,\%\)</span>: ver Discrepancias.</td>
+</tr>
+<tr>
+<td>TP02 ej. 24 (sin resolución oficial)</td>
+<td>Sincrónica a 2400 Bd, 1024 bytes de datos más 32 de control.</td>
+<td>Resolución propia, verificada con test: <span class="arithmatex">\(t = (1024+32)\cdot 8/2400 = 3{,}52\)</span> s; <span class="arithmatex">\(\eta = 1024/1056 = 96{,}97\,\%\)</span> (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Comunicaciones-TP02.pdf#page=3" title="con un protocolo que agrega 32 bytes de control">Comunicaciones-TP02 p.3</a>).</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 9 (TP02 ej. 26, con 20 bits; Clase Nro 9)</td>
+<td>Mensaje de 18 bits, sincrónico a 2400 Bd, pasar a 9600 bps con multinivel: tiempos con y sin multinivel.</td>
+<td><span class="arithmatex">\(n = 2^{9600/2400} = 16\)</span>. Sin multinivel <span class="arithmatex">\(18/2400 = 7{,}5\)</span> ms; con multinivel <span class="arithmatex">\(7{,}5/4 = 1{,}875\)</span> ms; la guía imprime 1,87 (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="Tx con multinivel = 7.5 mseg / 4 = 1.87 mseg">GUIA 2P p.2</a>). Variante de la clase: 24 bits, 1200 Bd y 3600 bps; <span class="arithmatex">\(n = 8\)</span>; sin multinivel <span class="arithmatex">\(24/1200 = 20\)</span> ms; con multinivel 8 pulsos, <span class="arithmatex">\(8/1200 = 6{,}67\)</span> ms (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=31" title="Tiempo Sin transmisión multinivel = 24. T = 20 ms">Clase-TP-02 p.31</a>). Ver Discrepancias.</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 10 (TP02 ej. 27; Clase Nro 10)</td>
+<td>Mismo mensaje, asincrónico con 1 arranque, 1 parada y 1 paridad: disminución.</td>
+<td>18 datos + 3 de control = 21 bits; <span class="arithmatex">\(\eta = 18/21 = 85{,}71\,\%\)</span>; disminuye <span class="arithmatex">\(14{,}29\)</span> puntos (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=32" title="Disminución: 100 - 85.7 = 14.3%">Clase-TP-02 p.32</a>). Ver Discrepancias.</td>
+</tr>
+<tr>
+<td>GUIA 2P ej. 11 (TP02 ej. 31; Clase Nro 11)</td>
+<td>1800 caracteres, sincrónico a 3600 Bd, rendimiento 90 %: tiempo total.</td>
+<td>8 bits por carácter (hipótesis): <span class="arithmatex">\(1800\cdot 8 = 14\,400\)</span> bits de datos; totales <span class="arithmatex">\(14\,400/0{,}9 = 16\,000\)</span>; <span class="arithmatex">\(t = 16\,000/3600 = 4{,}44\)</span> s (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=33" title="x = 14.400 / 0,9 = 16.000 bits en total transmitidos">Clase-TP-02 p.33</a>).</td>
+</tr>
+<tr>
+<td>Clase-TP-02 p.15–17 (télex)</td>
+<td>Señal de 50 Bd: ancho de pulso, tiempo de un carácter y caracteres en 2 min.</td>
+<td><span class="arithmatex">\(T = 1/50 = 20\)</span> ms; carácter <span class="arithmatex">\(= 20 + 5\cdot 20 + 30 = 150\)</span> ms; <span class="arithmatex">\(120/0{,}15 = 800\)</span> caracteres (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=16" title="= 20 ms + 5 * 20 ms + 30 ms">Clase-TP-02 p.16</a>, <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=17" title="120 seg / 0,15 seg = 800 caracteres">p.17</a>).</td>
+</tr>
+<tr>
+<td>TP08 ej. 7 adicional (4-PSK)</td>
+<td>Canal de 1200 baudios y 2400 bps; secuencia 1001011111100010: modulación, Gray, <span class="arithmatex">\(V_t\)</span>–<span class="arithmatex">\(V_m\)</span> y fases.</td>
+<td><span class="arithmatex">\(2400 = 1200\log_2 n \Rightarrow n = 4\)</span>: 4-PSK, <span class="arithmatex">\(\theta = 90^\circ\)</span>, <span class="arithmatex">\(V_t = 2V_m\)</span> (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=17" title="Debe emplearse una modulación de 4-PSK">TP08 p.17</a>). Dibits 10 01 01 11 11 10 00 10; con la tabla e) de p.18 las fases son <span class="arithmatex">\(2\pi, \pi, \pi, 3\pi/2, 3\pi/2, 2\pi, \pi/2, 2\pi\)</span> (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=18" title="fig: tabla e con 00 a π/2, 01 a π, 11 a 3π/2, 10 a 2π y modulada con fases 2π, π, π, 3π/2, 3π/2, 2π, π/2, 2π">TP08 p.18</a>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exámenes:</strong></p>
+<ul>
+<li>Final 2022-09 ej. 4: Ejemplo 2. El 2do Parcial 2022 ej. 1 y TP08 ej. 5 son la misma cuenta (<a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="a 9600 bps y se cuenta con un modem de 2400 baudios">2do Parcial 2022 p.1</a>).</li>
+<li>Final 2019-09 ej. 4: 2400 Bd y 7200 bps; resolución en Ejemplo 2, "otros datos" (<a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="a una velocidad de transmisión de 7200 bps">Final 2019-09 p.1</a>).</li>
+<li>Final 2023-02 ej. 4: como Final 2022-09, más la relación <span class="arithmatex">\(V_t\)</span>–<span class="arithmatex">\(V_m\)</span> (resolución en Ejemplo 2) (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="relación existe entre la Velocidad de transmisión y la velocidad de">Final 2023-02 p.1</a>).</li>
+<li>Final 2020-12 Tema 1 ej. 2 y 1er Parcial ej. 4: ver Autoevaluación.</li>
+</ul>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>Final 2020-12 Tema 1 ej. 2: ¿qué tipos de velocidad conoce y cuándo coinciden baudios y bit/s?</summary>
+<p>Modulación (baudios, <span class="arithmatex">\(1/T\)</span>), transmisión (bps), transferencia de datos <span class="arithmatex">\(V_{td}\)</span> y real <span class="arithmatex">\(V_{rtd}\)</span>, con <span class="arithmatex">\(V_{tx}&gt;V_{td}&gt;V_{rtd}\)</span> (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="distintos tipos de velocidad conoce">Final 2020-12 p.1</a>, <a href="../fuentes/practica/oficial/TP02-Fourier-Senales/TP-02-COMUNICACIONES-4ta-Parte.pdf#page=5" title="Vtx&gt; Vtd &gt; Vrtd">TP-02 4.ª parte p.5</a>).
+La condición para que coincidan baudios y bit/s está en Desarrollo 1.</p>
+</details>
+<details class="question">
+<summary>Mismo canal de 2400 baudios, pero 7200 bps con M-PSK: ¿fases, bits y tabla?</summary>
+<p>Resolución en Ejemplo 2, "otros datos", con la tabla de 8-PSK de Desarrollo 7 (<a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="8 saltos de fase 3 bits">Final 2019-09 p.1</a>).</p>
+</details>
+<details class="question">
+<summary>1er Parcial ej. 4: describa el funcionamiento y características de un protocolo sincrónico.</summary>
+<p>Respuesta modelo en Desarrollo 6, con las características de la columna "Sincrónica" de Desarrollo 3 (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=41" title="Alto rendimiento de transmisión">Clase-03 p.41</a>).</p>
+</details>
+<details class="question">
+<summary>TP02 ej. 28: ¿por qué no se puede aumentar la velocidad de modulación en ciertos canales?</summary>
+<p>Aumentar <span class="arithmatex">\(V_m\)</span> obliga a achicar el ancho de pulso y a aumentar el ancho de banda del canal (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Teoria-Respuestas-RTAS.pdf#page=4" title="origina la necesidad de aumentar el ancho de banda del canal">TP02 Teoría Resp. p.4</a>). Si <span class="arithmatex">\(V_m\)</span> supera el ancho de banda, aumenta la tasa de errores (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-03-Transmision-de-senales-Fourier.pdf#page=25" title="Si la velocidad de modulación es mayor que el ancho de">Clase-03 p.25</a>). Enunciado: <a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Comunicaciones-TP02.pdf#page=4" title="Indicar las causas por las cuales en determinados canales de">Comunicaciones-TP02 p.4</a>.</p>
+</details>
+<details class="question">
+<summary>TP02 ej. 29 y 30: ¿qué es el access rate y qué limita la velocidad efectiva?</summary>
+<p>Access rate: velocidad nominal de acceso a una red (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Teoria-Respuestas-RTAS.pdf#page=4" title="el Access Rate es la velocidad nominal de acceso a una red">TP02 Teoría Resp. p.4</a>).
+Factores principales: ancho de banda y relación señal a ruido (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/GUIA-TP-02-Teoria-Respuestas-RTAS.pdf#page=4" title="el ancho de banda y la relación señal a ruido">TP02 Teoría Resp. p.4</a>).</p>
+</details>
+<details class="question">
+<summary>¿Qué condiciones exige un servicio dúplex?</summary>
+<p>Medio físico bidireccional, sistema que envíe y reciba a la vez y protocolo que lo permita (<a href="../fuentes/teoria/oficial/unidades/Unidad-III-1.pdf#page=15" title="Medio físico capaz de transmitir en ambos sentidos">Unidad III-1 p.15</a>).</p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>Detalle</th>
+<th>Qué hacer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multinivel y BER</td>
+<td>Práctica: conviene subir <span class="arithmatex">\(V_t\)</span> sin subir <span class="arithmatex">\(V_m\)</span> para no aumentar la tasa de errores (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=7" title="Para no aumentar la tasa de errores entonces se debe aumentar la">Clase-TP-02 p.7</a>), y a <span class="arithmatex">\(V_m\)</span> constante el BER no cambia (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=8" title="Si mantengo constante Vm =&gt; mantengo constante el BER">Clase-TP-02 p.8</a>). Teoría: el sistema 4 PSK es más sensible a los fenómenos de interferencia y aumenta la tasa de error (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="sensible a los fenómenos de interferencia y aumenta la tasa de error">Unidad IV-1 p.30</a>); con más niveles la separación entre niveles es comparable al nivel de ruido (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=38" title="la separación entre dos niveles es comparable al nivel de ruido">Clase-06 p.38</a>); la multinivel está limitada por la relación señal ruido (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=2" title="Transmisiones multinivel: limitado por la relación señal ruido">Clase-10 p.2</a>). Lectura posible [INFERRED]: la práctica razona por el ancho de banda (el BER sube con <span class="arithmatex">\(V_m\)</span>) y la teoría por la separación entre niveles; los dos efectos existen.</td>
+<td>En una respuesta de teoría, dar la versión de teoría: más niveles, niveles más cercanos, más sensibilidad al ruido y más errores. La versión de la práctica va solo como matiz, sin afirmar "BER constante".</td>
+</tr>
+<tr>
+<td>Aumento del tiempo en GUIA 2P ej. 8</td>
+<td>La guía dice 33,3 % (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="el tiempo aumenta un 33.3 %">GUIA 2P p.2</a>); la clase dice 66,6 % (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=28" title="el tiempo aumenta un 66.6 %">Clase-TP-02 p.28</a>). Dicho en clase: nota practica 2026-09-09 07:58 PM: "el tiempo aumenta un 66%". Recálculo: <span class="arithmatex">\(t_2/t_1 = 12/8 = 1{,}5\)</span>, es decir <span class="arithmatex">\(+50\,\%\)</span>. El 33,3 % es la caída del rendimiento (<span class="arithmatex">\(100-66{,}7\)</span>).</td>
+<td>Dar <span class="arithmatex">\(t_1\)</span>, <span class="arithmatex">\(t_2\)</span> y el cociente <span class="arithmatex">\(12/8\)</span>; aclarar de dónde sale cada porcentaje.</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(n=4\)</span> o <span class="arithmatex">\(n=16\)</span> en GUIA 2P ej. 5</td>
+<td>La guía cierra con "n = 4" (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=2" title="n = 4 d = 1/1200 baudios = 833.3 useg">GUIA 2P p.2</a>); la clase con "n = 16" (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=24" title="n = 16 Transmisión multinivel, se usa Cuadribits">Clase-TP-02 p.24</a>). Recálculo: <span class="arithmatex">\(4800/1200 = 4\)</span> es <span class="arithmatex">\(\log_2 n\)</span>, así que <span class="arithmatex">\(n = 16\)</span>.</td>
+<td>Escribir "4 bits por pulso, <span class="arithmatex">\(n = 16\)</span> niveles".</td>
+</tr>
+<tr>
+<td>Tablas de Gray</td>
+<td>Las fuentes traen más de una asignación Gray válida, para 8-PSK y para 4-PSK (detalle debajo de la tabla). Los exámenes no imprimen tabla, solo "según Código de Gray" (<a href="../fuentes/examenes/finales/oficial/Final-2022-09.pdf#page=1" title="Asignación de bits a cada fase según Código de Gray">Final 2022-09 p.1</a>). Todas cumplen vecinos a 1 bit [INFERRED].</td>
+<td>Usar la de TP08 y verificar: vecinos a 1 bit, incluido último con primero.</td>
+</tr>
+<tr>
+<td>Cifras de la guía que no coinciden con el recálculo</td>
+<td>GUIA 2P ej. 9: la guía divide <span class="arithmatex">\(7{,}5\)</span> ms por 4 y da 1,87 ms, pero 18 bits no son múltiplo de 4: con pulsos enteros serían <span class="arithmatex">\(5/2400 = 2{,}08\)</span> ms; el TP02 ej. 26 usa 20 bits (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Comunicaciones-TP02.pdf#page=3" title="Dado el siguiente mensaje 1000 0000 0000 0000 0100 transmitido en">Comunicaciones-TP02 p.3</a>). Redondeos: <span class="arithmatex">\(8000/1200 = 6{,}667\)</span> s y la guía da 6,66; <span class="arithmatex">\(11{,}5\cdot 1500/75 = 230\)</span> s y la clase da 229,99; disminución <span class="arithmatex">\(14{,}29\)</span> y la guía da 14,25 (<a href="../fuentes/practica/oficial/TP02-Fourier-Senales/GUIA-TP-02-Practica-Respuestas-2P.pdf#page=3" title="Disminución: 100 - 85.7 = 14.25%">GUIA 2P p.3</a>) y la clase 14,3.</td>
+<td>Ej. 9: seguir la guía (dividir por 4) y aclarar la hipótesis. Redondeos: dar el valor exacto y el de la guía.</td>
+</tr>
+<tr>
+<td>Eficiencia y rendimiento</td>
+<td>La clase define <span class="arithmatex">\(E = V_{TDR}/V_T\)</span> y, aparte, rendimiento = datos / total (<a href="../fuentes/practica/tucu-leppen/TP02-Fourier-Modulacion/Clase-TP-02-final.pdf#page=6" title="VTDR Eficiencia: E =">Clase-TP-02 p.6</a>). El libro llama "eficiencia o rendimiento" al cociente <span class="arithmatex">\(V_{rtd}/V_t\)</span> (<a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=186" title="Definiremos como eficiencia o rendimiento">Libro p.186</a>).</td>
+<td>En los ejercicios de esta página, rendimiento = datos / total transmitido.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Detalle de las tablas de Gray</strong> (bits en orden de fase creciente):</p>
+<table>
+<thead>
+<tr>
+<th>Modulación</th>
+<th>Fuente</th>
+<th>Bits</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-PSK, TP08</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=10" title="Las combinaciones posibles de bits son 8">TP08 p.10</a></td>
+<td>000 (<span class="arithmatex">\(0^\circ\)</span>), 001, 011, 010, 110, 111, 101, 100 (<span class="arithmatex">\(315^\circ\)</span>)</td>
+</tr>
+<tr>
+<td>8-PSK, teoría (figura)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="Se usa el código de Gray">Unidad IV-1 p.31</a></td>
+<td>011 (<span class="arithmatex">\(0^\circ\)</span>), 010, 000, 001, 101, 100, 110, 111 (<span class="arithmatex">\(315^\circ\)</span>)</td>
+</tr>
+<tr>
+<td>4-PSK, teoría y TP08 p.17</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: cuadro de asignación 00 a 0°, 01 a 90°, 11 a 180°, 10 a 270°">Unidad IV-1 p.27</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=17" title="Debe emplearse una modulación de 4-PSK">TP08 p.17</a></td>
+<td>00 (<span class="arithmatex">\(0^\circ\)</span>), 01, 11, 10 (<span class="arithmatex">\(270^\circ\)</span>)</td>
+</tr>
+<tr>
+<td>4-PSK, TP08 p.18 tabla e)</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=18" title="fig: tabla e con 00 a π/2, 01 a π, 11 a 3π/2, 10 a 2π y modulada con fases 2π, π, π, 3π/2, 3π/2, 2π, π/2, 2π">TP08 p.18</a></td>
+<td>00 (<span class="arithmatex">\(\pi/2\)</span>), 01, 11, 10 (<span class="arithmatex">\(2\pi\)</span>)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../u2/04-banda-base.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Banda base: códigos de línea">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Banda base: códigos de línea
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./02-redes.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Redes: topologías, OSI y conmutación">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Redes: topologías, OSI y conmutación
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

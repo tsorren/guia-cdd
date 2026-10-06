@@ -1,0 +1,2567 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./01-modulacion-analogica.html">
+      
+      
+        <link rel="next" href="./03-digitalizacion.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Modulación digital: ASK, FSK, PSK y QAM - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulacion-digital-ask-fsk-psk-y-qam" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulación digital: ASK, FSK, PSK y QAM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02-modulacion-digital.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulacion-y-demodulacion-y-donde-cae-la-modulacion-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modulación y demodulación, y dónde cae la modulación digital
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ASK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsk-de-banda-ancha" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FSK de banda ancha
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-psk-y-discontinuidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2-PSK y discontinuidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-psk-multifase-y-constelacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        M-PSK multifase y constelación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        QAM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-m-psk-m-qam-y-tcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparación M-PSK / M-QAM y TCM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modulacion-y-demodulacion-y-donde-cae-la-modulacion-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modulación y demodulación, y dónde cae la modulación digital
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ASK
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fsk-de-banda-ancha" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        FSK de banda ancha
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-psk-y-discontinuidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2-PSK y discontinuidades
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#m-psk-multifase-y-constelacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        M-PSK multifase y constelación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qam" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        QAM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-m-psk-m-qam-y-tcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Comparación M-PSK / M-QAM y TCM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-modulacion-analogica.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U4
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="modulacion-digital-ask-fsk-psk-y-qam">Modulación digital: ASK, FSK, PSK y QAM<a class="headerlink" href="#modulacion-digital-ask-fsk-psk-y-qam" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U4 · modulación digital de onda continua: <code>Unidad-IV-1</code> p.1–8, 11, 21 y 23–37. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=5" title="fig: árbol de métodos de modulación por onda continua y por pulsos">Unidad IV-1 p.5</a></p>
+<ul>
+<li>TP8 (modulación): ej. 1, 4 a 7, 10 y 12 de <code>Comunicaciones-TP08</code>. Alcance del 2.º parcial: inferido (entra con el TP8), no confirmado por la cátedra. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Construir el esquema de un modulador ASK por supresión de portadora">TP08 guía p.1</a></li>
+<li>No hay nota de clase sobre modulación digital. El docente de teoría nombra el QAM y el PSK como modulaciones del canal, y compara 64 QAM con 2 PSK: nota teoria 2026-09-01 07:33 PM: "lo puedo modular en qam o en psk". Los hechos técnicos salen de los PDF.</li>
+<li><strong>Esta página no repite lo que ya está en otras:</strong><ul>
+<li><a href="../u3/01-velocidades.html">Velocidades y M-PSK con Gray</a> (P4): Gray por espejo, tablas de 4, 8 y 16-PSK, receta <span class="arithmatex">\(V_t/V_m\to M\to\)</span> tabla, RTAS ej. 5 y adicional 7, finales de 16-PSK.</li>
+<li><a href="../repaso-teorico-u1-u4.html">Repaso teórico U1–U4</a> (P7): respuestas breves U4-02, U4-03, U4-05 a U4-09 (y U4-01, módem y Codec).</li>
+<li><a href="04-multiplexacion.html">Multiplexación</a> (P6): PCM de 64 kbit/s y los ejercicios de PCM del TP8.</li>
+<li>Modulación analógica (AM, FM, PM, Carson; P20, <a href="01-modulacion-analogica.html">Modulación analógica: AM, FM y PM</a>) y digitalización (P15, <a href="03-digitalizacion.html">Digitalización: PCM y Delta</a>): se desarrollan en esas páginas.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>La modulación digital de onda continua es la fila «continua digital»: <strong>moduladora digital, portadora y modulada analógicas</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=6" title="fig: tabla TIPOS DE MODULACION con columnas tipo de modulación, moduladora, portadora, modulada y nombre">Unidad IV-1 p.6</a></li>
+<li>La portadora tiene tres características (amplitud, frecuencia, fase) y una se modifica con la moduladora: ASK la amplitud, FSK la frecuencia, PSK la fase. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=8" title="Es una onda sinusoidal con tres características">Unidad IV-1 p.8</a></li>
+<li><strong>M-PSK:</strong> la fase toma <span class="arithmatex">\(M\)</span> valores separados <span class="arithmatex">\(\theta=2\pi/M\)</span>; cada fase lleva <span class="arithmatex">\(\log_2 M\)</span> bits y <span class="arithmatex">\(V_t=V_m\log_2 M\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=1" title="por un ángulo definido por la expresión:">TP08 RTAS p.1</a></li>
+<li>Más fases: la mitad del ancho de banda de 2-PSK (con 4-PSK), pero más sensibilidad a la interferencia y más errores. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="interferencia y aumenta la tasa de error.">Unidad IV-1 p.30</a></li>
+<li><strong>QAM</strong> combina fase y amplitud: 16-QAM lleva 4 bits por transición. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="una trasmite cuatro bits con una sola transición.">Unidad IV-1 p.32</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula o regla</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portadora</td>
+<td><span class="arithmatex">\(p(t)=A_p\,\operatorname{sen}(\omega_p t+\theta_p)\)</span>; <span class="arithmatex">\(f_p=1/T_p\)</span>; <span class="arithmatex">\(\omega_p=2\pi f_p\)</span></td>
+<td>V; Hz; rad/s; rad</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=7" title="fig: portadora p(t) = Ap sen(ωp t + θp) con fp = 1/Tp, Ap, ωp = 2π fp, θp">Unidad IV-1 p.7</a></td>
+</tr>
+<tr>
+<td>ASK</td>
+<td><span class="arithmatex">\(1\)</span>: portadora con su amplitud; <span class="arithmatex">\(0\)</span>: portadora suprimida</td>
+<td>—</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=11" title="la misma amplitud de la portadora para enviar el 1">Unidad IV-1 p.11</a></td>
+</tr>
+<tr>
+<td>FSK de banda ancha</td>
+<td><span class="arithmatex">\(\beta&gt;\pi/2\)</span></td>
+<td>—</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="hacen importantes cuando β es grande">Unidad IV-1 p.21</a></td>
+</tr>
+<tr>
+<td>Canales FSK en un canal</td>
+<td><span class="arithmatex">\(N=\dfrac{\text{AB del canal}}{\text{AB de la comunicación}+\text{banda libre}}\)</span></td>
+<td>canales; Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="fig: eje con −200 Hz (1), 0, 200 Hz (0) y 300 Hz; 400 Hz entre 1 y 0 y AB 500 Hz de −200 a 300 Hz">TP08 RTAS p.15</a></td>
+</tr>
+<tr>
+<td>Salto de fase M-PSK</td>
+<td><span class="arithmatex">\(\theta=2\pi/M=360^\circ/M\)</span></td>
+<td>rad; grados</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=29" title="fig: θ = 2π sobre M">Unidad IV-1 p.29</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=7" title="θ = 2π / 16">TP08 RTAS p.7</a></td>
+</tr>
+<tr>
+<td>Bits por fase</td>
+<td><span class="arithmatex">\(M=2^b\)</span>; <span class="arithmatex">\(b=\log_2 M\)</span></td>
+<td>bits</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=10" title="Las combinaciones posibles de bits son 8">TP08 RTAS p.10</a></td>
+</tr>
+<tr>
+<td>Velocidades</td>
+<td><span class="arithmatex">\(V_t=\dfrac1T\log_2 n=V_m\log_2 n\)</span></td>
+<td>bps; baudios</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=1" title="Vt = 1/ T * log2 n">TP08 RTAS p.1</a></td>
+</tr>
+<tr>
+<td>Gray</td>
+<td>fases adyacentes: 1 bit; fases opuestas: 2 bits</td>
+<td>bits</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=11" title="Entre fases adyacentes varía 1 bit.">TP08 RTAS p.11</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=11" title="Entre fases opuestas varía 2 bits.">TP08 RTAS p.11</a></td>
+</tr>
+<tr>
+<td>16-QAM</td>
+<td><span class="arithmatex">\(2^4=16\)</span> puntos; 4 bits por punto</td>
+<td>puntos; bits</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="constelación del sistema 16QAM con 16 opciones, cada">Unidad IV-1 p.32</a></td>
+</tr>
+</tbody>
+</table>
+<p>La guía de TP8 no define <span class="arithmatex">\(V_m\)</span>: escribe <span class="arithmatex">\(V_t=1/T\cdot\log_2 n\)</span> y la clase pasa a <span class="arithmatex">\(V_m\log_2 n\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=8" title="Vt = Vm * log2 16">TP08 RTAS p.8</a> Las fases van en grados, como en la fuente.</p>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="modulacion-y-demodulacion-y-donde-cae-la-modulacion-digital">Modulación y demodulación, y dónde cae la modulación digital<a class="headerlink" href="#modulacion-y-demodulacion-y-donde-cae-la-modulacion-digital" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Modulación:</strong> ciertas características de una onda (portadora) se modifican según otra (moduladora) que lleva la información; resulta la onda modulada. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=2" title="Ciertas características de una onda">Unidad IV-1 p.2</a></li>
+<li><strong>Demodulación:</strong> proceso inverso; recupera la moduladora. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=3" title="Es el proceso inverso por el cual la señal modulada recibida">Unidad IV-1 p.3</a></li>
+<li>Esquema: <span class="arithmatex">\(m(t)\to\)</span> modulador (con portadora) <span class="arithmatex">\(\to\)</span> canal con ruido <span class="arithmatex">\(\to\)</span> demodulador (con portadora) <span class="arithmatex">\(\to m'(t)\)</span>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=4" title="fig: esquema de transmisión modulada: m(t), modulador con portadora, canal con ruido, demodulador con portadora, m'(t)">Unidad IV-1 p.4</a></li>
+<li>Las respuestas breves de examen (definición, clasificación) están en P7: U4-02 y U4-03.</li>
+</ul>
+<p><strong>Cuadro resumen de los tipos de modulación</strong> (TP8 GT 6 = C 10). Es el de la diapositiva; esta página cubre solo la fila en negrita.</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Moduladora</th>
+<th>Portadora</th>
+<th>Modulada</th>
+<th>Nombres</th>
+<th>Página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Continua analógica</td>
+<td>Analógica</td>
+<td>Analógica</td>
+<td>Analógica</td>
+<td>AM, FM, PM</td>
+<td>P20</td>
+</tr>
+<tr>
+<td><strong>Continua digital</strong></td>
+<td><strong>Digital</strong></td>
+<td><strong>Analógica</strong></td>
+<td><strong>Analógica</strong></td>
+<td><strong>ASK, FSK, PSK, DPSK, M-PSK, M-QAM</strong></td>
+<td><strong>esta</strong></td>
+</tr>
+<tr>
+<td>Por pulsos analógica</td>
+<td>Analógica</td>
+<td>Digital</td>
+<td>Analógica</td>
+<td>PAM, PDM, PPM</td>
+<td>P15</td>
+</tr>
+<tr>
+<td>Por pulsos digital</td>
+<td>Digital</td>
+<td>Digital</td>
+<td>Digital</td>
+<td>PCM (MIC), DPCM, DELTA, DELTA ADAPTIVA</td>
+<td>P15</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=6" title="fig: tabla TIPOS DE MODULACION: continua analógica AM FM PM; continua digital ASK FSK PSK DPSK M-PSK M-QAM; por pulsos analógica PAM PDM PPM; por pulsos digital PCM (MIC) DPCM DELTA DELTA ADAPTIVA">Unidad IV-1 p.6</a>. La respuesta impresa de GT 6 es el árbol de clasificación, no este cuadro: Discrepancia 6.</p>
+<h3 id="ask">ASK<a class="headerlink" href="#ask" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La modulada tiene la amplitud de la portadora para enviar un 1 y la portadora suprimida para enviar un 0. Se usa en sistemas telegráficos. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=11" title="Usada en sistemas telegráficos, donde la señal modulada tiene">Unidad IV-1 p.11</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=11" title="la supresión de la portadora para enviar el 0.">p.11</a></li>
+<li>Esquema oficial (TP8 GT 1 = C 1): el modulador recibe la moduladora digital y la portadora analógica y entrega la modulada analógica; el demodulador hace el camino inverso. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: modulador y demodulador con moduladora digital, portadora analógica y modulada analógica; señal 0011110011 con ráfagas de portadora sobre los 1">TP08 teoría RTAS p.1</a></li>
+<li>Salida para la entrada <span class="arithmatex">\(0011110011\)</span> (descripta desde la figura de la resolución oficial, que no trae texto):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salida</td>
+<td>—</td>
+<td>—</td>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+<td>—</td>
+<td>—</td>
+<td>A</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+<p>«A» es la portadora con su amplitud y «—» es la portadora suprimida: hay portadora en los bits 3 a 6 y 9 a 10.</p>
+<h3 id="fsk-de-banda-ancha">FSK de banda ancha<a class="headerlink" href="#fsk-de-banda-ancha" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Las ventajas de FSK sobre ASK se hacen importantes cuando <span class="arithmatex">\(\beta\)</span> es grande (<span class="arithmatex">\(\beta&gt;\pi/2\)</span>). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="hacen importantes cuando β es grande">Unidad IV-1 p.21</a></li>
+<li>Aumenta la protección contra el ruido y las interferencias, superando a la modulación de amplitud, pero usa más ancho de banda. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="Esto aumenta la protección contra el ruido e interferencias,">Unidad IV-1 p.21</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="superando a la modulación de amplitud, pero usando mayor">p.21</a></li>
+<li>La figura muestra tres espectros, con <span class="arithmatex">\(\beta=0{,}2\)</span>, <span class="arithmatex">\(2\)</span> y <span class="arithmatex">\(5\)</span>: el espectro se ensancha al crecer <span class="arithmatex">\(\beta\)</span> (líneas hasta <span class="arithmatex">\(f_c\pm f_m\)</span>, <span class="arithmatex">\(f_c\pm 2f_m\)</span> y <span class="arithmatex">\(f_c\pm 8f_m\)</span>). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="fig: tres espectros con β = 0,2; β = 2 y β = 5; ancho de banda creciente, de fc±fm a fc±8fm">Unidad IV-1 p.21</a></li>
+<li>La banda angosta y la regla de Carson son de P20 (FM). El espectro FSK con canales está en el Ejemplo resuelto. P7 lo resume en U4-06.</li>
+</ul>
+<h3 id="2-psk-y-discontinuidades">2-PSK y discontinuidades<a class="headerlink" href="#2-psk-y-discontinuidades" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PM: varía la fase; la amplitud y la frecuencia quedan constantes. Hay dos alternativas: <strong>PSK convencional</strong> (la variación se refiere a la fase de la portadora sin modular) y <strong>PSK diferencial</strong> (se refiere a la fase del estado inmediatamente anterior). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=23" title="El parámetro de la portadora que se hace variar es la fase.">Unidad IV-1 p.23</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=23" title="PSK convencional: las variaciones de fase se refieren a la">p.23</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=23" title="PSK diferencial: las variaciones de fase se refieren a la fase">p.23</a></li>
+<li>La portadora tiene discontinuidades de fase al comienzo y al final de cada intervalo <span class="arithmatex">\(T\)</span>: son las transiciones de 0 a 1 o de 1 a 0 de la moduladora. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=24" title="En la señal portadora hay discontinuidades de fase al comienzo">Unidad IV-1 p.24</a></li>
+<li><strong>2-PSK:</strong> una llave electrónica controlada por los datos que conmuta entre la portadora y su versión invertida (desfasada <span class="arithmatex">\(180^\circ\)</span>). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=25" title="Es una llave electrónica controlada por la señal de datos">Unidad IV-1 p.25</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=25" title="que conmuta entre la portadora y su versión invertida">p.25</a></li>
+<li>La figura de la diapositiva es una circunferencia de radio 1 (la amplitud normalizada de la portadora) con dos puntos, A arriba y B abajo, sin bits ni grados. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=25" title="fig: circunferencia de radio 1 con los puntos A arriba y B abajo; el radio es la amplitud normalizada de la portadora">Unidad IV-1 p.25</a> Ninguna fuente da una tabla de fase y bits para 2-PSK; por eso queda fuera del widget. P4 da <span class="arithmatex">\(180^\circ\)</span> como salto.</li>
+<li>La forma de onda muestra una inversión de fase en cada transición de la moduladora. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=26" title="fig: forma de onda 2 PSK con bits 0 1 0 0 0 1 0 1 1 0 0: seis transiciones y seis flechas de inversión de fase">Unidad IV-1 p.26</a> La figura muestra el 0 como seno y el 1 como seno invertido. El rótulo de la figura de la clase de práctica es ambiguo: Discrepancia 9.</li>
+<li>Respuestas breves en P7: U4-07.</li>
+</ul>
+<h3 id="m-psk-multifase-y-constelacion">M-PSK multifase y constelación<a class="headerlink" href="#m-psk-multifase-y-constelacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La fase toma <span class="arithmatex">\(M\)</span> valores separados <span class="arithmatex">\(\theta=2\pi/M\)</span>. Con <span class="arithmatex">\(M=4\)</span> es 4 PSK o QPSK. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=29" title="Si M = 4 tenemos el método 4 PSK o QPSK.">Unidad IV-1 p.29</a></li>
+<li>En un período de dibit se transmiten dos bits; 4 PSK ocupa la mitad del ancho de banda de 2 PSK, pero es más sensible a la interferencia y sube la tasa de error. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="En un periodo de transmisión de un dibit se están transmitiendo">Unidad IV-1 p.30</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="Comparando 2 PSK con 4 PSK se ve que el ancho">p.30</a></li>
+<li>8 PSK: cada fase representa un tribit, se usa Gray (estados vecinos difieren en un bit) y el diagrama de estados posibles se llama <strong>constelación</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="Cada fase representa un grupo de 3 dígitos binarios o tribits.">Unidad IV-1 p.31</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="estados vecinos difieren en un bit">p.31</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="El diagrama de los estados posibles se llama">p.31</a></li>
+<li>La fase crece en sentido antihorario desde <span class="arithmatex">\(0^\circ\)</span> (eje derecho). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: cuadro de asignación con Código Reflejo o de Gray y flecha de sentido de variación de la fase">Unidad IV-1 p.27</a></li>
+<li><strong>Las tablas de fase y bits no se repiten acá</strong>: están en <a href="../u3/01-velocidades.html">P4</a> (§7 para 4-PSK y 8-PSK; Ejemplo resuelto 2 para 16-PSK), con su criterio «usar la de TP08» y sus Discrepancias de Gray. El widget dibuja esas mismas tablas: 4-PSK de <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=27" title="fig: cuadro de asignación 00 a 0°, 01 a 90°, 11 a 180°, 10 a 270°">Unidad IV-1 p.27</a>, 8-PSK de <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=10" title="fig: tabla de 8 combinaciones en Gray, de 000 a 0° hasta 100 a 315°">TP08 RTAS p.10</a> (000 en <span class="arithmatex">\(0^\circ\)</span>) y 16-PSK de <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=13" title="fig: tabla de 16 combinaciones en Gray, de 0000 a 0° hasta 1000 a 337,5°">TP08 RTAS p.13</a>.</li>
+</ul>
+<p>Constelación: elegí <span class="arithmatex">\(M\)</span>. Afuera de la circunferencia está el código de bits; adentro, la fase en grados.</p>
+<div class="cdd-constelacion" data-m="8"></div>
+
+<ul>
+<li><strong>4-PSK a 45° y 135°.</strong> La diapositiva de variantes (OQPSK) dibuja la constelación 4-PSK con 11 a <span class="arithmatex">\(45^\circ\)</span>, 01 a <span class="arithmatex">\(135^\circ\)</span>, 00 a <span class="arithmatex">\(-135^\circ\)</span> y 10 a <span class="arithmatex">\(-45^\circ\)</span>. Es otra asignación Gray válida, distinta de la tabla de <span class="arithmatex">\(0^\circ\)</span> a <span class="arithmatex">\(270^\circ\)</span> (Discrepancia 1). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=35" title="fig: constelación 4-PSK con 01 a 135°, 11 a 45°, 00 a −135° y 10 a −45°, inscrita en una circunferencia">Unidad IV-1 p.35</a></li>
+<li><strong>OQPSK</strong> (offset, compensada) evita las fluctuaciones de gran amplitud en los saltos de <span class="arithmatex">\(180^\circ\)</span>. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=35" title="fig: OQPSK offset-compensada evita fluctuaciones de gran amplitud en los saltos de 180°; fase de QPSK y de OQPSK contra el tiempo">Unidad IV-1 p.35</a></li>
+<li><strong>DPSK</strong> (diferencial): no hay referencia de fase absoluta; la referencia es la del último bit recibido. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=36" title="fig: DPSK diferencial sin referencia de fase absoluta, referencia del último bit recibido; BER contra Eb/N0 de DBPSK a 64 DPSK con Gray mapping">Unidad IV-1 p.36</a></li>
+<li>Respuestas breves en P7: U4-08 (4-PSK, 8-PSK y por qué Gray).</li>
+</ul>
+<h3 id="qam">QAM<a class="headerlink" href="#qam" title="Permanent link">&para;</a></h3>
+<ul>
+<li>QAM es modulación en cuadratura: combina el desplazamiento de fase y el de amplitud. 16QAM tiene 16 opciones y cada una transmite cuatro bits con una sola transición. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="QAM es modulación en cuadratura, combina el desplazamiento">Unidad IV-1 p.32</a></li>
+<li>M-QAM usa dos portadoras independientes en cuadratura (desfasadas <span class="arithmatex">\(90^\circ\)</span>) y combina saltos de amplitud y de fase. Variante circular de 16-QAM: 4 saltos de amplitud y 8 de fase. Variante rectangular: 3 saltos de amplitud y 12 de fase. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=33" title="fig: 16-QAM circular con 4 saltos de amplitud y 8 saltos de fase; rectangular con 3 saltos de amplitud y 12 saltos de fase">Unidad IV-1 p.33</a></li>
+<li>Constelación 16QAM de la diapositiva (transcripta del PNG; eje <span class="arithmatex">\(90^\circ\)</span> arriba, <span class="arithmatex">\(180^\circ\)</span> a la izquierda, <span class="arithmatex">\(0^\circ\)</span> (Re) a la derecha y <span class="arithmatex">\(270^\circ\)</span> abajo; los ejes pasan entre la 2.ª y la 3.ª fila y entre la 2.ª y la 3.ª columna):</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>col. 1</th>
+<th>col. 2</th>
+<th>col. 3</th>
+<th>col. 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fila 1 (arriba)</td>
+<td>1011</td>
+<td>1001</td>
+<td>1110</td>
+<td>1111</td>
+</tr>
+<tr>
+<td>fila 2</td>
+<td>1010</td>
+<td>1000</td>
+<td>1100</td>
+<td>1101</td>
+</tr>
+<tr>
+<td>fila 3</td>
+<td>0001</td>
+<td>0000</td>
+<td>0100</td>
+<td>0110</td>
+</tr>
+<tr>
+<td>fila 4 (abajo)</td>
+<td>0011</td>
+<td>0010</td>
+<td>0101</td>
+<td>0111</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="fig: constelación 16QAM, rejilla de 4 por 4 con filas 1011 1001 1110 1111 / 1010 1000 1100 1101 / 0001 0000 0100 0110 / 0011 0010 0101 0111">Unidad IV-1 p.32</a> (la misma figura está en <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=30" title="Ejemplo: sistema 16QAM con 16 opciones, cada una trasmite">Clase-08 p.30</a>).</p>
+<ul>
+<li><strong>No es Gray</strong> (cálculo propio, verificado con test): cuatro pares adyacentes difieren en 3 bits, 1001–1110 y 0010–0101 (filas) y 1010–0001 y 1101–0110 (columnas). Los demás vecinos difieren en 1 bit. Por eso no entra al widget. La p.33 trae otra asignación rectangular: Discrepancia 2.</li>
+<li>
+<p><strong>Final 2020-12, Tema 1 ej. 4: «Explique modulación M-QAM».</strong> El PDF trae solo el enunciado: armá la respuesta con estos puntos. <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique modulación M-QAM 5. Explique la técnica">Final 2020-12 p.1</a></p>
+<ol>
+<li>Es modulación en cuadratura: combina desplazamiento de fase y de amplitud.</li>
+<li>Usa dos portadoras independientes desfasadas <span class="arithmatex">\(90^\circ\)</span> entre sí.</li>
+<li>Constelación de 16 puntos, 4 bits por transición (16-QAM), circular o rectangular.</li>
+<li>Frente a M-PSK, ver la comparación de abajo.</li>
+</ol>
+<p>P7 ya la contesta en U4-09; acá se agregan la constelación y la tabla.</p>
+</li>
+</ul>
+<h3 id="comparacion-m-psk-m-qam-y-tcm">Comparación M-PSK / M-QAM y TCM<a class="headerlink" href="#comparacion-m-psk-m-qam-y-tcm" title="Permanent link">&para;</a></h3>
+<p>Solo lo que traen las p.34 a 37, que son imagen (sin ejercicio ni respuesta de cátedra).</p>
+<ul>
+<li>La diapositiva compara por tres criterios: <span class="arithmatex">\(V_{tx}/AB\)</span> (bps/Hz), sensibilidad al ruido (Pe) y S/N (<span class="arithmatex">\(E_b/N_0\)</span>). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=34" title="fig: comparación M-PSK / M-QAM; criterios Vtx (bps) / AB (Hz), sensibilidad al ruido (Pe) y S/N (Eb/No)">Unidad IV-1 p.34</a></li>
+<li>Curvas de BER contra <span class="arithmatex">\(E_b/\eta\)</span> (dB): para el mismo <span class="arithmatex">\(M\)</span>, la curva de PSK queda a la derecha de la de QAM, o sea que PSK pide más <span class="arithmatex">\(E_b/N_0\)</span> para el mismo BER [INFERRED de la figura; lectura cualitativa, sin valores]. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=34" title="fig: curvas BER contra Eb sobre η (dB) de 4-QAM/QPSK, 16-QAM, 64-QAM (llenas), 16-PSK y 64-PSK (punteadas)">Unidad IV-1 p.34</a></li>
+<li>Con una zona de ruido sombreada alrededor de un punto, en 16 PSK la zona cubre un sector angular muy estrecho; en 16 QAM los puntos están en rejilla. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=34" title="fig: constelaciones 4 PSK, 8 PSK, 16 QAM y 16 PSK con zona circular de ruido sombreada sobre un punto">Unidad IV-1 p.34</a></li>
+<li>En DPSK, con más fases la curva de BER se corre a la derecha (de 2-DPSK a 64 DPSK, con mapeo Gray). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=36" title="fig: DPSK diferencial sin referencia de fase absoluta, referencia del último bit recibido; BER contra Eb/N0 de DBPSK a 64 DPSK con Gray mapping">Unidad IV-1 p.36</a></li>
+<li><strong>TCM</strong> (Trellis Codes Modulation, modulación por codificación entrelazada): da mayor inmunidad al ruido ante la complejidad de las constelaciones y agrega bits redundantes. La diapositiva no explica el código ni da el número de puntos. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=37" title="fig: TCM Trellis Codes Modulation, mayor inmunidad al ruido, agregado de bits redundantes; constelación de estados con codificación entrelazada, puntos con códigos de 7 bits">Unidad IV-1 p.37</a></li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p><strong>FSK: espectro y cantidad de comunicaciones</strong> (TP8 C 7 = GP 6 = RTAS ej. 6). Enunciado: construir el espectro FSK con desvío de frecuencia <span class="arithmatex">\(+200\)</span> Hz para el «0» y <span class="arithmatex">\(-200\)</span> Hz para el «1»; 100 Hz libres entre canales; cuántas comunicaciones simultáneas entran en un canal telefónico de 4 kHz y cuál es el AB de cada una. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Practica-Preguntas.pdf#page=1" title="Entre canales se debe dejar libre">TP08 práctica p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="Construir el espectro de frecuencias para una modulación FSK">TP08 RTAS p.15</a></p>
+<p><strong>Paso 1. Datos.</strong> <span class="arithmatex">\(0=200\)</span> Hz; <span class="arithmatex">\(1=-200\)</span> Hz; libre entre canales <span class="arithmatex">\(=100\)</span> Hz; ancho de banda del canal <span class="arithmatex">\(=4\)</span> kHz. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="Libre entre canales = 100Hz">TP08 RTAS p.15</a></p>
+<p><strong>Paso 2. AB de una comunicación.</strong> Va de <span class="arithmatex">\(-200\)</span> a <span class="arithmatex">\(200\)</span> Hz: <span class="arithmatex">\(200-(-200)=400\)</span> Hz. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="El ancho de banda de cada comunicación es de 400Hz.">TP08 RTAS p.15</a></p>
+<p><strong>Paso 3. Lo que ocupa cada canal.</strong> Con la banda libre, <span class="arithmatex">\(400+100=500\)</span> Hz (en la figura, «AB 500 Hz» de <span class="arithmatex">\(-200\)</span> a <span class="arithmatex">\(300\)</span> Hz). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="fig: eje con −200 Hz (1), 0, 200 Hz (0) y 300 Hz; 400 Hz entre 1 y 0 y AB 500 Hz de −200 a 300 Hz">TP08 RTAS p.15</a></p>
+<p><strong>Paso 4. Canales.</strong> <span class="arithmatex">\(N=\dfrac{4000}{500}=8\)</span> comunicaciones simultáneas. La resolución de la cátedra imprime <span class="arithmatex">\(4000/500=8\)</span>.</p>
+<p><strong>Variante con 1000 Hz</strong> (el enunciado de <code>Comunicaciones-TP08</code> ej. 7 dice 1000 Hz; ninguna fuente lo resuelve). Cálculo propio con el mismo método, verificado con test: cada canal ocupa <span class="arithmatex">\(400+1000=1400\)</span> Hz y <span class="arithmatex">\(4000/1400=2{,}86\)</span>, o sea <strong>2 comunicaciones</strong>; el AB de cada una sigue siendo 400 Hz. Si no se cuenta la banda libre del último canal, <span class="arithmatex">\(3\cdot400+2\cdot1000=3200\le4000\)</span> y entrarían 3 (4 no: <span class="arithmatex">\(4\cdot400+3\cdot1000=4600&gt;4000\)</span>). Ver Discrepancia 5. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Entre canales se debe dejar libre 1000 Hz.">TP08 guía p.1</a></p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Gray cierra el círculo.</strong> No alcanza con que los vecinos de la lista difieran en 1 bit: la última fase con la primera también (en 16-PSK, 1000 y 0000), y las opuestas difieren en 2 bits. Mencionado al pasar en clase, al hablar de niveles de tensión: nota teoria 2026-09-08 07:42 PM: "habría que hacer el código de Gray y demás". <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=11" title="Entre fases opuestas varía 2 bits.">TP08 RTAS p.11</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Hay dos tablas válidas de 8-PSK.</strong> La teoría pone 011 en <span class="arithmatex">\(0^\circ\)</span>; el TP8 pone 000. Las dos son Gray. El widget y P4 usan la del TP8; no mezcles filas de una con la otra. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="fig: tabla de 8 PSK: 011 a 0°, 010 a 45°, 000 a 90°, 001 a 135°, 101 a 180°, 100 a 225°, 110 a 270°, 111 a 315°">Unidad IV-1 p.31</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El 16-QAM de la diapositiva no es Gray.</strong> No le apliques la regla de «vecinos a 1 bit» que vale para M-PSK. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="una trasmite cuatro bits con una sola transición.">Unidad IV-1 p.32</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Más fases: menos ancho de banda, más errores.</strong> 4-PSK ocupa la mitad que 2-PSK, pero es más sensible a la interferencia. No respondas «más fases» sin decir las dos caras. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="El sistema 4 PSK es más sensible a los fenómenos de">Unidad IV-1 p.30</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>FSK: leé la banda libre y dividí por AB más banda libre.</strong> C 7 dice 1000 Hz; GP 6 y la clase dicen 100 Hz. Y <span class="arithmatex">\(N=4000/(400+100)\)</span>, no <span class="arithmatex">\(4000/400\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="Libre entre canales = 100Hz">TP08 RTAS p.15</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>«Menos afectada por el ruido»: la respuesta oficial es FM.</strong> Para las digitales, la diapositiva agrega que FSK de banda ancha supera a ASK. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="superando a la modulación de amplitud, pero usando mayor">Unidad IV-1 p.21</a> Ver Discrepancia 7.</p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Numeración del TP8 (solo los ejercicios de esta página). Siglas: C = <code>Comunicaciones-TP08</code>; GT = <code>GUIA-TP-08-Teoria-Preguntas</code>, con su resolución <code>…-Respuestas-RTAS</code> («GT-RTAS»); GP = <code>GUIA-TP-08-Practica-Preguntas</code>; RTAS = <code>Clase-TP-08-RTAS</code>, que numera igual que GP. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="un modem que trabaja con el tipo de modulación 16-PSK">TP08 guía p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas.pdf#page=1" title="Construir el esquema de un modulador ASK por supresión de portadora">TP08 teoría p.1</a></p>
+<table>
+<thead>
+<tr>
+<th>Tema</th>
+<th>C</th>
+<th>GT</th>
+<th>GP = RTAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASK por supresión de portadora</td>
+<td>1</td>
+<td>1</td>
+<td>—</td>
+</tr>
+<tr>
+<td>16-PSK: desfasaje</td>
+<td>4 a</td>
+<td>—</td>
+<td>2</td>
+</tr>
+<tr>
+<td>16-PSK: relación <span class="arithmatex">\(V_t/V_m\)</span></td>
+<td>4 b</td>
+<td>—</td>
+<td>3</td>
+</tr>
+<tr>
+<td>8-PSK</td>
+<td>5</td>
+<td>—</td>
+<td>4</td>
+</tr>
+<tr>
+<td>9600 bps con módem de 2400 baudios</td>
+<td>6</td>
+<td>—</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Espectro FSK</td>
+<td>7</td>
+<td>—</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Cuadro resumen de los tipos de modulación</td>
+<td>10</td>
+<td>6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Modulaciones menos afectadas por el ruido</td>
+<td>12</td>
+<td>8</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GT 1 = C 1</td>
+<td>Esquema de un modulador ASK por supresión de portadora y salida para <span class="arithmatex">\(0011110011\)</span>.</td>
+<td>La resolución oficial es solo una figura: esquema del modulador y del demodulador y forma de onda (tabla en Desarrollo). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: modulador y demodulador con moduladora digital, portadora analógica y modulada analógica; señal 0011110011 con ráfagas de portadora sobre los 1">TP08 teoría RTAS p.1</a></td>
+</tr>
+<tr>
+<td>RTAS ej. 2 (C 4 a, GP 2)</td>
+<td>Módem 16-PSK: desfasaje entre estados. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=7" title="Calcule el desfasaje entre estados que adopta la señal modulada.">TP08 RTAS p.7</a></td>
+<td><span class="arithmatex">\(\theta=2\pi/16=\pi/8\)</span>; <span class="arithmatex">\(\theta=22{,}5^\circ\)</span> es el desfasaje. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=7" title="θ = 22,5° es el desfasaje">TP08 RTAS p.7</a> Check propio: <span class="arithmatex">\(360^\circ/16=22{,}5^\circ\)</span>.</td>
+</tr>
+<tr>
+<td>RTAS ej. 3 (C 4 b, GP 3)</td>
+<td>Partiendo del anterior: relación entre <span class="arithmatex">\(V_t\)</span> y <span class="arithmatex">\(V_m\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=8" title="Qué relación hay entre la velocidad de transmisión Vt y la">TP08 RTAS p.8</a></td>
+<td><span class="arithmatex">\(V_t=V_m\log_2 16=4V_m\)</span>: la relación es 4. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=8" title="Vt = 4 Vm">TP08 RTAS p.8</a> El concepto <span class="arithmatex">\(V_t/V_m\)</span> está en <a href="../u3/01-velocidades.html">P4</a>.</td>
+</tr>
+<tr>
+<td>RTAS ej. 4 (C 5, GP 4)</td>
+<td>Módem 8-PSK: a) señales analógicas y digitales; b) asignación de fases y diagrama; c) relación entre velocidad de modulación y de transmisión. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=9" title="Se tiene un modem cuyo tipo de modulación es 8-PSK. Indicar:">TP08 RTAS p.9</a></td>
+<td>a) Moduladora digital, portadora analógica, modulada analógica (la fila «continua digital»). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=9" title="a) Tipos de señales intervinientes:">TP08 RTAS p.9</a> b) <span class="arithmatex">\(\theta=2\pi/8=\pi/4=45^\circ\)</span>; <span class="arithmatex">\(2^3=8\)</span> combinaciones; tabla en Gray con 000 en <span class="arithmatex">\(0^\circ\)</span> y 100 en <span class="arithmatex">\(315^\circ\)</span> (widget con <span class="arithmatex">\(M=8\)</span> y <a href="../u3/01-velocidades.html">P4</a> §7). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=10" title="θ = 45° es el desfasaje">TP08 RTAS p.10</a> Adyacentes, 1 bit; opuestas, 2 bits. c) <span class="arithmatex">\(V_t=V_m\log_2 8=3V_m\)</span>: la relación es 3. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=11" title="Vt = 3 Vm">TP08 RTAS p.11</a></td>
+</tr>
+<tr>
+<td>GT 6 = C 10</td>
+<td>Cuadro resumen de los tipos de modulación (moduladora, portadora y modulada, analógicas o digitales). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="Confeccione un cuadro resumen de los tipos de modulación">TP08 teoría RTAS p.4</a></td>
+<td>El cuadro de Desarrollo, de la diapositiva. La respuesta impresa es el árbol de clasificación: Discrepancia 6.</td>
+</tr>
+<tr>
+<td>GT 8 = C 12</td>
+<td>¿Qué tipos de modulación se ven menos afectados por el ruido y por qué? <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=2" title="Qué tipos de modulación se ven menos afectados por el ruido">TP08 guía p.2</a></td>
+<td>Respuesta oficial: «El tipo de modulación que se ve menos afectado por el ruido es el FM», porque envía la información en variaciones de frecuencia y no de amplitud, y los cambios repentinos del ruido son de baja o nula relevancia. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="El tipo de modulación que se ve menos afectado por el ruido">TP08 teoría RTAS p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="variaciones en la frecuencia y no en la amplitud, cambios repentinos">p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="introducidos por el ruido son de baja o nula relevancia">p.5</a> De la diapositiva, para las digitales: FSK de banda ancha protege más que ASK a costa de ancho de banda (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="Esto aumenta la protección contra el ruido e interferencias,">Unidad IV-1 p.21</a>); más fases, más sensibilidad (<a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="interferencia y aumenta la tasa de error.">p.30</a>). Discrepancia 7.</td>
+</tr>
+<tr>
+<td>Final 2020-12 T1 n.4</td>
+<td>Explique modulación M-QAM. <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique modulación M-QAM 5. Explique la técnica">Final 2020-12 p.1</a></td>
+<td>Sin respuesta oficial impresa. Armada en Desarrollo, «QAM».</td>
+</tr>
+<tr>
+<td>FSK (C 7 = GP 6 = RTAS ej. 6)</td>
+<td>Ver Ejemplo resuelto.</td>
+<td><span class="arithmatex">\(N=8\)</span> canales y 400 Hz por comunicación (con 100 Hz libres).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Se resuelven en otra página:</strong></p>
+<ul>
+<li>RTAS ej. 5 (C 6, GP 5: 9600 bps y 2400 baudios), adicional 7 (Gray en 4-PSK), finales 2019-09, 2022-09 y 2023-02 y <code>2do-Parcial-2022-Arroyo</code> ej. 1: <a href="../u3/01-velocidades.html">P4</a>, en Practicar y en el Ejemplo resuelto 2. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=12" title="9600 = 2400 * log2 n">TP08 RTAS p.12</a></li>
+<li>C 3 (PCM con filtro de 4000 Hz) y los adicionales 8 y 10 de PCM: <a href="04-multiplexacion.html">P6</a>. C 2, 9 y 11 (muestreo, CODEC, MIC) y C 13 a 18 (multiplexión, las que P6 no responda): P15, <a href="03-digitalizacion.html">Digitalización: PCM y Delta</a>. C 8 (FM y Carson): P20, <a href="01-modulacion-analogica.html">Modulación analógica: AM, FM y PM</a>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=2" title="Determinar el ancho de banda aproximado de la señal de FM en este">TP08 guía p.2</a></li>
+</ul>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Cómo se envían un 1 y un 0 en ASK y qué parámetro de la portadora se modifica?</summary>
+<p>El 1 se envía con la amplitud de la portadora y el 0 con la portadora suprimida: se modifica la amplitud. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=11" title="la misma amplitud de la portadora para enviar el 1">Unidad IV-1 p.11</a></p>
+</details>
+<details class="question">
+<summary>Un módem usa 16-PSK. ¿Cuánto vale el desfasaje entre estados y qué relación hay entre <span class="arithmatex">\(V_t\)</span> y <span class="arithmatex">\(V_m\)</span>?</summary>
+<p><span class="arithmatex">\(\theta=360^\circ/16=22{,}5^\circ\)</span> y <span class="arithmatex">\(V_t=V_m\log_2 16=4V_m\)</span>. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=8" title="Vt = 4 Vm">TP08 RTAS p.8</a></p>
+</details>
+<details class="question">
+<summary>¿Cuántas comunicaciones FSK (desvío de ±200 Hz, 100 Hz libres entre canales) entran en 4 kHz y qué AB tiene cada una?</summary>
+<p>Cada canal ocupa <span class="arithmatex">\(400+100=500\)</span> Hz: <span class="arithmatex">\(N=4000/500=8\)</span>. El AB de cada comunicación es 400 Hz. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=15" title="El ancho de banda de cada comunicación es de 400Hz.">TP08 RTAS p.15</a></p>
+</details>
+<details class="question">
+<summary>¿Qué ventaja y qué costo tiene 4-PSK frente a 2-PSK?</summary>
+<p>Ocupa la mitad del ancho de banda, pero es más sensible a la interferencia y aumenta la tasa de error. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="Comparando 2 PSK con 4 PSK se ve que el ancho">Unidad IV-1 p.30</a></p>
+</details>
+<details class="question">
+<summary>¿La constelación 16QAM de la diapositiva respeta Gray?</summary>
+<p>No: hay cuatro pares adyacentes que difieren en 3 bits (por ejemplo 1001 y 1110). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="fig: constelación 16QAM, rejilla de 4 por 4 con filas 1011 1001 1110 1111 / 1010 1000 1100 1101 / 0001 0000 0100 0110 / 0011 0010 0101 0111">Unidad IV-1 p.32</a></p>
+</details>
+<details class="question">
+<summary>Explique modulación M-QAM (Final 2020-12 Tema 1 ej. 4).</summary>
+<p>Modulación en cuadratura: dos portadoras independientes desfasadas <span class="arithmatex">\(90^\circ\)</span> que combinan saltos de amplitud y de fase; 16-QAM, 16 puntos y 4 bits por transición. Respuesta armada en Desarrollo, «QAM». <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=33" title="fig: MODULACION M-QAM usa dos portadoras independientes en cuadratura desfasadas 90° y combina saltos de amplitud y de fase">Unidad IV-1 p.33</a></p>
+</details>
+<details class="question">
+<summary>¿Qué modulación se ve menos afectada por el ruido según la guía y qué agrega la diapositiva?</summary>
+<p>La guía responde FM (variaciones de frecuencia y no de amplitud). La diapositiva agrega que FSK de banda ancha supera a ASK en protección, pero usa más ancho de banda. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=5" title="El tipo de modulación que se ve menos afectado por el ruido">TP08 teoría RTAS p.5</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=21" title="superando a la modulación de amplitud, pero usando mayor">Unidad IV-1 p.21</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de teoría cuando una resolución la contradice (criterio de la guía: la diapositiva de teoría manda sobre la resolución de práctica). Las discrepancias de Gray entre teoría y práctica ya están en <a href="../u3/01-velocidades.html">P4</a> y no se repiten.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>4-PSK a 45° y 135°</td>
+<td>Las tablas de 4-PSK de P4 y de la p.27 son de <span class="arithmatex">\(0^\circ\)</span> a <span class="arithmatex">\(270^\circ\)</span>. La figura de variantes (p.35, no p.31: la p.31 es 8-PSK) dibuja 11 a <span class="arithmatex">\(45^\circ\)</span>, 01 a <span class="arithmatex">\(135^\circ\)</span>, 00 a <span class="arithmatex">\(-135^\circ\)</span> y 10 a <span class="arithmatex">\(-45^\circ\)</span>. Es otra asignación Gray (cálculo propio, test). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=35" title="fig: constelación 4-PSK con 01 a 135°, 11 a 45°, 00 a −135° y 10 a −45°, inscrita en una circunferencia">Unidad IV-1 p.35</a></td>
+<td>Widget con la de la p.27; la de p.35 va como línea aparte en Desarrollo.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dos 16-QAM en la teoría</td>
+<td>La p.32 tiene las filas 1011 1001 1110 1111 / 1010 1000 1100 1101 / 0001 0000 0100 0110 / 0011 0010 0101 0111. La p.33 (rectangular) tiene 1011 1001 0010 0011 / 1010 1000 0000 0001 / 1101 1100 0100 0110 / 1111 1110 0101 0111. Ninguna es Gray (cálculo propio, test). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=32" title="una trasmite cuatro bits con una sola transición.">Unidad IV-1 p.32</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=33" title="fig: 16-QAM rectangular con filas 1011 1001 0010 0011 / 1010 1000 0000 0001 / 1101 1100 0100 0110 / 1111 1110 0101 0111 y nota Amp 25% Phase 225° Data 1100">Unidad IV-1 p.33</a></td>
+<td>La de la p.32 (la repite <code>Clase-08</code> p.30). Son asignaciones posibles de un mismo esquema.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8 PSK de la p.31: figura contra tabla</td>
+<td>La tabla da 011 a <span class="arithmatex">\(0^\circ\)</span>, 010 a <span class="arithmatex">\(45^\circ\)</span>, 000 a <span class="arithmatex">\(90^\circ\)</span>, 001 a <span class="arithmatex">\(135^\circ\)</span>, 101 a <span class="arithmatex">\(180^\circ\)</span>, 100 a <span class="arithmatex">\(225^\circ\)</span>, 110 a <span class="arithmatex">\(270^\circ\)</span> y 111 a <span class="arithmatex">\(315^\circ\)</span>. La figura rotula las puntas de los ejes con un bit («0» a <span class="arithmatex">\(0^\circ\)</span> y <span class="arithmatex">\(90^\circ\)</span>; «1» a <span class="arithmatex">\(180^\circ\)</span> y <span class="arithmatex">\(270^\circ\)</span>) y las diagonales con dos («00» a <span class="arithmatex">\(45^\circ\)</span>, «10» a <span class="arithmatex">\(135^\circ\)</span>, «11» a <span class="arithmatex">\(225^\circ\)</span>, «01» a <span class="arithmatex">\(315^\circ\)</span>): no son prefijo ni sufijo de los tribits de la tabla (a <span class="arithmatex">\(45^\circ\)</span>: tabla 010, figura 00). <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=31" title="fig: tabla de 8 PSK: 011 a 0°, 010 a 45°, 000 a 90°, 001 a 135°, 101 a 180°, 100 a 225°, 110 a 270°, 111 a 315°">Unidad IV-1 p.31</a></td>
+<td>De la p.31 se usa solo la tabla, no la figura. El widget usa la del TP8.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gray de 4-PSK y 8-PSK, teoría y práctica</td>
+<td>Ya registrado en P4 («Tablas de Gray»; criterio «usar la de TP08»). Cotejo de esta página: las tres tablas del widget (4-PSK de la p.27, 8-PSK de RTAS p.10 y 16-PSK de RTAS p.13) coinciden fila por fila con P4 (test).</td>
+<td>Enlace a P4; no se repite.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Banda libre del FSK: 1000 o 100 Hz</td>
+<td><code>Comunicaciones-TP08</code> ej. 7 dice 1000 Hz. <code>GUIA-TP-08-Practica-Preguntas</code> ej. 6 y <code>Clase-TP-08-RTAS</code> ej. 6 dicen 100 Hz; la resolución oficial usa 100 Hz y da 8 canales y 400 Hz. Con 1000 Hz ninguna fuente resuelve. Es práctica contra práctica: no hay diapositiva que arbitre. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Comunicaciones-TP08.pdf#page=1" title="Entre canales se debe dejar libre 1000 Hz.">TP08 guía p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Practica-Preguntas.pdf#page=1" title="Entre canales se debe dejar libre">TP08 práctica p.1</a></td>
+<td>Resolución oficial con 100 Hz; la variante con 1000 Hz va como cálculo propio, con test.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>La respuesta oficial de GT 6 no responde la pregunta</td>
+<td>GT 6 pide el cuadro con moduladora, portadora y modulada analógicas o digitales. GT-RTAS p.4 imprime el árbol de clasificación (el mismo de la p.5 de la diapositiva). <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="fig: árbol de métodos de modulación por onda continua y por pulsos, sin columnas analógica o digital">TP08 teoría RTAS p.4</a></td>
+<td>El cuadro de la p.6 de la diapositiva. No es una contradicción de datos.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GT 8 responde solo FM</td>
+<td>La respuesta oficial nombra FM (analógica) y no dice nada de las digitales. La p.21 la completa para FSK de banda ancha y la p.30 advierte que 4 PSK es más sensible que 2 PSK. <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=30" title="El sistema 4 PSK es más sensible a los fenómenos de">Unidad IV-1 p.30</a></td>
+<td>La respuesta oficial citada como tal, más el complemento rotulado «de la diapositiva».</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Errata «OSK convencional»</td>
+<td>La p.5 de la diapositiva y GT-RTAS p.4 rotulan «OSK convencional»; <code>Clase-TP-08-RTAS</code> p.1 y la p.23 dicen «PSK convencional». <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=1" title="fig: clasificación de métodos de modulación con PSK convencional, DPSK diferencial y modulación multifase y multinivel">TP08 RTAS p.1</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=23" title="PSK convencional: las variaciones de fase se refieren a la">Unidad IV-1 p.23</a></td>
+<td>«PSK convencional».</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Rótulo de la figura 2-PSK de la clase</td>
+<td>La figura muestra cuatro inversiones de fase y el rótulo dice «DOS SALTOS DE FASE EN ESTE CASO (0º-180º)». [INFERRED] «dos» son los dos estados de fase, no el número de inversiones. <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=3" title="fig: señal 2-PSK / B-PSK con bits 1 0 0 1 0 0 0 1 1, cuatro flechas de inversión de fase y rótulo DOS SALTOS DE FASE EN ESTE CASO (0º-180º)">TP08 RTAS p.3</a></td>
+<td>El rótulo no se usa como dato; el 2-PSK sale de la p.25 y la p.26.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Fecha de la teoría de digitalización</td>
+<td>El plan la ubicaba el 2026-09-01. Esa nota trata multiplexación; el docente dice que la clase anterior vio «mitad de la unidad cuatro», sin nota. Dicho en clase: nota teoria 2026-09-01 07:04 PM: "mitad de la unidad cuatro".</td>
+<td>Para esta página no cambia nada: ninguna nota trata modulación digital.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./01-modulacion-analogica.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulación analógica: AM, FM y PM">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulación analógica: AM, FM y PM
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./03-digitalizacion.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Digitalización: PCM y Delta">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Digitalización: PCM y Delta
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

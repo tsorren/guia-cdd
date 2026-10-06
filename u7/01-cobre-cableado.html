@@ -1,0 +1,3000 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="../u6/03-correccion-errores.html">
+      
+      
+        <link rel="next" href="./02-fibra-optica.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Cobre y cableado estructurado - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cobre-y-cableado-estructurado" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cobre y cableado estructurado
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="01-cobre-cableado.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#circuito-equivalente-y-parametros-primarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Circuito equivalente y parámetros primarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linea-abierta-par-trenzado-y-multipares" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Línea abierta, par trenzado y multipares
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impedancia-atenuacion-y-capacidad-mutua-del-par" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Impedancia, atenuación y capacidad mutua del par
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coaxil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Coaxil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-trenzado-de-datos-tipos-normas-y-categorias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Par trenzado de datos: tipos, normas y categorías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cableado estructurado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rj45-568a-y-568b-directo-y-cruzado-patch-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RJ45, 568A y 568B, directo y cruzado, patch panel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediciones-y-certificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mediciones y certificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cables-submarinos-de-cobre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cables submarinos de cobre
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#circuito-equivalente-y-parametros-primarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Circuito equivalente y parámetros primarios
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linea-abierta-par-trenzado-y-multipares" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Línea abierta, par trenzado y multipares
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impedancia-atenuacion-y-capacidad-mutua-del-par" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Impedancia, atenuación y capacidad mutua del par
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coaxil" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Coaxil
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#par-trenzado-de-datos-tipos-normas-y-categorias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Par trenzado de datos: tipos, normas y categorías
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cableado-estructurado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cableado estructurado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rj45-568a-y-568b-directo-y-cruzado-patch-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        RJ45, 568A y 568B, directo y cruzado, patch panel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediciones-y-certificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Mediciones y certificación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cables-submarinos-de-cobre" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cables submarinos de cobre
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="01-cobre-cableado.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U7
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="cobre-y-cableado-estructurado">Cobre y cableado estructurado<a class="headerlink" href="#cobre-y-cableado-estructurado" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U7 · medios guiados de comunicaciones (cobre, cableado estructurado, mediciones y certificación).
+Alcance del 2.º parcial: inferido (U6 en adelante), no confirmado por la cátedra.</p>
+<ul>
+<li>Del TP7, esta página cubre el ej. 13 (UTP), el 14 (balanceados) y el 15 (Z resistiva). En la guía de teoría son los ej. 3, 4 y 5. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Dada una línea telefónica con los siguientes parámetros distribuidos">TP7 p.2</a></li>
+<li>Los ej. 1 y 10 (coaxil RG 213/U y enlace de fibra) están en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a> y no se repiten.</li>
+<li>Pregunta de final, en dos exámenes: «¿Cuáles son los aspectos más relevantes a medir en el cableado estructurado?». <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Cuáles son los aspectos más relevantes a medir en el cableado estructurado">Final 2020-12 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Cuáles son los aspectos más relevantes a medir en el cableado estructurado">Final 2021-02 p.1</a></li>
+<li>nota practica 2026-09-16 08:14 PM: "ojo que estos son datos reales" (el docente de práctica, sobre los datos de coaxil del TP3 ej. 8; la tabla de coaxiles está en la p.24 de la clase). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=24" title="Los fabricantes publican estas características en el folleto">Clase 07 p.24</a></li>
+<li>nota teoria 2026-09-15 07:44 PM: "cada computadora tenía un cable utp" (anécdota del reemplazo del coaxil por UTP; coincide con la clase). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=17" title="pero fueron reemplazados por cables de pares trenzados">Clase 07 p.17</a></li>
+<li>nota practica 2026-08-26 07:46 PM: "todo va a entrar" (no fija si cableado y medios entran en el parcial).</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>El cobre es el medio guiado más usado, en cinco variantes: línea abierta, par trenzado, multipares, coaxil y submarino. Se modela con R y L en serie, G y C en paralelo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=7" title="Líneas abiertas de cobre desnudo">Clase 07 p.7</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=4" title="fig: circuito con R resistencia y L inductancia en serie, G conductancia y C capacitancia en paralelo, Z = R + j XL menos XC ohms, R = rho l sobre S, XL = w L, Xc = 1 sobre w C">Clase 07 p.4</a></li>
+<li>Par trenzado: las dos corrientes van en sentido contrario, sus campos son opuestos y se anulan. Es el cable de datos de los edificios. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=9" title="Las interferencias externas se cancelan entre los dos hilos">Clase 07 p.9</a></li>
+<li>La TIA divide el UTP por <strong>categorías</strong> y la ISO por <strong>clases</strong>; la tabla de la p.32 da los parámetros de 5e/D a 7A/FA. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="Normas TIA los dividen por categoría y las ISO por clases.">Clase 07 p.31</a></li>
+<li>Cableado estructurado: subsistemas de campus, vertical, horizontal y de usuario. El horizontal tiene 90 m de cable y el enlace completo, 100 m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="90 m + 3 m usuario + 7 m patch panel">Clase 07 p.41</a></li>
+<li>Certificar es medir. Hasta cat. 5: mapa de cableado, resistencia/impedancia, longitud/retardo, atenuación y NEXT. Los anexos agregan ACR, pérdida de retorno y PSNEXT. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="Hasta la categoría 5 nos interesan:">Clase 07 p.50</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Impedancia del circuito equivalente</td>
+<td><span class="arithmatex">\(Z=R+j(X_L-X_C)\)</span>; <span class="arithmatex">\(R=\rho\,l/S\)</span>; <span class="arithmatex">\(X_L=\omega L\)</span>; <span class="arithmatex">\(X_C=1/(\omega C)\)</span></td>
+<td>Ω</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=4" title="fig: circuito con R resistencia y L inductancia en serie, G conductancia y C capacitancia en paralelo, Z = R + j XL menos XC ohms, R = rho l sobre S, XL = w L, Xc = 1 sobre w C">Clase 07 p.4</a></td>
+</tr>
+<tr>
+<td>Impedancia resistiva (<span class="arithmatex">\(X_L=X_C\)</span>)</td>
+<td><span class="arithmatex">\(f=\dfrac{1}{2\pi\sqrt{LC}}\)</span></td>
+<td>Hz, con L en H y C en F</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="Si es resistiva Z=R lo que implica que XL = XC">RTAS teoría TP7 p.4</a></td>
+</tr>
+<tr>
+<td>Capacidad del coaxil</td>
+<td><span class="arithmatex">\(C=\dfrac{24{,}16\,E}{\log(D/d)}\)</span> (<span class="arithmatex">\(D\)</span> malla, <span class="arithmatex">\(d\)</span> conductor central)</td>
+<td>pF/m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=25" title="fig: Capacidad = 24,16 E sobre log D/d en pF/m; Inductancia = 0,463 log D/d + 0,522 10 a la menos 6 R sobre f en microhenrio por m">Clase 07 p.25</a></td>
+</tr>
+<tr>
+<td>Inductancia del coaxil</td>
+<td><span class="arithmatex">\(L=0{,}463\log(D/d)+0{,}522\cdot10^{-6}\,R/f\)</span>, tal como está impresa</td>
+<td>µH/m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=25" title="d es el diámetro del conductor central">Clase 07 p.25</a></td>
+</tr>
+<tr>
+<td>NVP</td>
+<td><span class="arithmatex">\(\mathrm{NVP}=\dfrac{v_{\text{pulso en el cable}}}{c}\cdot100\,\%\)</span>, con <span class="arithmatex">\(c=300.000.000\)</span> m/s</td>
+<td>%</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="fig: velocidad del pulso en el cable, C = 300.000.000 m/s, NVP = velocidad del pulso en el cable sobre velocidad de la luz por 100 %">Anexo Mediciones p.13</a></td>
+</tr>
+<tr>
+<td>Longitud medida</td>
+<td>tiempo de recorrido del pulso por la velocidad de la señal en el cable</td>
+<td>m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="multiplicando el tiempo de recorrido por la velocidad de la señal">Anexo Mediciones p.13</a></td>
+</tr>
+<tr>
+<td>NEXT</td>
+<td><span class="arithmatex">\(10\log\dfrac{P_{\text{par tx}}}{P_{\text{par rx}}}\)</span> (convención de signo: Discrepancia 11)</td>
+<td>dB</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=52" title="Se calcula como 10 log">Clase 07 p.52</a></td>
+</tr>
+<tr>
+<td>ACR</td>
+<td><span class="arithmatex">\(\mathrm{ACR}=\mathrm{NEXT}-\text{atenuación}\)</span></td>
+<td>dB</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="es la diferencia entre el NEXT en decibeles y la">Anexo Mediciones p.13</a></td>
+</tr>
+<tr>
+<td>Horizontal completo</td>
+<td><span class="arithmatex">\(90+3+7=100\)</span> m (cable, usuario, patch panel)</td>
+<td>m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="90 m + 3 m usuario + 7 m patch panel">Clase 07 p.41</a></td>
+</tr>
+<tr>
+<td>Tiempo de crecimiento</td>
+<td>intervalo en que el pulso pasa del 10 % al 90 % del valor máximo</td>
+<td>s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=27" title="crezca desde un 10% hasta 90% del valor máximo.">Clase 07 p.27</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="circuito-equivalente-y-parametros-primarios">Circuito equivalente y parámetros primarios<a class="headerlink" href="#circuito-equivalente-y-parametros-primarios" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Por cada hilo, R (resistencia) y L (inductancia) en serie; entre hilos, G (conductancia) y C (capacitancia) en paralelo. <span class="arithmatex">\(R_s\)</span> es la resistencia de fuga, inversa de la conductancia. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="R: Resistencia a la carga en serie">Clase 07 p.5</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="L: Inductancia en serie">Clase 07 p.5</a></li>
+<li>Propiedades secundarias: la impedancia característica Z, «para que exista transferencia máxima», y la velocidad de propagación respecto de la de la luz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="Z: Impedancia característica para que exista transferencia máxima">Clase 07 p.5</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="Velocidad de propagación respecto velocidad de la luz">Clase 07 p.5</a></li>
+<li>Por el conductor viajan ondas incidentes (del transmisor al receptor) y reflejadas (al revés). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="Ondas incidentes del transmisor">Clase 07 p.5</a></li>
+<li>Líneas balanceadas: la diapositiva dice solo «se anula la corriente de inducción». <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="se anula la corriente de inducción">Clase 07 p.5</a></li>
+<li>En la misma lista: rigidez dieléctrica (tensión de rotura) y resistencia a la aislación (corriente de fuga). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="fig: texto 5 Rigidez dieléctrica tensión de rotura el aislante se hace conductor, 6 Resistencia a la aislación corriente de fuga">Clase 07 p.5</a></li>
+<li>La impedancia compleja de un circuito serie es la misma de la teoría de la información; se enlaza con <a href="../u6/01-capacidad-canal.html">Capacidad del canal</a> y no se repite. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=52" title="fig: Z igual R más j de wL menos 1 sobre wC, R resistencia, XL reactancia inductiva, XC reactancia capacitiva, X reactancia">Clase 06 p.52</a></li>
+</ul>
+<h3 id="linea-abierta-par-trenzado-y-multipares">Línea abierta, par trenzado y multipares<a class="headerlink" href="#linea-abierta-par-trenzado-y-multipares" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Cable</th>
+<th>Qué es</th>
+<th>Dato clave</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Línea abierta</td>
+<td>dos alambres con aisladores cerámicos sobre travesaños de postes; se usó en telegrafía y telefonía</td>
+<td>abandonada: alto costo de mantenimiento, ancho de banda limitado, vandalismo, capta ruido externo, diafonía</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=8" title="Cada circuito son dos alambres con aisladores cerámicos">Clase 07 p.8</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=8" title="Ancho de banda limitado">Clase 07 p.8</a></td>
+</tr>
+<tr>
+<td>Par trenzado</td>
+<td>dos alambres con vaina aislante trenzados entre sí</td>
+<td>las interferencias externas se cancelan entre los dos hilos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=9" title="Cada circuito son dos alambres con una vaina aislante que se">Clase 07 p.9</a></td>
+</tr>
+<tr>
+<td>Multipares</td>
+<td>varios pares reunidos en un cable con elemento de tracción y cubierta; telefonía y datos</td>
+<td>aislación con código de colores por par</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=10" title="Se usan para telefonía y para trasmisión de datos.">Clase 07 p.10</a></td>
+</tr>
+<tr>
+<td>Cable telefónico</td>
+<td>multipar para banda vocal; alambres de 0,3 a 1 mm; normalizado de 6 a 2200 pares</td>
+<td>hasta 300 pares en tendidos aéreos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=12" title="Los alambres tienen entre 0,3 y 1 mm">Clase 07 p.12</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=12" title="Hasta 300 pares pueden usarse en tendidos aéreos">Clase 07 p.12</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Par trenzado, en la figura: «datos +» y «datos −» van por hilos distintos, con corrientes en sentido contrario y campos opuestos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=9" title="fig: par trenzado con datos + y datos −, las corrientes circulan en sentido contrario creando campos electromagnéticos opuestos que se anulan entre sí">Clase 07 p.9</a> El anexo lo repite: igual corriente en sentidos opuestos, campos que se cancelan y menos ruido. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=1" title="los campos se cancelan uno con el otro">Anexo Mediciones p.1</a></li>
+<li>Código de colores del multipar (par: aislación 1 y 2): 1 blanco/azul; 2 blanco/anaranjado; 3 blanco/verde; 4 blanco/marrón; 5 blanco/gris oscuro; 6 rojo/azul. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=11" title="fig: tabla Par número, color del aislación conductor 1 y 2: 1 blanco azul, 2 blanco anaranjado, 3 blanco verde, 4 blanco marrón, 5 blanco gris oscuro, 6 rojo azul">Clase 07 p.11</a></li>
+<li>Multipar aéreo: conductores aislados, dieléctrico, blindaje de aluminio, cubierta de polietileno y cable de hierro galvanizado de sostén. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=14" title="fig: corte de multipar con N conductores aislados, dieléctrico, blindaje de aluminio, cubierta protectora de polietileno y cable de hierro galvanizado de sostén">Clase 07 p.14</a></li>
+</ul>
+<h3 id="impedancia-atenuacion-y-capacidad-mutua-del-par">Impedancia, atenuación y capacidad mutua del par<a class="headerlink" href="#impedancia-atenuacion-y-capacidad-mutua-del-par" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La impedancia y la atenuación de un par dependen de las dimensiones y del material de los conductores y del dieléctrico. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=15" title="La impedancia y la atenuación de un par depende de las">Clase 07 p.15</a></li>
+<li>
+<p>Resistencia del conductor, en continua a 20 °C (promedio máximo). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=15" title="fig: tabla diámetro del conductor en mm contra resistencia óptima en ohms por km promedio máximo: 0,40 143,0; 0,50 91,4; 0,65 54,5; 0,80 35,7; 0,90 28,2">Clase 07 p.15</a></p>
+<table>
+<thead>
+<tr>
+<th>Diámetro [mm]</th>
+<th>0,40</th>
+<th>0,50</th>
+<th>0,65</th>
+<th>0,80</th>
+<th>0,90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R [Ω/km]</td>
+<td>143,0</td>
+<td>91,4</td>
+<td>54,5</td>
+<td>35,7</td>
+<td>28,2</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Capacidad mutua:</strong> la proximidad de los conductores crea una capacidad entre ellos (promedio máximo). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=16" title="una capacidad entre ellos denominada capacidad mutua.">Clase 07 p.16</a></p>
+<table>
+<thead>
+<tr>
+<th>Cable</th>
+<th>hasta 10 pares</th>
+<th>más de 10 pares</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C [µF/km]</td>
+<td>0,058</td>
+<td>0,056</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=16" title="fig: tabla número de pares contra capacidad mutua en microfaradio por km promedio máximo: hasta 10 pares 0,058; más de 10 pares 0,056">Clase 07 p.16</a> El 0,058 µF/km es el C del TP7 ej. 15.
+- Resistencia de aislación: de cada conductor contra todos los demás unidos y el blindaje; con 500 V de continua debe ser mayor que 15 MΩ·km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=16" title="Aplicando 500 V de corriente continua debe ser mayor que">Clase 07 p.16</a>
+- Ficha de un UTP cat. 6A: 4 × 2 × 23 AWG, 78 Ω/km, desbalance de capacidad 3 pF/m, velocidad de propagación 68 %, impedancia 120 (Discrepancia 9). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=6" title="fig: ficha cable UTP categoría 6A 4 x 2 x 23 awg, resistencia 78 ohm por km, desbalance de capacidad 3 pF por m, velocidad de propagación 68 por ciento, impedancia 120">Clase 07 p.6</a>
+- AWG: la diapositiva lo define como «calibre de alambre en mm». Ninguna otra fuente lo contrasta; la página no agrega equivalencias. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="Calibre de alambre en mm.">Clase 07 p.5</a></p>
+</li>
+</ul>
+<h3 id="coaxil">Coaxil<a class="headerlink" href="#coaxil" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dos conductores concéntricos, uno interno o central y uno externo. Hoy conecta un transmisor con su antena y distribuye TV por cable. Fue reemplazado por pares trenzados en redes internas (de los 80 a los 90) y por fibra en las interurbanas (de los 60 a los 90). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=17" title="Son dos conductores concéntricos: uno interno o central y uno">Clase 07 p.17</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=17" title="reemplazados por cables de fibra óptica">Clase 07 p.17</a></li>
+<li>Componentes: vaina exterior, conductor externo o malla, dieléctrico o aislador, conductor interno o central. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=18" title="fig: cable coaxil con vaina exterior, conductor externo o malla, dieléctrico o aislador y conductor interno o central">Clase 07 p.18</a> Variantes: con cinta de aluminio adicional y autosoportado con mensajero. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=21" title="fig: componentes de un cable coaxial con cinta de aluminio adicional y con mensajero, blindaje de cinta aluminizada y malla metálica">Clase 07 p.21</a></li>
+<li><strong>Impedancia según el uso:</strong> 75 Ω para televisión y video; 50 Ω para datos y radio. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=21" title="fig: tabla impedancia en ohms y uso: 75 televisión video, 50 datos radio">Clase 07 p.21</a></li>
+<li>Codificación MIL C-17 E: RG (radiofrecuencia/gobierno), un número progresivo por tipo y U (universal). Para elegir se miran impedancia característica, frecuencia de trabajo y atenuación máxima. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=23" title="un número progresivo para cada tipo de cable">Clase 07 p.23</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=23" title="Para la elección de cada cable coaxil se deben tener en cuenta">Clase 07 p.23</a></li>
+<li>Tabla de coaxiles: <span class="arithmatex">\(Z_0=50\ \Omega\pm2\)</span>, <span class="arithmatex">\(C=101\)</span> pF/m y <span class="arithmatex">\(V_0=66\,\%\)</span> en todos los tipos listados; tensión máxima de 1,5 a 11 kV; atenuación a 20 °C en dB/100 m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=24" title="fig: tabla coaxial tipo con impedancia 50, capacidad 101 pF/m, velocidad 66 por ciento, tensión máxima kV y atenuación a 20 grados dB/100m, fila RG 213/U 2,00 4,9 7,0 10,5 15,5 26,0">Clase 07 p.24</a> La fila de RG 213/U es la del TP7 ej. 1 (se resuelve en la página de enlaces). Ver Discrepancia 10.</li>
+<li>Características eléctricas: capacidad e inductancia con las fórmulas de la tabla de arriba. La diapositiva no define <span class="arithmatex">\(E\)</span> ni <span class="arithmatex">\(R/f\)</span>: se transcriben tal cual (sin respuesta oficial; ningún ejercicio las usa). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=25" title="D es el diámetro de la malla">Clase 07 p.25</a></li>
+<li>Impedancia característica: relación entre tensión aplicada y corriente absorbida en un cable de longitud infinita; depende de la relación de diámetros y de la constante dieléctrica. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=26" title="La impedancia característica se define como la relación entre">Clase 07 p.26</a></li>
+<li>Atenuación: pérdida de potencia a una frecuencia dada, en dB por km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=26" title="frecuencia expresada en dB por cada kilómetro de cable.">Clase 07 p.26</a> Valores de la tabla (dB/km): 0,59 a 0,06 MHz; 1,27 a 0,30; 2,32 a 1,00; 8,01 a 12,00; 14,67 a 60,00; 40,7 a 300,00. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=26" title="fig: tabla atenuación dB/km contra frecuencia MHz: 0,59 a 0,06; 1,27 a 0,30; 2,32 a 1,00; 8,01 a 12,00; 14,67 a 60,00; 40,7 a 300,00">Clase 07 p.26</a></li>
+<li>Señales digitales: el cable distorsiona los pulsos. En un cable ideal el tiempo de crecimiento sería cero. La figura muestra el escalón con sobreimpulso (overshoot). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=27" title="Tiempo de crecimiento de un pulso es el intervalo para que">Clase 07 p.27</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=28" title="fig: amplitud en volts contra tiempo, escalón original aplicado al cable y sobreimpulso u overshot originado en el cable">Clase 07 p.28</a></li>
+<li>
+<p><strong>Velocidad de propagación:</strong> la fija la constante dieléctrica del aislante y se expresa como porcentaje de la velocidad de la luz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=29" title="La velocidad se expresa como un porcentaje de la velocidad de">Clase 07 p.29</a></p>
+<table>
+<thead>
+<tr>
+<th>Dieléctrico</th>
+<th>Polietileno sólido</th>
+<th>Polietileno espumoso</th>
+<th>Polietileno y aire</th>
+<th>Teflón sólido</th>
+<th>Elastipar</th>
+<th>Teflón expandido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Retardo (columna «m seg/Ft»)</td>
+<td>1,54</td>
+<td>1,27</td>
+<td>1,15–1,21</td>
+<td>1,46</td>
+<td>1,50</td>
+<td>1,27</td>
+</tr>
+<tr>
+<td>Velocidad [%]</td>
+<td>65,9</td>
+<td>80,0</td>
+<td>84 a 88</td>
+<td>69,4</td>
+<td>66</td>
+<td>85</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=29" title="fig: tabla coaxial por dieléctrico, tiempo de retardo y velocidad: polietileno sólido 1,54 65,9; espumoso 1,27 80,0; polietileno y aire 1,15-1,21 84 a 88; teflón sólido 1,46 69,4; elastipar 1,50 66; teflón expandido 1,27 85">Clase 07 p.29</a> La unidad del retardo está impresa «m seg/Ft»: no se sabe si es ns o µs por pie y no se convierte. Esta tabla es de coaxil, no de fibra.
+- Conectores: SMA, N, TNC, SMC, MCX, BNC, SMB, Mini-UHF y UHF según la frecuencia; fotos de BNC, RG 6 y tipo F. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=22" title="fig: conectores de coaxil según la frecuencia SMA N TNC SMC MCX BNC SMB Mini-UHF UHF, y fotos de BNC, RG 6 y tipo F">Clase 07 p.22</a></p>
+</li>
+</ul>
+<h3 id="par-trenzado-de-datos-tipos-normas-y-categorias">Par trenzado de datos: tipos, normas y categorías<a class="headerlink" href="#par-trenzado-de-datos-tipos-normas-y-categorias" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cables de cuatro pares con vaina plástica. Tres tipos: <strong>UTP</strong> (sin blindaje), <strong>FTP</strong> (hoja de aluminio sobre los cuatro pares, contra la interferencia externa) y <strong>STP</strong> (blindaje por par, contra la interferencia de los otros pares). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=30" title="Hay cables de tres tipos:">Clase 07 p.30</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=30" title="protegerlo de la interferencia de los otros pares">Clase 07 p.30</a></li>
+<li>
+<p>Acrónimos e impedancias: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=34" title="fig: tabla acrónimo, impedancia y significado: STP 150 ohms par trenzado blindado, FTP 120 ohms cubierto de pantalla de aluminio, SFTP 120 ohms FTP con malla de cobre adicional, SSTP 120 ohms par trenzado con una pantalla de aluminio independiente y una malla exterior de cobre">Clase 07 p.34</a></p>
+<table>
+<thead>
+<tr>
+<th>Acrónimo</th>
+<th>Impedancia</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STP</td>
+<td>150 Ω</td>
+<td>par trenzado blindado</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>120 Ω</td>
+<td>cubierto de pantalla de aluminio</td>
+</tr>
+<tr>
+<td>SFTP</td>
+<td>120 Ω</td>
+<td>FTP con malla de cobre adicional</td>
+</tr>
+<tr>
+<td>SSTP</td>
+<td>120 Ω</td>
+<td>par trenzado con una pantalla de aluminio independiente y una malla exterior de cobre</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>El STP es más costoso y difícil de instalar que el UTP. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=1" title="El cable STP es más costoso y">Anexo Mediciones p.1</a></p>
+</li>
+<li>Las especificaciones están normalizadas por la TIA y la ISO; la TIA habla de <strong>categorías</strong> y la ISO de <strong>clases</strong>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="Las especificaciones están normalizadas por la TIA y por la ISO.">Clase 07 p.31</a></li>
+<li><strong>Categorías TIA</strong> (texto de la clase):<ul>
+<li>Cat. 1 (un par): telefonía analógica, no apto para datos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="telefonía analógica, no apto para datos">Clase 07 p.31</a></li>
+<li>Cat. 2 (cuatro pares): telefonía analógica y digital hasta 4 Mbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="telefonía analógica y digital hasta 4 Mbps">Clase 07 p.31</a></li>
+<li>Cat. 3: telefonía analógica, Token Ring de 4 Mbps o Ethernet de 10 Mbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="telefonía analógica, redes LAN Token Ring">Clase 07 p.31</a></li>
+<li>Cat. 4: telefonía analógica y digital, Token Ring de 16 Mbps o Ethernet de 10 Mbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="telefonía analógica, digital, redes LAN Token">Clase 07 p.31</a></li>
+<li>Cat. 5: Fast Ethernet de 100 Mbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="Categoría 5: redes LAN Fast Ethernet">Clase 07 p.32</a></li>
+<li>Cat. 5e: permite algunas aplicaciones a 1 Gbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="Categoría 5e: permite algunas aplicaciones a 1 Gbps">Clase 07 p.32</a></li>
+<li>Cat. 6: especialmente diseñada para 1 Gbps. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="Categoría 6: especialmente diseñada para 1 Gbps">Clase 07 p.32</a></li>
+<li>Para aplicaciones especiales: 6A, 7 y 7A. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="Para aplicaciones especiales hay otras categorías">Clase 07 p.32</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Tabla de parámetros por categoría y clase</strong> (leída del PNG de la diapositiva): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="fig: tabla categoría y clases 5e/D 6/E 6A/EA 7/F 7A/FA: frecuencia 1-100, 1-250, 1-500, 1-600, 1-1000 MHz; atenuación 24, 21,3/21,7, 20,9, 20,8, 20,3; NEXT 30,1, 39,9, 39,9, 62,9, 65; ACRF 17,4, 23,3, 23,3/25,5, 44,4, 47,4; pérdida de retorno 10, 12, 12, 12, 12; delay 548 ns en todas">Clase 07 p.32</a></p>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>5e / D</th>
+<th>6 / E</th>
+<th>6A / EA</th>
+<th>7 / F</th>
+<th>7A / FA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frecuencia [MHz]</td>
+<td>1–100</td>
+<td>1–250</td>
+<td>1–500</td>
+<td>1–600</td>
+<td>1–1000</td>
+</tr>
+<tr>
+<td>Atenuación [dB] (1)</td>
+<td>24</td>
+<td>21,3 / 21,7</td>
+<td>20,9</td>
+<td>20,8</td>
+<td>20,3</td>
+</tr>
+<tr>
+<td>Pérdida NEXT [dB] (2)</td>
+<td>30,1</td>
+<td>39,9</td>
+<td>39,9</td>
+<td>62,9</td>
+<td>65</td>
+</tr>
+<tr>
+<td>Pérdida ACRF [dB] (2)</td>
+<td>17,4</td>
+<td>23,3</td>
+<td>23,3 / 25,5</td>
+<td>44,4</td>
+<td>47,4</td>
+</tr>
+<tr>
+<td>Pérdida de retorno [dB] (2)</td>
+<td>10</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Delay de propagación [ns]</td>
+<td>548</td>
+<td>548</td>
+<td>548</td>
+<td>548</td>
+<td>548</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Los símbolos (1) y (2) no tienen nota al pie en la diapositiva (sin respuesta oficial): no se sabe a qué frecuencia ni longitud corresponden. La página no los completa.</li>
+<li>El delay de 548 ns y el «máximo 555 ns» del anexo: Discrepancia 7.</li>
+<li><strong>Velocidad máxima por categoría UTP:</strong> <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=34" title="fig: tabla UTP velocidad de transmisión máxima y uso: 1 voz; 2 4 Mbps voz y datos; 3 10 Mbps; 4 16 Mbps; 5 100 Mbps; 6 1 Gbps; 7 10 Gbps">Clase 07 p.34</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Cat. UTP</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Velocidad máxima</td>
+<td>—</td>
+<td>4 Mbps</td>
+<td>10 Mbps</td>
+<td>16 Mbps</td>
+<td>100 Mbps</td>
+<td>1 Gbps</td>
+<td>10 Gbps</td>
+</tr>
+<tr>
+<td>Uso</td>
+<td>voz</td>
+<td>voz y datos</td>
+<td>voz y datos</td>
+<td>voz y datos</td>
+<td>voz y datos</td>
+<td>voz y datos</td>
+<td>voz y datos</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Fotos de UTP, FTP interior y FTP exterior autosuspendido, todos cat. 5e, con normas EIA/TIA 568 B. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=33" title="fig: fichas de UTP categoría 5e interior, FTP categoría 5e interior y FTP categoría 5e exterior y autosuspendido con normas EIA TIA 568 B">Clase 07 p.33</a></p>
+</li>
+<li>Objetivo de la categorización (TP7 ej. 13): la diapositiva dice solo «cada categoría tiene características especiales» y las tabula. La respuesta oficial es distinta: Discrepancia 2. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="fig: texto Cada categoría tiene características especiales seguido de la tabla de parámetros">Clase 07 p.32</a></li>
+</ul>
+<h3 id="cableado-estructurado">Cableado estructurado<a class="headerlink" href="#cableado-estructurado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Definición:</strong> el edificio de oficinas debe dar en cada puesto conexión a la red de área local, a la telefónica y a la eléctrica. Antes había redes separadas de voz, video y datos; la tecnología converge a una sola. Las redes de datos están normalizadas por la EIA/TIA 568. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=35" title="tecnología converge a un solo tipo de red para todos los">Clase 07 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=35" title="Las redes de datos están normalizadas por la EIA/TIA 568.">Clase 07 p.35</a></li>
+<li>El anexo: sistema «general» que soporta una amplia gama de productos sin modificarse. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=3" title="Se denomina así, al sistema de cableado de">Anexo Cableado p.3</a> El de armado agrega que la 568B define tipos de cables, distancias, conectores, arquitecturas, terminaciones, rendimiento, instalación y métodos de prueba. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=11" title="Define los tipos de cables, distancias, conectores, arquitecturas,">Anexo Armado p.11</a></li>
+</ul>
+<p><strong>Subsistemas</strong> (estructura de la clase):</p>
+<table>
+<thead>
+<tr>
+<th>Subsistema</th>
+<th>Va de… a…</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Campus</td>
+<td>los distribuidores de edificio al distribuidor de campus</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=37" title="Cableado de campus: cableado de todos los">Clase 07 p.37</a></td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td>los distribuidores de piso al distribuidor del edificio</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=37" title="Cableado vertical: cableado de los distribuidores del">Clase 07 p.37</a></td>
+</tr>
+<tr>
+<td>Horizontal</td>
+<td>el distribuidor de piso a los puestos de usuario</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=37" title="Cableado horizontal: cableado desde el distribuidor de">Clase 07 p.37</a></td>
+</tr>
+<tr>
+<td>De usuario</td>
+<td>el puesto de usuario a los equipos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=37" title="Cableado de usuario: cableado del puesto de usuario a">Clase 07 p.37</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Árbol de elementos funcionales: CD (distribuidor de campus), BD (de edificio), FD (de piso) y TO (toma de usuario). En un edificio chico las funciones de más de un distribuidor pueden combinarse. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=36" title="fig: interrelación de los elementos funcionales CD, BD, FD y TO con cableado de campus, vertical y horizontal">Clase 07 p.36</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=38" title="fig: ejemplo en una configuración de edificio, funciones de más de un distribuidor pueden estar combinadas, BD y FD y CD en un mismo círculo">Clase 07 p.38</a></li>
+<li>Cadena del puesto: switch (1) → patch cord (A) → patch panel (B) → cableado horizontal (2) → toma de usuario (C) → patch cord (D) → computadora (3). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=39" title="fig: 1 Switch, 2 Cableado horizontal, 3 Computadora, A Patch Cord, B Patch Panel, C Toma de usuario, D Patch Cord">Clase 07 p.39</a></li>
+<li>Componentes según el anexo: puestos de trabajo, cableado horizontal, armario de telecomunicaciones o sala intermedia (IDF), cableado vertical o troncal, sala de equipamiento de red o distribución principal (MDF), instalaciones de entrada y documentación. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=4" title="Armario de telecomunicaciones o sala de">Anexo Cableado p.4</a></li>
+<li>Puesto de trabajo: dos bocas con jacks RJ-45 y tomas eléctricas con tierra independiente; el tendido eléctrico va separado del de datos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=5" title="Bocas de telecomunicaciones, dos por puesto,">Anexo Cableado p.5</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=5" title="El tendido electrico debe estar separado del tendido">Anexo Cableado p.5</a></li>
+<li>Documentación: planos con bocas, bandejas y gabinetes. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=11" title="Para la administración y mantenimiento del sistema">Anexo Cableado p.11</a> Sigue con rotulación, terminaciones y cantidad de hilos de FO. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=12" title="Sistema de rotulación. Terminación del cableado horizontal y vertical en">Anexo Cableado p.12</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=12" title="Descripción del cableado vertical, cantidad de hilos de FO.">Anexo Cableado p.12</a></li>
+</ul>
+<p><strong>Cableado horizontal</strong></p>
+<ul>
+<li>Va del armario de red a la toma de usuario, con dos tomas por puesto. Longitud máxima de cable: <strong>90 m</strong>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=40" title="fig: cableado horizontal desde FD a dos TO por puesto, longitud de cable máxima 90 metros">Clase 07 p.40</a></li>
+<li>No se permiten puentes, derivaciones ni empalmes. Se considera la proximidad con el cableado eléctrico (motores, elevadores, transformadores): ANSI/EIA/TIA 569. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="No se permiten puentes, derivaciones y empalmes a">Clase 07 p.41</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="encuentran en el estándar ANSI/EIA/TIA 569.">Clase 07 p.41</a></li>
+<li>Máximo de 100 m «independientemente del tipo de medio»: <span class="arithmatex">\(90+3+7=100\)</span> m, con 3 m de usuario y 7 m de patch panel (verificado con test). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="del tipo de medio de Tx utilizado es 100m">Clase 07 p.41</a> Otros repartos de esos 10 m: Discrepancia 5.</li>
+<li>El anexo recomienda UTP cat. 5e con 90 m máximo, por bandeja aérea, piso técnico, cable canal o cielorraso. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=6" title="Se recomienda cable UTP cat 5e, la máxima">Anexo Cableado p.6</a></li>
+<li>IDF: la interconexión se hace en gabinetes con patch cord de 6 m como máximo. La sala MDF aloja routers, central telefónica, hub, switches, UPS y servidores: «es el corazón de la red». <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=7" title="longitud máxima es de 6 metros.">Anexo Cableado p.7</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=9" title="Es el corazón de la red.">Anexo Cableado p.9</a></li>
+</ul>
+<p><strong>Cableado vertical y salas</strong></p>
+<ul>
+<li>Interconecta armarios de red, sala de equipos y entrada de servicios, con par trenzado o fibra multimodo. Distancias máximas: par trenzado 100 m; fibra MM 62,5/125 µm 2000 m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=47" title="Par trenzado: 100 metros.">Clase 07 p.47</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=47" title="Fibra MM 62.5/125μm: 2000 metros">Clase 07 p.47</a> El anexo: backbone telefónico con multipares. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=8" title="El backbone telefónico se realiza con multipares.">Anexo Cableado p.8</a></li>
+<li>Salas de equipos: aloja los equipos comunes del edificio (central telefónica, video, servidores); solo equipos de telecomunicaciones; se diseña para equipos actuales y futuros. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=48" title="Solo se admiten equipos directamente relacionados">Clase 07 p.48</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=48" title="En su diseño se debe prever tanto para equipos">Clase 07 p.48</a></li>
+<li>Data center: sala de servidores, de comunicaciones, de energía e instalaciones del edificio; la norma TIA 942 regula la armonía entre instalaciones y la confiabilidad esperada (niveles Tier). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=49" title="La norma TIA 942 regula la armonía entre las">Clase 07 p.49</a></li>
+</ul>
+<h3 id="rj45-568a-y-568b-directo-y-cruzado-patch-panel">RJ45, 568A y 568B, directo y cruzado, patch panel<a class="headerlink" href="#rj45-568a-y-568b-directo-y-cruzado-patch-panel" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conector normalizado: RJ45. Pin 1 Transmit +, pin 2 Transmit −, pin 3 Receive +, pin 6 Receive −; pines 4, 5, 7 y 8 «Reserved». <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=42" title="fig: RJ45 pin 1 Transmit +, pin 2 Transmit -, pin 3 Receive +, pin 6 Receive -, pines 4 5 7 y 8 Reserved">Clase 07 p.42</a> Plug (macho) y jack (hembra) en UTP (RJ45) y STP (RJ49). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=5" title="fig: conectores tipo RJ45 y RJ49, conector o plug macho y jack hembra, UTP y STP">Anexo Armado p.5</a></li>
+<li>
+<p>«Hay dos formas de cablear los pines»: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=43" title="Hay dos formas de cablear los pines">Clase 07 p.43</a></p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>T568A</th>
+<th>T568B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>blanco-verde</td>
+<td>blanco-naranja</td>
+</tr>
+<tr>
+<td>2</td>
+<td>verde</td>
+<td>naranja</td>
+</tr>
+<tr>
+<td>3</td>
+<td>blanco-naranja</td>
+<td>blanco-verde</td>
+</tr>
+<tr>
+<td>4</td>
+<td>azul</td>
+<td>azul</td>
+</tr>
+<tr>
+<td>5</td>
+<td>blanco-azul</td>
+<td>blanco-azul</td>
+</tr>
+<tr>
+<td>6</td>
+<td>naranja</td>
+<td>verde</td>
+</tr>
+<tr>
+<td>7</td>
+<td>blanco-marrón</td>
+<td>blanco-marrón</td>
+</tr>
+<tr>
+<td>8</td>
+<td>marrón</td>
+<td>marrón</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=2" title="fig: asignación de colores por pin según EIA TIA 568A y 568B, pines 5 y 4 blanco-azul y azul, 3 y 6 blanco-naranja y naranja en 568A y blanco-verde y verde en 568B, 1 y 2 blanco-verde y verde en 568A y blanco-naranja y naranja en 568B, 7 y 8 blanco-marrón y marrón">Anexo Mediciones p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=12" title="fig: conector RJ45 con pines 1 a 8 cableado en EIA TIA 568A y 568B, en 568A verde y naranja en 1-2 y 3-6 y en 568B naranja y verde">Anexo Armado p.12</a>
+- Lo que cambia entre A y B son los pares de los pines 1-2 y 3-6; los de 4-5 y 7-8 no cambian. La numeración de los pares difiere según la fuente (Discrepancia 3): conviene describir por pines y colores. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=43" title="fig: T568A con pares 1 en pines 1-2, 2 en 3-6, 3 en 4-5, 4 en 7-8 y T568B con pares 2 en 1-2, 3 en 3-6, 1 en 4-5, 4 en 7-8">Clase 07 p.43</a>
+- <strong>Directo:</strong> une cada pin con el mismo pin del otro extremo. <strong>Cruzado:</strong> une 1 con 3, 2 con 6, 3 con 1 y 6 con 2, y deja 4, 5, 7 y 8 directos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=44" title="fig: patch cord derecho con pines 1 a 8 uno a uno, y cruzado con 1 a 3, 2 a 6, 3 a 1, 6 a 2 y 4 5 7 8 directos">Clase 07 p.44</a>
+- Armado: el directo lleva el mismo estándar (A o B) en ambos extremos; el cruzado, 568A en un extremo y 568B en el otro. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=21" title="fig: cable de conexión directa con 568A en ambos extremos o 568B en ambos, y cruzada con 568A en un extremo y 568B en el otro">Anexo Armado p.21</a> Cruce con la tabla de colores (recálculo propio, verificado con test): el color del pin 1 de A (blanco-verde) es el del pin 3 de B, el del 2 (verde) es el del 6, el del 3 es el del 1 y el del 6 es el del 2: es el cruzado de la p.44.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Cable</th>
+<th>Se usa para conectar</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Directo</td>
+<td>router con switch, router con hub, hub con switch, hub con PC, switch con PC</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=45" title="Un cable directo se usa para conectar:">Clase 07 p.45</a></td>
+</tr>
+<tr>
+<td>Cruzado</td>
+<td>router con router, hub con hub, switch con switch, PC con PC, router con PC</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=45" title="Un cable cruzado se usa para conectar:">Clase 07 p.45</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>El anexo de armado pone «Switch a Hub» en el cruzado: Discrepancia 4. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=22" title="fig: cable de conexión cruzada con Switch a Switch, Hub a Hub, Switch a Hub, Router a Router, PC a PC, Router a PC">Anexo Armado p.22</a></li>
+<li>Patch panel: de cobre y modulares, con conectores de cobre o de fibra; el anexo muestra uno de 12 puertos con el cableado detrás. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=46" title="fig: fotos de patch panel de cobre y modulares con conectores de cobre y de fibra">Clase 07 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=19" title="fig: patch panel de 12 puertos y racks con cables de colores terminados en el panel">Anexo Armado p.19</a></li>
+<li>Terminación del plug RJ45 en cuatro pasos (quitar la funda, insertar la ficha, controlar, crimpar). En el jack: quitar unos 2 cm de vaina, destrenzar lo mínimo (nunca más de 13 mm), acomodar los hilos en las clavijas, insertar con herramienta de impacto y controlar. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=14" title="Terminación de un cable con un conector RJ45">Anexo Armado p.14</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=16" title="Acomodar los hilos en las clavijas">Anexo Armado p.16</a></li>
+<li>Rosetas de pared con jack, caja de dos bocas y placas de uno y dos módulos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=14" title="fig: rosetas y pericopios, placa de pared con un jack, roseta abierta con cables y roseta doble azul y roja">Anexo Cableado p.14</a></li>
+</ul>
+<h3 id="mediciones-y-certificacion">Mediciones y certificación<a class="headerlink" href="#mediciones-y-certificacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La certificación se hace con un equipo adecuado para cada categoría. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="La certificación de las instalaciones se hace con un">Clase 07 p.50</a></li>
+<li>Hasta la categoría 5 interesan cinco parámetros: mapa de cableado (concordancia entre pines y pares en ambos extremos), resistencia o impedancia, longitud o retardo, atenuación en dB y NEXT. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="Mapa de cableado: verifica concordancia entre">Clase 07 p.50</a></li>
+<li>Para categorías mayores se mide además FEXT y pérdida de retorno; en 10 Gbps aparece el Alien crosstalk (AXT), entre pares de cables distintos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=53" title="Para categorías mayores se usa trasmisión en paralelo">Clase 07 p.53</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=53" title="ocurre entre pares de diferentes cables.">Clase 07 p.53</a></li>
+<li>La lista completa del anexo de certificación: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=2" title="fig: lista Parámetros de Certificación: Capacidad Marginal, Mapa de Cableado, Resistencia, Longitud, Retardo de Propagación, Diferencia de Retardo, Impedancia, Atenuación, NEXT y FNEXT, ACR, Pérdida de Retorno RL, PSNEXT">Anexo Certificación p.2</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Parámetro</th>
+<th>Qué mide</th>
+<th>Cómo se lee</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mapa de cableado</td>
+<td>las conexiones de los hilos entre extremo lejano y cercano, en los cuatro pares</td>
+<td>si falla, la prueba se detiene con FALLO (se puede parar o seguir)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=4" title="La prueba de mapa de cableado prueba y presenta las conexiones">Anexo Mediciones p.4</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=5" title="la prueba se detiene y se visualiza la pantalla">Anexo Mediciones p.5</a></td>
+</tr>
+<tr>
+<td>Resistencia</td>
+<td>resistencia del bucle de continua de cada par</td>
+<td>PASA si es menor que el límite (para un enlace de 90 m)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=9" title="La prueba de resistencia mide la resistencia del">Anexo Certificación p.9</a></td>
+</tr>
+<tr>
+<td>Longitud</td>
+<td>longitud de cada par; el listado muestra la del par con menor tiempo de propagación</td>
+<td>es común 2 a 5 % de diferencia entre pares; los límites incluyen 10 % extra por la NVP</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=6" title="fig: nota diferencia entre 2 y 5 por ciento en la longitud medida entre pares trenzados; los límites de la prueba de longitud incluyen un 10% adicional para compensar variaciones en la NVP">Anexo Mediciones p.6</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=10" title="La pantalla muestra la longitud del par que tiene el">Anexo Certificación p.10</a></td>
+</tr>
+<tr>
+<td>Retardo de propagación</td>
+<td>tiempo en ns que tarda un pulso en recorrer cada par</td>
+<td>máximo: Discrepancia 7</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=11" title="Los retardos de propagación son los tiempos en">Anexo Certificación p.11</a></td>
+</tr>
+<tr>
+<td>Diferencia de retardo (delay skew)</td>
+<td>diferencia de cada par con el más corto (que muestra 0 ns)</td>
+<td>ver el ejemplo de abajo</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=11" title="La diferencia de retardo son las diferencias en los">Anexo Certificación p.11</a></td>
+</tr>
+<tr>
+<td>Impedancia característica</td>
+<td>la de un cable de longitud infinita; el instrumento la determina en forma aproximada</td>
+<td>anomalía si se refleja el 15 % o más de la señal de prueba; requiere 5 m de cable como mínimo</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=15" title="refleja el 15 % o más de la señal de prueba">Anexo Certificación p.15</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=7" title="Las mediciones de impedancia requieren un cable de cuando menos 5m">Anexo Mediciones p.7</a></td>
+</tr>
+<tr>
+<td>Atenuación</td>
+<td>disminución de la señal a lo largo del cable (pérdida en la resistencia y fuga por el aislante)</td>
+<td>valor más bajo = mejor (10 dB rinde más que 20 dB); crece con la frecuencia</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=16" title="La atenuación es una disminución de la fuerza de">Anexo Certificación p.16</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=7" title="Los valores más bajos de la atenuación corresponden a un mejor">Anexo Mediciones p.7</a></td>
+</tr>
+<tr>
+<td>NEXT (paradiafonía)</td>
+<td>interferencia entre pares medida en el mismo extremo</td>
+<td>valor más alto = menos interferencia; se mide desde ambos extremos</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=52" title="Near end cross talk: es la diafonía o interferencia entre pares,">Clase 07 p.52</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=10" title="Los valores más altos de la NEXT corresponden a menos interferencia">Anexo Mediciones p.10</a></td>
+</tr>
+<tr>
+<td>FEXT</td>
+<td>crosstalk en el extremo donde se recibe</td>
+<td>NEXT mide donde se inyecta la señal</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=19" title="FEXT mide el crosstalk en el extremo donde se recibe la">Anexo Certificación p.19</a></td>
+</tr>
+<tr>
+<td>PSNEXT</td>
+<td>efecto combinado del NEXT de los demás pares sobre cada par</td>
+<td>se calcula a partir de los NEXT</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=16" title="Los resultados de PSNEXT muestran cuanto se ve afectado cada par">Anexo Mediciones p.16</a></td>
+</tr>
+<tr>
+<td>ACR</td>
+<td>diferencia entre NEXT y atenuación, en dB</td>
+<td>alto = NEXT alta y atenuación baja; indica el ancho de banda utilizable</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="un valor alto de ACR corresponde a una NEXT alta y una">Anexo Mediciones p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=21" title="Es el mejor indicador para determinar el ancho de">Anexo Certificación p.21</a></td>
+</tr>
+<tr>
+<td>Pérdida de retorno (RL)</td>
+<td>diferencia entre la potencia transmitida y la de las reflexiones por variaciones de impedancia</td>
+<td>valor alto = impedancias casi iguales</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=15" title="Un valor alto de pérdida de retorno significa que las impedancias">Anexo Mediciones p.15</a></td>
+</tr>
+<tr>
+<td>Capacidad marginal</td>
+<td>menor diferencia entre la medición de un parámetro y su límite</td>
+<td>valores elevados = mejor rendimiento</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=3" title="La capacidad marginal es la menor diferencia">Anexo Certificación p.3</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Fallas del mapa de cableado, según el anexo de certificación: correcto, pares invertidos, pares cruzados, pares divididos, hilos cruzados, corto y abierto. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=4" title="fig: lista Mapa de Cableado: Correcto, Pares Invertidos, Pares Cruzado, Pares Divididos, Hilos Cruzados, Corto, Abierto">Anexo Certificación p.4</a> El anexo de mediciones usa otros nombres: «alambres cruzado» y «pares entremezclados», este último solo detectable con NEXT/FEXT. No se igualan: Discrepancia 12. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=5" title="fig: Tabla 1 pantallas del mapa de cableado: conexionado correcto, alambres cruzado, pares invertidos, pares cruzados, corto circuito entre líneas, línea abierta, pares entremezclados con su descripción">Anexo Mediciones p.5</a></li>
+<li>NEXT par a par: con cuatro pares hay 6 mediciones (A–B, A–C, A–D, B–C, B–D, C–D; verificado con test). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=20" title="fig: NEXT par a par, 6 mediciones entre los pares A B C D tomados de a dos">Anexo Certificación p.20</a> Si falla, el analizador TDX localiza la fuente. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=11" title="podrá utilizar el analizador TDX para encontrar el origen">Anexo Mediciones p.11</a></li>
+<li>NEXT en la práctica: el peor caso es el par de transmisión del conector sobre el de recepción, donde la sensibilidad es mayor. Depende de la mano de obra y del desarmado de las trenzas; lo difícil es ubicar el punto exacto. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=52" title="El peor caso que puede ocurrir es que el par">Clase 07 p.52</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=52" title="La dificultad de la diafonía es el poder determinar el punto exacto">Clase 07 p.52</a></li>
+<li>Interpretación del ACR: el NEXT indica la calidad de los componentes y del trabajo de instalación; el ACR, el máximo ancho de banda utilizable. 10 dB = alta relación señal/ruido; 0 dB = tanto ruido como señal, no se distingue por encima de esa frecuencia. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=24" title="10 dB: Alta relación señal ruido">Anexo Certificación p.24</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=24" title="0 dB: Tanto ruido como señal, no se puede">Anexo Certificación p.24</a> En la comparación de canales (gráfico): Cat 5, ACR = 10 dB a 69 MHz y 0 dB a 115 MHz; Cat 6, 10 dB a 147 MHz y 0 dB a 221 MHz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=25" title="fig: channel performance NEXT par a par, Cat 5 ACR = 10 dB a 69 MHz y ACR = 0 dB a 115 MHz, Cat 6 ACR = 10 dB a 147 MHz y ACR = 0 dB a 221 MHz">Anexo Certificación p.25</a></li>
+<li>Factores que alteran la atenuación: características del cable, materiales y construcción, pérdidas de inserción en terminaciones, reflejos por cambios de impedancia, frecuencia, temperatura, longitud, humedad y envejecimiento. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=51" title="Perdidas de inserción debido a terminaciones y">Clase 07 p.51</a></li>
+<li>Buenas prácticas para no alterar la impedancia: no mezclar cables de impedancias distintas, destrenzar lo mínimo y no doblar en forma aguda (radio de dobleces no mayor que 2,54 cm). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=10" title="No mezcle nunca cables con impedancias características distintas">Anexo Mediciones p.10</a> TDR («radar para cables»): determina longitud e impedancia y localiza fallas con las reflexiones. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="radar para cables ya que involucra al análisis de las reflexiones">Anexo Mediciones p.13</a></li>
+<li>Ruido eléctrico (el instrumento mide el de impulso): lo genera todo dispositivo que varía su tensión (fluorescentes, motores, fotocopiadoras, elevadores); el cable LAN actúa de antena y el coaxil es mucho menos susceptible por la malla a masa. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=9" title="El ruido eléctrico es generado por cualquier dispositivo">Anexo Mediciones p.9</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=9" title="El cable coaxial es mucho menos susceptible al ruido">Anexo Mediciones p.9</a></li>
+</ul>
+<p><strong>NVP y longitud</strong></p>
+<ul>
+<li>NVP: velocidad de la señal por el cable relativa a la de la luz; suele estar entre 60 % y 80 %. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=12" title="por lo general entre el 60% y 80% de la">Anexo Mediciones p.12</a></li>
+<li>El instrumento mide el tiempo de un pulso y calcula la longitud con la NVP, así que la longitud depende de ella. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=12" title="Las mediciones de longitud dependen directamente del valor de la NVP">Anexo Mediciones p.12</a> Con NVP demasiado lenta o cable demasiado largo, Ethernet no detecta colisiones a tiempo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=12" title="Si la NVP de un cable es demasiado lenta o el cable">Anexo Mediciones p.12</a></li>
+<li>La NVP real varía hasta 20 % de lote a lote; se calibra con un tramo conocido de al menos 15 m. El rango del instrumento es de 50,0 % a 99,9 %. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="puede variar hasta en un 20% de lote a lote">Anexo Mediciones p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=19" title="se debe utilizar un cable de al menos 15m de longitud">Anexo Mediciones p.19</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=19" title="El rango de valores de la NVP es de 50,0% a 99,9%">Anexo Mediciones p.19</a></li>
+<li>Ejemplo del anexo, retardos por par: 481, 486, 494 y 484 ns. La diferencia de retardo contra el par más corto (481 ns) es 0, 5, 13 y 3 ns (verificado con test). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=12" title="fig: tiempo de propagación por par 481 ns, 486 ns, 494 ns y 484 ns, máximo 555 ns">Anexo Certificación p.12</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=13" title="fig: diferencia en el retardo delay skew 0 ns con 481 ns, 5 ns con 486 ns, 13 ns con 494 ns y 3 ns con 484 ns">Anexo Certificación p.13</a></li>
+</ul>
+<p><strong>Modelos de enlace a certificar (TSB-67)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Qué incluye</th>
+<th>Longitud máxima</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canal</td>
+<td>todos los cables y conectores de un dispositivo al otro, con los cordones; dos transiciones por extremo</td>
+<td>100 m (horizontal <span class="arithmatex">\(C+D\le90\)</span> m y cordones <span class="arithmatex">\(A+B+E\le10\)</span> m)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=3" title="fig: canal, cableado del enlace y enlace permanente con C conector de roseta y TP punto de transición opcional, máx C más D 90 metros, máx A más B más E 10 metros, longitud máxima del enlace 100 metros">Anexo Mediciones p.3</a></td>
+</tr>
+<tr>
+<td>Enlace básico (TIA 568A)</td>
+<td>una transición por extremo; sin cordones de extensión, pero con los dos cables de prueba de 2 m</td>
+<td>94 m (<span class="arithmatex">\(90+2\cdot2\)</span>, verificado con test)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=3" title="La longitud máxima del Enlace Básico no debe superar los 94 m">Anexo Mediciones p.3</a></td>
+</tr>
+<tr>
+<td>Enlace permanente (ISO 11801 AM2)</td>
+<td>no cuenta los cables de prueba</td>
+<td>90 m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=4" title="estableciendo una longitud máxima del enlace permanente de 90 m">Anexo Mediciones p.4</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La norma TSB-67 (1995) fija el chequeo en campo de UTP cat. 5 ya instalado (TIA-568A): parámetros y método de medición, límites de pase y falla, y exactitud de los instrumentos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=2" title="Los parámetros a medir y método de medición">Anexo Mediciones p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=2" title="los límites de Pase/Falla">Anexo Mediciones p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=2" title="la exactitud y los requerimientos de los instrumentos de">Anexo Mediciones p.2</a> Las tres longitudes (90, 94, 100 m) no se contradicen pero se confunden: Discrepancia 6.</li>
+<li>Procedimiento: identificar el equipo y la codificación impresa en el cable, configurar el instrumento (UTP, cat. 5, norma 568A/B), calibrar la NVP con 15 m del mismo cable, medir con patch cords certificados, analizar el listado y completar la hoja certificadora. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=18" title="Determinar el NVP del cable con un cable de 15 m">Anexo Mediciones p.18</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=19" title="Analizar los valores a colocar en la hoja certificadora">Anexo Mediciones p.19</a></li>
+<li>Informe del instrumento (ejemplo, Cat 5 Basic): resultado PASS, NVP 69,0 %, impedancia con límite 80–120 Ω, longitud con límite 94,0 m, delay skew con límite 50 ns, atenuación con límite 21,6 dB a 100 MHz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=20" title="fig: cuadro de valores del instrumento Test Summary PASS, Test Standard TIA Cat 5 Basic, NVP 69,0%, impedancia límite 80-120, longitud límite 94,0 m con 7,7 y 7,9 m, delay skew límite 50 ns, atenuación límite 21,6 dB a 100 MHz">Anexo Mediciones p.20</a></li>
+<li>Los únicos límites numéricos de certificación en las fuentes son los de ese informe y los gráficos de la clase de certificación, legibles solo en forma aproximada. La tabla de límites TIA 568A del anexo de mediciones (p.4) está anunciada y la página no la trae (sin respuesta oficial). No se toma ningún límite en dB de otro lado.</li>
+</ul>
+<h3 id="cables-submarinos-de-cobre">Cables submarinos de cobre<a class="headerlink" href="#cables-submarinos-de-cobre" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fueron multipares o coaxiles con cubiertas especiales, para tender bajo el mar: 1850 Inglaterra–Europa continental; 1866 Europa–América. Son obsoletos y los reemplazó la fibra. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=55" title="Fueron cables multipares o coaxiles con cubiertas especiales">Clase 07 p.55</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=55" title="Son obsoletos y fueron reemplazados por cables submarinos de">Clase 07 p.55</a></li>
+<li>La guía de onda (p.54) es otro medio guiado de la misma clase; no es cobre y no entra en esta página. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=54" title="fig: guía de onda, piezas rectangular y circular, y propagación en una guía de ondas">Clase 07 p.54</a></li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>TP7 ej. 15 = teoría 5. «Dada una línea telefónica con los siguientes parámetros distribuidos: L = 2 µHy/km, C = 0,058 µF/km. ¿A qué frecuencia la impedancia es resistiva?». <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="¿A qué frecuencia la impedancia es resistiva?">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="C = 0,058 µF / km">Teoría TP7 p.1</a></p>
+<p><strong>Paso 1. Condición.</strong> <span class="arithmatex">\(Z=R+j(X_L-X_C)\)</span> es resistiva cuando <span class="arithmatex">\(Z=R\)</span>, o sea <span class="arithmatex">\(X_L=X_C\)</span>. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="Si es resistiva Z=R lo que implica que XL = XC">RTAS teoría TP7 p.4</a> Las fórmulas de <span class="arithmatex">\(Z\)</span>, <span class="arithmatex">\(X_L\)</span> y <span class="arithmatex">\(X_C\)</span> son las de la diapositiva. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=4" title="fig: circuito con R resistencia y L inductancia en serie, G conductancia y C capacitancia en paralelo, Z = R + j XL menos XC ohms, R = rho l sobre S, XL = w L, Xc = 1 sobre w C">Clase 07 p.4</a></p>
+<p><strong>Paso 2. Despeje.</strong></p>
+<div class="arithmatex">\[\omega L=\frac{1}{\omega C}\ \Rightarrow\ \omega=\frac{1}{\sqrt{LC}}=2\pi f\ \Rightarrow\ f=\frac{1}{2\pi\sqrt{LC}}\]</div>
+<p><strong>Paso 3. Reemplazo.</strong> <span class="arithmatex">\(L=2\cdot10^{-6}\)</span> H y <span class="arithmatex">\(C=0{,}058\cdot10^{-6}\)</span> F, con <span class="arithmatex">\(LC=1{,}16\cdot10^{-13}\ \mathrm{s^2}\)</span> (verificado con test).</p>
+<div class="arithmatex">\[f=\frac{1}{2\pi\sqrt{(0{,}058\cdot10^{-6})(2\cdot10^{-6})}}\approx 467.295\ \text{Hz}\approx 467{,}3\ \text{kHz}\]</div>
+<p>La respuesta oficial imprime «f = 467.295 Hz» (el punto es separador de miles). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="f = 467 . 295 Hz">RTAS teoría TP7 p.4</a> El test recalcula con tolerancia de 2 Hz (la fuente redondea al hertz).</p>
+<p><strong>Paso 4. Verificación (recálculo propio, verificado con test).</strong> A esa frecuencia <span class="arithmatex">\(X_L=X_C\approx5{,}87\ \Omega\)</span>.</p>
+<ul>
+<li>Es el resultado para <strong>1 km</strong> de línea, porque L y C están dados por km; la respuesta oficial no lo aclara. Ninguna fuente da valores típicos de L por km, así que el dato no se contrasta con la realidad (sin respuesta oficial).</li>
+<li>El C del enunciado coincide con la tabla de capacidad mutua para cables de hasta 10 pares (0,058 µF/km). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=16" title="fig: tabla número de pares contra capacidad mutua en microfaradio por km promedio máximo: hasta 10 pares 0,058; más de 10 pares 0,056">Clase 07 p.16</a></li>
+<li>La pregunta 5 no es de las obligatorias (en azul) de la guía de teoría; solo lo es la 3. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="fig: la pregunta 3 sobre categorización de cables UTP en azul como obligatoria; las preguntas 1 2 4 y 5 en negro">Teoría TP7 p.1</a></li>
+</ul>
+<p><strong>Ejemplo propio: longitud a partir de la NVP.</strong> El informe de la p.20 del anexo trae NVP 69,0 % y retardos de 37 a 38 ns, con longitudes de 7,7 y 7,9 m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=20" title="fig: cuadro de valores del instrumento Test Summary PASS, Test Standard TIA Cat 5 Basic, NVP 69,0%, impedancia límite 80-120, longitud límite 94,0 m con 7,7 y 7,9 m, delay skew límite 50 ns, atenuación límite 21,6 dB a 100 MHz">Anexo Mediciones p.20</a> Con <span class="arithmatex">\(c=300.000.000\)</span> m/s: <span class="arithmatex">\(0{,}690\cdot3\cdot10^{8}\cdot37\cdot10^{-9}\approx7{,}66\)</span> m y con 38 ns, <span class="arithmatex">\(7{,}87\)</span> m. Coinciden con lo impreso, redondeado a una decimal (recálculo propio, verificado con test; el informe no imprime la cuenta).</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>90, 94 y 100 m son tres longitudes de tres modelos.</strong> 90 m: horizontal y enlace permanente. 94 m: enlace básico (90 más dos cables de prueba de 2 m). 100 m: canal o horizontal completo (90 + 3 + 7). Nombrá siempre a qué modelo te referís. Discrepancias 5 y 6. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=3" title="La longitud máxima del Enlace Básico no debe superar los 94 m">Anexo Mediciones p.3</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>«Iguales = cruzado» no alcanza: usá la lista de la p.45.</strong> Switch con switch, hub con hub, PC con PC y router con router llevan cruzado, pero también router con PC. Router con hub y router con switch llevan directo. Hub con switch: la clase dice directo y el anexo de armado, cruzado (Discrepancia 4). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=45" title="Un cable cruzado se usa para conectar:">Clase 07 p.45</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Cruzado = 568A en un extremo y 568B en el otro; directo = el mismo estándar en ambos.</strong> Solo se intercambian los pares de los pines 1-2 y 3-6. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=21" title="fig: cable de conexión directa con 568A en ambos extremos o 568B en ambos, y cruzada con 568A en un extremo y 568B en el otro">Anexo Armado p.21</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Atenuación baja es buena; NEXT alto es bueno.</strong> En el anexo, a mayor NEXT menos interferencia, y 10 dB de atenuación rinden más que 20 dB. La teoría de la información define el NEXT con signo negativo (Discrepancia 11). Con la convención positiva del anexo, ACR = NEXT − atenuación crece cuando mejora el cable. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=10" title="Los valores más altos de la NEXT corresponden a menos interferencia">Anexo Mediciones p.10</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="un valor alto de ACR corresponde a una NEXT alta y una">Anexo Mediciones p.13</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>No calcules el ACR con la tabla de la p.32.</strong> La tabla trae «Pérdida ACRF», no ACR, y las notas (1) y (2) de atenuación, NEXT, ACRF y pérdida de retorno no figuran (sin respuesta oficial): no se sabe a qué frecuencia ni longitud valen. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="fig: tabla categoría y clases 5e/D 6/E 6A/EA 7/F 7A/FA: frecuencia 1-100, 1-250, 1-500, 1-600, 1-1000 MHz; atenuación 24, 21,3/21,7, 20,9, 20,8, 20,3; NEXT 30,1, 39,9, 39,9, 62,9, 65; ACRF 17,4, 23,3, 23,3/25,5, 44,4, 47,4; pérdida de retorno 10, 12, 12, 12, 12; delay 548 ns en todas">Clase 07 p.32</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>NEXT y FEXT no son lo mismo.</strong> NEXT mide el crosstalk en el extremo donde se inyecta la señal; FEXT, en el extremo donde se recibe. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=19" title="NEXT mide el crosstalk en el extremo donde se inyecta la">Anexo Certificación p.19</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>La frecuencia del ej. 15 vale para 1 km y la impedancia no es «la del UTP».</strong> Con L y C por km, <span class="arithmatex">\(f=467{,}3\)</span> kHz corresponde a 1 km. Y la impedancia del UTP no tiene valor único en las diapositivas: 120 en la ficha de la p.6, «100 Ohm» en el informe del anexo (Discrepancia 9). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=6" title="fig: ficha cable UTP categoría 6A 4 x 2 x 23 awg, resistencia 78 ohm por km, desbalance de capacidad 3 pF por m, velocidad de propagación 68 por ciento, impedancia 120">Clase 07 p.6</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Para el ej. 13 y el 14 no uses la respuesta oficial sin leer las discrepancias.</strong> La del ej. 14 trata «Internet Simétrico», no líneas balanceadas, y la del ej. 13 contradice las diapositivas en categorías (Discrepancias 1 y 2). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="El servicio de Internet Simétrico es una conexión a Internet">RTAS teoría TP7 p.3</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>TP7 de teoría = <code>GUIA-TP-07-Teoria-Preguntas</code> (sus respuestas oficiales están en <code>GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS</code>). <code>Clase-TP-07-RTAS</code> no resuelve el ej. 13 al 15 (resuelve el ej. 1 al 10).</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP7 ej. 13 = teoría 3 (la única obligatoria)</td>
+<td>«¿Qué objetivo persigue la categorización de los distintos tipos constructivos de cable UTP?, ¿Qué categorías conoce?, mencione las principales características de cada una.» <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="constructivos de cable UTP?, ¿Qué categorías conoce?, mencione las">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="Qué objetivo persigue la categorización de los distintos tipos">Teoría TP7 p.1</a></td>
+<td>Oficial: cada categoría especifica atenuación, capacidad de la línea e impedancia. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="capacidad de la línea e impedancia">RTAS teoría TP7 p.2</a> Categorías y características: usá las tablas de la clase (p.31, 32 y 34, arriba) y no la lista oficial, que las contradice (Discrepancia 2).</td>
+</tr>
+<tr>
+<td>TP7 ej. 14 = teoría 4</td>
+<td>«Indicar las diferencias entre los enlaces balanceados o simétricos y los desbalanceados o asimétricos.» <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="Indicar las diferencias entre los enlaces balanceados o simétricos">Teoría TP7 p.1</a></td>
+<td>La respuesta oficial no la responde (Discrepancia 1). Armada con las diapositivas, solo el lado balanceado: «se anula la corriente de inducción» y, en el par trenzado, corrientes opuestas con campos que se anulan. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="se anula la corriente de inducción">Clase 07 p.5</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=9" title="Las interferencias externas se cancelan entre los dos hilos">Clase 07 p.9</a> El desbalanceado no está definido en las diapositivas (sin respuesta oficial). Nivel 3: libro, simétrica o balanceada: el retorno no es ninguno de los dos hilos de datos y alcanza mayores velocidades; asimétrica o desbalanceada: un conductor por sentido y retorno por tierra común (ejemplos RS 423 y cable coaxil). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=475" title="Transmisión simétrica o balanceada">Libro p.475</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=475" title="Tenemos como ejemplo la Recomendación RS 423 o el cable coaxial.">Libro p.475</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 15 = teoría 5</td>
+<td>Z resistiva, L = 2 µHy/km y C = 0,058 µF/km</td>
+<td>Resuelto arriba: <span class="arithmatex">\(f\approx467{,}3\)</span> kHz.</td>
+</tr>
+<tr>
+<td>Final 2020-12, T3 n.3</td>
+<td>«¿Cuáles son los aspectos más relevantes a medir en el cableado estructurado?» <a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Cuáles son los aspectos más relevantes a medir en el cableado estructurado">Final 2020-12 p.1</a></td>
+<td>Sin respuesta oficial. Respuesta armada con las diapositivas: mapa de cableado, resistencia o impedancia, longitud o retardo, atenuación y NEXT (hasta cat. 5), más FEXT, pérdida de retorno, ACR, PSNEXT y diferencia de retardo (anexos), y AXT en 10 Gbps. Ninguna fuente prioriza «los más relevantes» (Discrepancia 13). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="Hasta la categoría 5 nos interesan:">Clase 07 p.50</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=53" title="Pérdidas de retorno: medida de desadaptación">Clase 07 p.53</a></td>
+</tr>
+<tr>
+<td>Final 2021-02, T3 n.3</td>
+<td>La misma pregunta. <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Cuáles son los aspectos más relevantes a medir en el cableado estructurado">Final 2021-02 p.1</a></td>
+<td>Sin respuesta oficial; la misma respuesta armada.</td>
+</tr>
+</tbody>
+</table>
+<p>No hay ejercicio de cátedra con datos numéricos sobre categorías, 568A/B, patch panel ni NEXT/ACR (sin respuesta oficial): solo preguntas de teoría.</p>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿A qué frecuencia es resistiva la impedancia de una línea con L = 2 µH/km y C = 0,058 µF/km?</summary>
+<p><span class="arithmatex">\(f=1/(2\pi\sqrt{LC})\approx467{,}3\)</span> kHz, para 1 km de línea. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=4" title="f = 467 . 295 Hz">RTAS teoría TP7 p.4</a></p>
+</details>
+<details class="question">
+<summary>¿Por qué trenzar los dos hilos de un par reduce el ruido?</summary>
+<p>Las corrientes van en sentido contrario y crean campos opuestos que se anulan; las interferencias externas se cancelan entre los hilos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=9" title="Las interferencias externas se cancelan entre los dos hilos">Clase 07 p.9</a></p>
+</details>
+<details class="question">
+<summary>¿Qué impedancia tiene el coaxil para televisión y cuál para datos?</summary>
+<p>75 Ω para televisión y video; 50 Ω para datos y radio. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=21" title="fig: tabla impedancia en ohms y uso: 75 televisión video, 50 datos radio">Clase 07 p.21</a></p>
+</details>
+<details class="question">
+<summary>¿Cuánto vale el horizontal y cuánto el enlace completo, y cómo se reparte?</summary>
+<p>Cable horizontal de 90 m; enlace de 100 m: 90 + 3 m de usuario + 7 m de patch panel. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="90 m + 3 m usuario + 7 m patch panel">Clase 07 p.41</a></p>
+</details>
+<details class="question">
+<summary>¿Qué cable usás para unir dos switches y cuál para un switch con una PC?</summary>
+<p>Switch con switch: cruzado (1↔3, 2↔6). Switch con PC: directo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=45" title="Switch con una PC.">Clase 07 p.45</a></p>
+</details>
+<details class="question">
+<summary>¿Qué diferencia hay entre T568A y T568B y cómo se arma un cruzado?</summary>
+<p>Cambian los pares de los pines 1-2 y 3-6 (verde y naranja); los de 4-5 y 7-8 son iguales. El cruzado lleva 568A en un extremo y 568B en el otro. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=21" title="fig: cable de conexión directa con 568A en ambos extremos o 568B en ambos, y cruzada con 568A en un extremo y 568B en el otro">Anexo Armado p.21</a></p>
+</details>
+<details class="question">
+<summary>Nombrá los parámetros que se miden al certificar un cableado hasta categoría 5.</summary>
+<p>Mapa de cableado, resistencia o impedancia, longitud o retardo, atenuación y NEXT. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="Hasta la categoría 5 nos interesan:">Clase 07 p.50</a></p>
+</details>
+<details class="question">
+<summary>¿Qué es el ACR y qué indica?</summary>
+<p>La diferencia entre NEXT y atenuación, en dB. Un valor alto indica NEXT alta y atenuación baja, y es el mejor indicador del ancho de banda disponible. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="es la diferencia entre el NEXT en decibeles y la">Anexo Mediciones p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=21" title="Es el mejor indicador para determinar el ancho de">Anexo Certificación p.21</a></p>
+</details>
+<details class="question">
+<summary>¿Para qué sirve la NVP y por qué se calibra?</summary>
+<p>El instrumento calcula la longitud con la NVP; esta varía hasta 20 % de lote a lote, por eso se calibra con un tramo conocido de al menos 15 m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=13" title="puede variar hasta en un 20% de lote a lote">Anexo Mediciones p.13</a></p>
+</details>
+<details class="question">
+<summary>¿Cuáles son los retardos de propagación de 481, 486, 494 y 484 ns expresados como diferencia de retardo?</summary>
+<p>0, 5, 13 y 3 ns, contra el par más corto (481 ns). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=13" title="fig: diferencia en el retardo delay skew 0 ns con 481 ns, 5 ns con 486 ns, 13 ns con 494 ns y 3 ns con 484 ns">Anexo Certificación p.13</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de <code>Clase 07</code> (jerarquía 2). Las 1 y 2 son las obligatorias.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>La respuesta oficial del ej. 14 no responde la pregunta</td>
+<td>La pregunta es por enlaces balanceados y desbalanceados. La respuesta oficial desarrolla «Internet Simétrico» (descarga igual a la subida). La diapositiva dice «se anula la corriente de inducción». El libro (nivel 3) da la definición correcta. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="El servicio de Internet Simétrico es una conexión a Internet">RTAS teoría TP7 p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="Indicar las diferencias entre los enlaces balanceados o simétricos">Teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=5" title="se anula la corriente de inducción">Clase 07 p.5</a></td>
+<td>La diapositiva, más el libro rotulado como nivel 3.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>La respuesta oficial del ej. 13 contradice las diapositivas</td>
+<td>Oficial: Cat. 6 «no está estandarizada»; la diapositiva la incluye (6 / E, 1–250 MHz, «especialmente diseñada para 1 Gbps»). Oficial: Cat. 5e «velocidad de transmisión de 1000Mhz» y sin normas; la diapositiva: 5e/D de 1–100 MHz, «algunas aplicaciones a 1 Gbps». También difieren Cat. 1 (oficial «hasta 4 Mbps»; diapositiva «no apto para datos»), Cat. 3 (16 contra 10 Mbps), Cat. 4 (20 contra 16 Mbps) y Cat. 7 (oficial «no está definida»; diapositiva 7 / F, 1–600 MHz, 10 Gbps). Coinciden en 5 (100 Mbps), 6 (250 MHz) y 7 (600 MHz) como anchos de banda. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="Categoría 6: No está estandarizada aunque ya se está utilizando">RTAS teoría TP7 p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="La velocidad de transmisión es de 1000Mhz">RTAS teoría TP7 p.3</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="Categoría 3: Es utilizado en redes de ordenadores de hasta 16 Mbps">RTAS teoría TP7 p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="Categoría 6: especialmente diseñada para 1 Gbps">Clase 07 p.32</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=31" title="telefonía analógica, no apto para datos">Clase 07 p.31</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=34" title="fig: tabla UTP velocidad de transmisión máxima y uso: 1 voz; 2 4 Mbps voz y datos; 3 10 Mbps; 4 16 Mbps; 5 100 Mbps; 6 1 Gbps; 7 10 Gbps">Clase 07 p.34</a> Los valores de la respuesta oficial (tabla de atenuación por velocidad y de distancias máximas, en imagen) no tienen respaldo en las diapositivas. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=3" title="fig: tabla velocidad de transmisión y nivel de atenuación: 4 Mbps 13 dB, 10 Mbps 20 dB, 16 Mbps dB 25, 100 Mbps dB 67">RTAS teoría TP7 p.3</a></td>
+<td>Las diapositivas.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Numeración de los pares en 568A</td>
+<td><code>Clase 07</code> p.43: en 568A, par 1 en pines 1-2, par 2 en 3-6, par 3 en 4-5 y par 4 en 7-8. El anexo de mediciones (p.2): en 568A, par 1 en 5/4, par 2 en 3/6 y par 3 en &frac12;. En 568B coinciden. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=43" title="fig: T568A con pares 1 en pines 1-2, 2 en 3-6, 3 en 4-5, 4 en 7-8 y T568B con pares 2 en 1-2, 3 en 3-6, 1 en 4-5, 4 en 7-8">Clase 07 p.43</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=2" title="fig: asignación de colores por pin según EIA TIA 568A y 568B, pines 5 y 4 blanco-azul y azul, 3 y 6 blanco-naranja y naranja en 568A y blanco-verde y verde en 568B, 1 y 2 blanco-verde y verde en 568A y blanco-naranja y naranja en 568B, 7 y 8 blanco-marrón y marrón">Anexo Mediciones p.2</a></td>
+<td>La p.43; la página describe por pines y colores.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hub con switch: ¿directo o cruzado?</td>
+<td>La clase lo pone en el directo («Hub con un Switch»). El anexo de armado pone «Switch a Hub» en el cruzado. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=45" title="Un cable directo se usa para conectar:">Clase 07 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=22" title="fig: cable de conexión cruzada con Switch a Switch, Hub a Hub, Switch a Hub, Router a Router, PC a PC, Router a PC">Anexo Armado p.22</a></td>
+<td>La clase (p.45): directo.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reparto de los 10 m de patch cords sobre los 90 m del horizontal</td>
+<td>Clase p.41: 3 m de usuario y 7 m de patch panel. Anexo de cableado p.7: patch cord de 6 m como máximo. Anexo de armado p.20: cable de conexión de 5 m y cable de estación de 5 m. Anexo de mediciones p.3: <span class="arithmatex">\(A+B+E\le10\)</span> m. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="90 m + 3 m usuario + 7 m patch panel">Clase 07 p.41</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Cableado.pdf#page=7" title="longitud máxima es de 6 metros.">Anexo Cableado p.7</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Armado-de-cables.pdf#page=20" title="fig: tipos de cableado con cable de conexión de 5 metros, cableado horizontal de 90 metros y cable de estación de trabajo de 5 metros, conexión directa">Anexo Armado p.20</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=3" title="fig: canal, cableado del enlace y enlace permanente con C conector de roseta y TP punto de transición opcional, máx C más D 90 metros, máx A más B más E 10 metros, longitud máxima del enlace 100 metros">Anexo Mediciones p.3</a></td>
+<td>La clase (3 + 7); las otras se mencionan.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Tres longitudes máximas: 90, 94 y 100 m</td>
+<td>No se contradicen: 90 m es el horizontal y el enlace permanente (ISO 11801 AM2), 94 m el enlace básico (TIA 568A, con dos cables de prueba de 2 m) y 100 m el canal («independientemente del tipo de medio»). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=3" title="La longitud máxima del Enlace Básico no debe superar los 94 m">Anexo Mediciones p.3</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=4" title="estableciendo una longitud máxima del enlace permanente de 90 m">Anexo Mediciones p.4</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=41" title="del tipo de medio de Tx utilizado es 100m">Clase 07 p.41</a></td>
+<td>Cada longitud con su modelo.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Retardo de propagación máximo: 548 o 555 ns</td>
+<td>La tabla de la p.32 da 548 ns en todas las categorías; el anexo de certificación rotula «Max 555 ns». Ninguna indica el modelo de enlace. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=32" title="fig: tabla categoría y clases 5e/D 6/E 6A/EA 7/F 7A/FA: frecuencia 1-100, 1-250, 1-500, 1-600, 1-1000 MHz; atenuación 24, 21,3/21,7, 20,9, 20,8, 20,3; NEXT 30,1, 39,9, 39,9, 62,9, 65; ACRF 17,4, 23,3, 23,3/25,5, 44,4, 47,4; pérdida de retorno 10, 12, 12, 12, 12; delay 548 ns en todas">Clase 07 p.32</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=12" title="fig: tiempo de propagación por par 481 ns, 486 ns, 494 ns y 484 ns, máximo 555 ns">Anexo Certificación p.12</a></td>
+<td>La p.32; se citan ambos y no se elige.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Rótulos de pares y erratas del anexo de certificación</td>
+<td>En la p.12 los pares se rotulan 1-2, 3-4, 5-6, 7-8; en la p.13, 1-2, 3-6, 4-5, 7-8 (coincide con el cableado real). En la p.19 el texto dice «FEXT … (extremo lejano, Near End)»: debería decir Far End. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=13" title="fig: diferencia en el retardo delay skew 0 ns con 481 ns, 5 ns con 486 ns, 13 ns con 494 ns y 3 ns con 484 ns">Anexo Certificación p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=19" title="FEXT mide el crosstalk en el extremo donde se recibe la">Anexo Certificación p.19</a></td>
+<td>Pares 1-2, 3-6, 4-5, 7-8; FEXT en el extremo donde se recibe.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Impedancia del UTP</td>
+<td>La ficha de la p.6 (UTP cat. 6A) imprime 120. El informe del instrumento dice «UTP 100 Ohm» con límite 80–120 Ω. La tabla de la p.34 da 120 Ω para FTP, SFTP y SSTP y 150 Ω para STP, sin fila para UTP. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=6" title="fig: ficha cable UTP categoría 6A 4 x 2 x 23 awg, resistencia 78 ohm por km, desbalance de capacidad 3 pF por m, velocidad de propagación 68 por ciento, impedancia 120">Clase 07 p.6</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=20" title="fig: cuadro de valores del instrumento Test Summary PASS, Test Standard TIA Cat 5 Basic, NVP 69,0%, impedancia límite 80-120, longitud límite 94,0 m con 7,7 y 7,9 m, delay skew límite 50 ns, atenuación límite 21,6 dB a 100 MHz">Anexo Mediciones p.20</a></td>
+<td>Sin valor único para el UTP.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Tabla de coaxiles con encabezado repetido</td>
+<td>En la p.24 las seis columnas de atenuación están rotuladas todas «1000». Los valores de RG 213/U coinciden con las frecuencias 10, 50, 100, 200, 400 y 1000 MHz del enunciado del TP7 ej. 1. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=24" title="fig: tabla coaxial tipo con impedancia 50, capacidad 101 pF/m, velocidad 66 por ciento, tensión máxima kV y atenuación a 20 grados dB/100m, fila RG 213/U 2,00 4,9 7,0 10,5 15,5 26,0">Clase 07 p.24</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="fig: tabla frecuencia de operación en MHz 10 50 100 200 400 1000 y atenuación RG 213 en dB/100m 2 4.9 7 10.5 15.5 26">TP7 p.1</a></td>
+<td>Las frecuencias solo con la cita del enunciado.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Signo y forma del NEXT</td>
+<td><code>Clase 06</code> p.49: NEXT [dB] = 10 log(P2/P1) y «lo ideal es una diafonía infinitamente negativa». <code>Clase 07</code> p.52: 10 log (Pot par tx / Pot par rx); el anexo: valores más altos = menos interferencia (convención positiva). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-06-Teoria-de-la-Informacion.pdf#page=49" title="fig: RUIDO diafonía, NEXT dB = 10log P2/P1, lo ideal es una diafonía infinitamente negativa con P2 = 0">Clase 06 p.49</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=52" title="Se calcula como 10 log">Clase 07 p.52</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=10" title="Los valores más altos de la NEXT corresponden a menos interferencia">Anexo Mediciones p.10</a></td>
+<td><code>Clase 07</code> para cableado; se enlaza con P10.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Nombres de las fallas del mapa de cableado</td>
+<td>El anexo de certificación usa «pares divididos» e «hilos cruzados»; el de mediciones, «alambres cruzado» y «pares entremezclados». Ninguna fuente dice que sean sinónimos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Certificacion.pdf#page=4" title="fig: lista Mapa de Cableado: Correcto, Pares Invertidos, Pares Cruzado, Pares Divididos, Hilos Cruzados, Corto, Abierto">Anexo Certificación p.4</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Anexo-Mediciones-y-certificaciones.pdf#page=5" title="fig: Tabla 1 pantallas del mapa de cableado: conexionado correcto, alambres cruzado, pares invertidos, pares cruzados, corto circuito entre líneas, línea abierta, pares entremezclados con su descripción">Anexo Mediciones p.5</a></td>
+<td>Cada término con su fuente, sin igualarlos.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Alcance de la lista de mediciones</td>
+<td><code>Clase 07</code> p.50 enumera cinco medidas «hasta la categoría 5» y deja afuera el ACR y la pérdida de retorno, que aparecen en la p.53 y en los anexos. No se contradicen, pero la pregunta de final no dice a qué categoría se refiere. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=50" title="Hasta la categoría 5 nos interesan:">Clase 07 p.50</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=53" title="Pérdidas de retorno: medida de desadaptación">Clase 07 p.53</a></td>
+<td>La respuesta combina la p.50 con la p.53 y los anexos.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../u6/03-correccion-errores.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Corrección de errores: ARQ, FEC y código de Hamming">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Corrección de errores: ARQ, FEC y código de Hamming
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./02-fibra-optica.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Fibra óptica">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Fibra óptica
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

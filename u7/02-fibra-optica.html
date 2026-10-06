@@ -1,0 +1,2772 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./01-cobre-cableado.html">
+      
+      
+        <link rel="next" href="./03-no-guiados.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Fibra óptica - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fibra-optica" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fibra óptica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="02-fibra-optica.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construccion-y-principio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Construcción y principio
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cono-de-aceptacion-y-apertura-numerica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cono de aceptación y apertura numérica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-fibra-y-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de fibra y parámetros
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atenuacion-y-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Atenuación y ventanas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perdidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pérdidas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion-del-pulso-y-ancho-de-banda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispersión del pulso y ancho de banda
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emisores-y-fotodetectores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Emisores y fotodetectores
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesorios-empalmes-conectores-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Accesorios, empalmes, conectores y alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cables-submarinos-e-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cables submarinos e instalación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tp7-ej-11-teoria-1-frecuencia-de-las-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TP7 ej. 11 = teoría 1: frecuencia de las ventanas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion-y-ancho-de-banda-libro-ejemplo-5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispersión y ancho de banda (libro, ejemplo 5-5)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apertura-numerica-libro-ejercicio-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Apertura numérica (libro, ejercicio 14)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ancho-de-banda-disponible-tp7-ej-10-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ancho de banda disponible (TP7 ej. 10 b)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construccion-y-principio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Construcción y principio
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cono-de-aceptacion-y-apertura-numerica" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cono de aceptación y apertura numérica
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-fibra-y-parametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Tipos de fibra y parámetros
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atenuacion-y-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Atenuación y ventanas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perdidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pérdidas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion-del-pulso-y-ancho-de-banda" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispersión del pulso y ancho de banda
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emisores-y-fotodetectores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Emisores y fotodetectores
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesorios-empalmes-conectores-y-alcance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Accesorios, empalmes, conectores y alcance
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cables-submarinos-e-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Cables submarinos e instalación
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tp7-ej-11-teoria-1-frecuencia-de-las-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        TP7 ej. 11 = teoría 1: frecuencia de las ventanas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispersion-y-ancho-de-banda-libro-ejemplo-5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Dispersión y ancho de banda (libro, ejemplo 5-5)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apertura-numerica-libro-ejercicio-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Apertura numérica (libro, ejercicio 14)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ancho-de-banda-disponible-tp7-ej-10-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ancho de banda disponible (TP7 ej. 10 b)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-cobre-cableado.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U7
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="fibra-optica">Fibra óptica<a class="headerlink" href="#fibra-optica" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U7 · medios guiados de comunicaciones (fibra óptica).
+Alcance del 2.º parcial: inferido (U6 en adelante), no confirmado por la cátedra.</p>
+<ul>
+<li>Del TP7, esta página cubre el ej. 11 (ventanas), que en la guía de teoría es el ej. 1 y no es de los obligatorios. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="primera, segunda y tercera ventana en que trabajan las fibras ópticas">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="Las preguntas en azul son las obligatorias">Teoría TP7 p.1</a></li>
+<li>Del ej. 10, esta página cubre solo el inciso b (ancho de banda disponible). El enlace con carretes y empalmes está en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a> y no se repite. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Calcular el ancho de banda disponible">TP7 p.2</a></li>
+<li>El cobre y los demás medios guiados están en <a href="01-cobre-cableado.html">Cobre y cableado estructurado</a>.</li>
+<li>Preguntas de examen: causas de pérdidas en la fibra (tres exámenes) y dispersión modal y cromática (uno). <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Cuáles son las causas de pérdidas en las Fibras Ópticas">Final 2019-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Cuáles son las causas de pérdidas en las Fibras Ópticas">Final 2021-02 p.1</a>, <a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Explique cuales son las perdidas en las Fibras Ópticas">Parcial 2022 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Explique los fenómenos de dispersión modal y cromática en las FO">Final 2023-02 p.1</a></li>
+<li>nota teoria 2026-09-01 08:21 PM: "dentro de esas ventanas hay bandas" (énfasis de la clase de multiplexión; la diapositiva de WDM dibuja las bandas O, E, S, C, L y U). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=53" title="fig: bandas O, E, S, C, L y U con límites 1260, 1360, 1460, 1530, 1565, 1625 y 1675 nm">Clase 10 p.53</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=54" title="multiplexar la longitud de onda inicialmente en ocho">Clase 10 p.54</a></li>
+<li>nota teoria 2026-09-01 08:23 PM: "Tengo que saber en qué ventana Está y en qué banda"</li>
+<li>nota practica 2026-09-30 08:20 PM: "nos vamos a olvidar el ancho de banda y todo esto" (dicho sobre el ej. 10). En el turno de las 08:21 PM el docente excluye el inciso b del 1.er parcial: nota practica 2026-09-30 08:21 PM: "olvídense del B no me importa". No dice si entra en el 2.º.</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>La fibra es un hilo de vidrio que guía luz infrarroja por <strong>reflexión total</strong>: el núcleo tiene índice <span class="arithmatex">\(n_1\)</span> mayor que el del revestimiento <span class="arithmatex">\(n_2\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=58" title="fig: n = C/Vp y n1 &gt; n2 junto al corte del cable con protección de polietileno, recubrimiento n2 y núcleo n1">Clase 07 p.58</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=60" title="por el fenómeno de reflexión total">Clase 07 p.60</a></li>
+<li>Tres tipos: monomodo (10 GHz·km), multimodo de índice gradual (100/1000 MHz·km) y de índice escalón (50 MHz·km). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=66" title="fig: rótulos 50 MHz . km multimodo índice escalón, 100/1000 MHz . km índice gradual, 10 GHz . km monomodo">Clase 07 p.66</a></li>
+<li>Se transmite en tres <strong>ventanas</strong> de atenuación mínima: 850, 1300 y 1550 nm. La atenuación de cátedra es 0,2 dB/km (monomodo) y 0,4 dB/km (multimodo). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=79" title="ventana 2: 1300 nm">Clase 07 p.79</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="0,2 dB/km para fibras monomodo">Clase 07 p.72</a></li>
+<li>Cinco tipos de pérdida: dispersión modal, dispersión cromática, absorción y radiación, acoplamiento y dispersión de Rayleigh. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=78" title="fig: lista Pérdidas en FO: dispersión modal, dispersión cromática, absorción y radiación, acoplamiento, dispersión de Rayleigh">Clase 07 p.78</a></li>
+<li>La dispersión ensancha el pulso y limita el ancho de banda, que se da en GHz·km: disminuye con la distancia. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=74" title="Este proceso limita el ancho de banda de la fibra">Clase 07 p.74</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Índice de refracción</td>
+<td><span class="arithmatex">\(n=c/V_p\)</span>, con <span class="arithmatex">\(n_1&gt;n_2\)</span> (núcleo <span class="arithmatex">\(n_1\)</span>, revestimiento <span class="arithmatex">\(n_2\)</span>)</td>
+<td>sin unidad</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=58" title="fig: n = C/Vp y n1 &gt; n2 junto al corte del cable con protección de polietileno, recubrimiento n2 y núcleo n1">Clase 07 p.58</a></td>
+</tr>
+<tr>
+<td>Ley de Snell</td>
+<td><span class="arithmatex">\(n_1\sin\theta_1=n_2\sin\theta_2\)</span></td>
+<td>°</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=61" title="n1 . sen θ1 = n2 . senθ2">Clase 07 p.61</a></td>
+</tr>
+<tr>
+<td>Límite de la reflexión total (<span class="arithmatex">\(\theta_2=90^\circ\)</span>)</td>
+<td><span class="arithmatex">\(\sin\theta_1=n_2/n_1\)</span></td>
+<td>sin unidad</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=436" title="fig: (5-18) θ2 = 90°, (5-20) n1 sen θ1 = n2 y (5-21) sen θ1 = n2 sobre n1">Libro p.436</a></td>
+</tr>
+<tr>
+<td>Ángulo de apertura (nivel 3)</td>
+<td><span class="arithmatex">\(\theta=\arcsin\sqrt{n_1^2-n_2^2}\)</span> (5-24)</td>
+<td>°</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="fig: (5-24) θ = arc sen raíz de n1 al cuadrado menos n2 al cuadrado, (5-25) NA = sen θ, (5-26) NA = raíz de n1 al cuadrado menos n2 al cuadrado">Libro p.438</a></td>
+</tr>
+<tr>
+<td>Apertura numérica (nivel 3)</td>
+<td><span class="arithmatex">\(NA=\sin\theta=\sqrt{n_1^2-n_2^2}\)</span> (5-25) y (5-26)</td>
+<td>sin unidad</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="fig: (5-24) θ = arc sen raíz de n1 al cuadrado menos n2 al cuadrado, (5-25) NA = sen θ, (5-26) NA = raíz de n1 al cuadrado menos n2 al cuadrado">Libro p.438</a></td>
+</tr>
+<tr>
+<td>Frecuencia de una longitud de onda</td>
+<td><span class="arithmatex">\(f=c/\lambda\)</span>, con <span class="arithmatex">\(c=3\cdot10^{8}\)</span> m/s</td>
+<td>Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="= 3 108 / 850 10-9 = 3,5 1014 Hz">RTAS teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="velocidad de 300.000 km/s = 3 x 108 m/s">Clase 08 p.5</a></td>
+</tr>
+<tr>
+<td>Ancho de banda de la fibra</td>
+<td><span class="arithmatex">\(\Delta f=f_2-f_1\)</span>, entre los puntos de −3 dB (5-27)</td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="los denominados puntos de - 3 dB">Libro p.439</a></td>
+</tr>
+<tr>
+<td>Dispersión del pulso</td>
+<td><span class="arithmatex">\(\delta t=\sqrt{t_2^2-t_1^2}\)</span>, en ns a 1 km (5-30)</td>
+<td>ns</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=440" title="Dispersión en nanosegundos del pulso a un kilómetro de distancia">Libro p.440</a></td>
+</tr>
+<tr>
+<td>Ancho de banda por dispersión</td>
+<td><span class="arithmatex">\(\Delta f_1=0{,}44/\delta t\)</span> (5-29)</td>
+<td>GHz/km (la cátedra: GHz·km)</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=440" title="Para calcular el ancho de banda, se utiliza la siguiente expresión práctica">Libro p.440</a></td>
+</tr>
+<tr>
+<td>Ancho de banda disponible de un enlace</td>
+<td><span class="arithmatex">\(AB=\dfrac{\text{valor en GHz·km}}{L\,[\text{km}]}\)</span></td>
+<td>GHz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="sale de la división =&gt; 1 Ghz">RTA TP7 ej. 10 p.2</a></td>
+</tr>
+</tbody>
+</table>
+<p>Las fórmulas de apertura, de dispersión y de ancho de banda no están en las diapositivas: son del libro (nivel 3).</p>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="construccion-y-principio">Construcción y principio<a class="headerlink" href="#construccion-y-principio" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Capas: núcleo, que conduce la luz, y revestimiento (clad), con distinto índice de refracción. El recubrimiento es la protección exterior. Esta página usa «revestimiento» para la capa <span class="arithmatex">\(n_2\)</span> y «recubrimiento» para la protección (Discrepancia 6). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=57" title="fig: tres círculos concéntricos rotulados recubrimiento protección contra humedad, revestimiento, núcleo conduce luz">Clase 07 p.57</a></li>
+<li>Medidas típicas: núcleo de 9 μm en monomodo y de 50 ó 62,5 μm en multimodo; revestimiento de 125 μm; recubrimiento de 245 μm; longitud de fabricación de 50 km (Discrepancia 8). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=59" title="Núcleo en fibras multimodo: 50 ó 62,5 μm">Clase 07 p.59</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=59" title="fig: lista Recubrimiento 245 μm, Revestimiento 125 μm, longitud de fabricación 50 km">Clase 07 p.59</a></li>
+<li>La luz entra al núcleo y rebota contra el revestimiento por reflexión total. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=60" title="La luz ingresa al núcleo y rebota">Clase 07 p.60</a></li>
+<li>Snell relaciona los ángulos de incidencia <span class="arithmatex">\(\theta_1\)</span> y de refracción <span class="arithmatex">\(\theta_2\)</span>. Con <span class="arithmatex">\(\theta_2=90^\circ\)</span> el haz refractado sale rasante a la interfaz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=61" title="n1 . sen θ1 = n2 . senθ2">Clase 07 p.61</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=62" title="fig: haz incidente con θ1 y haz refractado rasante, θ2 = 90°, medio 1 n1 y medio 2 n2">Clase 07 p.62</a></li>
+<li>Nivel 3: de <span class="arithmatex">\(\sin\theta_1=n_2/n_1&lt;1\)</span> sale <span class="arithmatex">\(n_1&gt;n_2\)</span>, y la diferencia entre índices ronda el 1 %. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=435" title="entre ambos índices debe ser de alrededor del 1%">Libro p.435</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=436" title="fig: (5-18) θ2 = 90°, (5-20) n1 sen θ1 = n2 y (5-21) sen θ1 = n2 sobre n1">Libro p.436</a></li>
+</ul>
+<h3 id="cono-de-aceptacion-y-apertura-numerica">Cono de aceptación y apertura numérica<a class="headerlink" href="#cono-de-aceptacion-y-apertura-numerica" title="Permanent link">&para;</a></h3>
+<ul>
+<li>El cono contiene las direcciones de los haces con reflexión total y es función de los índices de refracción. La apertura es el ángulo entre el eje del núcleo y una generatriz del cono. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=63" title="Contiene a las direcciones de los haces de luz">Clase 07 p.63</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=63" title="Apertura de la fibra es el ángulo formado por la dirección del">Clase 07 p.63</a></li>
+<li>La diapositiva no da fórmula. El libro da <span class="arithmatex">\(\theta=\arcsin\sqrt{n_1^2-n_2^2}\)</span> y <span class="arithmatex">\(NA=\sin\theta\)</span>: la apertura numérica es el seno del ángulo de apertura. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="el seno del ángulo de apertura se denomina NA">Libro p.438</a></li>
+<li>Fuera del cono, la condición de reflexión total no se cumple y el haz sale de la fibra. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=437" title="esta relación no se cumple y el haz de luz sale de la fibra">Libro p.437</a></li>
+<li>Lectura de la fórmula (razonamiento propio, sin fuente): cuanto más cerca estén <span class="arithmatex">\(n_1\)</span> y <span class="arithmatex">\(n_2\)</span>, menor es <span class="arithmatex">\(NA\)</span> y más angosto el cono. Un cono angosto dificulta inyectar luz en la fibra. La fórmula supone que la luz llega desde el aire (<span class="arithmatex">\(n=1\)</span>); el libro no lo nombra.</li>
+</ul>
+<h3 id="tipos-de-fibra-y-parametros">Tipos de fibra y parámetros<a class="headerlink" href="#tipos-de-fibra-y-parametros" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Núcleo y modos</th>
+<th>Dispersión</th>
+<th>Ancho de banda típico</th>
+<th>Costo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monomodo</td>
+<td>núcleo comparable a la longitud de onda, un solo modo</td>
+<td>modal nula (Discrepancia 14)</td>
+<td>10 GHz·km</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Multimodo, índice escalón</td>
+<td>núcleo mayor, varios modos</td>
+<td>sí</td>
+<td>50 MHz·km</td>
+<td>bajo</td>
+</tr>
+<tr>
+<td>Multimodo, índice gradual</td>
+<td>varios modos; índice máximo en el centro y mínimo en los extremos</td>
+<td>menor que en escalón</td>
+<td>100/1000 MHz·km</td>
+<td>mayor</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=64" title="comparables a la longitud de onda de la luz">Clase 07 p.64</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=64" title="Índice gradual: más costosas, gran ancho de banda">Clase 07 p.64</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=66" title="fig: rótulos 50 MHz . km multimodo índice escalón, 100/1000 MHz . km índice gradual, 10 GHz . km monomodo">Clase 07 p.66</a>. El libro da los mismos valores y explica el índice gradual. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=441" title="el índice de refracción es máximo en el centro de la fibra">Libro p.441</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=442" title="y una monomodo supera las 10 GHz/km">Libro p.442</a></p>
+<ul>
+<li>Cuatro parámetros definen su uso: atenuación, dispersión cromática, dispersión por modos de propagación y ancho de banda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=67" title="Hay cuatro parámetros que definen su uso">Clase 07 p.67</a></li>
+<li>Tipo de fibra por ventana: 850 nm, multimodo (100/140, 85/125, 62,5/125 y 50/125 μm); 1330 nm (Discrepancia 2), 50/125 multimodo y 9/125 monomodo; 1550 nm, 9/125 monomodo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=71" title="fig: tabla longitud de onda 850 nm, 1330 nm y 1550 nm contra tipo de fibra núcleo/revestimiento y barras de distancia máxima">Clase 07 p.71</a></li>
+</ul>
+<h3 id="atenuacion-y-ventanas">Atenuación y ventanas<a class="headerlink" href="#atenuacion-y-ventanas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La atenuación es la pérdida de potencia óptica, se mide en dB/km y depende de la longitud de onda. En las ventanas es mínima, y por eso se las usa para transmitir. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="se mide en dB/km y es función de la longitud de">Clase 07 p.70</a></li>
+<li>Valores de cátedra: 0,2 dB/km en monomodo y 0,4 dB/km en multimodo (Discrepancia 5). El libro confirma 0,2 dB/km y que la fibra tiene las menores pérdidas de todos los medios. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="0,4 dB/km para fibras multimoo">Clase 07 p.72</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=443" title="las fibras ópticas son las que presentan las menores pérdidas">Libro p.443</a></li>
+<li>Comparativa de la clase: fibra 0,3 a 3,5 dB/km según la ventana; coaxil 7 dB/100 m a 100 MHz; UTP 20 dB/100 m a 100 MHz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=100" title="fig: tabla datos para decisiones, atenuación típica FO 0.3 a 3.5 dB/km según ventana, coaxil 7dB/100m, UTP 20 dB/100 m">Clase 07 p.100</a></li>
+<li>Ventanas normalizadas: 1.ª 850 nm (multimodo), 2.ª 1300 nm (multimodo y monomodo), 3.ª 1550 nm (monomodo). Están en el infrarrojo, por encima de 800 nm. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=79" title="ventana 2: 1300 nm">Clase 07 p.79</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=69" title="fig: eje de longitud de onda con visible 400 a 750 nm, infra rojo 800 nm, 1ra ventana MM 850 nm, 2da MM,SM 1300 nm, 3ra SM 1550 nm, microondas, RF">Clase 07 p.69</a></li>
+<li>Rangos del libro: 800–900 nm, 1200–1350 nm y 1450–1600 nm. La tercera es la de menor atenuación. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="De las tres ventanas, la tercera es la que presenta la menor atenuación">Libro p.439</a></li>
+<li>Cada ventana lleva rotulado un valor en THz (60, 28 y 20): es el <strong>ancho de banda</strong> de la ventana, no su frecuencia (Discrepancia 1). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="fig: gráfico atenuación dB/km contra λ con bandas 1era Ventana 850 nm 60 THz, 2da Ventana 1300 nm 28 THz, 3era Ventana 1550 nm 20 THz">Clase 07 p.70</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="Primera ventana: 60 THz">Libro p.439</a></li>
+</ul>
+<h3 id="perdidas">Pérdidas<a class="headerlink" href="#perdidas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Pérdida</th>
+<th>Causa</th>
+<th>Efecto</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dispersión modal</td>
+<td>en multimodo, los modos siguen caminos distintos y llegan en tiempos distintos; aparece por las deformaciones del cable al montarlo</td>
+<td>el pulso se ensancha y baja su amplitud; es la más importante</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=73" title="El pulso se ensancha y hay menor amplitud">Clase 07 p.73</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=443" title="esta pérdida es normalmente la de mayor importancia">Libro p.443</a></td>
+</tr>
+<tr>
+<td>Dispersión cromática</td>
+<td>el emisor no es monocromático y el índice depende de la longitud de onda</td>
+<td>ensanchamiento menor que el de la modal</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=73" title="Se produce si el emisor no genera luz monocromática">Clase 07 p.73</a></td>
+</tr>
+<tr>
+<td>Absorción y radiación</td>
+<td>impurezas agregadas al silicio (absorción); dobleces y discontinuidades (radiación)</td>
+<td>baja la potencia</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="Las pérdidas por absorción están causadas por las impurezas">Clase 07 p.72</a></td>
+</tr>
+<tr>
+<td>Acoplamiento</td>
+<td>desacoplamientos transmisor/fibra, fibra/fibra y fibra/receptor</td>
+<td>el libro da 0,5 dB por acoplamiento en condiciones normales</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=77" title="transmisor/fibra, fibra/fibra y fibra/receptor">Clase 07 p.77</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=444" title="valor típico por acoplamiento para condiciones normales por cada">Libro p.444</a></td>
+</tr>
+<tr>
+<td>Dispersión de Rayleigh</td>
+<td>irregularidades submicroscópicas que quedan al solidificarse el silicio plástico</td>
+<td>difracción de la luz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="Cuando reciben un rayo de luz producen difracción">Clase 07 p.72</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Las pérdidas disminuyen la potencia de luz y reducen el ancho de banda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=78" title="fig: pérdidas en FO disminución de potencia de luz y reducción del ancho de banda, cinco tipos de pérdidas">Clase 07 p.78</a></li>
+<li>Las cuatro formas de desacoplamiento de la figura: separación excesiva, desplazamiento axial, desplazamiento angular y pulido incorrecto. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=77" title="fig: cuatro esquemas de pérdida por separación, desplazamiento axial, desplazamiento angular y pulido incorrecto">Clase 07 p.77</a></li>
+</ul>
+<h3 id="dispersion-del-pulso-y-ancho-de-banda">Dispersión del pulso y ancho de banda<a class="headerlink" href="#dispersion-del-pulso-y-ancho-de-banda" title="Permanent link">&para;</a></h3>
+<ul>
+<li>La dispersión del pulso es su ensanchamiento al propagarse, porque los rayos llegan con tiempos de arribo distintos. Limita el ancho de banda: relaciona ancho de banda, capacidad y perfil del índice. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=74" title="Dispersión del pulso de luz es el ensanchamiento a medida">Clase 07 p.74</a></li>
+<li>En la figura, el ancho de banda se mide en los puntos de −3 dB y el ensanchamiento es <span class="arithmatex">\(T_d=T_2-t_1\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=75" title="fig: pulso transmitido t1 y recibido T2 con dispersión, T2 - t1 = td, Td = ensanchamiento del pulso debido a la dispersión">Clase 07 p.75</a></li>
+<li>El ancho de banda útil de cada ventana disminuye al alejarse de la fuente y se expresa en GHz·km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=76" title="El ancho de banda útil en cada ventana disminuye a medida">Clase 07 p.76</a></li>
+<li>Nivel 3: la expresión práctica <span class="arithmatex">\(\Delta f_1=0{,}44/\delta t\)</span>, con <span class="arithmatex">\(\delta t=\sqrt{t_2^2-t_1^2}\)</span>. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=440" title="Ancho del pulso de llegada al receptor en nanosegundos ubicado">Libro p.440</a></li>
+</ul>
+<h3 id="emisores-y-fotodetectores">Emisores y fotodetectores<a class="headerlink" href="#emisores-y-fotodetectores" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>LED</th>
+<th>Láser</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Luz</td>
+<td>incoherente</td>
+<td>coherente</td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td>baja</td>
+<td>alta</td>
+</tr>
+<tr>
+<td>Ancho espectral</td>
+<td>grande (25 a 40 nm)</td>
+<td>pequeño (1 a 6 nm)</td>
+</tr>
+<tr>
+<td>Direccionamiento</td>
+<td>menor</td>
+<td>mayor</td>
+</tr>
+<tr>
+<td>Tiempo de crecimiento</td>
+<td>100 ns</td>
+<td>1 ns</td>
+</tr>
+<tr>
+<td>Confiabilidad</td>
+<td>mayor</td>
+<td>menor</td>
+</tr>
+<tr>
+<td>Vida útil</td>
+<td>aprox. <span class="arithmatex">\(10^5\)</span> h</td>
+<td>aprox. <span class="arithmatex">\(10^5\)</span> h</td>
+</tr>
+<tr>
+<td>Estabilizadores y enfriamiento</td>
+<td>no</td>
+<td>sí</td>
+</tr>
+<tr>
+<td>Ruido modal</td>
+<td>bajo</td>
+<td>alto</td>
+</tr>
+<tr>
+<td>Costo</td>
+<td>bajo</td>
+<td>alto</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=80" title="fig: tabla emisores de luz LED y LASER, 100 ns y 1 ns, vida útil aprox. 10^5 h">Clase 07 p.80</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=82" title="fig: nota el ancho espectral del láser es más estrecho que el del diodo LED, típicamente de 1 a 6 nm y de 25 a 40 nm">Clase 07 p.82</a></p>
+<ul>
+<li>Emisores: LED y láser. Detectores: APD, PIN y PIN/FET. El APD es mucho más eficiente que el PIN. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=79" title="Hay varios tipos de detectores de luz: APD, PIN, PIN/FET">Clase 07 p.79</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=84" title="La eficiencia de un fotodetector APD es mucho mayor que la">Clase 07 p.84</a></li>
+<li>Los detectores son semiconductores con juntura P–N y dan una corriente proporcional a los fotones captados. Se los caracteriza por eficiencia cuántica, corriente de pérdida, potencia de ruido equivalente, ruido cuántico y tiempo de crecimiento (10 % a 90 %). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=84" title="Son semiconductores de estado sólido con juntura">Clase 07 p.84</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=85" title="Ruido cuántico: debido a la conversión fotón/electrón">Clase 07 p.85</a></li>
+<li>Sistema: datos, transmisor, fuente óptica, fibra con empalmes, detector óptico, receptor y datos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=83" title="fig: diagrama enlace punto a punto con fuente óptica, empalme, detector óptico, y árbol de dispositivos semiconductores optoelectrónicos">Clase 07 p.83</a></li>
+</ul>
+<h3 id="accesorios-empalmes-conectores-y-alcance">Accesorios, empalmes, conectores y alcance<a class="headerlink" href="#accesorios-empalmes-conectores-y-alcance" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Accesorios además del transmisor, el receptor y la fibra: conectores, patch cords, distribuidores, empalmes, acopladores y repetidores. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=86" title="Aparte del transmisor, del receptor y la fibra óptica se">Clase 07 p.86</a></li>
+<li><strong>Empalmes</strong> (conexión permanente): por fusión, con pérdidas de 0,1 dB; mecánico, con pérdidas de 0,5 dB. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=88" title="Por fusión: une y calienta las fibras hasta que se">Clase 07 p.88</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=88" title="Pérdidas de 0,1 dB">Clase 07 p.88</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=88" title="Pérdidas de 0,5 dB">Clase 07 p.88</a></li>
+<li><strong>Conectores</strong> (uniones desconectables): a tope, con extremos cortados y limpios, pérdida de 0,5 dB (Discrepancia 11). Tipos de la figura: ST, SC, E2000, Mini-BNC, F-SMA, Escon, SC Duplex y Duplex-MIC FDDI. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=89" title="Conectores a tope: con extremos cortados y limpios la">Clase 07 p.89</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=89" title="fig: conectores ST, SC, E2000, Mini-BNC, F-SMA, Escon, SC Duplex, Duplex-MIC FDDI">Clase 07 p.89</a></li>
+<li><strong>Acopladores</strong>: el T extrae un haz del haz principal; el estrella reparte lo inyectado por una fibra entre todas las otras. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=90" title="Acoplador T: extrae un haz de luz del haz principal">Clase 07 p.90</a></li>
+<li><strong>Alcance óptico</strong>: el gráfico da la distancia máxima sin regeneración contra la velocidad (Mbps), para 850 nm multimodo, 1300 y 1550 nm monomodo, 1550 nm con amplificadores de erbio (EDFA) y 1550 nm con solitones. La fuente no trae valores por región, solo los ejes. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=87" title="fig: rectángulos 850 nm multimodo, 1300 nm monomodo, 1550 nm monomodo, 1550 nm monomodo amplificadores ópticos dopados con erbio EDFA, 1550 nm monomodo transmisión solitón, distancia máxima sin regeneración contra Mbps">Clase 07 p.87</a></li>
+<li>Propiedades: gran ancho de banda, inmunidad al ruido y a las interferencias electromagnéticas, tamaño y peso adecuados, bajas potencias, baja atenuación y multiplexión por división de longitud de onda (WDM). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=92" title="fig: resumen de propiedades, gran ancho de banda, inmunidad al ruido, tamaño y peso, bajas potencias, baja atenuación, WDM">Clase 07 p.92</a></li>
+<li>Empleo: backbone, cables submarinos, anillos SDH/SONET, FDDI, HFC, FTTH, FTTC, FTTB y FTTO. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=93" title="fig: lista empleo de FO backbone, cables submarinos, anillos SDH SONET, FDDI, HFC, FTTH, FTTC, FTTB, FTTO">Clase 07 p.93</a></li>
+</ul>
+<h3 id="cables-submarinos-e-instalacion">Cables submarinos e instalación<a class="headerlink" href="#cables-submarinos-e-instalacion" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Construcción: núcleo con muchas fibras, polietileno aislante, tubo de cobre que lleva corriente a los repetidores, alambres de acero y polietileno impermeabilizante. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=94" title="lleva corriente eléctrica a los repetidores o">Clase 07 p.94</a></li>
+<li>El tendido y el mantenimiento son complejos y caros: lo hacen barcos especiales en una operación controlada por computadores. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=96" title="El tendido y el mantenimiento son complejos y tienen alto">Clase 07 p.96</a></li>
+<li>Repetidores con amplificación óptica: el texto dice cada 40 o 60 km y la figura rotula 30 a 50 km (Discrepancia 7). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=98" title="cada 40 o 60 km">Clase 07 p.98</a></li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<h3 id="tp7-ej-11-teoria-1-frecuencia-de-las-ventanas">TP7 ej. 11 = teoría 1: frecuencia de las ventanas<a class="headerlink" href="#tp7-ej-11-teoria-1-frecuencia-de-las-ventanas" title="Permanent link">&para;</a></h3>
+<p>«¿A qué frecuencias corresponden las longitudes de onda de la primera, segunda y tercera ventana en que trabajan las fibras ópticas?» <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="primera, segunda y tercera ventana en que trabajan las fibras ópticas">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="qué frecuencias corresponden las longitudes de onda de la">Teoría TP7 p.1</a></p>
+<p><strong>Paso 1. Fórmula y constante.</strong> <span class="arithmatex">\(f=c/\lambda\)</span> con <span class="arithmatex">\(c=3\cdot10^{8}\)</span> m/s. La diapositiva de ventanas no trae la fórmula. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="velocidad de 300.000 km/s = 3 x 108 m/s">Clase 08 p.5</a></p>
+<p><strong>Paso 2. Primera ventana (850 nm).</strong></p>
+<div class="arithmatex">\[f=\frac{3\cdot10^{8}}{850\cdot10^{-9}}\approx3{,}529\cdot10^{14}\ \text{Hz}=352{,}9\ \text{THz}\]</div>
+<p>La respuesta oficial imprime «<span class="arithmatex">\(3{,}5\cdot10^{14}\)</span> Hz», solo para 850 nm. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="= 3 108 / 850 10-9 = 3,5 1014 Hz">RTAS teoría TP7 p.1</a> Coincide con <span class="arithmatex">\(3{,}529\cdot10^{14}\)</span> Hz a dos cifras. El test usa tolerancia de <span class="arithmatex">\(0{,}05\cdot10^{14}\)</span> Hz.</p>
+<p><strong>Paso 3. Las otras dos (recálculo propio, verificado con test; la RTAS pide el cálculo «para cada una» pero no lo resuelve).</strong> <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Hacer el siguiente cálculo para cada">RTAS teoría TP7 p.1</a></p>
+<table>
+<thead>
+<tr>
+<th>Ventana</th>
+<th><span class="arithmatex">\(\lambda\)</span> (diapositiva)</th>
+<th><span class="arithmatex">\(f=c/\lambda\)</span></th>
+<th>Ancho de banda de la ventana (diapositiva)</th>
+<th>Rango (RTAS)</th>
+<th>Rango (libro)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.ª</td>
+<td>850 nm</td>
+<td>352,9 THz</td>
+<td>60 THz</td>
+<td>800 a 900 nm</td>
+<td>800 a 900 nm</td>
+</tr>
+<tr>
+<td>2.ª</td>
+<td>1300 nm</td>
+<td>230,8 THz</td>
+<td>28 THz</td>
+<td>1250 a 1350 nm</td>
+<td>1200 a 1350 nm</td>
+</tr>
+<tr>
+<td>3.ª</td>
+<td>1550 nm</td>
+<td>193,5 THz</td>
+<td>20 THz</td>
+<td>1500 a 1600 nm</td>
+<td>1450 a 1600 nm</td>
+</tr>
+</tbody>
+</table>
+<p>Con 1310 nm, la grafía de la RTAS para la segunda ventana, <span class="arithmatex">\(f=229{,}0\)</span> THz (Discrepancia 2). Fuentes de la tabla: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="fig: gráfico atenuación dB/km contra λ con bandas 1era Ventana 850 nm 60 THz, 2da Ventana 1300 nm 28 THz, 3era Ventana 1550 nm 20 THz">Clase 07 p.70</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="Segunda ventana 1250 a 1350 nm">RTAS teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="comienza a los 1200 nm hasta los 1350 nm">Libro p.439</a></p>
+<p><strong>Paso 4. Qué son 60, 28 y 20 THz.</strong> El ancho de banda de cada ventana, no su frecuencia. La RTAS los escribe junto a «850nm», «1310nm» y «1550nm» sin decirlo (Discrepancia 1). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="utilizada = 850nm – 60 THz">RTAS teoría TP7 p.1</a></p>
+<p><strong>Paso 5. Verificación propia (no es de ninguna fuente, verificado con test).</strong> El ancho de banda de una ventana es <span class="arithmatex">\(\Delta f=c/\lambda_{\text{mín}}-c/\lambda_{\text{máx}}\)</span>. Con los bordes de las bandas sombreadas de la figura (lectura aproximada de la figura, unos 20 nm de error): 1.ª ≈820 a 980 nm da 59,7 THz, 2.ª ≈1250 a 1410 nm da 27,2 THz y 3.ª ≈1480 a 1635 nm da 19,2 THz, cerca de 60, 28 y 20. Con los rangos escritos en el texto del libro, la 2.ª (1200 a 1350 nm) da 27,8 THz y la 3.ª (1450 a 1600 nm) da 19,4 THz, pero la 1.ª (800 a 900 nm) da 41,7 THz: el texto la describe más angosta que la figura (Discrepancia 1). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="fig: gráfico atenuación dB/km contra λ con bandas 1era Ventana 850 nm 60 THz, 2da Ventana 1300 nm 28 THz, 3era Ventana 1550 nm 20 THz">Clase 07 p.70</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="fig: Fig. 5.45 atenuación contra longitud de onda con ventanas sombreadas 850 nm 60 THz, 1300 nm 28 THz y 1550 nm 20 THz">Libro p.438</a></p>
+<h3 id="dispersion-y-ancho-de-banda-libro-ejemplo-5-5">Dispersión y ancho de banda (libro, ejemplo 5-5)<a class="headerlink" href="#dispersion-y-ancho-de-banda-libro-ejemplo-5-5" title="Permanent link">&para;</a></h3>
+<p>Un pulso de 1,2 ns a la salida del transmisor llega con 1,5 ns al receptor, a 1 km. Calcular el ancho de banda en GHz/km. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=440" title="Calcular el ancho de banda en GHz/km, sabiendo que cuando">Libro p.440</a></p>
+<div class="arithmatex">\[\delta t=\sqrt{1{,}5^2-1{,}2^2}=\sqrt{0{,}81}=0{,}9\ \text{ns}\qquad\Delta f_1=\frac{0{,}44}{0{,}9}\approx0{,}489\ \text{GHz/km}\]</div>
+<ul>
+<li>El libro imprime <span class="arithmatex">\(\Delta f_1=0{,}48\)</span> GHz/km = 480 MHz/km: trunca. El redondeo da 0,49 (Discrepancia 4). El test usa <code>Math.floor</code> a dos decimales para igualar lo impreso. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=440" title="δt = 0,9 nanosegundos">Libro p.440</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=441" title="Δf1 = 0,48 GHz/km">Libro p.441</a></li>
+<li>La diferencia lineal <span class="arithmatex">\(t_2-t_1=0{,}3\)</span> ns no es la <span class="arithmatex">\(\delta t\)</span> de la fórmula (verificado con test; Discrepancia 4).</li>
+</ul>
+<h3 id="apertura-numerica-libro-ejercicio-14">Apertura numérica (libro, ejercicio 14)<a class="headerlink" href="#apertura-numerica-libro-ejercicio-14" title="Permanent link">&para;</a></h3>
+<p>Núcleo con <span class="arithmatex">\(n_1=1{,}48\)</span> y revestimiento con <span class="arithmatex">\(n_2=1{,}46\)</span> (el libro los llama núcleo y recubrimiento). a) ¿Apertura numérica? b) ¿Cómo reduciría el cono de aceptación? c) ¿Qué dificultad implica un cono pequeño? <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=460" title="Si el índice del núcleo es de 1,48">Libro p.460</a></p>
+<p>El libro no imprime respuesta: todo lo que sigue es recálculo propio, verificado con test.</p>
+<div class="arithmatex">\[NA=\sqrt{1{,}48^2-1{,}46^2}=\sqrt{0{,}0588}\approx0{,}2425\qquad\theta=\arcsin(0{,}2425)\approx14{,}03^\circ\]</div>
+<ul>
+<li>a) <span class="arithmatex">\(NA\approx0{,}2425\)</span> y <span class="arithmatex">\(\theta\approx14{,}03^\circ\)</span>. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="fig: (5-24) θ = arc sen raíz de n1 al cuadrado menos n2 al cuadrado, (5-25) NA = sen θ, (5-26) NA = raíz de n1 al cuadrado menos n2 al cuadrado">Libro p.438</a></li>
+<li>b) Acercando los índices. Con <span class="arithmatex">\(n_2=1{,}47\)</span>, <span class="arithmatex">\(NA\approx0{,}1718\)</span>.</li>
+<li>c) La luz que llega fuera del cono no se propaga: con un cono pequeño es más difícil inyectar luz en la fibra (razonamiento propio, a partir de la definición de la p.437). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=437" title="esta relación no se cumple y el haz de luz sale de la fibra">Libro p.437</a></li>
+<li>Con estos índices, <span class="arithmatex">\((n_1-n_2)/n_1\approx1{,}4\)</span> %: del orden del 1 % que menciona el libro. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=435" title="entre ambos índices debe ser de alrededor del 1%">Libro p.435</a></li>
+</ul>
+<h3 id="ancho-de-banda-disponible-tp7-ej-10-b">Ancho de banda disponible (TP7 ej. 10 b)<a class="headerlink" href="#ancho-de-banda-disponible-tp7-ej-10-b" title="Permanent link">&para;</a></h3>
+<p>La fibra monomodo tiene 10 GHz·km. En la versión resuelta de la guía el enlace es de 10 km: <span class="arithmatex">\(AB=10\ \text{GHz·km}/10\ \text{km}=1\)</span> GHz <span class="arithmatex">\(=1000\)</span> MHz. Es el ancho de banda de la fibra, el máximo que admite el enlace. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Ancho de banda: 10 GHz.km">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="Si el ancho de banda es 10 Ghz por km y tenes 10 km">RTA TP7 ej. 10 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="sale de la división =&gt; 1 Ghz">RTA TP7 ej. 10 p.2</a> El enunciado de <code>Comunicaciones-TP07</code> usa otros datos de carrete; ver <a href="../u2/02-enlace.html">P2</a>.</p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>60, 28 y 20 THz no son la frecuencia de la ventana.</strong> Son el ancho de banda de cada ventana. La frecuencia sale de <span class="arithmatex">\(f=c/\lambda\)</span>: 352,9 THz para 850 nm. Si la respuesta oficial te los muestra junto a la longitud de onda, no los tomes como frecuencia (Discrepancia 1). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="fig: gráfico atenuación dB/km contra λ con bandas 1era Ventana 850 nm 60 THz, 2da Ventana 1300 nm 28 THz, 3era Ventana 1550 nm 20 THz">Clase 07 p.70</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>La segunda ventana tiene tres grafías: 1300, 1310 y 1330 nm.</strong> La diapositiva de ventanas usa 1300 nm, la RTAS escribe 1310 en el texto y 1300 en su figura, y la tabla de tipos de fibra dice 1330. Anotá cuál usás (Discrepancia 2). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=79" title="ventana 2: 1300 nm">Clase 07 p.79</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Saber la ventana no alcanza: dentro de ella hay bandas.</strong> Remarcado en clase: nota teoria 2026-09-01 08:23 PM: "Tengo que saber en qué ventana Está y en qué banda". Las bandas aparecen en la clase de multiplexión (WDM), que esta página no desarrolla: la diapositiva dibuja las bandas O, E, S, C, L y U con límites de 1260 a 1675 nm, y la p.54 dice que se multiplexa en la banda C, que cae en la tercera ventana. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=53" title="fig: bandas O, E, S, C, L y U con límites 1260, 1360, 1460, 1530, 1565, 1625 y 1675 nm">Clase 10 p.53</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=54" title="multiplexar la longitud de onda inicialmente en ocho">Clase 10 p.54</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Revestimiento y recubrimiento cambian de significado entre las páginas de la fuente.</strong> En las p.57 y 59 el revestimiento (125 μm) es la capa <span class="arithmatex">\(n_2\)</span> y el recubrimiento (245 μm) es la protección. En las p.58 y 63, «recubrimiento» rotula la capa <span class="arithmatex">\(n_2\)</span>. El libro usa los dos: «revestimiento» en la p.436 y «recubrimiento» en las p.441 y 460 (Discrepancia 6). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=63" title="fig: cono de aceptación con ángulo θ, rayo de luz no propagado por la fibra, eje de la fibra, núcleo n1 y recubrimiento n2">Clase 07 p.63</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=436" title="mayor que el revestimiento">Libro p.436</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=441" title="entre el núcleo y el recubrimiento">Libro p.441</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Monomodo: dispersión modal nula, no ancho de banda infinito.</strong> La diapositiva dice que no hay dispersión, pero le asigna 10 GHz·km (Discrepancia 14). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=66" title="fig: rótulos 50 MHz . km multimodo índice escalón, 100/1000 MHz . km índice gradual, 10 GHz . km monomodo">Clase 07 p.66</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El láser también tiene dispersión cromática, aunque mucho menor.</strong> La respuesta oficial del Final 2023-02 dice «el láser o el led»; la diapositiva dice «caso de LED» y muestra el láser con 1 a 6 nm de ancho espectral (Discrepancia 13). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=82" title="fig: nota el ancho espectral del láser es más estrecho que el del diodo LED, típicamente de 1 a 6 nm y de 25 a 40 nm">Clase 07 p.82</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Atenuación: 0,2 y 0,4 dB/km son de la diapositiva, no de todos los enunciados.</strong> Los enunciados del TP7 traen 0,25 y 0,3 dB/km. Usá siempre el dato del enunciado (Discrepancia 5). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="0,2 dB/km para fibras monomodo">Clase 07 p.72</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El ancho de banda se divide por la distancia.</strong> El dato es GHz·km (un producto): a 10 km, 10 GHz·km dan 1 GHz, no 10 GHz. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="sale de la división =&gt; 1 Ghz">RTA TP7 ej. 10 p.2</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Las respuestas de teoría TP7 están en <code>GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP7 ej. 11 = teoría 1 = libro ej. 15</td>
+<td>«¿A qué frecuencias corresponden las longitudes de onda de la primera, segunda y tercera ventana?» <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="qué frecuencias corresponden las longitudes de onda de la">Teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=460" title="fig: ejercicio 15 ¿A qué frecuencia corresponden las longitudes de onda de la primera, segunda y tercera ventana en que trabajan las fibras ópticas?">Libro p.460</a></td>
+<td>Resuelto arriba: 352,9; 230,8 y 193,5 THz. La respuesta oficial lista 60, 28 y 20 THz (Discrepancia 1).</td>
+</tr>
+<tr>
+<td>Final 2019-09, ej. 1</td>
+<td>«¿Cuáles son las causas de pérdidas en las Fibras Ópticas?» <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Cuáles son las causas de pérdidas en las Fibras Ópticas">Final 2019-09 p.1</a></td>
+<td>Oficial: dispersión modal (distintos caminos, ensanchamiento del pulso), dispersión cromática (distintas longitudes de onda), absorción y radiación (impurezas en el silicio), acoplamiento (empalmes y conexiones mal hechas) y dispersión de Rayleigh (irregularidades al solidificarse el plástico). <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="impurezas que se agregan al silicio">Final 2019-09 p.1</a> Coincide con la diapositiva. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=78" title="fig: lista Pérdidas en FO: dispersión modal, dispersión cromática, absorción y radiación, acoplamiento, dispersión de Rayleigh">Clase 07 p.78</a></td>
+</tr>
+<tr>
+<td>Final 2021-02, T2 n.4</td>
+<td>La misma pregunta. <a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Cuáles son las causas de pérdidas en las Fibras Ópticas">Final 2021-02 p.1</a></td>
+<td>Sin respuesta oficial en este examen; es el mismo enunciado que Final 2019-09 ej. 1, cuya respuesta oficial está en la fila anterior. Respuesta armada con las diapositivas: tabla de Pérdidas del Desarrollo (p.72, 73, 77 y 78).</td>
+</tr>
+<tr>
+<td>2.º Parcial 2022, ej. 3</td>
+<td>«Explique cuales son las perdidas en las Fibras Ópticas». El parcial pide desarrollar en no menos de 15 renglones. <a href="../fuentes/examenes/parciales/oficial/2do-Parcial-2022-Arroyo.pdf#page=1" title="Desarrollar la respuesta en no menos de 15 renglones">Parcial 2022 p.1</a></td>
+<td>Sin respuesta oficial en este examen; es la misma pregunta que Final 2019-09 ej. 1, con otra redacción, y su respuesta oficial está más arriba; la misma respuesta armada.</td>
+</tr>
+<tr>
+<td>Final 2023-02, ej. 2</td>
+<td>«Explique los fenómenos de dispersión modal y cromática en las FO». <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Explique los fenómenos de dispersión modal y cromática en las FO">Final 2023-02 p.1</a></td>
+<td>Oficial: la primera es por los distintos caminos que toma la luz dentro de la FO; la segunda, por la cantidad de longitudes de onda distintas que generan el láser o el LED. <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="longitudes de onda distintas que generan el láser o el led">Final 2023-02 p.1</a> Matiz en la Discrepancia 13.</td>
+</tr>
+<tr>
+<td>Libro ej. 14</td>
+<td>Apertura numérica con <span class="arithmatex">\(n_1=1{,}48\)</span> y <span class="arithmatex">\(n_2=1{,}46\)</span></td>
+<td>Resuelto arriba (recálculo propio): <span class="arithmatex">\(NA\approx0{,}2425\)</span>.</td>
+</tr>
+<tr>
+<td>Libro ej. 16</td>
+<td>«Deducir la expresión del ángulo de apertura en una fibra óptica, aplicando la Ley de Snell.» <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=460" title="fig: ejercicio 16 Deducir la expresión del ángulo de apertura en una fibra óptica, aplicando la Ley de Snell">Libro p.460</a></td>
+<td>Sin respuesta oficial. Deducción propia: del aire a la fibra, <span class="arithmatex">\(\sin\theta=n_1\sin\theta_r\)</span>. En la interfaz el ángulo de incidencia es <span class="arithmatex">\(90^\circ-\theta_r\)</span> y la reflexión total pide <span class="arithmatex">\(\cos\theta_r\ge n_2/n_1\)</span>. Entonces <span class="arithmatex">\(\sin\theta\le n_1\sqrt{1-n_2^2/n_1^2}=\sqrt{n_1^2-n_2^2}\)</span>. El test la recorre numéricamente con <span class="arithmatex">\(n_1=1{,}48\)</span> y <span class="arithmatex">\(n_2=1{,}46\)</span>.</td>
+</tr>
+<tr>
+<td>TP7 ej. 10 b</td>
+<td>Ancho de banda disponible con 10 GHz·km</td>
+<td>Resuelto arriba: 1 GHz para 10 km. El resto del ejercicio, en <a href="../u2/02-enlace.html">P2</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>No hay cálculo de fibra con resolución oficial más allá de la frecuencia de 850 nm y el ancho de banda del ej. 10 b: los demás números de esta página son del libro o recálculo propio.</p>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Qué condición deben cumplir los índices para que haya reflexión total, y por qué?</summary>
+<p><span class="arithmatex">\(n_1&gt;n_2\)</span> (núcleo mayor que revestimiento). Con <span class="arithmatex">\(\theta_2=90^\circ\)</span> queda <span class="arithmatex">\(\sin\theta_1=n_2/n_1\)</span>, que solo puede ser menor que 1 si <span class="arithmatex">\(n_1&gt;n_2\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=58" title="fig: n = C/Vp y n1 &gt; n2 junto al corte del cable con protección de polietileno, recubrimiento n2 y núcleo n1">Clase 07 p.58</a></p>
+</details>
+<details class="question">
+<summary>¿Qué es el cono de aceptación y de qué depende?</summary>
+<p>Contiene las direcciones de los haces con reflexión total; depende de los índices de refracción del núcleo y del revestimiento. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=63" title="Es función de los índices de refracción">Clase 07 p.63</a></p>
+</details>
+<details class="question">
+<summary>¿Qué apertura numérica tiene una fibra con n1 = 1,48 y n2 = 1,46?</summary>
+<p><span class="arithmatex">\(NA=\sqrt{n_1^2-n_2^2}\approx0{,}2425\)</span> y <span class="arithmatex">\(\theta\approx14{,}03^\circ\)</span> (recálculo propio con la fórmula del libro). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=438" title="el seno del ángulo de apertura se denomina NA">Libro p.438</a></p>
+</details>
+<details class="question">
+<summary>¿Cuáles son las tres ventanas y a qué frecuencia corresponde la primera?</summary>
+<p>850, 1300 y 1550 nm. La primera: <span class="arithmatex">\(f=3\cdot10^{8}/850\cdot10^{-9}\approx3{,}5\cdot10^{14}\)</span> Hz, o 352,9 THz. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="= 3 108 / 850 10-9 = 3,5 1014 Hz">RTAS teoría TP7 p.1</a></p>
+</details>
+<details class="question">
+<summary>¿Qué representan los 60, 28 y 20 THz de la figura de ventanas?</summary>
+<p>El ancho de banda de cada ventana, no su frecuencia. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="Primera ventana: 60 THz">Libro p.439</a></p>
+</details>
+<details class="question">
+<summary>¿Qué atenuación de cátedra tienen la fibra monomodo y la multimodo?</summary>
+<p>0,2 dB/km y 0,4 dB/km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="0,2 dB/km para fibras monomodo">Clase 07 p.72</a></p>
+</details>
+<details class="question">
+<summary>Nombrá los cinco tipos de pérdida en una fibra.</summary>
+<p>Dispersión modal, dispersión cromática, absorción y radiación, acoplamiento y dispersión de Rayleigh. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=78" title="fig: lista Pérdidas en FO: dispersión modal, dispersión cromática, absorción y radiación, acoplamiento, dispersión de Rayleigh">Clase 07 p.78</a></p>
+</details>
+<details class="question">
+<summary>¿En qué se diferencian la dispersión modal y la cromática?</summary>
+<p>La modal ocurre en multimodo por los distintos caminos de los modos. La cromática, porque el emisor no es monocromático y el índice depende de la longitud de onda; es menor que la modal. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=73" title="pero menor que la dispersión modal">Clase 07 p.73</a></p>
+</details>
+<details class="question">
+<summary>¿Qué ancho de banda típico tiene cada tipo de fibra?</summary>
+<p>Multimodo escalón, 50 MHz·km; multimodo gradual, 100/1000 MHz·km; monomodo, 10 GHz·km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=66" title="fig: rótulos 50 MHz . km multimodo índice escalón, 100/1000 MHz . km índice gradual, 10 GHz . km monomodo">Clase 07 p.66</a></p>
+</details>
+<details class="question">
+<summary>Una fibra de 10 GHz·km se usa en 10 km. ¿Qué ancho de banda tiene el enlace?</summary>
+<p>1 GHz = 1000 MHz: se divide el valor GHz·km por la distancia. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="sale de la división =&gt; 1 Ghz">RTA TP7 ej. 10 p.2</a></p>
+</details>
+<details class="question">
+<summary>Un pulso de 1,2 ns sale del transmisor y llega con 1,5 ns a 1 km. ¿Qué ancho de banda tiene?</summary>
+<p><span class="arithmatex">\(\delta t=\sqrt{1{,}5^2-1{,}2^2}=0{,}9\)</span> ns y <span class="arithmatex">\(\Delta f_1=0{,}44/0{,}9\approx0{,}489\)</span> GHz/km. El libro imprime 0,48. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=441" title="Δf1 = 0,48 GHz/km">Libro p.441</a></p>
+</details>
+<details class="question">
+<summary>¿Qué dos tipos de empalme hay y cuánto pierde cada uno?</summary>
+<p>Por fusión, 0,1 dB; mecánico, 0,5 dB. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=88" title="Pérdidas de 0,5 dB">Clase 07 p.88</a></p>
+</details>
+<details class="question">
+<summary>Compará LED y láser en potencia, ancho espectral y costo.</summary>
+<p>LED: potencia baja, ancho espectral grande (25 a 40 nm), costo bajo. Láser: potencia alta, ancho espectral pequeño (1 a 6 nm), costo alto. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=80" title="fig: tabla emisores de luz LED y LASER, 100 ns y 1 ns, vida útil aprox. 10^5 h">Clase 07 p.80</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de <code>Clase 07</code> (jerarquía 2). La 1 está reencuadrada: los 60, 28 y 20 THz son anchos de banda y no frecuencias erróneas. Las 1, 2 y 3 son las obligatorias.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>60, 28 y 20 THz junto a la longitud de onda</td>
+<td>La RTAS lista «850nm – 60 THz», «1310nm – 28 THz» y «1550nm – 20 THz» como respuesta a «¿a qué frecuencias?», y en el mismo recuadro calcula <span class="arithmatex">\(3{,}5\cdot10^{14}\)</span> Hz para 850 nm, sin decir que 60 THz es otra magnitud. La diapositiva (imagen) y el libro (Fig. 5.45) imprimen 60, 28 y 20 THz sobre cada ventana, y el libro los llama «anchos de banda». Verificación propia contra los bordes sombreados de la figura (lectura aproximada de la figura): ≈820 a 980 nm da 59,7 THz, ≈1250 a 1410 nm da 27,2 THz y ≈1480 a 1635 nm da 19,2 THz, cerca de 60, 28 y 20. El rango escrito en el texto del libro para la 1.ª ventana (800 a 900 nm) da 41,7 THz: la figura es más ancha que el texto. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="utilizada = 1310nm – 28 THz">RTAS teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=70" title="fig: gráfico atenuación dB/km contra λ con bandas 1era Ventana 850 nm 60 THz, 2da Ventana 1300 nm 28 THz, 3era Ventana 1550 nm 20 THz">Clase 07 p.70</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="Primera ventana: 60 THz">Libro p.439</a></td>
+<td>Son el ancho de banda de cada ventana. La frecuencia sale de <span class="arithmatex">\(f=c/\lambda\)</span> con <span class="arithmatex">\(c\)</span> de la Clase 08.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Grafías de la segunda ventana y rangos</td>
+<td>RTAS: 1310 nm en el texto y 1300 nm en su figura. <code>Clase 07</code>: 1300 nm (p.70, 79 y 87) y 1330 nm (p.71, imagen). Libro: 1300 nm. Rangos: RTAS 1250–1350 y 1500–1600 nm; libro 1200–1350 y 1450–1600 nm. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="fig: texto con 1310nm – 28 THz y figura del espectro con 1300nm, recuadro 3,5 1014 Hz">RTAS teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=71" title="fig: tabla longitud de onda 850 nm, 1330 nm y 1550 nm contra tipo de fibra núcleo/revestimiento y barras de distancia máxima">Clase 07 p.71</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="comienza a los 1200 nm hasta los 1350 nm">Libro p.439</a></td>
+<td>1300 nm; se muestra 1310 con su frecuencia y se citan ambos rangos.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cifras internas del libro, p.439</td>
+<td>La segunda ventana es de 28 THz en la figura y de 30 THz en el texto. La suma dice 108 THz (60 + 28 + 20) y luego «110 ya calculados» (60 + 30 + 20). Además, 1.800 nm no corresponde a 187,5 THz: <span class="arithmatex">\(c/1800\)</span> nm da 166,7 THz, y 187,5 THz corresponde a 1600 nm (verificado con test). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="resulta, así, igual a 108 THz">Libro p.439</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="Segunda ventana: 30 THz">Libro p.439</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=439" title="f1 = 187,5 THz y f2 = 375 THz">Libro p.439</a></td>
+<td>28 THz, el valor de la diapositiva y de la figura. Las otras cifras no se usan.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ejemplo 5-5 del libro</td>
+<td>Imprime 0,48 GHz/km; el cálculo da 0,4889, que redondea a 0,49. La figura y la diapositiva dicen <span class="arithmatex">\(T_d=T_2-t_1\)</span> (0,3 ns con los datos del ejemplo) y la expresión (5-30) usa <span class="arithmatex">\(\sqrt{t_2^2-t_1^2}\)</span> (0,9 ns). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=441" title="Δf1 = 0,48 GHz/km">Libro p.441</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=75" title="fig: pulso transmitido t1 y recibido T2 con dispersión, T2 - t1 = td, Td = ensanchamiento del pulso debido a la dispersión">Clase 07 p.75</a></td>
+<td>El concepto, de la diapositiva; el número, del libro (nivel 3), con 0,489 calculado.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Atenuación típica</td>
+<td><code>Clase 07</code> p.72: 0,2 dB/km monomodo y 0,4 dB/km multimodo (con la errata «multimoo»). p.100: fibra de 0,3 a 3,5 dB/km según la ventana. Los enunciados del TP7 usan 0,25 y 0,3 dB/km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=72" title="0,4 dB/km para fibras multimoo">Clase 07 p.72</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=100" title="fig: tabla datos para decisiones, atenuación típica FO 0.3 a 3.5 dB/km según ventana, coaxil 7dB/100m, UTP 20 dB/100 m">Clase 07 p.100</a></td>
+<td>0,2 y 0,4 dB/km como valores de cátedra; en un ejercicio, el dato del enunciado.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Recubrimiento y revestimiento</td>
+<td><code>Clase 07</code> p.57 y 59: revestimiento (clad, 125 μm) y recubrimiento (protección, 245 μm). p.58 y 63: «recubrimiento» rotula la capa <span class="arithmatex">\(n_2\)</span>. El libro usa los dos: «revestimiento» en la p.436 y «recubrimiento» en las p.441 y 460. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=57" title="fig: tres círculos concéntricos rotulados recubrimiento protección contra humedad, revestimiento, núcleo conduce luz">Clase 07 p.57</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=63" title="fig: cono de aceptación con ángulo θ, rayo de luz no propagado por la fibra, eje de la fibra, núcleo n1 y recubrimiento n2">Clase 07 p.63</a></td>
+<td>Revestimiento = capa <span class="arithmatex">\(n_2\)</span>; recubrimiento = protección exterior.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Distancia entre repetidores submarinos</td>
+<td>Texto de la p.98: cada 40 o 60 km. Figura de la misma diapositiva: 30 a 50 km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=98" title="fig: cable submarino con repetidores de amplificación óptica rotulados 30 - 50 km y estación terrena">Clase 07 p.98</a></td>
+<td>Se citan ambas, sin elegir.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Longitud de fabricación (dicho en clase)</td>
+<td>Diapositiva: 50 km. En clase: nota teoria 2026-09-01 08:21 PM: "los carretes de fibra deben tener cuarenta kilómetros". <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=59" title="fig: lista Recubrimiento 245 μm, Revestimiento 125 μm, longitud de fabricación 50 km">Clase 07 p.59</a></td>
+<td>La diapositiva: 50 km.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Posición de las ventanas en el espectro</td>
+<td>La RTAS dice que la luz se sitúa «por debajo del infra-rojo». La diapositiva (p.56 y figura de la p.69) las ubica en el infrarrojo, por encima de 800 nm. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=1" title="sitúa por debajo del infra-rojo">RTAS teoría TP7 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=69" title="fig: eje de longitud de onda con visible 400 a 750 nm, infra rojo 800 nm, 1ra ventana MM 850 nm, 2da MM,SM 1300 nm, 3ra SM 1550 nm, microondas, RF">Clase 07 p.69</a></td>
+<td>La diapositiva: infrarrojo.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Errata del libro</td>
+<td>Fig. 5.51: «longitudes de onda de 1550 μm» (debería ser nm). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=445" title="Límites teóricos de fibras monomodo a longitudes de onda de 1550 μm">Libro p.445</a></td>
+<td>1550 nm.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Pérdida de un conector</td>
+<td><code>Clase 07</code> p.89: 0,5 dB. El enunciado del TP7 ej. 10 usa 0,6 dB: es dato de enunciado, no error. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=89" title="Conectores a tope: con extremos cortados y limpios la">Clase 07 p.89</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Atenuación por conector: 0,6 dB">TP7 p.2</a></td>
+<td>0,5 dB como valor de cátedra; el enunciado, en el ejercicio (<a href="../u2/02-enlace.html">P2</a>).</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Notación del ancho de banda</td>
+<td>El TP7 dice «10 GHz.km»; la guía y su RTA, «10 GHz/Km» y «10 Ghz por km». La cátedra escribe [GHz . km]. El libro usa GHz/km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=76" title="El ancho de banda se expresa en">Clase 07 p.76</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas-Respuestas-Ejercicio-Nro-10-RTA.pdf#page=2" title="Si el ancho de banda es 10 Ghz por km y tenes 10 km">RTA TP7 ej. 10 p.2</a></td>
+<td>GHz·km, como la cátedra.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Dispersión cromática y láser (<code>Final 2023-02</code> ej. 2)</td>
+<td>La respuesta oficial atribuye la cromática a «el láser o el led». La diapositiva dice «caso de LED», y el láser tiene un ancho espectral de 1 a 6 nm. No se contradicen: el láser también emite un rango de longitudes de onda, mucho menor. <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="longitudes de onda distintas que generan el láser o el led">Final 2023-02 p.1</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=78" title="fig: pérdidas en FO disminución de potencia de luz y reducción del ancho de banda, cinco tipos de pérdidas">Clase 07 p.78</a></td>
+<td>Ambas, con el matiz.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Monomodo «sin dispersión»</td>
+<td><code>Clase 07</code> p.64: no hay dispersión. p.66 le da 10 GHz·km (finito) y p.78 lista la cromática como pérdida general. Es una tensión entre diapositivas, no una contradicción numérica. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=64" title="comparables a la longitud de onda de la luz">Clase 07 p.64</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=66" title="fig: rótulos 50 MHz . km multimodo índice escalón, 100/1000 MHz . km índice gradual, 10 GHz . km monomodo">Clase 07 p.66</a></td>
+<td>«Dispersión modal nula», no «ancho de banda infinito».</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./01-cobre-cableado.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Cobre y cableado estructurado">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Cobre y cableado estructurado
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="./03-no-guiados.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Medios no guiados">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Medios no guiados
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

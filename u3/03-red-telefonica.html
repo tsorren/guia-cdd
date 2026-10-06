@@ -1,0 +1,3016 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./02-redes.html">
+      
+      
+        <link rel="next" href="../u4/01-modulacion-analogica.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Red telefónica: RTPC, señalización y tráfico - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#red-telefonica-rtpc-senalizacion-y-trafico" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Red telefónica: RTPC, señalización y tráfico
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="03-red-telefonica.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-evolucion-y-conmutacion-telefonica-p23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Evolución y conmutación telefónica (p.2–3)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-centrales-p45" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Centrales (p.4–5)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-jerarquia-de-la-red-p68" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Jerarquía de la red (p.6–8)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-numeracion-y-encaminamiento-p9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Numeración y encaminamiento (p.9)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-discado-p10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Discado (p.10)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-conmutados-y-arrendados-p11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Conmutados y arrendados (p.11)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dos-y-cuatro-hilos-p1214" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Dos y cuatro hilos (p.12–14)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-senalizacion-p1519" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Señalización (p.15–19)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-red-inteligente-y-redes-privadas-virtuales-p2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Red inteligente y redes privadas virtuales (p.20–21)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-ingenieria-de-trafico-p2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Ingeniería de tráfico (p.22–24)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-01-punto-de-equilibrio-entre-conmutado-y-arrendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-01: punto de equilibrio entre conmutado y arrendado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-02-flujo-de-trafico-de-un-e1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-02: flujo de tráfico de un E1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-03-el-mismo-flujo-en-ccs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-03: el mismo flujo en CCS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-04-grado-de-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-04: grado de servicio
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#huecos-de-la-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Huecos de la fuente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-evolucion-y-conmutacion-telefonica-p23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Evolución y conmutación telefónica (p.2–3)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-centrales-p45" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Centrales (p.4–5)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-jerarquia-de-la-red-p68" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Jerarquía de la red (p.6–8)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-numeracion-y-encaminamiento-p9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Numeración y encaminamiento (p.9)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-discado-p10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Discado (p.10)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-conmutados-y-arrendados-p11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Conmutados y arrendados (p.11)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-dos-y-cuatro-hilos-p1214" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Dos y cuatro hilos (p.12–14)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-senalizacion-p1519" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Señalización (p.15–19)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-red-inteligente-y-redes-privadas-virtuales-p2021" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Red inteligente y redes privadas virtuales (p.20–21)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-ingenieria-de-trafico-p2224" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        10. Ingeniería de tráfico (p.22–24)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo resuelto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-01-punto-de-equilibrio-entre-conmutado-y-arrendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-01: punto de equilibrio entre conmutado y arrendado
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-02-flujo-de-trafico-de-un-e1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-02: flujo de tráfico de un E1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-03-el-mismo-flujo-en-ccs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-03: el mismo flujo en CCS
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-4-04-grado-de-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo 4-04: grado de servicio
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practicar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#huecos-de-la-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Huecos de la fuente
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-velocidades.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U3
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="red-telefonica-rtpc-senalizacion-y-trafico">Red telefónica: RTPC, señalización y tráfico<a class="headerlink" href="#red-telefonica-rtpc-senalizacion-y-trafico" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U3 · redes de telecomunicaciones. Teoría: <code>Unidad-III-3</code> p.2–24. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="Desde el siglo XIX, y hasta los años 60 la red telefónica">Unidad III-3 p.2</a></p>
+<ul>
+<li>Alcance: la guía cubre U1–U4 completas; esta página desarrolla la red telefónica de <code>Unidad-III-3</code>.</li>
+<li><code>Clase-11-Redes</code> es la misma presentación con otra numeración (tabla de abajo). Se la cita solo en la Discrepancia D1.</li>
+<li>Las respuestas breves de examen ya están en <a href="../repaso-teorico-u1-u4.html">Repaso teórico U1–U4</a> (P7), preguntas <strong>U3-14 a U3-18</strong>. Esta página las <strong>enlaza</strong> y agrega el desarrollo de la diapositiva.</li>
+<li>Fuera de esta página: topologías, OSI y conmutación, en P18 (<a href="02-redes.html">Redes</a>); organismos de normalización (UIT-T), en P16 (<a href="../u1/01-introduccion.html">Introducción</a>); ADSL y cable módem, en P22 (<a href="../u8/02-modems.html">Módems y acceso de banda ancha</a>); RS-232, en P21 (<a href="../u8/01-interfaces.html">Interfaces de capa física</a>).</li>
+<li>Ningún examen ni guía de TP del repo ejercita la red telefónica ni el tráfico. Los únicos cálculos son los ejemplos del <strong>libro de la cátedra</strong> (nivel 3), rotulados como tales.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th><code>Unidad-III-3</code></th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6–8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13–14</th>
+<th>15</th>
+<th>16–17</th>
+<th>18</th>
+<th>19</th>
+<th>20</th>
+<th>21</th>
+<th>22</th>
+<th>23</th>
+<th>24</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Clase-11-Redes</code></td>
+<td>2</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7–9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>14</td>
+<td>15–16</td>
+<td>17</td>
+<td>18–19</td>
+<td>20</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>25</td>
+<td>26</td>
+</tr>
+</tbody>
+</table>
+<p>Las figuras de las p.3, 6–8, 10–14, 16–18 y 23 de <code>Unidad-III-3</code> no están en el texto extraído (en varias solo queda el número de página): se leyeron como imagen. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=18" title="fig: pila OSI de siete capas contra MTP1 física, MTP2 enlace, MTP3 red, SCCP transporte, TUP, ISUP y TCAP">Unidad III-3 p.18</a></p>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Central local y central de tránsito:</strong> la local conecta abonados y conmuta a dos hilos; la de tránsito no tiene usuarios, interconecta locales con troncales a cuatro hilos. Se organizan en planos urbano, interurbano e internacional. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="centrales locales mediante troncales a cuatro hilos">Unidad III-3 p.5</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=8" title="fig: planos internacional, interurbano y urbano con CAInt, CAI, CAU y CU; camino principal y camino de desborde o secundario">Unidad III-3 p.8</a></li>
+<li><strong>Numeración, encaminamiento y discado:</strong> cada central tiene 10.000 abonados; un Plan de Encaminamiento fija rutas y alternativas; el teclado genera dos tonos por tecla. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="Cada central tiene 10.000 abonados">Unidad III-3 p.9</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=10" title="Ahora se usan teclados digitales donde cada tecla genera dos">Unidad III-3 p.10</a></li>
+<li><strong>Conmutado o arrendado, dos o cuatro hilos:</strong> con tráfico muy alto conviene el arrendado (punto de equilibrio Eq); dos hilos para semidúplex o dúplex de baja velocidad, cuatro para dúplex; la bobina híbrida pasa de uno al otro. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="Cuando el tráfico es muy alto conviene pedir circuitos">Unidad III-3 p.11</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=12" title="Circuitos a cuatro hilos permiten servicios dúplex">Unidad III-3 p.12</a></li>
+<li><strong>Señalización:</strong> intercambio de información para establecer, mantener, liberar y controlar llamadas, por cada canal o por un canal independiente; hoy sigue el modelo OSI (MTP, SCCP, TUP, ISUP, TCAP). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=15" title="Se realiza a través de información codificada por cada canal o">Unidad III-3 p.15</a></li>
+<li><strong>Tráfico:</strong> flujo = intensidad × tiempo de retención, en Erlang; el grado de servicio es la probabilidad de bloqueo en la hora pico. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="La unidad de flujo de tráfico es el Erlang">Unidad III-3 p.24</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Definición de la fuente</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Central</td>
+<td>Realiza la conmutación entre líneas internas (abonados) y externas (troncales)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="Realizan la conmutación entre líneas internas">Unidad III-3 p.4</a></td>
+</tr>
+<tr>
+<td>Central de tránsito</td>
+<td>Sin usuarios conectados; conmuta centrales locales o interurbanas; troncales a cuatro hilos</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="No poseen usuarios conectados a ellas, conmutan centrales">Unidad III-3 p.5</a></td>
+</tr>
+<tr>
+<td>PAX</td>
+<td>Red cerrada de centrales privadas de una empresa unidas por troncales propios</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="enlaces troncales propios formado redes cerradas llamadas PAX">Unidad III-3 p.4</a></td>
+</tr>
+<tr>
+<td>PABX</td>
+<td>Las privadas conectadas a las líneas públicas</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="Cuando se conectan a las líneas públicas se llaman PABX">Unidad III-3 p.4</a></td>
+</tr>
+<tr>
+<td>Circuito conmutado</td>
+<td>Permite compartir líneas troncales entre varios abonados</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="Los circuitos conmutados permiten compartir el uso de líneas">Unidad III-3 p.11</a></td>
+</tr>
+<tr>
+<td>Circuito arrendado</td>
+<td>De uso exclusivo y de mejor calidad; conviene con tráfico muy alto</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="Cuando el tráfico es muy alto conviene pedir circuitos">Unidad III-3 p.11</a></td>
+</tr>
+<tr>
+<td>Punto de equilibrio Eq</td>
+<td>Volumen de tráfico en que el costo del arrendado iguala al de las llamadas conmutadas; a su derecha conviene el arrendado</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="fig: costo de la línea contra volumen de tráfico, líneas conmutadas hasta Eq y líneas dedicadas o arrendadas desde Eq">Unidad III-3 p.11</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="Se denomina punto de equilibrio entre dos equipos terminales">Libro p.327</a></td>
+</tr>
+<tr>
+<td>Señalización</td>
+<td>Intercambio de información sobre establecimiento, mantenimiento, liberación y control de las llamadas</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=15" title="establecimiento, mantenimiento, liberación y control de las">Unidad III-3 p.15</a></td>
+</tr>
+<tr>
+<td>Red inteligente (RI)</td>
+<td>Concepto sobre las redes clásicas para ofrecer nuevos servicios facilitados por su digitalización</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=20" title="facilitados por su digitalización">Unidad III-3 p.20</a></td>
+</tr>
+<tr>
+<td>Red privada virtual (VPN)</td>
+<td>Usa recursos físicos y lógicos de un operador público, que con su RI la configura como red dedicada</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=21" title="configurarla como una red dedicada">Unidad III-3 p.21</a></td>
+</tr>
+<tr>
+<td>Intensidad de tráfico</td>
+<td>Número de llamadas por unidad de tiempo</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=22" title="Intensidad de tráfico es el número de llamadas por unidad de">Unidad III-3 p.22</a></td>
+</tr>
+<tr>
+<td>Tiempo de retención</td>
+<td>Tiempo promedio que dura cada llamada</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=22" title="Tiempo de retención es el tiempo promedio que dura cada">Unidad III-3 p.22</a></td>
+</tr>
+<tr>
+<td>Flujo de tráfico</td>
+<td>Producto de la intensidad por el tiempo de retención; unidad: el Erlang</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="Flujo de tráfico sobre un nodo, o en un vínculo de">Unidad III-3 p.24</a></td>
+</tr>
+<tr>
+<td>Grado de servicio (GOS)</td>
+<td>Probabilidad de que el conmutador pueda bloquearse en la hora pico</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="El grado de servicio es la probabilidad de que el equipo">Unidad III-3 p.24</a></td>
+</tr>
+</tbody>
+</table>
+<p>La diapositiva da el flujo y el GOS solo en palabras. Los símbolos y los números salen del <strong>libro</strong> (fuera de la diapositiva, rotulado). Unidades: <span class="arithmatex">\(C\)</span> en llamadas por hora, <span class="arithmatex">\(T_R\)</span> en horas, <span class="arithmatex">\(A\)</span> en Erlang. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="A = C x TR">Libro p.351</a></p>
+<div class="arithmatex">\[A = C \cdot T_R \qquad 1\ \text{Erlang} = 36\ \text{CCS} \qquad \mathrm{GOS} = \frac{\text{llamadas perdidas}}{\text{llamadas intentadas}} \qquad Eq = \frac{\text{costo del enlace arrendado}}{\text{costo de una llamada diaria en el mes}}\]</div>
+<table>
+<thead>
+<tr>
+<th>Fórmula</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(A = C \cdot T_R\)</span> (Erlang)</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="TR = Tiempo de Retención medido en horas">Libro p.351</a></td>
+</tr>
+<tr>
+<td>1 Erlang = 36 CCS (3 600 / 100; derivación inconsistente, D7)</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="Luego, resultará que el Erlang será igual a 36 CCS">Libro p.352</a></td>
+</tr>
+<tr>
+<td>GOS = perdidas / realizadas, en la hora pico</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="Llamadas perdidas GOS = Llamadas realizadas">Libro p.354</a></td>
+</tr>
+<tr>
+<td>Llamadas en Eq = costo del arrendado / costo de las llamadas por mes</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="Costo del enlace arrendado Llamadas en Eq = Costo llamadas/mes">Libro p.327</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="1-evolucion-y-conmutacion-telefonica-p23">1. Evolución y conmutación telefónica (p.2–3)<a class="headerlink" href="#1-evolucion-y-conmutacion-telefonica-p23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Hasta los años 60 la red cursaba solo voz, con conmutación de circuitos y cables en pares. Después aparecen los enlaces interurbanos con coaxiles y microondas analógicas, y los primeros servicios de datos. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="Desde el siglo XIX, y hasta los años 60 la red telefónica">Unidad III-3 p.2</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="microondas analógicas y los primeros servicios de datos">Unidad III-3 p.2</a></li>
+<li>A mediados de los 80, fibra óptica interurbana; a mediados de los 90, Internet; en el siglo XXI, ADSL sobre la red telefónica y cable módem sobre redes de TV (se desarrollan en <a href="../u8/02-modems.html">Módems y acceso de banda ancha</a>). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="A mediados de los 80 aparecen los enlaces interurbanos de">Unidad III-3 p.2</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=2" title="aparecen las tecnologías ADSL sobre la red telefónica y">Unidad III-3 p.2</a></li>
+<li>La conmutación telefónica permite compartir pocas troncales con muchos internos. Es la conmutación de circuitos de P18. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=3" title="Permite compartir pocas líneas troncales con muchos internos.">Unidad III-3 p.3</a></li>
+<li><strong>Esquema de una central</strong> (figura de p.3): los abonados llegan por el par de abonado a un distribuidor; una matriz de conmutación los une con el distribuidor de troncales; una unidad de control con programa almacenado y una consola de operación gobiernan la matriz. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=3" title="fig: matriz de conmutación entre distribuidor de abonados y de troncales, con unidad de control de programa almacenado">Unidad III-3 p.3</a></li>
+<li>Respuesta breve: P7 <strong>U3-14</strong> (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>).</li>
+</ul>
+<h3 id="2-centrales-p45">2. Centrales (p.4–5)<a class="headerlink" href="#2-centrales-p45" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Qué es</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Públicas</td>
+<td>De los prestadores del servicio básico</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="de los prestadores del servicio básico">Unidad III-3 p.4</a></td>
+</tr>
+<tr>
+<td>Privadas</td>
+<td>Internas de las empresas; unidas por troncales propios forman redes cerradas PAX; conectadas a la línea pública, PABX (D1)</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="enlaces troncales propios formado redes cerradas llamadas PAX">Unidad III-3 p.4</a></td>
+</tr>
+<tr>
+<td>Locales</td>
+<td>Conectan a los abonados; conmutación a dos hilos</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="Las centrales que conectan a los abonados tienen conmutación">Unidad III-3 p.5</a></td>
+</tr>
+<tr>
+<td>De tránsito</td>
+<td>Sin usuarios; interconectan locales con troncales a cuatro hilos; conmutan locales o interurbanas</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="En las redes hay centrales de tránsito que interconectan a las">Unidad III-3 p.5</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Las de tránsito "se las conoce como" Centros Automáticos Urbanos, CA Interurbanos y CA Internacionales (lista de la fuente tal cual). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="locales o interurbanas, y se las conoce como">Unidad III-3 p.5</a></li>
+<li>Hasta los 80 eran electromecánicas, ahora digitales; los servicios migran a telefonía IP. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="Hasta los 80 las centrales eran electromecánicas, ahora son">Unidad III-3 p.4</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="Los servicios telefónicos están migrando a telefonía IP">Unidad III-3 p.4</a></li>
+</ul>
+<h3 id="3-jerarquia-de-la-red-p68">3. Jerarquía de la red (p.6–8)<a class="headerlink" href="#3-jerarquia-de-la-red-p68" title="Permanent link">&para;</a></h3>
+<p>Solo está en figuras; la diapositiva no la escribe.</p>
+<ul>
+<li><strong>Nivel urbano:</strong> varias centrales urbanas (CU), cada una con sus abonados, unidas por enlaces troncales urbanos a una Central de Tránsito Urbana. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=6" title="fig: cuatro centrales urbanas CU con terminales unidas a una Central de Tránsito Urbana por enlaces troncales urbanos">Unidad III-3 p.6</a></li>
+<li><strong>Interurbano e internacional:</strong> las CU de cada ciudad llegan a una Central de Tránsito Interurbana; las interurbanas se enlazan entre sí y con una Central de Tránsito Internacional. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=7" title="fig: CU de cuatro ciudades hacia dos Centrales de Tránsito Interurbana y una Central de Tránsito Internacional">Unidad III-3 p.7</a></li>
+<li><strong>Vista en planos (p.8):</strong> arriba, el nivel de sincronismo, control y señalización; debajo, plano internacional (CAInt), interurbano (CAI), urbano (CAU) y las CU con sus abonados. Hay <strong>camino principal</strong> y <strong>camino de desborde o secundario</strong>. Leyenda: CAInt Centro Automático Internacional, CAI Interurbano, CAU Urbano, CU Central Urbana, UA Unidad Automática. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=8" title="fig: planos internacional, interurbano y urbano con CAInt, CAI, CAU y CU; camino principal y camino de desborde o secundario">Unidad III-3 p.8</a></li>
+<li>El camino de desborde es la alternativa del Plan de Encaminamiento (sección 4) [INFERRED]: la diapositiva no une las dos cosas. "Jerarquía" y "planos": D6.</li>
+</ul>
+<h3 id="4-numeracion-y-encaminamiento-p9">4. Numeración y encaminamiento (p.9)<a class="headerlink" href="#4-numeracion-y-encaminamiento-p9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>El plan define la numeración de abonados y de centrales en un orden jerárquico que depende de la topología. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="Define la numeración de los abonados y de las centrales en un">Unidad III-3 p.9</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="orden jerárquico que depende de la topología">Unidad III-3 p.9</a></li>
+<li>Cada central tiene 10.000 abonados. Hay códigos para cada ciudad y cada país. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="Hay códigos para cada ciudad y cada país">Unidad III-3 p.9</a></li>
+<li>El Plan de Encaminamiento establece las rutas, y sus alternativas, para cada enlace posible. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="Hay un Plan de Encaminamiento que establece las rutas, y sus">Unidad III-3 p.9</a></li>
+<li>La fuente no da códigos ni ejemplos de numeración: no se inventan prefijos.</li>
+</ul>
+<h3 id="5-discado-p10">5. Discado (p.10)<a class="headerlink" href="#5-discado-p10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Antes: un disco que generaba pulsos en la línea. Ahora: teclado digital, donde cada tecla genera <strong>dos tonos de distinta frecuencia</strong>. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=10" title="Antes se seleccionaba el destino con un disco que generaba">Unidad III-3 p.10</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=10" title="tonos de distinta frecuencia">Unidad III-3 p.10</a></li>
+<li>Tabla de la diapositiva (valores de la diapositiva): <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=10" title="fig: matriz de teclas con filas 697 770 852 943 Hz y columnas 1209 1336 1447 Hz">Unidad III-3 p.10</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1209 Hz</th>
+<th>1336 Hz</th>
+<th>1447 Hz</th>
+<th>Fila</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fila 1</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>697 Hz</td>
+</tr>
+<tr>
+<td>Fila 2</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>770 Hz</td>
+</tr>
+<tr>
+<td>Fila 3</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>852 Hz</td>
+</tr>
+<tr>
+<td>Fila 4</td>
+<td>*</td>
+<td>0</td>
+<td>#</td>
+<td>943 Hz</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Cada tecla suma el tono de su columna y el de su fila. Libro: con el 1 se envían a la vez uno de 1209 Hz y otro de 697 Hz. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=321" title="Uno de 1209 Hz y otro de 697 Hz">Libro p.321</a></li>
+<li>Libro: el dial rotativo genera pulsos de corriente y no corriente. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=321" title="por el dial son pulsos de corriente/no-corriente">Libro p.321</a></li>
+</ul>
+<h3 id="6-conmutados-y-arrendados-p11">6. Conmutados y arrendados (p.11)<a class="headerlink" href="#6-conmutados-y-arrendados-p11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Conmutados: comparten troncales entre varios abonados. Arrendados: uso exclusivo y mejor calidad; convienen con tráfico muy alto. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="Los circuitos conmutados permiten compartir el uso de líneas">Unidad III-3 p.11</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="Cuando el tráfico es muy alto conviene pedir circuitos">Unidad III-3 p.11</a></li>
+<li>Gráfico: costo de la línea contra volumen de tráfico. La recta de las conmutadas crece y la horizontal es el arrendado; se cruzan en <strong>Eq</strong>. A la izquierda conviene la conmutada, a la derecha la dedicada o arrendada. La recta horizontal no está rotulada en el PNG: que sea costo fijo es [INFERRED] por el cruce en Eq. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=11" title="fig: costo de la línea contra volumen de tráfico, líneas conmutadas hasta Eq y líneas dedicadas o arrendadas desde Eq">Unidad III-3 p.11</a></li>
+<li>El libro lo explica con el cálculo del Ejemplo 1 de abajo y agrega que conviene tomar un Eq algo menor al teórico, porque el arrendado queda disponible las 24 horas. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=328" title="es más conveniente tomar un valor de Eq algo menor">Libro p.328</a></li>
+<li>Respuesta breve: P7 <strong>U3-15</strong>.</li>
+</ul>
+<h3 id="7-dos-y-cuatro-hilos-p1214">7. Dos y cuatro hilos (p.12–14)<a class="headerlink" href="#7-dos-y-cuatro-hilos-p1214" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Dos hilos</th>
+<th>Cuatro hilos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Servicio</td>
+<td>Semidúplex o dúplex de baja velocidad de datos</td>
+<td>Dúplex</td>
+</tr>
+<tr>
+<td>Dónde</td>
+<td>Línea del usuario hasta la central (figura de p.12); centrales de abonados</td>
+<td>Troncales urbanos, interurbanos e internacionales (libro); centrales de tránsito</td>
+</tr>
+<tr>
+<td>Fuente</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=12" title="Circuitos a dos hilos permiten servicios semiduplex o dúplex de">Unidad III-3 p.12</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=328" title="Pueden manejar velocidades de modulación de hasta 3 300 Baudios">Libro p.328</a></td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=12" title="Circuitos a cuatro hilos permiten servicios dúplex">Unidad III-3 p.12</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=329" title="Dos hilos para transmitir y dos para recibir">Libro p.329</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Libro, dos hilos:</strong> hasta 3 300 baudios (p.328, arriba).</li>
+<li><strong>Libro, cuatro hilos:</strong> dos pares en un sentido y dos en el contrario; aptos para dúplex completo; no requieren bobinas híbridas; permiten usar un repetidor regenerativo para transmisión y otro para recepción. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=329" title="dos pares en un sentido y dos pares en sentido contrario">Libro p.329</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=329" title="Los circuitos de cuatro hilos permiten usar regeneradores repetitivos">Libro p.329</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=330" title="Son especialmente aptos para las comunicaciones dúplex completo">Libro p.330</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=330" title="No requieren el uso de bobinas híbridas">Libro p.330</a></li>
+<li><strong>Enlace de datos a dos hilos (p.12):</strong> cada ETD sale por RS 232 c a un módem; el módem va por la línea a dos hilos del usuario hasta la central. En la figura el teléfono también se conecta al módem. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=12" title="fig: ETD con RS 232 c a módem y línea a dos hilos del usuario hacia la central">Unidad III-3 p.12</a></li>
+<li><strong>Enlace de datos a cuatro hilos (p.14):</strong> el módem recibe dos pares y la línea del usuario llega a la central a cuatro hilos. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=14" title="fig: ETD con RS 232 c a módem y línea a cuatro hilos del usuario hacia cada central">Unidad III-3 p.14</a></li>
+<li><strong>Conversión 2 a 4 hilos (p.13):</strong> la central usa una <strong>bobina híbrida (CH)</strong> con <strong>circuito de balance</strong>. Del lado de 4 hilos hay un par de recepción y uno de transmisión, cada uno con un repetidor (RR). El libro: la bobina híbrida es el dispositivo que pasa de dos a cuatro hilos y viceversa (D3). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=13" title="fig: línea a 2 hilos, bobina híbrida CH, circuito de balance y línea a 4 hilos con pares de recepción y transmisión y repetidores RR">Unidad III-3 p.13</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=329" title="Ese dispositivo recibe el nombre de bobina híbrida">Libro p.329</a></li>
+<li>Respuesta breve: P7 <strong>U3-15</strong>. La interfaz RS-232 se desarrolla en <a href="../u8/01-interfaces.html">Interfaces de capa física</a>.</li>
+</ul>
+<h3 id="8-senalizacion-p1519">8. Señalización (p.15–19)<a class="headerlink" href="#8-senalizacion-p1519" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Es el intercambio de información sobre establecimiento, mantenimiento, liberación y control de las llamadas. Va codificada por cada canal o por un canal independiente exclusivo. Hoy se usan protocolos avanzados que siguen el modelo OSI. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=15" title="Es el intercambio de información relacionada con el">Unidad III-3 p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=15" title="por un canal independiente exclusivo">Unidad III-3 p.15</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=15" title="Actualmente se usan protocolos avanzados que siguen el">Unidad III-3 p.15</a></li>
+<li><strong>Canal independiente (p.16):</strong> entre las CU de las centrales A y B hay canales de voz (líneas llenas) y un canal de señalización (línea punteada). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=16" title="fig: canales de voz y canal de señalización entre las centrales A y B">Unidad III-3 p.16</a></li>
+<li><strong>Secuencia de una llamada</strong> (p.17), el usuario A llama al B, de arriba hacia abajo: <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=17" title="fig: secuencia de señalización entre usuario A, central 1, central 2 y usuario B, de la solicitud a la liberación">Unidad III-3 p.17</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Mensaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A solicita a B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>La central 1 solicita captura de un canal de voz y otro de señalización</td>
+</tr>
+<tr>
+<td>3</td>
+<td>La central 2 reconoce y acepta el pedido; captura del canal</td>
+</tr>
+<tr>
+<td>4</td>
+<td>La central 1 envía la información de la dirección del usuario B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Timbre de llamada a B</td>
+</tr>
+<tr>
+<td>6</td>
+<td>B levanta el microteléfono</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Señal B responde</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Establecimiento de la conexión y comienzo de la conversación</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Si B cuelga primero: liberación del canal de voz y de señalización hacia atrás</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Si A cuelga primero: liberación del canal de voz y de señalización hacia adelante</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Pila de señalización contra OSI</strong> (p.18): <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=18" title="fig: pila OSI de siete capas contra MTP1 física, MTP2 enlace, MTP3 red, SCCP transporte, TUP, ISUP y TCAP">Unidad III-3 p.18</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Protocolo</th>
+<th>Nivel OSI en la figura</th>
+<th>Se apoya en (figura)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MTP1</td>
+<td>Física</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MTP2</td>
+<td>Enlace</td>
+<td>MTP1</td>
+</tr>
+<tr>
+<td>MTP3</td>
+<td>Red</td>
+<td>MTP2</td>
+</tr>
+<tr>
+<td>SCCP</td>
+<td>Transporte</td>
+<td>MTP3</td>
+</tr>
+<tr>
+<td>TUP</td>
+<td>Arriba de MTP3</td>
+<td>MTP3</td>
+</tr>
+<tr>
+<td>ISUP</td>
+<td>Escalonado: arriba de MTP3 y en parte sobre SCCP</td>
+<td>MTP3 y, en parte, SCCP</td>
+</tr>
+<tr>
+<td>TCAP</td>
+<td>Arriba de SCCP</td>
+<td>SCCP</td>
+</tr>
+</tbody>
+</table>
+<p>La figura <strong>no</strong> muestra OMAP. Lista de la p.19 con las funciones del libro (fuera de la diapositiva):</p>
+<table>
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Nombre en la diapositiva</th>
+<th>Función (libro)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MTP1</td>
+<td>Protocolo de Mensajes de Nivel 1 <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="MTP1- Protocolo de Mensajes de Nivel 1">Unidad III-3 p.19</a></td>
+<td>Características físicas, eléctricas y funcionales del enlace de señalización <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="MTP 1: Protocolo de Mensajes nivel 1">Libro p.339</a></td>
+</tr>
+<tr>
+<td>MTP2</td>
+<td>Protocolo de Mensajes de Nivel 2 <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="MTP2- Protocolo de Mensajes de Nivel 2">Unidad III-3 p.19</a></td>
+<td>Transferencia fiable de mensajes por un enlace <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="MTP 2: Protocolo de Mensajes nivel 2">Libro p.339</a></td>
+</tr>
+<tr>
+<td>MTP3</td>
+<td>Protocolo de Mensajes de Nivel 3 <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="MTP3- Protocolo de Mensajes de Nivel 3">Unidad III-3 p.19</a></td>
+<td>Tratamiento de mensajes y gestión de la red de señalización <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="MTP 3: Protocolo de Mensajes nivel 3">Libro p.339</a></td>
+</tr>
+<tr>
+<td>OMAP</td>
+<td>Protocolo de Mensajes de Nivel 3 (Operación, Mantenimiento y Administración) <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="OMAP- Protocolo de Mensajes de Nivel 3">Unidad III-3 p.19</a></td>
+<td>Facilita la tarea de los administradores de la red de señalización <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=340" title="Está diseñado para facilitar la tarea de los administradores">Libro p.340</a></td>
+</tr>
+<tr>
+<td>SCCP</td>
+<td>Protocolo de Control de Conexión de Señalización <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="SCCP- Protocolo de Control de Conexión de Señalización">Unidad III-3 p.19</a></td>
+<td>Servicios de red con y sin conexión sobre MTP <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="SCCP: Protocolo de Control de Conexión de Señalización">Libro p.339</a></td>
+</tr>
+<tr>
+<td>TUP</td>
+<td>Protocolo de Usuario de Telefonía <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="TUP – Protocolo de Usuario de Telefonía">Unidad III-3 p.19</a></td>
+<td>Señalización de control de las llamadas de telefonía vocal <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="señalización de control de las llamadas de telefonía vocal">Libro p.339</a></td>
+</tr>
+<tr>
+<td>PU-RDSI</td>
+<td>Protocolo de Usuario; la diapositiva agrega "USUP de ISDN" <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="PU-RDSI- Protocolo de Usuario">Unidad III-3 p.19</a></td>
+<td>Es ISUP, Protocolo de Usuario de RDSI (D2) <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="PU-RDSI: Protocolo de Usuario de RDSI">Libro p.339</a></td>
+</tr>
+<tr>
+<td>TCAP</td>
+<td>Protocolo de Aplicación <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="TCAP- Protocolo de Aplicación">Unidad III-3 p.19</a></td>
+<td>Se apoya en SCCP para transportar sus mensajes <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="Para el transporte de los mensajes, se apoya en el protocolo SCCP">Libro p.339</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Respuesta breve: P7 <strong>U3-16</strong>; la pila contra OSI de la figura de p.18 y la secuencia de p.17 son lo que agrega esta página.</li>
+</ul>
+<h3 id="9-red-inteligente-y-redes-privadas-virtuales-p2021">9. Red inteligente y redes privadas virtuales (p.20–21)<a class="headerlink" href="#9-red-inteligente-y-redes-privadas-virtuales-p2021" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>RI:</strong> concepto que se aplica sobre las mismas redes de telecomunicaciones clásicas para ofrecer nuevos servicios, facilitados por su digitalización. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=20" title="Concepto que se aplica sobre las mismas redes de">Unidad III-3 p.20</a></li>
+<li><strong>VPN:</strong> usa los recursos físicos y lógicos de un operador público, que emplea su RI para configurarla como red dedicada. El hardware puede ser mixto, en parte propio y en parte del operador. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=21" title="Usan los recursos físicos y lógicos de un operador publico, quien">Unidad III-3 p.21</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=21" title="El hardware de la red puede ser mixto">Unidad III-3 p.21</a></li>
+<li>Respuesta breve: P7 <strong>U3-18</strong>; no hay más desarrollo en la diapositiva.</li>
+</ul>
+<h3 id="10-ingenieria-de-trafico-p2224">10. Ingeniería de tráfico (p.22–24)<a class="headerlink" href="#10-ingenieria-de-trafico-p2224" title="Permanent link">&para;</a></h3>
+<ul>
+<li>El dimensionamiento de centrales y troncales cambió con la tecnología; las decisiones surgen de mediciones del software. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=22" title="El dimensionamiento de las centrales y la cantidad de enlaces">Unidad III-3 p.22</a></li>
+<li>El tráfico es aleatorio y se estudia en forma estadística. Tiene máximos (hora pico) y mínimos; cada usuario hace llamadas de distinta duración. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=22" title="El tráfico telefónico es de naturaleza aleatoria que se estudia en">Unidad III-3 p.22</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=22" title="Cada usuario realiza llamadas de variadas duraciones">Unidad III-3 p.22</a></li>
+<li><strong>Curva de 24 horas (p.23):</strong> tres picos de tráfico; los ejes están numerados (vertical 0–10, horizontal 1–24) pero sin rótulo ni unidad. Lectura del libro de la misma curva: mediodía, tarde y 20 h por tarifa reducida. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=23" title="fig: curva de tráfico en 24 horas con tres picos de tráfico">Unidad III-3 p.23</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="que a las 20 horas se produce una disminución">Libro p.351</a></li>
+<li><strong>Hora pico (libro, Q.80):</strong> promedio de las horas pico de los 30 días del año de mayor tráfico, o de los cinco días. Cuantos menos días se consideren, mayor calidad y mayor costo. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="las horas pico de los 30 días del año">Libro p.351</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="horas pico de los cinco días del">Libro p.351</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="Cuanto menor sea la cantidad de días de mayor tráfico">Libro p.351</a></li>
+<li><strong>Flujo de tráfico</strong> = intensidad × tiempo de retención; unidad, el Erlang. 1 Erlang es un circuito ocupado de forma permanente: un circuito no maneja más de 1 Erlang y un vínculo de N circuitos, no más de N Erlang. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="La unidad de flujo de tráfico es el Erlang">Unidad III-3 p.24</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="no podrá manejar más tráfico que N Erlang">Libro p.352</a></li>
+<li><strong>Congestión:</strong> las centrales públicas se dimensionan para atender a N abonados de un total de M conectados. Llamada perdida (libro): la que, al primer intento, no obtiene el tono de discar. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="dimensionados para poder atender a N abonados de un total">Unidad III-3 p.24</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=353" title="al primer intento de adquirir una conexión, no obtienen el tono">Libro p.353</a></li>
+<li><strong>Grado de servicio:</strong> probabilidad de que el conmutador se bloquee en la hora pico; se calcula con modelos de Erlang y Poisson. El libro: Erlang-B es el modelo de Erlang más usado y lo estandarizó la UIT (Q.87); las variantes quedan fuera de su alcance. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="Se calcula en base a modelos matemáticos de Erlang y Poisson">Unidad III-3 p.24</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=355" title="La UIT lo ha estandarizado en la Recomendación Q.87">Libro p.355</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=355" title="El estudio en detalle de cada una de estas variantes">Libro p.355</a></li>
+<li>Respuesta breve: P7 <strong>U3-17</strong>. Los organismos UIT-T se ubican en P16 (<a href="../u1/01-introduccion.html">Introducción</a>).</li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>Los cuatro ejemplos son del <strong>libro de la cátedra</strong> (nivel 3): las diapositivas no traen cálculos. Cada uno cita enunciado y resolución. Las páginas son las del PDF; el libro las imprime 25 antes (la p.327 del PDF es la 302 impresa). Test: <code>herramientas/tests/u3-03-red-telefonica.test.js</code>.</p>
+<h3 id="ejemplo-4-01-punto-de-equilibrio-entre-conmutado-y-arrendado">Ejemplo 4-01: punto de equilibrio entre conmutado y arrendado<a class="headerlink" href="#ejemplo-4-01-punto-de-equilibrio-entre-conmutado-y-arrendado" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Enunciado:</strong> enlace arrendado de US$ 330 mensuales, llamada habitual de ocho minutos a 1,5 US<span class="arithmatex">\(, mes de 22 días de trabajo. Se pide el número de llamadas diarias en Eq. [Libro p.327](../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327 "enlace arrendado entre dichas ciudades es de US\)</span> 330 mensuales"), <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="llamada de ocho minutos habitual entre las sedes cuesta 1,5 US$">Libro p.327</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="como referencia un mes de veintidós días de trabajo">Libro p.327</a></li>
+<li><strong>Resolución:</strong> <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="Costo por llamada/mes = 1,5 x 22 US$">Libro p.327</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="Llamadas en Eq = 10 llamadas diarias">Libro p.327</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Costo de una llamada diaria durante el mes</td>
+<td><span class="arithmatex">\(1{,}5 \cdot 22\)</span></td>
+<td>33 US$</td>
+</tr>
+<tr>
+<td>Llamadas en Eq</td>
+<td><span class="arithmatex">\(330 / 33\)</span></td>
+<td>10 llamadas diarias</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Conclusión del libro:</strong> a partir de la décima llamada diaria es más económico tener una línea arrendada. Los ocho minutos no entran en la cuenta: el costo de la llamada ya está dado. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=328" title="A partir de la décima llamada diaria, es más económico">Libro p.328</a></li>
+</ul>
+<h3 id="ejemplo-4-02-flujo-de-trafico-de-un-e1">Ejemplo 4-02: flujo de tráfico de un E1<a class="headerlink" href="#ejemplo-4-02-flujo-de-trafico-de-un-e1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Enunciado:</strong> vínculo E1 entre dos PABX con 450 llamadas en la hora pico y tiempo de retención de tres minutos. Se pide el flujo del vínculo y por circuito. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="se cursa un promedio de 450 llamadas en la hora pico">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="con un tiempo de retención de tres minutos">Libro p.352</a></li>
+<li><strong>Resolución:</strong> <span class="arithmatex">\(C = 450\)</span> llamadas/hora y <span class="arithmatex">\(T_R = 3/60\)</span> h por llamada. Un E1 tiene 30 circuitos. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="A = 450 x 3/60 [Erlang/por E1]">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="A = 22,5 [Erlang/por E1]">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="Sabiendo que un vínculo E1 tiene 30 circuitos">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="A = 0,75 [Erlang/circuito]">Libro p.352</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flujo del E1</td>
+<td><span class="arithmatex">\(A = 450 \cdot 3/60\)</span></td>
+<td>22,5 Erlang</td>
+</tr>
+<tr>
+<td>Flujo por circuito</td>
+<td><span class="arithmatex">\(22{,}5 / 30\)</span></td>
+<td>0,75 Erlang</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Chequeo: 0,75 es menor que 1 Erlang por circuito y 22,5 es menor que 30 Erlang del vínculo (recálculo propio).</li>
+</ul>
+<h3 id="ejemplo-4-03-el-mismo-flujo-en-ccs">Ejemplo 4-03: el mismo flujo en CCS<a class="headerlink" href="#ejemplo-4-03-el-mismo-flujo-en-ccs" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Base (libro):</strong> supone cien llamados en cada segundo, dice que en una hora se cursan 3 600 llamadas, y de ahí 1 Erlang = 3 600 / 100 = 36 CCS. La derivación es inconsistente: 100 llamados por segundo en 3 600 s son 360 000 por hora, no 3 600 (recálculo propio, D7). La página usa los 36 CCS del libro. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="arribarán cien llamados en cada segundo de">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="se habrá cursado un tráfico de 3 600">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="valor que resulta de dividir 3 600 por 100">Libro p.352</a></li>
+<li><strong>Enunciado:</strong> expresar en CCS los valores del ejemplo anterior. Dice "Ejemplo 4-01", pero los datos son los del 4-02 (D4). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="Con los datos obtenidos en el Ejemplo 4-01">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="expresar los valores en CCS">Libro p.352</a></li>
+<li><strong>Resolución:</strong> <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=353" title="A = 810 [CCS] Y para cada circuito del vínculo E1">Libro p.353</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=353" title="A = 0,75 x 36 [CCS] A = 27 [CCS]">Libro p.353</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Erlang</td>
+<td><span class="arithmatex">\(3\,600 / 100\)</span></td>
+<td>36 CCS</td>
+</tr>
+<tr>
+<td>Flujo del E1</td>
+<td><span class="arithmatex">\(22{,}5 \cdot 36\)</span></td>
+<td>810 CCS</td>
+</tr>
+<tr>
+<td>Flujo por circuito</td>
+<td><span class="arithmatex">\(0{,}75 \cdot 36\)</span></td>
+<td>27 CCS</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Chequeo: <span class="arithmatex">\(810 / 30 = 27\)</span> CCS por circuito (recálculo propio).</li>
+</ul>
+<h3 id="ejemplo-4-04-grado-de-servicio">Ejemplo 4-04: grado de servicio<a class="headerlink" href="#ejemplo-4-04-grado-de-servicio" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Enunciado:</strong> medidas durante tres meses en la hora pico de una central; se pierden 3 llamadas de cada cien realizadas. Se pide el GOS. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="se han efectuado medidas durante un período de tres meses">Libro p.354</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="se pierden 3 llamadas de cada cien realizadas">Libro p.354</a></li>
+<li><strong>Resolución:</strong> <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="100 Llamadas realizadas GOS = 0,03">Libro p.354</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Magnitud</th>
+<th>Cuenta</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GOS</td>
+<td><span class="arithmatex">\(3 / 100\)</span></td>
+<td>0,03</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Lectura del libro: de cada cien intentos en la hora pico, tres se pierden al primer intento (D5). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="de cada cien intentos de establecer una">Libro p.354</a></li>
+</ul>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El Erlang es adimensional y tiene techo.</strong> 1 Erlang es un circuito ocupado de forma permanente. El flujo por circuito nunca pasa de 1 y el de un vínculo, de su cantidad de circuitos (30 en un E1). Un resultado mayor es un error de cuenta. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="un solo circuito no podrá manejar más tráfico que un Erlang">Libro p.352</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El tiempo de retención va en horas.</strong> En <span class="arithmatex">\(A = C \cdot T_R\)</span>, con <span class="arithmatex">\(C\)</span> en llamadas por hora, 3 minutos es <span class="arithmatex">\(3/60\)</span> h. Con minutos el resultado sale 60 veces mayor. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=351" title="TR = Tiempo de Retención medido en horas">Libro p.351</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Dos hilos en el abonado, cuatro en las troncales.</strong> Las centrales que conectan abonados conmutan a dos hilos; las de tránsito se interconectan con troncales a cuatro hilos. La bobina híbrida está en el pasaje de uno al otro. El rótulo "Repetidores generativos" de la figura es el del PNG (D3). <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="Las centrales que conectan a los abonados tienen conmutación">Unidad III-3 p.5</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Eq se mide en llamadas, no en dinero, y depende del mes de referencia.</strong> El 10 sale de <span class="arithmatex">\(330/33\)</span> con 22 días de trabajo; con otro mes cambia. Desde Eq conviene el arrendado, no antes. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=327" title="como referencia un mes de veintidós días de trabajo">Libro p.327</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El GOS es sobre intentos, y se mide solo en la hora pico.</strong> Fuera de la hora pico el servicio es mejor. El libro define sobre llamadas "intentadas" y calcula sobre "realizadas" (D5). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="El grado de servicio mide la probabilidad de congestionamiento">Libro p.354</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>PU-RDSI, ISUP y "USUP".</strong> La figura de p.18 rotula ISUP; la lista de p.19, "PU-RDSI" con "USUP de ISDN". Es el mismo protocolo (D2). OMAP está en la lista de p.19 y no en la figura de p.18. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="PU-RDSI- Protocolo de Usuario">Unidad III-3 p.19</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El Ejemplo 4-03 del libro cita el 4-01, pero usa los datos del 4-02.</strong> Si buscás 22,5 Erlang en el 4-01 no está (D4). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="Con los datos obtenidos en el Ejemplo 4-01">Libro p.352</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Ningún examen ni guía de TP del repo trae ejercicios de red telefónica ni de tráfico (buscado por Erlang, hora pico, grado de servicio, dos y cuatro hilos, híbrida y tonos). Quedan los ejercicios propuestos del libro, que <strong>no tienen resolución en la fuente</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio del libro</th>
+<th>Enunciado</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4-01 a 4-04</td>
+<td>Resueltos en el libro</td>
+<td>Resueltos arriba, con test</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Flujo de tráfico en un vínculo T1, con 420 llamadas en la hora pico y retención de 3 minutos; también por circuito. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="Calcular el Flujo de Trafico en la hora pico en un vínculo">Libro p.356</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="un promedio de 420 llamadas en la hora pico, con un tiempo">Libro p.356</a></td>
+<td>Sin resolución en la fuente. Se resuelve como el 4-02; el libro da el T1 con 24 canales. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=575" title="compuestos por 24 canales de 56 kbps">Libro p.575</a></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Grado de servicio con 4 llamadas perdidas sobre 160 realizadas en la hora pico, durante un mes. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="llamadas perdidas cuatro y total de llamadas">Libro p.356</a></td>
+<td>Sin resolución en la fuente. Se resuelve como el 4-04</td>
+</tr>
+<tr>
+<td>24 y 25</td>
+<td>Señal generada al discar 624 1111 por pulsos y por tonos. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="Ídem el ejemplo anterior pero utilizando señalización por tonos">Libro p.356</a></td>
+<td>Sin resolución en la fuente. Por tonos: tabla de p.10 de la diapositiva. Por pulsos no hay figura levantada</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Qué números discar desde Buenos Aires para llamar al abonado 336 6006 de Madrid. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="desde Buenos Aires con el abonado 336 6006">Libro p.356</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=356" title="ubicado en la ciudad de Madrid, España.">Libro p.356</a></td>
+<td>Sin resolución en la fuente; no hay códigos que citar</td>
+</tr>
+</tbody>
+</table>
+<p>Preguntas de examen de teoría: P7 <strong>U3-14 a U3-18</strong> (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>).</p>
+<h3 id="huecos-de-la-fuente">Huecos de la fuente<a class="headerlink" href="#huecos-de-la-fuente" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Plan de numeración sin códigos ni ejemplos; solo el ejercicio 29 del libro, sin respuesta. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="Hay códigos para cada ciudad y cada país">Unidad III-3 p.9</a></li>
+<li>MTP y OMAP solo se nombran en la diapositiva; sus funciones vienen del libro. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="MTP3- Protocolo de Mensajes de Nivel 3">Unidad III-3 p.19</a></li>
+<li>La figura de p.23 numera los ejes (0–10 y 1–24) y no rotula magnitud ni unidad.</li>
+<li>La recta horizontal de p.11 no tiene rótulo (se interpreta como costo fijo, [INFERRED]).</li>
+</ul>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<p>Las respuestas breves de P7 (U3-14 a U3-18) se enlazan y no se repiten (<a href="../repaso-teorico-u1-u4.html">Repaso U1–U4</a>). Acá se evalúa lo que agrega esta página.</p>
+<details class="question">
+<summary>¿En qué se diferencian una central local y una de tránsito, y a cuántos hilos conmuta cada una?</summary>
+<p>La local conecta abonados y conmuta a dos hilos. La de tránsito no tiene usuarios, conmuta locales o interurbanas y se interconecta con troncales a cuatro hilos. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=5" title="No poseen usuarios conectados a ellas, conmutan centrales">Unidad III-3 p.5</a></p>
+</details>
+<details class="question">
+<summary>¿Qué dos tonos genera la tecla 5? ¿Y la tecla 1?</summary>
+<p>La 5 está en la fila 2 (770 Hz) y la columna 2 (1336 Hz). La 1, en la fila 1 (697 Hz) y la columna 1 (1209 Hz). Valores de la diapositiva. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=10" title="fig: matriz de teclas con filas 697 770 852 943 Hz y columnas 1209 1336 1447 Hz">Unidad III-3 p.10</a></p>
+</details>
+<details class="question">
+<summary>Un arrendado cuesta US$ 330 por mes y una llamada diaria cuesta 33 US$ por mes. ¿Desde cuántas llamadas diarias conviene el arrendado?</summary>
+<p><span class="arithmatex">\(Eq = 330 / 33 = 10\)</span> llamadas diarias; desde la décima conviene el arrendado (Ejemplo 4-01 del libro). <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=328" title="A partir de la décima llamada diaria, es más económico">Libro p.328</a></p>
+</details>
+<details class="question">
+<summary>¿Para qué sirve la bobina híbrida y dónde está en la figura de p.13?</summary>
+<p>Pasa de dos a cuatro hilos y viceversa. En la figura va entre la línea a 2 hilos y los pares de recepción y de transmisión, junto al circuito de balance. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=13" title="fig: línea a 2 hilos, bobina híbrida CH, circuito de balance y línea a 4 hilos con pares de recepción y transmisión y repetidores RR">Unidad III-3 p.13</a></p>
+</details>
+<details class="question">
+<summary>En la secuencia de señalización, ¿qué se libera si cuelga primero A? ¿Y si cuelga primero B?</summary>
+<p>Si cuelga A, liberación del canal de voz y de señalización hacia adelante. Si cuelga B, hacia atrás. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=17" title="fig: secuencia de señalización entre usuario A, central 1, central 2 y usuario B, de la solicitud a la liberación">Unidad III-3 p.17</a></p>
+</details>
+<details class="question">
+<summary>En la pila de señalización, ¿sobre qué se apoyan TUP, ISUP, SCCP y TCAP?</summary>
+<p>TUP y SCCP, sobre MTP3. TCAP, sobre SCCP. ISUP está dibujado escalonado: sobre MTP3 y en parte sobre SCCP. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=18" title="fig: pila OSI de siete capas contra MTP1 física, MTP2 enlace, MTP3 red, SCCP transporte, TUP, ISUP y TCAP">Unidad III-3 p.18</a></p>
+</details>
+<details class="question">
+<summary>Reproducí el flujo del E1 del Ejemplo 4-02 y pasalo a CCS.</summary>
+<p><span class="arithmatex">\(A = 450 \cdot 3/60 = 22{,}5\)</span> Erlang; por circuito <span class="arithmatex">\(22{,}5/30 = 0{,}75\)</span> Erlang. En CCS, <span class="arithmatex">\(22{,}5 \cdot 36 = 810\)</span> y <span class="arithmatex">\(0{,}75 \cdot 36 = 27\)</span>. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=353" title="A = 0,75 x 36 [CCS] A = 27 [CCS]">Libro p.353</a></p>
+</details>
+<details class="question">
+<summary>¿Qué mide el grado de servicio y qué significa un GOS de 0,03?</summary>
+<p>La probabilidad de bloqueo del conmutador en la hora pico: de cada cien intentos, tres se pierden al primer intento. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=24" title="conmutador pueda bloquearse en la hora pico">Unidad III-3 p.24</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="100 Llamadas realizadas GOS = 0,03">Libro p.354</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda <code>Unidad-III-3</code> (jerarquía 1). Las diferencias se muestran, no se corrigen. Ninguna nota de clase toca estos temas.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Expansión de PAX</td>
+<td><code>Unidad-III-3</code> p.4: "Private Branch Exchange". <code>Clase-11</code> p.5: "Private Automatic Exchange". PABX: ambas diapositivas la expanden como "Private Automatic Branch Exchange". El libro la escribe de tres maneras: "Automatic", "Address" y "Automated". <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=4" title="enlaces troncales propios formado redes cerradas llamadas PAX">Unidad III-3 p.4</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-11-Redes.pdf#page=5" title="formado redes cerradas llamadas PAX Private Automatic Exchange">Clase-11 p.5</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=347" title="Private Automatic Branch Exchange">Libro p.347</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=353" title="conocidas por su acrónimo PABX Private Address Branch Exchange">Libro p.353</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=312" title="Private Automated Branch Exchange">Libro p.312</a></td>
+<td><code>Unidad-III-3</code>: PAX = Private Branch Exchange; PABX = Private Automatic Branch Exchange</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>PU-RDSI frente a ISUP y "USUP"</td>
+<td>La figura de p.18 rotula ISUP; la lista de p.19 dice "PU-RDSI- Protocolo de Usuario" y "USUP de ISDN". El libro: "ISUP-ISDN User Part". "USUP" parece errata de la diapositiva. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=18" title="fig: pila OSI de siete capas contra MTP1 física, MTP2 enlace, MTP3 red, SCCP transporte, TUP, ISUP y TCAP">Unidad III-3 p.18</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=19" title="PU-RDSI- Protocolo de Usuario">Unidad III-3 p.19</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=339" title="PU-RDSI: Protocolo de Usuario de RDSI">Libro p.339</a></td>
+<td>"PU-RDSI (ISUP)"; "USUP" se anota y no se corrige</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>Rótulos de las figuras</td>
+<td>El PNG de p.13 rotula "Repetidores generativos" y "Cicuito de balance". El libro escribe "regeneradores repetitivos"; P7 U3-15 los llama repetidores regenerativos. En el PNG de p.3 los tres enlaces dicen "Control de tránsito A", "Control de tránsito B" y "Central de tránsito C". <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=13" title="fig: línea a 2 hilos, bobina híbrida CH, circuito de balance y línea a 4 hilos con pares de recepción y transmisión y repetidores RR">Unidad III-3 p.13</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=329" title="Los circuitos de cuatro hilos permiten usar regeneradores repetitivos">Libro p.329</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=3" title="fig: matriz de conmutación entre distribuidor de abonados y de troncales, con unidad de control de programa almacenado">Unidad III-3 p.3</a></td>
+<td>Términos de la figura tal cual (RR); "circuito de balance" con la errata anotada</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>Ejemplo 4-03 del libro</td>
+<td>Dice usar "los datos del Ejemplo 4-01"; los datos (E1, 22,5 Erlang) son los del 4-02. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="Con los datos obtenidos en el Ejemplo 4-01">Libro p.352</a></td>
+<td>Los del 4-02, con la aclaración</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>GOS: intentadas o realizadas</td>
+<td>El texto define sobre llamadas intentadas (establecidas más perdidas); la fórmula dice "realizadas" y el Ejemplo 4-04, "cada cien realizadas". No cambia el 0,03. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="sobre el número total de llamadas intentadas">Libro p.354</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=354" title="se pierden 3 llamadas de cada cien realizadas">Libro p.354</a></td>
+<td>"Intentos"</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>"Jerarquía" frente a "planos"</td>
+<td>La diapositiva usa "orden jerárquico" para la numeración (p.9) y "planos" para las centrales (p.8); no usa "nivel jerárquico" para clasificarlas. <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=9" title="orden jerárquico que depende de la topología">Unidad III-3 p.9</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-III-3.pdf#page=8" title="fig: planos internacional, interurbano y urbano con CAInt, CAI, CAU y CU; camino principal y camino de desborde o secundario">Unidad III-3 p.8</a></td>
+<td>"Planos" para las centrales, "orden jerárquico" para la numeración</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>Derivación del CCS en el libro</td>
+<td>Supone "cien llamados en cada segundo" y que en una hora se cursan "3 600" llamadas; pero 100 por segundo en 3 600 s son 360 000 (recálculo propio, test). De ahí el libro saca 1 Erlang = 3 600 / 100 = 36 CCS. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="arribarán cien llamados en cada segundo de">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="se habrá cursado un tráfico de 3 600">Libro p.352</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=352" title="valor que resulta de dividir 3 600 por 100">Libro p.352</a></td>
+<td>36 CCS por Erlang, el valor del libro; la inconsistencia se anota y no se corrige</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./02-redes.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Redes: topologías, OSI y conmutación">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Redes: topologías, OSI y conmutación
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u4/01-modulacion-analogica.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Modulación analógica: AM, FM y PM">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Modulación analógica: AM, FM y PM
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

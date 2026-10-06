@@ -1,0 +1,2667 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./02-fibra-optica.html">
+      
+      
+        <link rel="next" href="../u8/01-interfaces.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Medios no guiados - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#medios-no-guiados" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Medios no guiados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u4/04-multiplexacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="03-no-guiados.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radio-y-espectro" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radio y espectro
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagacion-terrestre-reflejada-y-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Propagación: terrestre, reflejada y directa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onda-directa-horizonte-y-alcance-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Onda directa: horizonte y alcance visual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microondas-y-ecuacion-del-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Microondas y ecuación del enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altura-de-antenas-repetidoras-y-antenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Altura de antenas, repetidoras y antenas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#satelites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Satélites
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laser-y-fso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Láser y FSO
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#radio-y-espectro" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Radio y espectro
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagacion-terrestre-reflejada-y-directa" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Propagación: terrestre, reflejada y directa
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onda-directa-horizonte-y-alcance-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Onda directa: horizonte y alcance visual
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microondas-y-ecuacion-del-enlace" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Microondas y ecuación del enlace
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#altura-de-antenas-repetidoras-y-antenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Altura de antenas, repetidoras y antenas
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#satelites" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Satélites
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laser-y-fso" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Láser y FSO
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-cobre-cableado.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U7
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="medios-no-guiados">Medios no guiados<a class="headerlink" href="#medios-no-guiados" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<p>U7 · medios no guiados de comunicaciones (radio, microondas, satélites, láser).
+Alcance del 2.º parcial: inferido (U6 en adelante), no confirmado por la cátedra.</p>
+<ul>
+<li>Del TP7, esta página cubre los ej. 2 a 9 (radio, antenas, enlace visual), el 12 (retardo satelital, teoría 2) y el 16 (retardos a 60 km, sin resolución oficial). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="Cuál será la distancia del enlace visual para un enlace cuya altura">TP7 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Calcular el retardo total que ocasiona la transmisión satelital para los">TP7 p.2</a></li>
+<li>El ej. 1 (interpolación y coaxil) y el 10 (enlace de fibra con carretes) están en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a> y no se repiten. El ej. 11 (ventanas) está en <a href="02-fibra-optica.html">Fibra óptica</a> y los ej. 13 a 15 en <a href="01-cobre-cableado.html">Cobre y cableado estructurado</a>.</li>
+<li>Obligatorios (en azul): de la guía práctica solo el ej. 10 y de la de teoría solo la pregunta 3. Ninguno de esta página lo es. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=1" title="fig: solo la nota inicial en azul; los ejercicios 1 a 8 en negro">Guía práctica TP7 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=2" title="fig: el ejercicio 9 en negro; el ejercicio 10 y la nota final en azul">Guía práctica TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="fig: solo la pregunta 3 en azul; la 2 (retardo satelital) en negro">Guía teoría TP7 p.1</a></li>
+<li>Dos finales traen un radioenlace con la ecuación del enlace: <code>Final-2019-09</code> ej. 3 y <code>Final-2023-02</code> ej. 3. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Se instala un radioenlace entre dos puntos geográficos ubicados a 35 km">Final 2019-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Se instala un radioenlace entre dos puntos geográficos ubicados a 30 km">Final 2023-02 p.1</a></li>
+<li>nota practica 2026-09-16 09:25 PM: "vieron esto pérdida en el espacio libre" (el docente de práctica preguntó si la habían visto en teoría). nota practica 2026-09-16 09:30 PM: "acá habla sobre la pérdida en el espacio libre" (la presentó como un tema de más adelante). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=24" title="La atenuación depende de la frecuencia y la distancia">Clase 08 p.24</a></li>
+<li>nota practica 2026-09-16 09:36 PM: "esta es la ecuación de radio enlace no le tengan miedo". <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=1" title="FD [dB] = SRx [dBm]">RTAS TP7 p.1</a></li>
+<li>nota practica 2026-09-30 08:43 PM: "la pérdida en el espacio libre que no lo vimos" (el cálculo del transmisor a la antena, sí). nota practica 2026-09-30 08:40 PM: "ya nos queda trabajo práctico número siete y ocho" (el TP7 se ve en las clases siguientes).</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Tres modos de propagación según la frecuencia: onda terrestre (hasta 2 MHz), reflejada en la ionosfera (2 a 20 MHz) y directa (20 a 800 MHz, unos 60 km). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=6" title="Propagación por onda reflejada espacial o ionosférica">Clase 08 p.6</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=21" title="El alcance es de unos 60 km">Clase 08 p.21</a></li>
+<li>Onda directa: el alcance lo limita la curvatura de la Tierra. <span class="arithmatex">\(D_H=3{,}61\sqrt{H}\)</span> km sin difracción y <span class="arithmatex">\(4{,}14\sqrt{H}\)</span> km con difracción atmosférica; el alcance visual es la suma de los horizontes de las dos antenas. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=18" title="Por efecto de la difracción atmosférica el factor pasa a 4,14">Clase 08 p.18</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=19" title="La máxima distancia del enlace es la suma de las distancias">Clase 08 p.19</a></li>
+<li>Microondas: enlace punto a punto con visión directa. La señal que llega se calcula con la ecuación del enlace, que resta la pérdida en el espacio libre <span class="arithmatex">\(L_p=32{,}4+20\log f+20\log d\)</span> (f en MHz, d en km). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=22" title="establecer un enlace punto a punto con visión directa entre dos">Clase 08 p.22</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="Lp = 32.4 + 20 log f + 20 log d">RTAS TP7 p.2</a></li>
+<li>Satélites: repetidoras en órbita. El retardo de ida y vuelta es <span class="arithmatex">\(2H/V_p\)</span>; en GEO (36.000 km) da 240 ms (el libro, 0,240 s; la diapositiva dice unos 300 ms: Discrepancia 2). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="Orbitan a 36.000 km de altura">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=192" title="Por lo tanto, la comunicación recorrerá en total 72.000 km">Libro p.192</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="despejando el tiempo nos queda T = H / Vp">RTAS teoría TP7 p.2</a></li>
+<li>Láser (FSO): enlace óptico entre edificios, de pocos km, sin licencia y afectado por niebla, lluvia o nieve. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=63" title="afectados por la niebla, lluvia o nieve">Clase 08 p.63</a></li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Longitud de onda</td>
+<td><span class="arithmatex">\(\lambda=c/f\)</span>, con <span class="arithmatex">\(c=3\cdot10^{8}\)</span> m/s</td>
+<td>m, Hz</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=3" title="fig: λ = c/f, λ longitud de onda, c velocidad de la luz, f frecuencia de la señal, C = 3x10^8 m/s">RTAS TP7 p.3</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="velocidad de 300.000 km/s = 3 x 108 m/s">Clase 08 p.5</a></td>
+</tr>
+<tr>
+<td>Longitud de antena</td>
+<td><span class="arithmatex">\(\lambda/4=75/f\)</span>; <span class="arithmatex">\(\lambda/2=150/f\)</span>; <span class="arithmatex">\(\lambda=300/f\)</span></td>
+<td>m, con f en MHz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=33" title="fig: Irradiantes antenas, omnidireccionales y direccionales con diagramas; c = λ*f; λ = c/f; ¼ de onda 75/f MHz, ½ de onda 150/f MHz, onda completa 300/f MHz, longitud en metros">Clase 08 p.33</a></td>
+</tr>
+<tr>
+<td>Horizonte sin difracción</td>
+<td><span class="arithmatex">\(D_H=3{,}61\sqrt{H}\)</span></td>
+<td><span class="arithmatex">\(D_H\)</span> en km, <span class="arithmatex">\(H\)</span> en m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=18" title="fig: D = 3,61 raíz de H, D distancia al horizonte en kilómetros, H altura de la antena en metros, radio terrestre, 90 grados">Clase 08 p.18</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=4" title="fig: DH = 3,61 raíz de H [Km], DH distancia al horizonte [Km], H altura de la antena [mts]">RTAS TP7 p.4</a></td>
+</tr>
+<tr>
+<td>Horizonte con difracción y alcance visual (misma altura)</td>
+<td><span class="arithmatex">\(D_H=4{,}14\sqrt{H}\)</span>; <span class="arithmatex">\(A_V=2\,D_H\)</span></td>
+<td><span class="arithmatex">\(D_H\)</span> y <span class="arithmatex">\(A_V\)</span> en km, <span class="arithmatex">\(H\)</span> en m</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=18" title="Por efecto de la difracción atmosférica el factor pasa a 4,14">Clase 08 p.18</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=6" title="fig: DH = 4,14 raíz de H, AV = 2*DH [Km], DH distancia al horizonte, H altura de la antena en metros, AV alcance visual">RTAS TP7 p.6</a></td>
+</tr>
+<tr>
+<td>Alcance visual (alturas distintas)</td>
+<td><span class="arithmatex">\(A_V=D_{H1}+D_{H2}\)</span></td>
+<td>km</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=19" title="La máxima distancia del enlace es la suma de las distancias">Clase 08 p.19</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=18" title="Teniendo en cuenta que AV = DH1 + DH2 y la distancia">RTAS TP7 p.18</a></td>
+</tr>
+<tr>
+<td>Horizonte geométrico (Pitágoras)</td>
+<td><span class="arithmatex">\(H=\sqrt{D_H^{2}+R^{2}}-R\)</span>, con <span class="arithmatex">\(R=6.370\)</span> km</td>
+<td>km (×1000 para m)</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=17" title="fig: A = 25 Km, B = 6.370 Km, C = H+6.370 Km; H = raíz de 25² + 6.370² − 6.370; H = 0,04905 Km; H = 49,05 mts">RTAS TP7 p.17</a></td>
+</tr>
+<tr>
+<td>Pérdida en el espacio libre</td>
+<td><span class="arithmatex">\(L_p=32{,}4+20\log f+20\log d\)</span></td>
+<td>dB; f en MHz; d en km</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="f es la frecuencia en MHz y d es la longitud de la trayectoria">RTAS TP7 p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=24" title="fig: L=32,4+20 log d/km+20 log f/MHz; curva Pérdida en el espacio libre; Pt, Margen y Sensibilidad del receptor en dBm contra km; antenas, árboles, transmisor, receptor, cables">Clase 08 p.24</a></td>
+</tr>
+<tr>
+<td>Pérdida, forma lineal</td>
+<td><span class="arithmatex">\(L_p=(4\pi d/\lambda)^{2}=P_t/P_r\)</span></td>
+<td>veces; <span class="arithmatex">\(d\)</span> y <span class="arithmatex">\(\lambda\)</span> en la misma unidad</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="fig: Lp = 4 π d / λ elevado al cuadrado">RTAS TP7 p.2</a></td>
+</tr>
+<tr>
+<td>Ecuación del enlace</td>
+<td><span class="arithmatex">\(P_{Tx}-L_{c,Tx}+G_{Tx}-L_p+G_{Rx}-L_{c,Rx}-FD=S_{Rx}\)</span></td>
+<td>dBm y dB</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=25" title="Pérdidas en espacio libre [dB]">Clase 08 p.25</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=1" title="Potencia del Tx [dBm] – Perdidas del Cable Tx [dB]">RTAS TP7 p.1</a></td>
+</tr>
+<tr>
+<td>Potencia en dBm</td>
+<td><span class="arithmatex">\(P_{\mathrm{dBm}}=10\log\dfrac{P}{1\,\mathrm{mW}}\)</span></td>
+<td>dBm, con P en mW</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=10" title="fig: Paso mW del Tx a dBm; dBm = 10 log Pi / 1mW; Ptx dBm = 10 log 35.000 mW / 1 mW; Ptx dBm = 45,44 dBm; Lp = 32.4 + 20 log f + 20 log d; Lp = 32,4 + 20 log 400 + 20 log 1; 20 log 400 = 20 * 2,6020 = 52,04 dB; 20 log 1 = 0; Lp = 84,44 dB; 45,44 dBm - 4,65 dB + 30 dB - 84,44 dB + 30 dB - 4,65 dB - 0 dB = SRx dBm; SRx = 11,70 dBm">RTAS TP7 p.10</a></td>
+</tr>
+<tr>
+<td>Ganancia de una parabólica</td>
+<td><span class="arithmatex">\(G_a=10\log\dfrac{0{,}6\,\pi^{2}D^{2}}{\lambda^{2}}\)</span></td>
+<td>dB; <span class="arithmatex">\(D\)</span> y <span class="arithmatex">\(\lambda\)</span> en la misma unidad</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=35" title="fig: Ga [dB] = 10 log 0,6 π2 D2 /λ2 al pie de la diapositiva Antenas parabólicas">Clase 08 p.35</a></td>
+</tr>
+<tr>
+<td>Retardo satelital (ida y vuelta)</td>
+<td><span class="arithmatex">\(R=2T=2H/V_p\)</span>, con <span class="arithmatex">\(V_p=3\cdot10^{8}\)</span> m/s</td>
+<td>s, con H en m</td>
+<td><a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="despejando el tiempo nos queda T = H / Vp">RTAS teoría TP7 p.2</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=192" title="Por lo tanto, la comunicación recorrerá en total 72.000 km">Libro p.192</a></td>
+</tr>
+<tr>
+<td>Retardo terrestre</td>
+<td><span class="arithmatex">\(t=d/v\)</span></td>
+<td>s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="velocidad de 300.000 km/s = 3 x 108 m/s">Clase 08 p.5</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=191" title="Llamaremos retardo de transmisión Rt al tiempo que empleará">Libro p.191</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="radio-y-espectro">Radio y espectro<a class="headerlink" href="#radio-y-espectro" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Las comunicaciones por radio intercambian información con ondas electromagnéticas que usan el aire o el vacío como medio. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=2" title="ondas electromagnéticas que utilizan el aire o el vacío">Clase 08 p.2</a></li>
+<li>Un enlace tiene transceptor, irradiante (antena) y línea de transmisión; se opera en las bandas HF, VHF, UHF y SHF. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=3" title="fig: COMUNICACIONES POR RADIO, componentes transceptor, irradiante antena, línea de transmisión; bandas HF, VHF, UHF, SHF; distintas atenuaciones, anchos de banda, capacidades">Clase 08 p.3</a></li>
+<li>La onda viaja en el aire y el vacío a 300.000 km/s. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="se propaga en el aire y en el vacío a una">Clase 08 p.5</a></li>
+<li>El espectro es un bien escaso: lo regulan las administraciones según normas del UIT-R y en el país asigna el ENACOM según la distancia del enlace. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=23" title="Las frecuencias en nuestro país las asigna el ENACOM en">Clase 08 p.23</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Banda</th>
+<th>Intervalo</th>
+<th>Longitud de onda</th>
+<th>Servicios</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MF</td>
+<td>300–3000 kHz</td>
+<td>1 km–100 m</td>
+<td>radiodifusión</td>
+</tr>
+<tr>
+<td>HF</td>
+<td>3–30 MHz</td>
+<td>100–10 m</td>
+<td>onda corta</td>
+</tr>
+<tr>
+<td>VHF</td>
+<td>30–300 MHz</td>
+<td>10–1 m</td>
+<td>TV y radio FM</td>
+</tr>
+<tr>
+<td>UHF</td>
+<td>300–3000 MHz</td>
+<td>1 m–100 mm</td>
+<td>microondas, comunicaciones móviles, TV</td>
+</tr>
+<tr>
+<td>SHF</td>
+<td>3–30 GHz</td>
+<td>100–10 mm</td>
+<td>microondas y satélites</td>
+</tr>
+<tr>
+<td>EHF</td>
+<td>30–300 GHz</td>
+<td>10–1 mm</td>
+<td>satélites, radionavegación</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=4" title="fig: tabla espectro de frecuencias de radio LF 30-30 kHz, MF 300-3000 kHz, HF 3-30 MHz, VHF 30-300 MHz, UHF 300-3000 MHz, SHF 3-30 GHz, EHF 30-300 GHz con longitud de onda y servicios">Clase 08 p.4</a> La fila LF de la diapositiva trae un intervalo con un error evidente y no se copia (Discrepancia 15).</p>
+<p>Banda de microondas según la distancia del enlace (Argentina):</p>
+<table>
+<thead>
+<tr>
+<th>Distancia</th>
+<th>Banda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>menos de 5 km</td>
+<td>23 GHz</td>
+</tr>
+<tr>
+<td>entre 5 y 7 km</td>
+<td>18 GHz</td>
+</tr>
+<tr>
+<td>entre 7 y 12 km</td>
+<td>15 GHz</td>
+</tr>
+<tr>
+<td>más de 12 km</td>
+<td>&#8542; GHz</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=23" title="menos de 5 km 23 GHz">Clase 08 p.23</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=23" title="más de 12 km 7/8 GHz">Clase 08 p.23</a></p>
+<h3 id="propagacion-terrestre-reflejada-y-directa">Propagación: terrestre, reflejada y directa<a class="headerlink" href="#propagacion-terrestre-reflejada-y-directa" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Frecuencias</th>
+<th>Datos clave</th>
+<th>Antena</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Onda terrestre</td>
+<td>hasta 2 MHz</td>
+<td>onda media (AM, 550 a 1650 kHz): unos 300 km</td>
+<td>monopolo vertical de cuarto de onda</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=10" title="Esta propagación se usa en bajas frecuencias hasta 2 MHz">Clase 08 p.10</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=10" title="que pueden alcanzar unos 300 km">Clase 08 p.10</a></td>
+</tr>
+<tr>
+<td>Onda reflejada (ionosférica)</td>
+<td>2 a 20 MHz</td>
+<td>onda corta; puede dar la vuelta al mundo</td>
+<td>dipolo horizontal de media onda</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=16" title="Esta propagación se usa en frecuencias de 2 a 20 MHz">Clase 08 p.16</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=16" title="del tipo dipolo horizontal de media onda">Clase 08 p.16</a></td>
+</tr>
+<tr>
+<td>Onda directa</td>
+<td>20 a 800 MHz</td>
+<td>alcance de unos 60 km; FM de 88 a 108 MHz</td>
+<td>monopolo vertical o dipolo horizontal</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=21" title="se usa en frecuencias de 20 a 800 MHz">Clase 08 p.21</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=21" title="de 88 a 108 MHz">Clase 08 p.21</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La figura rotula dos modos: onda ionosférica (con rebotes) y onda terrestre, que incluye la onda directa, la reflejada en la superficie de la Tierra y la de superficie. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=8" title="fig: Modos de Propagación, onda ionosférica con rebotes en la ionosfera y onda terrestre con onda directa, onda reflejada en la superficie de la Tierra y onda de superficie">Clase 08 p.8</a></li>
+<li>La onda terrestre combina onda de superficie y onda espacial (directa más reflejada en la Tierra). El rayo reflejado llega con retraso y, según la diferencia de distancias, su fase suma o resta al directo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=7" title="Es una combinación de la propagación por onda de superficie">Clase 08 p.7</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=9" title="según sea la diferencia de distancias, su fase se puede">Clase 08 p.9</a></li>
+<li>La ionosfera es la zona alta de la atmósfera, ionizada por el Sol; forma un casquete esférico que refleja las señales de radio. Tiene las capas D, E, F1 y F2 (alturas de la figura: 59, 100, 200 y 250–340 km). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=11" title="reflejan las señales de radio">Clase 08 p.11</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=13" title="fig: semicírculo con capas D, E, F1, F2 y alturas en kilómetros 59, 100, 200, 250 - 340">Clase 08 p.13</a></li>
+<li>Depende de la frecuencia, del ángulo de emisión y de la altura y densidad de la ionosfera; hay refracción según la ley de Snell y varía con el día y el año. Hay una <strong>frecuencia crítica</strong>: por encima, el haz no rebota. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=14" title="La propagación ionosférica varía a lo largo del día y del año">Clase 08 p.14</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=15" title="Hay una frecuencia crítica superada la cual el haz no rebota">Clase 08 p.15</a></li>
+<li>Con rebotes sucesivos (1.º, 2.º y 3.º salto) la señal llega más lejos. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=15" title="fig: capa ionosférica con onda incidente, punto de refracción, onda reflejada, 1er, 2do y 3er salto entre transmisor y receptor">Clase 08 p.15</a></li>
+<li>A veces se forman conductos transitorios que dan más alcance a la onda directa. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=20" title="Se pueden producir conductos transitorios que permiten mayor">Clase 08 p.20</a></li>
+</ul>
+<h3 id="onda-directa-horizonte-y-alcance-visual">Onda directa: horizonte y alcance visual<a class="headerlink" href="#onda-directa-horizonte-y-alcance-visual" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Distancia al horizonte:</strong> la que cubre una onda desde la antena hasta el punto de la Tierra que toca. <strong>Alcance visual:</strong> la máxima distancia entre dos antenas. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=17" title="Distancia al horizonte: Es la distancia cubierta por una onda">Clase 08 p.17</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=17" title="Distancia de alcance visual: Es la máxima distancia a la">Clase 08 p.17</a></li>
+<li>Valores de cátedra: <span class="arithmatex">\(D_H=3{,}61\sqrt{H}\)</span> (sin difracción) y <span class="arithmatex">\(4{,}14\sqrt{H}\)</span> (con difracción atmosférica), con <span class="arithmatex">\(D_H\)</span> en km y <span class="arithmatex">\(H\)</span> en m. La raíz está en la imagen: el texto extraído de las fuentes la pierde («,361 H», «,414 H»). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=18" title="fig: D = 3,61 raíz de H, D distancia al horizonte en kilómetros, H altura de la antena en metros, radio terrestre, 90 grados">Clase 08 p.18</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=4" title="H= Altura de la antena [mts]">RTAS TP7 p.4</a></li>
+<li>El valor real es algo mayor que el de la primera fórmula porque las ondas se difractan. Con la curvatura hacia abajo se usa 4,14 y <span class="arithmatex">\(A_V=2\,D_H\)</span>. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=5" title="algo mayor al calculado en la formula anterior, pues las ondas se">RTAS TP7 p.5</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=6" title="AV = 2*DH [Km]">RTAS TP7 p.6</a></li>
+<li>Con alturas distintas: <span class="arithmatex">\(A_V=D_{H1}+D_{H2}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=19" title="fig: distancia de alcance visual igual a dist. al horizonte de la antena Nº 1 más la de la antena Nº 2">Clase 08 p.19</a></li>
+<li>Método geométrico (ej. 8): con el radio de la Tierra de 6.370 km, <span class="arithmatex">\(H=\sqrt{D_H^{2}+R^{2}}-R\)</span>. Da una constante distinta de 3,61 (Discrepancia 5). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=17" title="C = H+6.370 Km">RTAS TP7 p.17</a></li>
+</ul>
+<h3 id="microondas-y-ecuacion-del-enlace">Microondas y ecuación del enlace<a class="headerlink" href="#microondas-y-ecuacion-del-enlace" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Microondas: UHF, SHF y EHF (300 MHz a 50 GHz). El haz es como un rayo de luz: enlace punto a punto con visión directa. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=22" title="Trabajan en la banda de UHF, SHF y EHF">Clase 08 p.22</a></li>
+<li>Sin visual común se usan repetidoras intermedias, con circuitos de varios miles de km; la Tierra difracta las señales. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=22" title="Si no están en la misma visual deben utilizar estaciones">Clase 08 p.22</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=22" title="La Tierra difracta las señales y pueden">Clase 08 p.22</a></li>
+<li>La atenuación depende de la frecuencia y de la distancia. A mayor frecuencia (menor longitud de onda), mayores pérdidas. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=24" title="La atenuación depende de la frecuencia y la distancia">Clase 08 p.24</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="mayores serán las perdidas">RTAS TP7 p.2</a></li>
+<li><span class="arithmatex">\(L_p\)</span> es la relación entre potencia transferida y recibida: <span class="arithmatex">\(L_p=(4\pi d/\lambda)^2\)</span>. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="Lp es la relación entre potencia transferida y potencia recibida">RTAS TP7 p.2</a></li>
+<li><strong>Recálculo propio (verificado con test):</strong><ul>
+<li>La forma lineal con <span class="arithmatex">\(f=400\)</span> MHz y <span class="arithmatex">\(d=1\)</span> km da 84,48 dB; la fórmula en dB da 84,44 dB. La constante 32,4 está redondeada (32,44 exacta).</li>
+<li>Si <span class="arithmatex">\(d\)</span> se duplica, <span class="arithmatex">\(L_p\)</span> sube 6,02 dB; si <span class="arithmatex">\(f\)</span> se duplica, también (el 20 es de <span class="arithmatex">\(20\log f\)</span> y de <span class="arithmatex">\(20\log d\)</span>).</li>
+</ul>
+</li>
+<li><strong>Ecuación del enlace:</strong> transmisor en dBm, menos pérdida del cable del transmisor, más ganancia de su antena, menos pérdida en el espacio libre, más ganancia de la antena receptora, menos pérdida del cable receptor, menos factor de diseño: es la señal en el receptor, en dBm. Mismo método que en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=25" title="Señal de Rx [dBm]">Clase 08 p.25</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=1" title="FD [dB] = SRx [dBm]">RTAS TP7 p.1</a></li>
+<li>Los finales comparan la señal recibida con la <strong>sensibilidad del receptor</strong> como umbral; la RTAS rotula el resultado SRx (Discrepancia 7). <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Sensibilidad del receptor: 1 mW">Final 2023-02 p.1</a></li>
+<li>El proyecto del enlace incluye calcular la altura de las antenas para evitar obstáculos y el diámetro para compensar las pérdidas. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=25" title="calcular la altura de las antenas para evitar obstáculos">Clase 08 p.25</a></li>
+<li>La modulación digital de microondas (PSK y QAM, p.28 a 32) no entra en esta página. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=28" title="Antes había microondas analógicas, pero ahora son digitales">Clase 08 p.28</a></li>
+</ul>
+<h3 id="altura-de-antenas-repetidoras-y-antenas">Altura de antenas, repetidoras y antenas<a class="headerlink" href="#altura-de-antenas-repetidoras-y-antenas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Altura: se cuentan los obstáculos y el despejamiento necesario para las variaciones del haz por el índice de refracción (la figura rotula C y Rf, sin leyenda). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=26" title="el despejamiento necesario para permitir">Clase 08 p.26</a></li>
+<li>Repetidoras <strong>pasivas</strong>: dos parabólicas unidas por guía de onda; no amplifican ni necesitan alimentación. <strong>Activas</strong>: dos antenas y equipos que amplifican antes de retransmitir. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=27" title="No se amplifica la señal recibida, no necesita alimentación">Clase 08 p.27</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=27" title="Repetidoras activas: están constituidas por dos antenas y">Clase 08 p.27</a></li>
+<li>Antenas, con <span class="arithmatex">\(c=\lambda f\)</span> y longitud en metros de ¼ de onda (75/f), ½ onda (150/f) y onda completa (300/f), f en MHz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=33" title="fig: Irradiantes antenas, omnidireccionales y direccionales con diagramas; c = λ*f; λ = c/f; ¼ de onda 75/f MHz, ½ de onda 150/f MHz, onda completa 300/f MHz, longitud en metros">Clase 08 p.33</a></li>
+<li><strong>Omnidireccionales:</strong> irradian en todos los sentidos con igual intensidad (estaciones centrales). <strong>Direccionales:</strong> la energía va en un delgado haz; permiten muy baja potencia. La Yagui tiene varios dipolos en paralelo para ganar ganancia y ancho de banda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=34" title="Omnidireccionales: irradian energía en todos los sentidos">Clase 08 p.34</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=34" title="Direccionales: la energía es concentrada en un delgado haz">Clase 08 p.34</a></li>
+<li><strong>Parabólicas:</strong> ganancia y directividad muy altas; la ganancia depende de D/λ. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=35" title="Proporcionan una ganancia y una directividad muy alta">Clase 08 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=35" title="La ganancia de las antenas parabólicas depende de la">Clase 08 p.35</a> Ningún ejercicio del TP7 ni de los finales usa la fórmula de ganancia.</li>
+<li>Estructuras: mástiles con riendas y torres autosoportadas. Configuraciones: sistemas 1 + 1 (un equipo en reserva) y diversidad de frecuencia o de espacio para reducir cortes. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=37" title="Hay dos tipos de estructuras">Clase 08 p.37</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=38" title="Sistemas 1 + 1: un equipo operando y otro en reserva">Clase 08 p.38</a></li>
+</ul>
+<h3 id="satelites">Satélites<a class="headerlink" href="#satelites" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Un satélite es una repetidora en órbita para llegar a un punto sin alcance visual. Componentes: satélite, estaciones terrenas, enlace ascendente y descendente y estación de telecomando, telemetría y control. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=39" title="usados como repetidora para llegar a un punto distante sin">Clase 08 p.39</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=40" title="fig: Componentes de una comunicación satelital, satélite, enlace ascendente y descendente, estaciones terrenas transmisora y receptora, multiplexor, red terrestre, estación para telecomando, telemetría y control">Clase 08 p.40</a></li>
+<li>Hay satélites geoestacionarios, de órbita media y de órbita baja. Es geoestacionario si la órbita es ecuatorial y se cumple en 24 hs en el sentido de rotación. Con tres satélites geoestacionarios se cubre la Tierra. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=41" title="Hay satélites geoestacionarios, de órbita media y de órbita baja">Clase 08 p.41</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=43" title="Con tres satélites geoestacionarios se cubre la Tierra">Clase 08 p.43</a></li>
+</ul>
+<p>Alturas y retardos según las diapositivas que describen cada órbita (p.45 a 47). El 2H/c es recálculo propio, verificado con test. Las alturas de la RTAS y los otros dos juegos de <code>Clase 08</code> están en la Discrepancia 1.</p>
+<table>
+<thead>
+<tr>
+<th>Órbita</th>
+<th>Altura</th>
+<th>Retardo que dice la diapositiva</th>
+<th><span class="arithmatex">\(2H/c\)</span></th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GEO</td>
+<td>36.000 km</td>
+<td>unos 300 ms (obliga a canceladores de eco en telefonía)</td>
+<td>240 ms</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="Orbitan a 36.000 km de altura">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="fig: viñeta Retardo muy alto unos 300 ms lo que genera ecos indeseados en telefonía">Clase 08 p.45</a></td>
+</tr>
+<tr>
+<td>MEO</td>
+<td>más de 2.000 km (seis a ocho horas de vuelta)</td>
+<td>del orden de 70 ms</td>
+<td>13,3 ms (cota inferior, por el «más de»)</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=46" title="Orbitan a más de 2.000 km de altura y necesitan seis a ocho">Clase 08 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=46" title="El retardo está en el orden de los 70 ms">Clase 08 p.46</a></td>
+</tr>
+<tr>
+<td>LEO</td>
+<td>unos 800 km (90 minutos por vuelta)</td>
+<td>10 ms (favorece los datos)</td>
+<td>5,33 ms</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="Orbitan a unos 800 km de altura y necesitan 90 minutos para">Clase 08 p.47</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="fig: viñeta Por la baja altura hay poco retardo 10 ms lo que favorece las comunicaciones de datos">Clase 08 p.47</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Las diapositivas no dicen cómo obtienen sus cifras de retardo; no se afirma una causa (Discrepancia 2).</li>
+<li>GEO: cantidad limitada por interferencias y lanzamientos muy costosos; la cobertura se llama huella. MEO: diez satélites en dos planos a 45° para cobertura mundial. LEO: pasa visible pocos minutos y hacen falta muchos satélites; bajas potencias. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="indeseados en telefonía y obliga a usar canceladores de eco">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=46" title="necesarios diez satélites en dos planos a 45° respecto del">Clase 08 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="Requieren bajas potencias de transmisión y antenas">Clase 08 p.47</a></li>
+</ul>
+<p>Frecuencias satelitales. Son dos presentaciones distintas (rangos y pares), no un conflicto (Discrepancia 10):</p>
+<table>
+<thead>
+<tr>
+<th>Banda</th>
+<th>Rango (p.49)</th>
+<th>Par de frecuencias (p.57)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td>3,4 a 8,4 GHz</td>
+<td>4/6 GHz: menor atenuación, mayor tamaño de antena</td>
+</tr>
+<tr>
+<td>Ku</td>
+<td>12,4 a 18 GHz</td>
+<td>12/14 GHz</td>
+</tr>
+<tr>
+<td>K</td>
+<td>18 a 26,5 GHz</td>
+<td>no figura</td>
+</tr>
+<tr>
+<td>Ka</td>
+<td>26,5 a 40 GHz</td>
+<td>17/30 GHz: mayor atenuación, menor tamaño de antena</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=49" title="Son frecuencias de microondas que comparten el espectro">Clase 08 p.49</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=49" title="Ku 12,4 a 18">Clase 08 p.49</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=57" title="fig: tabla banda y FREC GHz, C 4/6 menor atenuación mayor tamaño antena, Ku 12/14, Ka 17/30 mayor atenuación menor tamaño antena; enlace punto a punto SCPC y punto a multipunto VSAT">Clase 08 p.57</a></p>
+<ul>
+<li>Servicios y sistema: consorcios, satélite, estación terrena y telepuerto; servicios fijos, de difusión y móviles; VSAT con hub, inroute y outroute; acceso SCPC, MCPC, CFDM y TDMA sobre transpondedores de 36 MHz. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=50" title="Los servicios satelitales están operados por varios consorcios">Clase 08 p.50</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=52" title="fig: VSAT, terminales VSAT, satélite, antena maestra, hub, red pública, telepuerto, inroute y outroute">Clase 08 p.52</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=53" title="Servicios fijos: para enlaces punto a punto, o punto">Clase 08 p.53</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=54" title="Hay limitaciones por la capacidad y cantidad de satélites">Clase 08 p.54</a></li>
+<li>Entre las características de interés figuran el retardo y que el enlace es sensible a eclipses y lluvia. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=55" title="fig: CARACTERÍSTICAS DE INTERÉS, cantidad de transponders, banda de operación C Ku Ka, tipo de satélite, cobertura, retardos, sensible a eclipses y lluvia">Clase 08 p.55</a></li>
+</ul>
+<h3 id="laser-y-fso">Láser y FSO<a class="headerlink" href="#laser-y-fso" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Hay equipos ópticos e inalámbricos con emisores de un haz de luz coherente. Es un enlace punto a punto dentro de ciudades, limitado por la distancia máxima del haz en la atmósfera, con gran capacidad. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=58" title="Hay equipos ópticos e inalámbricos con emisores de un haz">Clase 08 p.58</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=58" title="Permite gran capacidad de trasmisión">Clase 08 p.58</a></li>
+<li>Ilustración: enlace FSO punto a punto entre dos edificios a 5 km, con respaldo. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=59" title="fig: LÁSER, transmisión de información mediante un haz de luz coherente modulado; enlace FSO PtP láser óptico entre dos edificios a 5 Kms con backup">Clase 08 p.59</a></li>
+<li>Principio: un átomo absorbe un fotón (de E1 a E2) y vuelve a E1 emitiendo; si llega otro fotón con el átomo en E2, hay emisión estimulada. Tipos: gaseoso, líquido, sólido y semiconductor. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=60" title="Un átomo en reposo tiene una energía E1">Clase 08 p.60</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=61" title="Si un átomo está en el nivel de excitación E2">Clase 08 p.61</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=62" title="Láser semiconductor: junturas p-n excitadas por corriente">Clase 08 p.62</a></li>
+<li>FSO: fáciles de instalar, frecuencias no reguladas, de 780 a 1550 nm; los comerciales alcanzan 5 km y los militares más de 10 km; inmunes a interferencias radioeléctricas, afectados por niebla, lluvia o nieve. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=63" title="son fáciles de instalar y usan frecuencias no reguladas">Clase 08 p.63</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=63" title="en longitudes de onda entre los 780 y 1550 nm">Clase 08 p.63</a></li>
+<li>La tabla de cuatro equipos de la p.64 trae alcances de 4.000 a 500 m; el ancho de banda de uno figura como 622 Gbps (Discrepancia 15). La fibra es el medio guiado equivalente: ver <a href="02-fibra-optica.html">Fibra óptica</a>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=64" title="fig: enlace dúplex con transmisor modulador y receptor fotodetector; tabla equipos 1 a 4, rango de alcance 4.000 m, 2.000 m, 500 m, 500 m; ancho de banda 34 Mbps, 155 Mbps, 622 Gbps, 9,6 Gbps; potencia 35, 35, 45, 45 W; longitud de onda 980, 980, 850, 780 nm">Clase 08 p.64</a></li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>TP7 ej. 7. «Cuál será la distancia del enlace visual para un enlace cuya altura de ambas antenas es de 20 metros, teniendo en cuenta la curvatura experimentada por la trayectoria de las ondas radioeléctricas debido a la acción ejercida por la atmósfera». Es el primer ejercicio de horizonte que resuelve la RTAS de práctica. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="Cuál será la distancia del enlace visual para un enlace cuya altura">TP7 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=15" title="Cuál será la distancia del enlace visual para un enlace cuya altura">RTAS TP7 p.15</a></p>
+<p><strong>Paso 1. Datos.</strong> <span class="arithmatex">\(H=20\)</span> m en ambas antenas. El enunciado pide tener en cuenta la curvatura de las ondas por la atmósfera: se usa el factor 4,14 (con difracción). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=15" title="fig: H = 20 mts.">RTAS TP7 p.15</a></p>
+<p><strong>Paso 2. Fórmulas.</strong> <span class="arithmatex">\(D_H=4{,}14\sqrt{H}\)</span> y <span class="arithmatex">\(A_V=2\,D_H\)</span>, con <span class="arithmatex">\(D_H\)</span> y <span class="arithmatex">\(A_V\)</span> en km y <span class="arithmatex">\(H\)</span> en m. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=6" title="fig: DH = 4,14 raíz de H, AV = 2*DH [Km], DH distancia al horizonte, H altura de la antena en metros, AV alcance visual">RTAS TP7 p.6</a></p>
+<p><strong>Paso 3. Horizonte de cada antena.</strong></p>
+<div class="arithmatex">\[D_H=4{,}14\sqrt{20}\approx 18{,}515\ \text{km}\]</div>
+<p><strong>Paso 4. Alcance visual.</strong> Las dos antenas tienen la misma altura, así que <span class="arithmatex">\(A_V=2\,D_H\)</span>:</p>
+<div class="arithmatex">\[A_V=2\cdot\left(4{,}14\sqrt{20}\right)\approx 37{,}03\ \text{km}\]</div>
+<p>La respuesta oficial imprime «AV=37,03 Km». <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=15" title="fig: H = 20 mts; DH = 4,14 raíz de H; AV=2*DH; AV = 2*4,14 raíz de 20; AV=37,03 Km">RTAS TP7 p.15</a> El recálculo da 37,029 km: coincide con lo impreso, redondeado a dos decimales. El test usa tolerancia de 0,005 km.</p>
+<p><strong>Paso 5. Verificación (recálculo propio, verificado con test).</strong> Sin difracción (<span class="arithmatex">\(3{,}61\)</span>) el mismo enlace daría <span class="arithmatex">\(A_V\approx32{,}29\)</span> km. La diferencia es esperable: el valor real es algo mayor que el de la primera fórmula. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=5" title="algo mayor al calculado en la formula anterior, pues las ondas se">RTAS TP7 p.5</a></p>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>3,61 y 4,14 no son intercambiables: mirá qué pide el enunciado.</strong> Con 3,61 no se considera la difracción (ej. 8 y 9); con 4,14 sí, «teniendo en cuenta la curvatura» (ej. 7). Y <span class="arithmatex">\(A_V=2\,D_H\)</span> vale solo si las dos antenas tienen la misma altura; si no, <span class="arithmatex">\(A_V=D_{H1}+D_{H2}\)</span>. Unidades: <span class="arithmatex">\(H\)</span> en m, distancias en km. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=18" title="Por efecto de la difracción atmosférica el factor pasa a 4,14">Clase 08 p.18</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Unidades de <span class="arithmatex">\(L_p\)</span>: f en MHz y d en km.</strong> No metas Hz ni metros en <span class="arithmatex">\(32{,}4+20\log f+20\log d\)</span>. El resultado se resta en dB de la potencia en dBm; con la potencia en W o mW, pasala antes a dBm (<span class="arithmatex">\(10\log\)</span> de mW). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="f es la frecuencia en MHz y d es la longitud de la trayectoria">RTAS TP7 p.2</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>El ej. 8 tiene dos resultados oficiales y la RTAS no elige.</strong> Con 3,61 y la misma altura: 47,95 m. Con Pitágoras (R = 6.370 km): 49,05 m. Los dos están truncados. Indicá el método que usás (Discrepancia 5). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=16" title="H = 47,95 metros">RTAS TP7 p.16</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Tres juegos de alturas satelitales.</strong> La RTAS del ej. 12 usa 5.000, 15.000 y 35.000 km; <code>Clase 08</code> p.45 a 47 usa 36.000, más de 2.000 y 800 km. Con la RTAS el LEO da 33 ms; con la diapositiva, 5,33 ms. Decí cuál usás (Discrepancia 1). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="Orbitan a unos 800 km de altura y necesitan 90 minutos para">Clase 08 p.47</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Las respuestas oficiales de los dos finales tienen errores.</strong> Final 2019-09 ej. 3 da 1,08 mW y no se la reproduce con los datos del enunciado; Final 2023-02 ej. 3 parte de 51,76 dBm, que son 150 W y no los 100 W del enunciado. La conclusión «detectada o no» puede cambiar en el primero (Discrepancias 3 y 4). <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="debajo de la sensibilidad, recibiéndose 1,08 mW">Final 2019-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Potencia transmisor 51,76 dBm, llegan 12,8 dBm por lo tanto">Final 2023-02 p.1</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Los 37,5 m de la p.10 no son una longitud de onda.</strong> A 2 MHz, <span class="arithmatex">\(\lambda=300/2=150\)</span> m y 37,5 m es la antena de cuarto de onda. Lo mismo en la p.16: 7,5 m a 20 MHz es media onda (Discrepancia 12). <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=10" title="En 2 MHz son 37,5 m">Clase 08 p.10</a></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p><strong>Remarcado en clase: la pérdida en el espacio libre.</strong> En práctica se dijo que no se había visto en teoría, y que el cálculo del transmisor a la antena sí cuenta (nota practica 2026-09-30 08:43 PM: "la pérdida en el espacio libre que no lo vimos"). Aun así está en la diapositiva, en el TP7 ej. 2 y en dos finales: preparala. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=24" title="La atenuación depende de la frecuencia y la distancia">Clase 08 p.24</a></p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>TP7 ej. 2 a 9 salen de <code>Comunicaciones-TP07</code> (p.1) y de la guía práctica; su resolución está en <code>Clase-TP-07-RTAS</code>. El ej. 12 es de la guía de teoría y se resuelve en su RTAS. El ej. 16 no tiene resolución oficial. El ej. 7 está resuelto arriba.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP7 ej. 2</td>
+<td>Sensibilidad del receptor con el mismo coaxil del transmisor: 30 m a cada lado, antenas de 30 dB separadas 1 km, 400 MHz y 35 W. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="con antenas de 30 dB de ganancia, calcular la sensibilidad del receptor">TP7 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=9" title="fig: Tx y Rx con coaxil de 30 mts at 4,65 dB, G=30dB cada antena, PT = 35W, PA = 12W, 1 Km entre antenas, SRx = ?">RTAS TP7 p.9</a></td>
+<td>Oficial: <span class="arithmatex">\(P_{Tx}=10\log(35.000)=45{,}44\)</span> dBm; <span class="arithmatex">\(L_p=32{,}4+20\log400+20\log1=84{,}44\)</span> dB; <span class="arithmatex">\(S_{Rx}=45{,}44-4{,}65+30-84{,}44+30-4{,}65-0=11{,}70\)</span> dBm (FD = 0: el enunciado no da factor de diseño). Los 4,65 dB salen del ej. 1 (15,5 dB/100 m × 0,30 centenas de metros, ver <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a>). Recálculo: 11,6995 dBm. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=10" title="Lp = 84,44 dB">RTAS TP7 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=10" title="SRx = 11,70 dBm">RTAS TP7 p.10</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=8" title="At=4,65 dB en los 30 mts">RTAS TP7 p.8</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 3</td>
+<td>Longitud de la antena de media onda a 300 MHz. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=11" title="Dado un enlace radioeléctrico funcionando a la frecuencia de 300MHz">RTAS TP7 p.11</a></td>
+<td>Oficial: <span class="arithmatex">\(\lambda=3\cdot10^8/300\cdot10^6=1\)</span> m; media onda 0,50 m. Con la tabla de la p.33 (150/f) coincide. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=11" title="Como son de media longitud de onda debería ser de 0,50 mts">RTAS TP7 p.11</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 4</td>
+<td>Longitud de la antena de media onda de un celular a 1 GHz. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=12" title="debería ser la longitud de la antena de un teléfono celular cuya">RTAS TP7 p.12</a></td>
+<td>Oficial: <span class="arithmatex">\(\lambda=0{,}3\)</span> m; media onda 0,15 m. Con 150/f coincide. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=12" title="Como son de media longitud de onda debería ser de 0,15 mts">RTAS TP7 p.12</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 5</td>
+<td>Tipo de antena de un receptor de FM con antena de 75 cm (banda de FM de 88 a 108 MHz: el dato está en la guía y la RTAS, no en <code>Comunicaciones-TP07</code>; Discrepancia 8). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=1" title="Si un receptor de FM utiliza una antena de 75cm">Guía práctica TP7 p.1</a></td>
+<td>Oficial: frecuencia media 98 MHz; <span class="arithmatex">\(\lambda=3{,}06\)</span> m («tomaremos 3 mts aproximadamente»); <span class="arithmatex">\(0{,}75/3=1/4\)</span>: antena de cuarto de onda. La RTAS no escribe «cuarto de onda»: lo da la fracción; la diapositiva dice monopolo vertical de ¼ de onda. Con la tabla (75/f): 0,765 m. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=13" title="sale de hacer el promedio entre 88 y 108 Mhz">RTAS TP7 p.13</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=13" title="fig: λ = 3x10^8 / 98x10^6 = 3,06 metros; longAnt/λ = 0,75/3 = 1/4">RTAS TP7 p.13</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=10" title="antenas son del tipo monopolo vertical de cuarto de onda">Clase 08 p.10</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 6</td>
+<td>Antena de media onda para transmitir voz en su espectro original, con el ancho de banda del canal telefónico. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=1" title="Tomar como referencia el ancho de banda del canal telefónico">Guía práctica TP7 p.1</a></td>
+<td>Oficial: <span class="arithmatex">\(\lambda=3\cdot10^8/4\cdot10^3=75.000\)</span> m; media onda 37.500 m. Declara AB = 300 Hz a 4300 Hz pero calcula con 4 kHz (Discrepancia 6). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=14" title="Como son de media longitud de onda debería ser de 37.500 mts">RTAS TP7 p.14</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=14" title="AB = 300 Hz a 4300 Hz">RTAS TP7 p.14</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 8</td>
+<td>Altura mínima de dos antenas de UHF que se vean a 50 km, sin difracción, con el radio de la Tierra de 6370 km. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=16" title="A qué altura mínima deben encontrarse ambas si la distancia">RTAS TP7 p.16</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=16" title="No se considera el fenómeno de difracción">RTAS TP7 p.16</a></td>
+<td>Oficial, método 1 (misma altura): <span class="arithmatex">\(A_V=50\)</span> km, <span class="arithmatex">\(D_H=25\)</span> km; <span class="arithmatex">\(25=3{,}61\sqrt{H}\)</span>; <span class="arithmatex">\(H=47{,}95\)</span> m. Método 2 (Pitágoras): <span class="arithmatex">\(H=\sqrt{25^2+6370^2}-6370=0{,}04905\)</span> km <span class="arithmatex">\(=49{,}05\)</span> m. La RTAS no elige. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=16" title="Asumimos que la altura de ambas antenas es la misma">RTAS TP7 p.16</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=17" title="fig: H = 0,04905 Km; H = 49,05 mts">RTAS TP7 p.17</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 9</td>
+<td>El caso anterior, con una antena que no puede superar los 10 m. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="Considere el caso anterior si una de las antenas no puede superar">TP7 p.1</a></td>
+<td>Oficial: <span class="arithmatex">\(A_V=D_{H1}+D_{H2}=50\)</span> km; <span class="arithmatex">\(D_{H1}=3{,}61\sqrt{10}=11{,}41\)</span> km; <span class="arithmatex">\(D_{H2}=38{,}58\)</span> km; <span class="arithmatex">\(H_2=114{,}2\)</span> m. Recálculo: 114,24 m. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=18" title="DH2 = 50 – 11,41 = 38,58 Km">RTAS TP7 p.18</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=18" title="H2 = 114,2 m">RTAS TP7 p.18</a></td>
+</tr>
+<tr>
+<td>TP7 ej. 12 = teoría 2 (no obligatorio)</td>
+<td>Retardo total de la transmisión satelital para satélites de órbita baja, media y alta. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="Calcular el retardo total que ocasiona la transmisión satelital para los">TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas.pdf#page=1" title="Calcular el retardo total que ocasiona la transmisión satelital para los satélites">Teoría TP7 p.1</a></td>
+<td>Oficial: <span class="arithmatex">\(V_p=3\cdot10^8\)</span> m/s; <span class="arithmatex">\(R=2H/V_p\)</span>; órbita baja con <span class="arithmatex">\(H=5.000\)</span> km: 33 ms; «ídem» para media (15.000 km) y alta (35.000 km), sin imprimir esos resultados. Recálculo con la RTAS: 33,3, 100 y 233,3 ms. Recálculo con <code>Clase 08</code> p.45 a 47 (la que usa esta página): 5,33, 13,3 (cota) y 240 ms. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="Para la órbita baja considerando según figura 2.15 H = 5.000 Km">RTAS teoría TP7 p.2</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="2 * 5 106 / 3 108 = 33 ms">RTAS teoría TP7 p.2</a> (Discrepancias 1 y 2)</td>
+</tr>
+<tr>
+<td>TP7 ej. 16 (sin resolución oficial)</td>
+<td>Dos sitios a 60 km: retardos con un enlace de microondas, uno de fibra óptica y uno con satélite geoestacionario. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=2" title="retardos suponiendo un enlace de microondas, uno de fibra óptica y uno">TP7 p.2</a></td>
+<td>Recálculo propio, con cada dato citado (abajo). Ni la guía práctica ni la de teoría traen este ejercicio. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=2" title="fig: la guía práctica termina en el ejercicio 10, sin ejercicio 16">Guía práctica TP7 p.2</a></td>
+</tr>
+<tr>
+<td>Final 2019-09 ej. 3</td>
+<td>Radioenlace de 35 km, antenas de 35 dB, coaxil RG 213/U de 15 m por antena, 130 W, 250 MHz, sensibilidad 3 mW: ¿se detecta y cuánta potencia llega? <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Potencia de salida del transmisor: 130 W">Final 2019-09 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="Sensibilidad del receptor: 3 mW">Final 2019-09 p.1</a></td>
+<td>Salida oficial: «No es detectada por el Rx ya que está debajo de la sensibilidad, recibiéndose 1,08 mW». Recálculo propio (abajo): 4,34 mW, detectada. Discrepancia 3. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="debajo de la sensibilidad, recibiéndose 1,08 mW">Final 2019-09 p.1</a></td>
+</tr>
+<tr>
+<td>Final 2023-02 ej. 3</td>
+<td>Radioenlace de 30 km, antenas de 35 dB, RG 213/U de 20 m por antena, 100 W, 150 MHz, sensibilidad 1 mW. <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Potencia de salida del transmisor: 100 W">Final 2023-02 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Frecuencia de operación: 150 MHz">Final 2023-02 p.1</a></td>
+<td>Salida oficial: A total = 3,5 coaxil + 105,46 espacio libre = 108,96 dB; potencia del transmisor 51,76 dBm; llegan 12,8 dBm; 19,05 mW. Recálculo propio (abajo): 11,04 dBm, 12,69 mW, detectada. Discrepancia 4. <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Atotal= 3,5 coaxil+ 105,46 espacio libre= 108,96dB,">Final 2023-02 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="la potencia recibida es 19,05 mW">Final 2023-02 p.1</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>TP7 ej. 16 (recálculo propio, verificado con test).</strong></p>
+<ul>
+<li><strong>Microondas:</strong> <span class="arithmatex">\(t=d/v=60.000\ \text{m}/(3\cdot10^8\ \text{m/s})=200\ \mu\text{s}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=5" title="velocidad de 300.000 km/s = 3 x 108 m/s">Clase 08 p.5</a></li>
+<li><strong>Satélite GEO:</strong> <span class="arithmatex">\(t=2H/V_p=2\cdot36.000\ \text{km}/300.000\ \text{km/s}=240\)</span> ms. Los 60 km de distancia terrestre no intervienen. Con 35.000 km serían 233,3 ms. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="Orbitan a 36.000 km de altura">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=192" title="Por lo tanto, la comunicación recorrerá en total 72.000 km">Libro p.192</a></li>
+<li><strong>Fibra:</strong> <span class="arithmatex">\(v=c/n\)</span>, con <span class="arithmatex">\(n=c/V_p\)</span> de la diapositiva y <span class="arithmatex">\(n=1{,}48\)</span> del ej. 14 del libro. <strong>Ese <span class="arithmatex">\(n\)</span> es el valor del libro (nivel 3), no de una diapositiva</strong>: ninguna diapositiva da la velocidad en la fibra (Discrepancia 14). Da <span class="arithmatex">\(v\approx2{,}027\cdot10^8\)</span> m/s y <span class="arithmatex">\(t=60.000/v=296\ \mu\text{s}\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=58" title="fig: n = C/Vp, n índice de refracción, C velocidad de propagación en el vacío, Vp velocidad de propagación en un medio, n1 &gt; n2">Clase 07 p.58</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=460" title="Si el índice del núcleo es de 1,48">Libro p.460</a></li>
+<li>Orden de magnitud: el satélite GEO tarda 1.200 veces más que el enlace terrestre de 60 km (240 ms contra 200 µs).</li>
+</ul>
+<p><strong>Final 2019-09 ej. 3 (recálculo propio, verificado con test).</strong></p>
+<ol>
+<li>La tabla del RG 213/U no trae 250 MHz: se interpola entre 200 MHz (10,5 dB/100 m) y 400 MHz (15,5 dB/100 m): <span class="arithmatex">\(10{,}5+\tfrac{50}{200}\cdot5=11{,}75\)</span> dB/100 m. Para 15 m, 1,7625 dB por línea. La interpolación está explicada en <a href="../u2/02-enlace.html">Unidades de medida y cálculo de enlaces</a>. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="fig: Atenuación en el espacio libre dB = 32,4 + 20 log f MHz + 20 log d km; tabla RG 213/U 10, 50, 100, 200, 400, 1000 MHz con 2, 4.9, 7, 10.5, 15.5, 26 dB/100m">Final 2019-09 p.1</a></li>
+<li><span class="arithmatex">\(L_p=32{,}4+20\log250+20\log35=111{,}24\)</span> dB.</li>
+<li><span class="arithmatex">\(P_{Tx}=10\log(130.000)=51{,}14\)</span> dBm.</li>
+<li><span class="arithmatex">\(S_{Rx}=51{,}14-1{,}76+35-111{,}24+35-1{,}76=6{,}37\)</span> dBm <span class="arithmatex">\(=4{,}34\)</span> mW. Es mayor que 3 mW: se detecta.</li>
+</ol>
+<p><strong>Final 2023-02 ej. 3 (recálculo propio, verificado con test).</strong></p>
+<ol>
+<li>Atenuación a 150 MHz: <span class="arithmatex">\(7+\tfrac{50}{100}\cdot3{,}5=8{,}75\)</span> dB/100 m; para 20 m, 1,75 dB por línea (3,5 dB en total, como imprime la salida oficial).</li>
+<li><span class="arithmatex">\(L_p=32{,}4+20\log150+20\log30=105{,}46\)</span> dB.</li>
+<li><span class="arithmatex">\(P_{Tx}=100\ \text{W}=50\)</span> dBm.</li>
+<li><span class="arithmatex">\(S_{Rx}=50-3{,}5+70-105{,}46=11{,}04\)</span> dBm <span class="arithmatex">\(=12{,}69\)</span> mW. Es mayor que 1 mW: se detecta.</li>
+</ol>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Qué propagación se usa de 2 a 20 MHz y qué antena lleva?</summary>
+<p>Onda reflejada (ionosférica), onda corta, que puede dar la vuelta al mundo; dipolo horizontal de media onda. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=16" title="Esta propagación se usa en frecuencias de 2 a 20 MHz">Clase 08 p.16</a></p>
+</details>
+<details class="question">
+<summary>¿Qué es la frecuencia crítica?</summary>
+<p>La frecuencia por encima de la cual el haz no rebota en la ionosfera. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=15" title="Hay una frecuencia crítica superada la cual el haz no rebota">Clase 08 p.15</a></p>
+</details>
+<details class="question">
+<summary>¿Cuál es el alcance visual de dos antenas de 20 m, con difracción?</summary>
+<p><span class="arithmatex">\(A_V=2\cdot4{,}14\sqrt{20}\approx37{,}03\)</span> km. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=15" title="fig: H = 20 mts; DH = 4,14 raíz de H; AV=2*DH; AV = 2*4,14 raíz de 20; AV=37,03 Km">RTAS TP7 p.15</a></p>
+</details>
+<details class="question">
+<summary>¿Qué pasa con <span class="arithmatex">\(A_V\)</span> si las dos antenas tienen alturas distintas?</summary>
+<p>Se suman los horizontes: <span class="arithmatex">\(A_V=D_{H1}+D_{H2}\)</span> (ej. 9: <span class="arithmatex">\(D_{H1}+D_{H2}=50\)</span> km; la RTAS imprime 11,41 y 38,58 truncados, Discrepancia 5). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=18" title="Teniendo en cuenta que AV = DH1 + DH2 y la distancia">RTAS TP7 p.18</a></p>
+</details>
+<details class="question">
+<summary>¿Cuánto vale <span class="arithmatex">\(L_p\)</span> a 400 MHz y 1 km?</summary>
+<p><span class="arithmatex">\(32{,}4+20\log400+20\log1=84{,}44\)</span> dB. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=10" title="Lp = 84,44 dB">RTAS TP7 p.10</a></p>
+</details>
+<details class="question">
+<summary>Si se duplica la distancia del enlace, ¿cuánto crece la pérdida en el espacio libre?</summary>
+<p><span class="arithmatex">\(20\log2\approx6{,}02\)</span> dB (recálculo propio con la fórmula de la cátedra). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="Lp = 32.4 + 20 log f + 20 log d">RTAS TP7 p.2</a></p>
+</details>
+<details class="question">
+<summary>Escribí la ecuación del enlace.</summary>
+<p><span class="arithmatex">\(P_{Tx}-L_{c,Tx}+G_{Tx}-L_p+G_{Rx}-L_{c,Rx}-FD=S_{Rx}\)</span>, con potencias en dBm y el resto en dB. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=25" title="Señal de Rx [dBm]">Clase 08 p.25</a></p>
+</details>
+<details class="question">
+<summary>¿Qué longitud tiene una antena de media onda a 300 MHz?</summary>
+<p><span class="arithmatex">\(\lambda=1\)</span> m; media onda, 0,50 m (también 150/300). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=11" title="Como son de media longitud de onda debería ser de 0,50 mts">RTAS TP7 p.11</a></p>
+</details>
+<details class="question">
+<summary>¿Qué diferencia hay entre repetidoras pasivas y activas?</summary>
+<p>Las pasivas son dos parabólicas unidas por guía de onda: no amplifican ni necesitan alimentación. Las activas tienen dos antenas y equipos que amplifican antes de retransmitir. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=27" title="No se amplifica la señal recibida, no necesita alimentación">Clase 08 p.27</a></p>
+</details>
+<details class="question">
+<summary>¿Cuál es el retardo de ida y vuelta de un satélite GEO a 36.000 km?</summary>
+<p><span class="arithmatex">\(R=2H/V_p=2\cdot36.000\ \text{km}/300.000\ \text{km/s}=240\)</span> ms (la diapositiva dice unos 300 ms). Por eso la telefonía necesita canceladores de eco. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="indeseados en telefonía y obliga a usar canceladores de eco">Clase 08 p.45</a></p>
+</details>
+<details class="question">
+<summary>¿Qué órbitas hay y cuántos satélites GEO cubren la Tierra?</summary>
+<p>GEO (36.000 km), MEO (más de 2.000 km) y LEO (unos 800 km); con tres GEO se cubre la Tierra. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=43" title="Con tres satélites geoestacionarios se cubre la Tierra">Clase 08 p.43</a></p>
+</details>
+<details class="question">
+<summary>¿Qué limita a un enlace láser FSO?</summary>
+<p>La distancia máxima del haz en la atmósfera (pocos km); lo afectan la niebla, la lluvia y la nieve. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=58" title="Está limitado por la distancia máxima de propagación del haz">Clase 08 p.58</a></p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<p>Manda la diapositiva de <code>Clase 08</code> (jerarquía 2). Las obligatorias son la 1, la 3 y la 4. Las cifras de la cátedra están truncadas o redondeadas; el test lo declara.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tema</th>
+<th>Qué dicen las fuentes</th>
+<th>Qué usa la página</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Alturas satelitales (obligatoria)</td>
+<td>La RTAS de teoría usa 5.000 / 15.000 / 35.000 km «según figura 2.15»; son cotas del eje y de los cinturones de Van Allen de esa figura, que dibuja el MEO cerca de 10.000 km y el LEO cerca de 0. <code>Clase 08</code> trae tres juegos: (a) p.45 a 47: GEO 36.000 km, MEO más de 2.000 km, LEO unos 800 km; (b) p.44: LEO 150 a 450 km, MEO 9000 a 18000 km, GEO 36000 km; &copy; p.48: GEO 35.000 km. La RTAS imprime solo el LEO (33 ms con 5.000 km). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Teoria-Preguntas-Respuestas-RTAS.pdf#page=2" title="Para la órbita baja considerando según figura 2.15 H = 5.000 Km">RTAS teoría TP7 p.2</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=48" title="fig: Figura 2-15 altitud km, GEO 35,000 latencia 270 ms 3 satélites, MEO entre cinturones de Van Allen 35-85 ms 10 satélites, LEO 1-7 ms 50 satélites">Clase 08 p.48</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=44" title="fig: TIPOS DE SATÉLITES, LEO altura entre 150 y 450 km vuelta en 1,5 horas, MEO altura entre 9000 y 18000 km período 5 a 12 horas, GEO altura de 36000 km período 24 horas">Clase 08 p.44</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="Orbitan a 36.000 km de altura">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=46" title="Orbitan a más de 2.000 km de altura y necesitan seis a ocho">Clase 08 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="Orbitan a unos 800 km de altura y necesitan 90 minutos para">Clase 08 p.47</a></td>
+<td>El juego (a), el de las diapositivas que describen cada órbita con su retardo; el de la RTAS se rotula «oficial de la guía» y se muestra en el ej. 12.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Retardos de la diapositiva frente a <span class="arithmatex">\(2H/c\)</span></td>
+<td>Con (a), <span class="arithmatex">\(2H/c\)</span> da 240 ms (GEO), 13,3 ms (MEO con 2.000 km) y 5,33 ms (LEO); la diapositiva dice unos 300, 70 y 10 ms; la Figura 2-15 dice 270, 35 a 85 y 1 a 7 ms. No explican de dónde salen. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=46" title="El retardo está en el orden de los 70 ms">Clase 08 p.46</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=45" title="fig: viñeta Retardo muy alto unos 300 ms lo que genera ecos indeseados en telefonía">Clase 08 p.45</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=47" title="fig: viñeta Por la baja altura hay poco retardo 10 ms lo que favorece las comunicaciones de datos">Clase 08 p.47</a></td>
+<td>Se muestran ambas columnas; no se afirma una causa.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Final-2019-09</code> ej. 3 (obligatoria)</td>
+<td>La salida oficial es «no detectada, 1,08 mW». El recálculo (11,75 dB/100 m interpolados, <span class="arithmatex">\(L_p=111{,}24\)</span> dB, <span class="arithmatex">\(P_{Tx}=51{,}14\)</span> dBm) da 6,37 dBm = 4,34 mW, detectada frente a 3 mW. El oficial es unas 4 veces menor (6,04 dB menos); con los datos del enunciado no se lo reproduce y no se infiere la causa. <a href="../fuentes/examenes/finales/oficial/Final-2019-09.pdf#page=1" title="debajo de la sensibilidad, recibiéndose 1,08 mW">Final 2019-09 p.1</a></td>
+<td>Se lista la salida oficial y el recálculo; no se corrige en silencio.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Final-2023-02</code> ej. 3 (obligatoria)</td>
+<td>La salida oficial parte de 51,76 dBm y llega a 12,8 dBm y 19,05 mW. 51,76 dBm son 150 W; el enunciado dice 100 W = 50 dBm. Con 100 W: 11,04 dBm = 12,69 mW; la conclusión (detectada) no cambia. El resto de la cadena oficial coincide (3,5 dB de coaxil, <span class="arithmatex">\(L_p=105{,}46\)</span> dB). <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Potencia transmisor 51,76 dBm, llegan 12,8 dBm por lo tanto">Final 2023-02 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="la potencia recibida es 19,05 mW">Final 2023-02 p.1</a></td>
+<td>Se lista la salida oficial y el recálculo con 100 W.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Horizonte: constantes y truncado</td>
+<td>(i) El texto extraído de la RTAS trae «,361 H» y «,414 H»; los PNG dicen <span class="arithmatex">\(3{,}61\sqrt{H}\)</span> y <span class="arithmatex">\(4{,}14\sqrt{H}\)</span>, como <code>Clase 08</code> p.18. (ii) El ej. 8 da 47,95 m (con 3,61) y 49,05 m (Pitágoras con R = 6.370 km) sin elegir; recálculo propio: 47,9585 y 49,058 m. La constante geométrica <span class="arithmatex">\(\sqrt{2R}\)</span> con R = 6.370 km es 3,57 y no 3,61; por eso difieren. (iii) La cátedra trunca (47,95; 49,05; 11,41) y en el ej. 9 imprime «50 – 11,41 = 38,58», cuando esa resta da 38,59. Causa [INFERRED]: habría restado el valor sin truncar (50 − 11,4158 = 38,5842); recálculo propio, la RTAS no lo dice. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=4" title="DH= Distancia al Horizonte [Km]">RTAS TP7 p.4</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=16" title="H = 47,95 metros">RTAS TP7 p.16</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=18" title="DH2 = 50 – 11,41 = 38,58 Km">RTAS TP7 p.18</a></td>
+<td>Los valores de la PNG; las dos respuestas del ej. 8 con su método.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ej. 6: frecuencia usada</td>
+<td>La RTAS declara AB = 300 Hz a 4300 Hz pero calcula con 4·10^3 Hz (75.000 m). Con 4300 Hz darían 69.767 m y 34.884 m; con 300 Hz, 1.000.000 m. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=14" title="AB = 300 Hz a 4300 Hz">RTAS TP7 p.14</a></td>
+<td>El valor impreso (4 kHz), con la inconsistencia asentada.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Término «sensibilidad»</td>
+<td>El enunciado del ej. 2 pide la «sensibilidad del receptor»; la RTAS rotula el resultado SRx y la diapositiva lo llama «Señal de Rx [dBm]»; la «sensibilidad del receptor» es el umbral del gráfico, y así la usan los finales. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=10" title="SRx = 11,70 dBm">RTAS TP7 p.10</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=25" title="Señal de Rx [dBm]">Clase 08 p.25</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Sensibilidad del receptor: 1 mW">Final 2023-02 p.1</a></td>
+<td>Señal de Rx para el resultado; sensibilidad para el umbral.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Enunciados incompletos en <code>Comunicaciones-TP07</code></td>
+<td>Omite datos que sí traen la guía y la RTAS: ej. 5 (banda de FM 88–108 MHz), ej. 6 (canal telefónico), ej. 8 (radio de la Tierra de 6370 km). El libro propone variantes con otros datos (30 MHz en vez de 300 MHz). <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Comunicaciones-TP07.pdf#page=1" title="antena que usa un receptor de FM si tiene 75 cm">TP7 p.1</a>, <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/GUIA-TP-07-Practica-Preguntas.pdf#page=1" title="Tener en cuenta la curvatura de la tierra y su radio">Guía práctica TP7 p.1</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=459" title="Dado un enlace radioeléctrico a la frecuencia de 30 MHz,">Libro p.459</a></td>
+<td>Los datos de la guía y la RTAS.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Escrituras del espacio libre</td>
+<td>Diapositiva: <span class="arithmatex">\(L=32{,}4+20\log(d/\text{km})+20\log(f/\text{MHz})\)</span>. RTAS: <span class="arithmatex">\(L_p=32.4+20\log f+20\log d\)</span> (f en MHz, d en km). Finales: lo mismo con las unidades entre paréntesis. Es una sola fórmula. <a href="../fuentes/practica/tucu-leppen/TP07-Medio-Libre/Clase-TP-07-RTAS.pdf#page=2" title="Lp = 32.4 + 20 log f + 20 log d">RTAS TP7 p.2</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Atenuación en el espacio libre">Final 2023-02 p.1</a></td>
+<td>La de la diapositiva, con las unidades explícitas.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Bandas satelitales</td>
+<td><code>Clase 08</code> p.49 (texto): C 3,4 a 8,4; Ku 12,4 a 18; K 18 a 26,5; Ka 26,5 a 40 GHz. p.57 (imagen): C 4/6; Ku 12/14; Ka 17/30 GHz, sin decir cuál es subida y cuál bajada. Dos presentaciones, no un conflicto numérico. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=49" title="Ku 12,4 a 18">Clase 08 p.49</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=57" title="fig: tabla banda y FREC GHz, C 4/6 menor atenuación mayor tamaño antena, Ku 12/14, Ka 17/30 mayor atenuación menor tamaño antena; enlace punto a punto SCPC y punto a multipunto VSAT">Clase 08 p.57</a></td>
+<td>Cada una rotulada.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Altura GEO en otras fuentes</td>
+<td><code>Clase 08</code>: 36.000 km; la Figura 2-15 y la RTAS: 35.000 km; el libro: 35.780 km en 5.10.8 y 35.768 km en la nota al pie del cap. 3, con el ejemplo 3-6 en 36.000 km. <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=422" title="Debido a que los satélites geoestacionarios están ubicados a 35.780 km de">Libro p.422</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=192" title="Por lo tanto, la comunicación recorrerá en total 72.000 km">Libro p.192</a></td>
+<td>36.000 km (la diapositiva).</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>Clase 08</code> p.10 y p.16: antenas</td>
+<td>Sobre <span class="arithmatex">\(\lambda(\text{m})=300/f(\text{MHz})\)</span>, «En 2 MHz son 37,5 m» es la longitud de la antena de <span class="arithmatex">\(\lambda/4\)</span> (150/4), no la longitud de onda (150 m). Igual en p.16: 7,5 m a 20 MHz es <span class="arithmatex">\(\lambda/2\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=10" title="En 2 MHz son 37,5 m">Clase 08 p.10</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=16" title="Para 20 MHz son 7,5 m">Clase 08 p.16</a></td>
+<td>La tabla de la p.33 (75/f y 150/f).</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>Clase 08</code> p.61</td>
+<td>La diapositiva del láser trae una tabla de frecuencia, longitud de onda, dimensiones y atenuación en dB/m que no corresponde a un láser y no dice de qué dispositivo es. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=61" title="fig: tabla frecuencia MHz, longitud de onda cm, dimensiones exteriores cm, atenuación dB/m, cuatro filas de 26500-40000 a 1120-1700 MHz">Clase 08 p.61</a></td>
+<td>No se usa.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Velocidad en la fibra (ej. 16)</td>
+<td>Ninguna diapositiva da la velocidad de la señal en la fibra: <code>Clase 07</code> solo trae <span class="arithmatex">\(n=c/V_p\)</span> y su p.29 es del coaxil. El ej. 14 del libro da <span class="arithmatex">\(n=1{,}48\)</span>. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=58" title="fig: n = C/Vp, n índice de refracción, C velocidad de propagación en el vacío, Vp velocidad de propagación en un medio, n1 &gt; n2">Clase 07 p.58</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-07-Medios-Guiados-de-Comunicaciones.pdf#page=29" title="La velocidad se expresa como un porcentaje de la velocidad de">Clase 07 p.29</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=460" title="Si el índice del núcleo es de 1,48">Libro p.460</a></td>
+<td><span class="arithmatex">\(n=1{,}48\)</span>, rotulado «valor del libro, no de la diapositiva»; el resultado es recálculo propio.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Erratas evidentes de <code>Clase 08</code></td>
+<td>En la tabla del espectro (p.4) la fila LF dice «30-30 kHz». En la tabla de equipos FSO (p.64) un ancho de banda figura como 622 Gbps junto a 34 Mbps, 155 Mbps y 9,6 Gbps. Ninguna otra fuente de la página los contrasta. <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=4" title="fig: tabla espectro de frecuencias de radio LF 30-30 kHz, MF 300-3000 kHz, HF 3-30 MHz, VHF 30-300 MHz, UHF 300-3000 MHz, SHF 3-30 GHz, EHF 30-300 GHz con longitud de onda y servicios">Clase 08 p.4</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-08-Medios-No-Guiados-de-Comunicaciones.pdf#page=64" title="fig: enlace dúplex con transmisor modulador y receptor fotodetector; tabla equipos 1 a 4, rango de alcance 4.000 m, 2.000 m, 500 m, 500 m; ancho de banda 34 Mbps, 155 Mbps, 622 Gbps, 9,6 Gbps; potencia 35, 35, 45, 45 W; longitud de onda 980, 980, 850, 780 nm">Clase 08 p.64</a></td>
+<td>No se copian esos dos valores.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./02-fibra-optica.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Fibra óptica">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Fibra óptica
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u8/01-interfaces.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Interfaces de capa física">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Interfaces de capa física
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

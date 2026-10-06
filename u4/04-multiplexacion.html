@@ -1,0 +1,2694 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Guía de estudio de Comunicación de Datos (UTN-FRBA) con citas a las fuentes de cátedra">
+      
+      
+      
+      
+        <link rel="prev" href="./03-digitalizacion.html">
+      
+      
+        <link rel="next" href="../u5/01-informacion.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.67">
+    
+    
+      
+        <title>Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM - Comunicación de Datos — Guía de estudio</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ae390e2.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.96d1a7e4.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="https://unpkg.com/iframe-worker/shim" type="text/javascript"></script>
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navegación"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#multiplexacion-fdm-tdm-pcm-pdh-sdh-y-wdm" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-header__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navegación">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comunicación de Datos — Guía de estudio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo claro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Modo claro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Modo oscuro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Modo oscuro" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Según el sistema"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Según el sistema" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Buscar">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Buscar">
+  <button type="button" class="md-search__button">
+    Buscar
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Comunicación de Datos — Guía de estudio" class="md-nav__button md-logo" aria-label="Comunicación de Datos — Guía de estudio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Comunicación de Datos — Guía de estudio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Comunicación de Datos — Guía de estudio
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examenes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Índice de exámenes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parcial-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Parcial 1: alcance, formato y simulacro
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../repaso-teorico-u1-u4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Repaso teórico U1–U4: preguntas tipo examen
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U1
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U1
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1/01-introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introducción: teleinformática, Internet y normalización
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U2
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U2
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/01-senales-fourier.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Señales y Fourier
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/02-enlace.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Unidades de medida y cálculo de enlaces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2/04-banda-base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Banda base: códigos de línea
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U3
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U3
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/01-velocidades.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Velocidades, multinivel, protocolos de enlace y M-PSK con Gray
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/02-redes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Redes: topologías, OSI y conmutación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3/03-red-telefonica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Red telefónica: RTPC, señalización y tráfico
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U4
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_8">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U4
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./01-modulacion-analogica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación analógica: AM, FM y PM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./02-modulacion-digital.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Modulación digital: ASK, FSK, PSK y QAM
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./03-digitalizacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Digitalización: PCM y Delta
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="04-multiplexacion.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ley-del-multiplexor-y-equipamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Ley del multiplexor y equipamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fdm-y-ofdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. FDM y OFDM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tdm-entramado-y-stdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. TDM, entramado y STDM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pcm-e1-y-t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. PCM, E1 y T1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pdh-y-relleno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. PDH y relleno
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sdh-y-sonet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. SDH y SONET
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-wdm-dwdm-y-amplificadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. WDM, DWDM y amplificadores
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-wdm-vs-sonet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. WDM vs SONET
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-cdm-y-cdma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. CDM y CDMA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_9">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U5
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u5/01-informacion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U5 · Teoría de la información y codificación
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U6
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_10">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U6
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/01-capacidad-canal.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Capacidad del canal
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/02-deteccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Detección de errores
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u6/03-correccion-errores.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Corrección de errores: ARQ, FEC y código de Hamming
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U7
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_11">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U7
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/01-cobre-cableado.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Cobre y cableado estructurado
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/02-fibra-optica.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fibra óptica
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u7/03-no-guiados.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Medios no guiados
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  U8
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_12">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  U8
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/01-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Interfaces de capa física
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u8/02-modems.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Módems y acceso de banda ancha
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#idea-central" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Idea central
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#definiciones-y-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Definiciones y fórmulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Desarrollo
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ley-del-multiplexor-y-equipamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Ley del multiplexor y equipamiento
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fdm-y-ofdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. FDM y OFDM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tdm-entramado-y-stdm" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. TDM, entramado y STDM
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pcm-e1-y-t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. PCM, E1 y T1
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-pdh-y-relleno" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. PDH y relleno
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-sdh-y-sonet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. SDH y SONET
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-wdm-dwdm-y-amplificadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. WDM, DWDM y amplificadores
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-wdm-vs-sonet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. WDM vs SONET
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-cdm-y-cdma" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. CDM y CDMA
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-resuelto" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Ejemplo resuelto
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trampas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Trampas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Practicar
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autoevaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Autoevaluación
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discrepancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Discrepancias
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navegación" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../index.html" class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Comunicación de Datos — Guía de estudio
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="./01-modulacion-analogica.html" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    U4
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="multiplexacion-fdm-tdm-pcm-pdh-sdh-y-wdm">Multiplexación: FDM, TDM, PCM, PDH, SDH y WDM<a class="headerlink" href="#multiplexacion-fdm-tdm-pcm-pdh-sdh-y-wdm" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Programa</p>
+<ul>
+<li>Es la segunda parte de la unidad 4 y entra en el parcial. nota teoria 2026-09-01 06:59 PM: "la segunda parte que es todo multiplexado". El alcance llega hasta la unidad 5. nota teoria 2026-09-15 08:31 PM: "el parcial es hasta la unidad cinco inclusive".</li>
+<li>El docente de teoría dio la presentación completa. nota teoria 2026-09-01 07:04 PM: "hoy vamos a ver esta presentación son 74 filminas". CDM también se dio. nota teoria 2026-09-01 08:34 PM: "se llama multiplicación por división de código".</li>
+<li>Temas: ley del multiplexor, FDM y OFDM, TDM y STDM, PCM, E1 y T1, PDH, SDH y SONET, WDM y DWDM, CDM.</li>
+<li>Fuentes: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=3" title="fig: diapositiva MULTIPLEXIÓN con aprovechar mejor el ancho de banda, banda angosta y ancha, reducir costos">Clase 10 p.3</a> (74 láminas) y PCM en <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=57" title="El transmisor tiene cuatro etapas:">Unidad IV-1 p.57</a>.</li>
+<li>TP8 (modulación y multiplexación digital) queda fuera de las prácticas del alcance (TP1 a TP4 y parte de TP7): se usa solo como apoyo.</li>
+</ul>
+</div>
+<h2 id="idea-central">Idea central<a class="headerlink" href="#idea-central" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Multiplexar es cursar varias comunicaciones simultáneas por un único canal físico sin que se interfieran, con un MUX y un DEMUX de a pares: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=4" title="varias comunicaciones simultáneas sin interferirse entre sí.">Clase 10 p.4</a>.</li>
+<li>Ley del multiplexor: la capacidad de salida es mayor o igual que la suma de las entradas, <span class="arithmatex">\(C_{sal} \ge \sum C_i\)</span>: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=6" title="cuya suma de velocidades no puede superar el valor C.">Clase 10 p.6</a>.</li>
+<li>La técnica depende del recurso que se reparte: frecuencia (FDM; OFDM como variante de FDM es INFERIDO, ver Desarrollo 2), tiempo (TDM, STDM), longitud de onda (WDM) o código (CDM): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=8" title="fig: lista de técnicas FDM, TDM, STDM, WDM y CDM, según el recurso del vínculo compartido por los canales usuarios">Clase 10 p.8</a>.</li>
+<li>TDM no ahorra ancho de banda: cada terminal usa todo el canal durante su ranura: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=20" title="banda del canal, una parte del tiempo.">Clase 10 p.20</a>.</li>
+<li>Cuatro números para saber de memoria: 64 kbit/s (canal PCM): <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 8 bits = 64 kbps">Unidad IV-1 p.59</a>; 2,048 Mbit/s (E1) y 1,544 Mbit/s (T1): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadros E1 con Vtx trama = 2,048 Mbps y T1 con Vtx trama = 1,544 Mbps">Clase 10 p.26</a>; 155,52 Mbit/s (STM-1): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="luego son 2.430 x 64.000 = 155,520 Mbps">Clase 10 p.38</a>.</li>
+</ul>
+<h2 id="definiciones-y-formulas">Definiciones y fórmulas<a class="headerlink" href="#definiciones-y-formulas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Fórmula</th>
+<th>Unidades</th>
+<th>Fuente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ley del multiplexor</td>
+<td><span class="arithmatex">\(C_{sal} \ge \sum_{i=1}^{n} C_i\)</span></td>
+<td>bit/s, Hz o longitud de onda, según la técnica</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=6" title="Multiplexar es repartir un único canal de comunicaciones de">Clase 10 p.6</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=5" title="fig: recuadro C sal mux mayor o igual a la suma de las C ent mux subcanales">Clase 10 p.5</a></td>
+</tr>
+<tr>
+<td>Frecuencia de muestreo PCM</td>
+<td><span class="arithmatex">\(f_m = 2 \cdot f_{max} = 2 \cdot 4\ \text{kHz} = 8\ \text{kHz}\)</span></td>
+<td>Hz</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="La señal se puede muestrear a 2x4 kHz = 8 kHz">Unidad IV-1 p.59</a></td>
+</tr>
+<tr>
+<td>Canal PCM (E0 o T0)</td>
+<td><span class="arithmatex">\(V = f_m \cdot n = 8000 \cdot 8 = 64\,000\)</span>; con 7 bits, <span class="arithmatex">\(8000 \cdot 7 = 56\,000\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 7 bits = 56 kbps">Unidad IV-1 p.59</a></td>
+</tr>
+<tr>
+<td>Duración de la trama</td>
+<td><span class="arithmatex">\(T = 1/8000\ \text{s} = 125\ \mu\text{s}\)</span></td>
+<td>µs</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="hay 8 bits por byte y 8.000 tramas por segundo">Clase 10 p.38</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadros E1 y T1 con 256 y 193 bits por trama en 125 µseg">Clase 10 p.26</a></td>
+</tr>
+<tr>
+<td>E1</td>
+<td><span class="arithmatex">\(V_{E1} = 32 \cdot 8 \cdot 8000 = 2\,048\,000\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="32 x 64 = 2.048 kbit/s, aproximadamente 2 Mbits/s">Clase 10 p.25</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro E1 con 256 bits por trama 125 µseg, Vtx trama = 2,048 Mbps">Clase 10 p.26</a></td>
+</tr>
+<tr>
+<td>T1</td>
+<td><span class="arithmatex">\(V_{T1} = (24 \cdot 8 + 1) \cdot 8000 = 1\,544\,000\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro T1 con 193 bits por trama 125 µseg, Vtx trama = 1,544 Mbps">Clase 10 p.26</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=28" title="fig: PCM - 24, trama de 193 bits, bit 193 código de la trama">Clase 10 p.28</a></td>
+</tr>
+<tr>
+<td>STM-1</td>
+<td><span class="arithmatex">\(V_{STM\text{-}1} = 9 \cdot 270 \cdot 8 \cdot 8000 = 155\,520\,000\)</span></td>
+<td>bit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="luego son 2.430 x 64.000 = 155,520 Mbps">Clase 10 p.38</a></td>
+</tr>
+<tr>
+<td>STM-N y OC-n</td>
+<td><span class="arithmatex">\(V_{STM\text{-}N} = N \cdot 155{,}52\)</span> y <span class="arithmatex">\(V_{OC\text{-}n} = n \cdot 51{,}84\)</span> (INFERIDO de la tabla)</td>
+<td>Mbit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="fig: tabla SONET, OC-1 51,840; OC-3 155,520; OC-12 622,080; OC-48 2.488,320 Mbps">Clase 10 p.42</a></td>
+</tr>
+<tr>
+<td>Grupo primario FDM</td>
+<td><span class="arithmatex">\(12 \cdot 4\ \text{kHz} = 48\ \text{kHz}\)</span>, de 60 a 108 kHz</td>
+<td>kHz</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=12" title="Se forma un grupo primario de 60 a 108 kHz.">Clase 10 p.12</a></td>
+</tr>
+<tr>
+<td>Exceso de PDH</td>
+<td><span class="arithmatex">\(V_{n+1} - 4 \cdot V_n\)</span>; ejemplo <span class="arithmatex">\(8{,}448 - 4 \cdot 2{,}048 = 0{,}256\)</span></td>
+<td>Mbit/s</td>
+<td><a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=676" title="8,448 Mbps - 8,192 Mbps = 0,256 Mbps">Libro p.676</a></td>
+</tr>
+<tr>
+<td>Capacidad DWDM</td>
+<td><span class="arithmatex">\(V_{total} = N_{canales} \cdot V_{canal}\)</span></td>
+<td>Gbit/s</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=60" title="80 canales de 2,5 Gbps">Clase 10 p.60</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="desarrollo">Desarrollo<a class="headerlink" href="#desarrollo" title="Permanent link">&para;</a></h2>
+<h3 id="1-ley-del-multiplexor-y-equipamiento">1. Ley del multiplexor y equipamiento<a class="headerlink" href="#1-ley-del-multiplexor-y-equipamiento" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Multiplexar es repartir un canal de capacidad <span class="arithmatex">\(C\)</span> entre <span class="arithmatex">\(n\)</span> subcanales de capacidades <span class="arithmatex">\(C_i\)</span>, con <span class="arithmatex">\(\sum C_i \le C\)</span>: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=6" title="cuya suma de velocidades no puede superar el valor C.">Clase 10 p.6</a>.</li>
+<li><span class="arithmatex">\(C\)</span> puede ser ancho de banda, velocidad de transmisión o longitud de onda; asociarlos a FDM, TDM y WDM es INFERIDO, la lámina no lo hace: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=5" title="fig: diapositiva con CAPACIDAD C = AB, Vtx, long onda">Clase 10 p.5</a>.</li>
+<li>Los equipos MUX y DEMUX trabajan de a pares, son ETCD, son transparentes (no afectan la calidad de servicio) y operan en el nivel de enlace de OSI: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=5" title="fig: diapositiva con EQUIPAMIENTO = MUX / DEMUX, SON ETCD, TRANSPARENCIA y NIVEL DE ENLACE DEL MODELO OSI">Clase 10 p.5</a>.</li>
+<li>Para qué sirve: aprovechar mejor el ancho de banda (fijo o por demanda), servir en banda angosta y ancha, y reducir costos: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=3" title="fig: diapositiva MULTIPLEXIÓN con aprovechar mejor el ancho de banda, banda angosta y ancha, reducir costos">Clase 10 p.3</a>. Las otras mejoras de un canal son el multinivel, limitado por la relación señal ruido, y subir la velocidad de modulación: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=2" title="Transmisiones multinivel: limitado por la relación señal ruido.">Clase 10 p.2</a>.</li>
+<li>La ley rige para FDM y para TDM sincrónico. En STDM la suma de las velocidades máximas de entrada puede superar la de salida, porque la asignación es estadística: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=6" title="La sumatoria de las velocidades máximas entrantes al multiplexor puede superar a la">Guía TP8 teoría p.6</a> (GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS ej. 11, igual a Comunicaciones-TP08 ej. 15).</li>
+<li>Si la salida es menor que la suma de las entradas, el equipo es un concentrador y baja la calidad de servicio: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="capacidad acumulada es mayor que la capacidad total del canal compartido de">Guía TP8 teoría p.7</a>.</li>
+<li>Cómo distinguir STDM de concentrador (los dos pueden tener suma de entradas mayor que la salida): el concentrador reparte según una ley fija en el tiempo: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="que reparte, según una ley fija en el tiempo,">Guía TP8 teoría p.7</a>; el STDM asigna slots según las necesidades de cada terminal: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=7" title="asigna slots de tiempo a cada canal de entrada según las necesidades de cada terminal">Guía TP8 teoría p.7</a>.</li>
+<li>Ejemplo propio, verificado con test: 10 canales de 4 000 Hz necesitan un medio de al menos 40 000 Hz (cada canal ocupa 4 000 Hz con su banda de protección, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=10" title="una banda de protección, con una banda total de 4.000 Hz.">Clase 10 p.10</a>).</li>
+</ul>
+<h3 id="2-fdm-y-ofdm">2. FDM y OFDM<a class="headerlink" href="#2-fdm-y-ofdm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>FDM divide el ancho de banda en subcanales independientes, cada uno separado del anterior y del posterior por una banda de protección (de guarda): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=10" title="Cada subcanal está separado del anterior y del posterior por">Clase 10 p.10</a>.</li>
+<li>Cada canal de voz usa 300 a 3 400 Hz útiles dentro de 4 000 Hz: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=10" title="independientes con una banda útil de 300 a 3.400 Hz.">Clase 10 p.10</a>.</li>
+<li>Es analógica y los multiplexores incluyen los módems y son más simples: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=9" title="fig: diapositiva FDM con CARACTERÍSTICAS ANALÓGICAS y MPX INCLUYEN LOS MÓDEM Y SON MÁS SIMPLES">Clase 10 p.9</a>.</li>
+<li>Cada canal se traslada en frecuencia: tres canales de 300 a 3 100 Hz pasan a 60-64, 64-68 y 68-72 kHz: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=11" title="fig: Fig. 2-20, tres canales de 300 a 3100 Hz trasladados a 60-64, 64-68 y 68-72 kHz y sumados en un canal multiplexado">Clase 10 p.11</a>.</li>
+<li>Grupo primario: 12 canales de 4 kHz, cada uno modulado en amplitud con una portadora distinta, de 60 a 108 kHz: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=12" title="Hay doce canales de 4 kHz y cada uno es modulado en">Clase 10 p.12</a>. La portadora es el extremo superior de la banda de cada canal (canal 1: portadora 64 kHz, banda 60 a 64 kHz): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=12" title="fig: tabla de 12 canales de voz con portadora de 64 a 108 kHz y ancho de banda usado de 60 a 64 hasta 104 a 108 kHz">Clase 10 p.12</a>.</li>
+</ul>
+<p>Jerarquía analógica recomendada por la UIT-T (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=14" title="fig: tabla de grupos primario 60-108, secundario 312-552, terciario 312-1552, cuaternario 312-4028 y quinario 312-12338 kHz">Clase 10 p.14</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=663" title="agrupa cinco grupos primarios de 12 canales">Libro p.663</a>):</p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Se arma con</th>
+<th>Canales</th>
+<th>Ancho de banda</th>
+<th>Banda</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primario</td>
+<td>12 canales de voz</td>
+<td>12</td>
+<td>48 kHz</td>
+<td>60-108 kHz</td>
+</tr>
+<tr>
+<td>Secundario (supergrupo)</td>
+<td>5 primarios</td>
+<td>60</td>
+<td>240 kHz</td>
+<td>312-552 kHz</td>
+</tr>
+<tr>
+<td>Terciario</td>
+<td>5 secundarios</td>
+<td>300</td>
+<td>1 200 kHz</td>
+<td>312-1 552 kHz (ver Discrepancias)</td>
+</tr>
+<tr>
+<td>Cuaternario</td>
+<td>3 terciarios</td>
+<td>900</td>
+<td>3 716 kHz</td>
+<td>312-4 028 kHz</td>
+</tr>
+<tr>
+<td>Quinario</td>
+<td>3 cuaternarios</td>
+<td>2 700</td>
+<td>12 026 kHz</td>
+<td>312-12 338 kHz</td>
+</tr>
+</tbody>
+</table>
+<p>Los grupos superiores llegan hasta 2 700 canales telefónicos: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=14" title="superiores que transportan hasta 2.700 canales telefónicos.">Clase 10 p.14</a>.</p>
+<ul>
+<li>FDMA es la misma idea aplicada al acceso al medio; la usa GSM: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=15" title="Esta técnica es utilizada en sistemas GSM">Clase 10 p.15</a>.</li>
+<li>OFDM envía subcanales con portadoras ortogonales separadas por anchos de banda pequeños. Por ser ortogonales no se interfieren a pesar de la cercanía y cada una se puede modular por QAM o PSK: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=16" title="Al ser ortogonales no se interfieren a pesar de la cercanía.">Clase 10 p.16</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=16" title="Cada una se puede modular por QAM o PSK.">Clase 10 p.16</a>. En la figura, el máximo de cada subportadora cae donde las demás valen cero: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=17" title="fig: Señal OFDM, cuatro espectros de colores separados por Δf, cada máximo coincide con los ceros de los otros">Clase 10 p.17</a>.</li>
+<li>Aplicaciones de OFDM: Wi-Fi 802.11a, g y n, telefonía 4G, WiMax 802.16e y televisión digital: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=16" title="Acceso de banda ancha móvil: IEEE 802.16e">Clase 10 p.16</a>.</li>
+</ul>
+<h3 id="3-tdm-entramado-y-stdm">3. TDM, entramado y STDM<a class="headerlink" href="#3-tdm-entramado-y-stdm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>TDM divide el tiempo de transmisión en ranuras que el multiplexor adjudica a cada subcanal; con ellas arma una trama que lleva información de usuarios y de control: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=19" title="Divide el tiempo de transmisión de una secuencia de datos">Clase 10 p.19</a>.</li>
+<li>El transmisor y el receptor tienen que estar sincronizados para armar y desarmar la trama: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=19" title="Es esencial que el trasmisor y el receptor estén sincronizados">Clase 10 p.19</a>.</li>
+<li>Es digital, con ranuras fijas y orden fijo; si el medio es analógico hace falta módem y si la información es analógica hay que digitalizarla: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=18" title="fig: diapositiva TDM con características digitales, time slots fijos, respeta siempre un orden, módem si medio analógico, digitalizar si información analógica, importancia del sincronismo, y TRAMA TDM con ranuras A B C D">Clase 10 p.18</a>.</li>
+<li>Cada terminal toma todo el ancho de banda del canal una parte del tiempo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=20" title="En la TDM los equipos terminales toman todo el ancho de">Clase 10 p.20</a>. Un conmutador rotativo toma muestras de cada señal y otro, sincronizado, las reparte en el receptor: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=22" title="La podría hacer un conmutador rotativo electrónico en el">Clase 10 p.22</a>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Entramado de bits</th>
+<th>Entramado de caracteres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qué lleva cada ranura</td>
+<td>un solo bit de cada terminal</td>
+<td>un carácter completo</td>
+</tr>
+<tr>
+<td>Trama</td>
+<td>bits de sincronismo y un bit de cada terminal</td>
+<td>cada carácter conserva su integridad</td>
+</tr>
+<tr>
+<td>Almacenamiento</td>
+<td>no requiere; electrónica económica</td>
+<td>requiere almacenamiento local mientras espera la siguiente transferencia</td>
+</tr>
+<tr>
+<td>Fuente</td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=23" title="Es económico en electrónica, no requiere almacenamiento">Clase 10 p.23</a></td>
+<td><a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=24" title="Requiere almacenamiento local mientras se espera la siguiente">Clase 10 p.24</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>STDM (TDM estadística) es una variante de TDM que aprovecha los tiempos muertos: asigna tiempo según la actividad de cada terminal y no el mismo para todos: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=45" title="Se denominan estadísticos por asignar un régimen de tiempo">Clase 10 p.45</a>. Con tramas largas reduce los caracteres de sincronismo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=45" title="Se reduce el número de caracteres de sincronismo utilizando">Clase 10 p.45</a>.</li>
+<li>Asigna ranuras por demanda y también se llama multiplexación asincrónica (ATDM): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=44" title="fig: diapositiva STDM con asignación estadística, aprovecha todos los tiempos, asignación por demanda de ranuras, también se denomina MUX ASINCRÓNICA ATDM">Clase 10 p.44</a>. TDM deja ranuras vacías en los intervalos muertos y el multiplexor estadístico las llena con los datos de otros canales: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=46" title="fig: canales A a D con intervalos muertos y con datos; el multiplexor TDM deja ranuras vacías y el multiplexor estadístico las llena con A2 C2 D2 D1 B2 C1 A1 B1">Clase 10 p.46</a>.</li>
+</ul>
+<h3 id="4-pcm-e1-y-t1">4. PCM, E1 y T1<a class="headerlink" href="#4-pcm-e1-y-t1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PCM pasa información analógica a digital con muestreo, cuantificación y codificación continuos; el transmisor tiene cuatro etapas (filtro pasa bajos, muestreador, cuantificador y codificador): <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=57" title="digitales mediante un proceso continuo de muestreo,">Unidad IV-1 p.57</a>.</li>
+<li>Se filtra en 4 kHz y se muestrea a 8 kHz, es decir 8 000 muestras por segundo: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Se generan 8.000 muestras por segundo">Unidad IV-1 p.59</a>.</li>
+<li>Sistema europeo: 256 niveles, 8 bits por muestra, <span class="arithmatex">\(8000 \cdot 8 = 64\)</span> kbit/s: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada muestra es codificada con 8 bits">Unidad IV-1 p.59</a>. Sistema americano en esa lámina: 128 niveles, 7 bits, 56 kbit/s: <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="En los sistemas americanos cada muestra es cuantificada">Unidad IV-1 p.59</a>.</li>
+<li>En TDM, la norma europea codifica la voz en PCM a 64 kbit/s (canal E0). La americana usaba 56 kbit/s y luego pasó a 64 kbit/s (canal T0): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="PCM en 56 kbit/s pero luego pasaron a 64 kbit/s">Clase 10 p.25</a>. Ley A (G.732) para E1 y ley µ (G.733) para T1: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: diapositiva TDM - PCM con Ley A G.732 UIT para E1 y Ley µ G.733 UIT para T1">Clase 10 p.26</a>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>E1 (norma europea)</th>
+<th>T1 (norma americana)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dónde se usa</td>
+<td>Europa y América del Sur</td>
+<td>EEUU y Japón</td>
+</tr>
+<tr>
+<td>Canales</td>
+<td>32 ranuras: 30 de información, 1 de sincronismo y 1 de señalización</td>
+<td>24 canales de información</td>
+</tr>
+<tr>
+<td>Bits por canal</td>
+<td>8</td>
+<td>8 (7 de información y 1 de señalización)</td>
+</tr>
+<tr>
+<td>Bits por trama</td>
+<td><span class="arithmatex">\(32 \cdot 8 = 256\)</span></td>
+<td><span class="arithmatex">\(24 \cdot 8 + 1 = 193\)</span> (el bit 193 es el código de trama)</td>
+</tr>
+<tr>
+<td>Duración de la trama</td>
+<td>125 µs</td>
+<td>125 µs</td>
+</tr>
+<tr>
+<td>Velocidad</td>
+<td>2,048 Mbit/s</td>
+<td>1,544 Mbit/s</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente de la tabla: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro E1 con 30 Europa y América del Sur, 1c sinc 1c señaliz 30 c info, 8 bits por canal, 256 bits por trama 125 µseg, Vtx trama = 2,048 Mbps">Clase 10 p.26</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro T1 con 24 EEUU y Japón, 24 c info, 8 bits por canal 7 info + 1 señaliz, + 1 bit cód de trama, 193 bits por trama 125 µseg, Vtx trama = 1,544 Mbps">Clase 10 p.26</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=28" title="fig: PCM - 24, Fig. 2-16 portadora T1 del sistema Bell 1.544 Mbps, trama de 193 bits, 7 bits de datos por canal, bit 8 de señalización, bit 193 código de la trama">Clase 10 p.28</a>.</p>
+<ul>
+<li>E1 forma grupos de 30 canales de voz más dos canales adicionales para sincronismo y señalización: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="Se forman grupos de 30 canales de voz y dos canales">Clase 10 p.25</a>. T1 forma grupos de 24 canales con un sincronismo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="Se forman grupos de 24 canales de voz con un sincronismo">Clase 10 p.25</a>.</li>
+<li>Trama E1 (PCM 30): intervalos 0 a 31; el intervalo 0 es el canal de sincronismo (ch 0) y el 16 es el de señalización (ch 16). Los otros 30 son voz de 8 bits; son 8 000 tramas de 256 bits: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=27" title="fig: Distribución de canales Sistema PCM 30, intervalos 0 a 31, canal de sincronismo ch 0, canal de señalización ch 16, 30 canales de voz, 8000 tramos de 256 bits c/u, t = 3,9 y 1 bit = 488 ns">Clase 10 p.27</a>.</li>
+<li>Tiempos de la trama E1 (cuenta propia): ranura <span class="arithmatex">\(125/32 = 3{,}90625\ \mu\text{s}\)</span>; bit <span class="arithmatex">\(3{,}90625/8 \approx 0{,}488\ \mu\text{s} = 488\ \text{ns}\)</span>, que es lo que redondea la figura.</li>
+</ul>
+<h3 id="5-pdh-y-relleno">5. PDH y relleno<a class="headerlink" href="#5-pdh-y-relleno" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PDH es la primera generación de TDM: sistemas plesiócronos (casi sincrónicos); el conjunto de niveles es la Jerarquía Digital Plesiócrona: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=29" title="La primera generación de TDM son los Sistemas Plesiócronos">Clase 10 p.29</a>.</li>
+<li>Rasgos: norma G.701, primer nivel es el grupo básico, relojes independientes por nivel, poco flexible (hay que demultiplexar toda la señal para llegar a una tributaria), poca capacidad de control, la duración de la trama cambia con el nivel y hay tres jerarquías (europea, americana y japonesa): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=30" title="fig: diapositiva PDH con NORMA UIT G.701, GPO BÁSICO, AGREGADO DE INFO DEL NIVEL SIGUIENTE SINCRONISMO, RELOJES INDEPENDIENTES, POCO FLEXIBLE, BAJA CAPACIDAD DE CONTROL, DURACIÓN DE LA TRAMA VARÍA, TRES TIPOS EUROPEA AMERICANA Y JAPONESA">Clase 10 p.30</a>.</li>
+<li>Norma europea: cada orden se arma con cuatro del anterior: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=31" title="fig: tabla PDH norma europea con orden, velocidad de transmisión, bits por trama, duración de la trama en µs y número de canales, órdenes 1 a 5">Clase 10 p.31</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=32" title="fig: esquema primario 30 canales 2,048 Mbps, secundario 120 canales 8,448 Mbps, terciario 480, cuaternario 1920, quinario 7680, con cuatro entradas en cada multiplexor">Clase 10 p.32</a>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Orden</th>
+<th>Nombre</th>
+<th>Velocidad [Mbit/s]</th>
+<th>Canales</th>
+<th>Exceso sobre 4 × el orden anterior [Mbit/s] (recálculo propio)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>primario (E1)</td>
+<td>2,048</td>
+<td>30</td>
+<td>no corresponde</td>
+</tr>
+<tr>
+<td>2</td>
+<td>secundario (E2)</td>
+<td>8,448</td>
+<td>120</td>
+<td>0,256</td>
+</tr>
+<tr>
+<td>3</td>
+<td>terciario (E3)</td>
+<td>34,368</td>
+<td>480</td>
+<td>0,576</td>
+</tr>
+<tr>
+<td>4</td>
+<td>cuaternario (E4)</td>
+<td>139,264</td>
+<td>1920</td>
+<td>1,792</td>
+</tr>
+<tr>
+<td>5</td>
+<td>quinario (E5)</td>
+<td>564,992</td>
+<td>7680</td>
+<td>7,936</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Relleno de PDH (nombre del programa; las fuentes de cátedra no usan la palabra para PDH): es el exceso de <span class="arithmatex">\(V_{n+1}\)</span> sobre <span class="arithmatex">\(4 \cdot V_n\)</span>, la información adicional que hay que agregar al formar cada grupo de nivel superior (<span class="arithmatex">\(4 \cdot 2{,}048 = 8{,}192\)</span> y el orden 2 es 8,448, o sea 0,256 Mbit/s más). La lámina lo llama agregado de información del nivel siguiente (sincronismo). De ahí el nombre plesiócrono, casi igual pero no igual: <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=676" title="de la necesidad de agregar información adicional al formar cada grupo">Libro p.676</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=676" title="que los valores son casi iguales, pero no">Libro p.676</a>.</li>
+<li>Equivalencias ITU-T y USA: T1 1,5; E1 2; T2 6; E2 8; E3 34; T3 44; E4 y T4 140; DS4 274; E5 y T5 565 Mbit/s. Son valores redondeados: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=33" title="fig: tabla PDH con columnas ITU-T Europa, USA y VEL BIN Mbps con T1 1,5, E1 2, T2 6, E2 8, E3 34, T3 44, E4 y T4 140, DS4 274, E5 y T5 565">Clase 10 p.33</a>.</li>
+<li>Para sacar un E1 de un 139,264 hay que demultiplexar nivel por nivel: 139,264 → 34,368 → 8,448 → 2,048 → 64 kbit/s: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=41" title="fig: cadena de multiplexores 139,264 Mbps, 34,368, 8,448, 2,048 y 64 kbps con canales 1 a 30">Clase 10 p.41</a>.</li>
+</ul>
+<h3 id="6-sdh-y-sonet">6. SDH y SONET<a class="headerlink" href="#6-sdh-y-sonet" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SDH transporta las tributarias PDH y servicios nuevos; tiene cinco niveles a partir de una velocidad básica: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=35" title="Transporta las señales tributarias PDH y nuevos servicios.">Clase 10 p.35</a>.</li>
+<li>Rasgos: norma G.707, mismo reloj en todos los niveles, trama única de 125 µs, incorpora PDH mediante contenedor virtual (VC), equipos add/drop y cross connect, control y gestión. SONET es la norma americana: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=34" title="fig: diapositiva SDH con NORMA UIT G.707, MISMO RELOJ EN TODOS LOS NIVELES, DURACIÓN ÚNICA DE LAS TRAMAS 125 µS, PERMITE INCORPORAR PDH MEDIANTE CONTENEDOR VIRTUAL VC, EQUIPOS ADD DROP Y CROSS CONNECT, SONET NORMA AMERICANA">Clase 10 p.34</a>.</li>
+<li>La trama se analiza en dos dimensiones (filas y columnas): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=37" title="Las tramas SDH se analizan en dos dimensiones.">Clase 10 p.37</a>.</li>
+<li>STM-1: 270 columnas de 9 bytes, 2 430 bytes por trama, 8 000 tramas por segundo, 155,520 Mbit/s: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="tiene 270 columnas de 9 bytes = 2.430 bytes/trama">Clase 10 p.38</a>.</li>
+<li>Estructura de STM-N: forma general <span class="arithmatex">\(270 \cdot N\)</span> bytes por fila = encabezado de sección (<span class="arithmatex">\(9 \cdot N\)</span>) + una columna (<span class="arithmatex">\(1 \cdot N\)</span>) + capacidad neta de carga (<span class="arithmatex">\(260 \cdot N\)</span>); la carga total de la trama es <span class="arithmatex">\(261 \cdot N\)</span>: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="fig: trama STM-1 de 9 filas, forma general 270 x N bytes, encabezado de sección 9 x N, una columna 1 x N, carga total de trama 261 x N y capacidad neta de carga 260 x N">Clase 10 p.38</a>.</li>
+<li>Para STM-1 (cuenta propia, INFERIDO): encabezado <span class="arithmatex">\(9 \cdot 9 \cdot 64\,000 = 5{,}184\)</span> Mbit/s, carga total <span class="arithmatex">\(261 \cdot 9 \cdot 64\,000 = 150{,}336\)</span> y capacidad neta <span class="arithmatex">\(260 \cdot 9 \cdot 64\,000 = 149{,}76\)</span> Mbit/s. Los dos primeros coinciden con la fila OC-3 de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="fig: tabla SONET con OC-3 encabezamiento 5,184, útil 150,336 y total 155,520 Mbps">Clase 10 p.42</a> y el tercero con el VC-4 del libro.</li>
+<li>Contenedores virtuales (VC): SDH transporta lo multiplexado por equipos PDH dentro de VC, que llevan la información útil: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=39" title="equipos PDH mediante Contenedores Virtuales">Clase 10 p.39</a>. La capacidad neta se llena con combinaciones de contenedores de orden inferior y se forman contenedores de orden superior con combinaciones de orden inferior: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=40" title="Se pueden formar contenedores de orden superior con">Clase 10 p.40</a>.</li>
+<li>Velocidades de los VC (libro): VC-11 1,544; VC-12 2,048 y VC-4 139,264 Mbit/s: <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=706" title="VC - 12 2,048 Mbps">Libro p.706</a>. El VC-4 tiene 2 340 bytes en 260 columnas de 9 y transporta 149,76 Mbit/s: <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=706" title="una capacidad total de transporte de 149,76 Mbps.">Libro p.706</a>.</li>
+<li>Punteros (solo en el libro; la palabra no está en Clase 10): son bytes adicionales del encabezado de la trama que indican dónde empieza el contenedor virtual. Permiten el funcionamiento asincrónico en una red sincrónica: <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=706" title="Los punteros son los que posibilitan el funcionamiento asincrónico">Libro p.706</a>.</li>
+<li>Add/drop: en PDH se baja nivel por nivel; en SDH un equipo add/drop saca 34,368 Mbit/s y mete 2,048 Mbit/s sin demultiplexar todo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=41" title="fig: provisión de un grupo básico desde red plesiócrona y red sincrónica, anillo urbano SDH 155 Mbps con DROP 34,368 Mbps y ADD 2,048 Mbps y SDH cross connect">Clase 10 p.41</a>.</li>
+<li>SONET es la versión americana del SDH con distintas tramas y velocidades; empieza en STS-1 (51,84 Mbit/s) y sus niveles son OC-n: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="Es la versión americana del SDH con distintas tramas y">Clase 10 p.42</a>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>SDH</th>
+<th>SONET</th>
+<th>Total exacto [Mbit/s]</th>
+<th>Total aproximado según p.43 (valores de la lámina, no un redondeo exacto)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sin equivalente en la lámina</td>
+<td>OC-1 (STS-1)</td>
+<td>51,84</td>
+<td>51</td>
+</tr>
+<tr>
+<td>STM-1</td>
+<td>OC-3 (STS-3)</td>
+<td>155,52</td>
+<td>155</td>
+</tr>
+<tr>
+<td>STM-4</td>
+<td>OC-12 (STS-12)</td>
+<td>622,08</td>
+<td>622</td>
+</tr>
+<tr>
+<td>STM-16</td>
+<td>OC-48 (STS-48)</td>
+<td>2 488,32</td>
+<td>2400</td>
+</tr>
+<tr>
+<td>STM-64</td>
+<td>OC-192 (STS-192), INFERIDO</td>
+<td>9 953,28</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>STM-256</td>
+<td>OC-768 (STS-768), INFERIDO</td>
+<td>39 813,12</td>
+<td>40000</td>
+</tr>
+</tbody>
+</table>
+<p>Los totales exactos salen de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="fig: tabla SONET, OC-1 51,840; OC-3 155,520; OC-12 622,080; OC-48 2.488,320; OC-192 9.953,280 Mbps">Clase 10 p.42</a>; la columna aproximada (la lámina escribe 2400 donde la p.42 da 2 488,32 y 51 donde da 51,84) y la correspondencia STM con OC, de <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=43" title="fig: tabla SDH Europa y SONET USA con STM-1 y OC-3 155, STM-4 y OC-12 622, STM-16 y OC-48 2400, STM-64 10000, STM-256 40000, OC-1 51">Clase 10 p.43</a>. Para cuentas se usan los exactos.</p>
+<h3 id="7-wdm-dwdm-y-amplificadores">7. WDM, DWDM y amplificadores<a class="headerlink" href="#7-wdm-dwdm-y-amplificadores" title="Permanent link">&para;</a></h3>
+<ul>
+<li>En las frecuencias de la luz se habla de longitud de onda; una fibra transporta varios canales, cada uno con su longitud de onda: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=52" title="Se puede enviar por una única fibra óptica varios canales">Clase 10 p.52</a>. Los sistemas ópticos WDM hacen multiplexación por longitud de onda para tener muchos canales por la misma fibra: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=53" title="Hacen multiplexación por división de longitud de onda para tener">Clase 10 p.53</a>.</li>
+<li>WDM transmite varias longitudes de onda a la vez, de 2,5 a 40 Gbit/s; sin agregar fibras multiplica la capacidad de 16 a 32 veces; hasta 160 longitudes de onda de 10 Gbit/s cada una: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=50" title="fig: diapositiva WDM con varias longitudes de onda, Vtx desde 2,5 a 40 Gbps, 16 a 32 veces, hasta 160 longitudes de onda de 10 Gbps c/u, y esquema transmisor, Mux, fibra con amplificadores ópticos, Demux, receptor">Clase 10 p.50</a>.</li>
+<li>Bandas del espectro óptico: O 1260-1360, E 1360-1460, S 1460-1530, C (convencional) 1530-1565, L 1565-1625 y U 1625-1675 nm: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=53" title="fig: espectro con bandas O, E, S, C convencional, L y U, límites 1260, 1360, 1460, 1530, 1565, 1625 y 1675 nm">Clase 10 p.53</a>. Se multiplexa en la banda C (tercera ventana): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=54" title="posteriormente en diez y luego a cuarenta operando en la banda C">Clase 10 p.54</a>.</li>
+<li>Una sola fibra puede ser unidireccional o bidireccional (en dos ventanas); con una sola ventana para ambos sentidos hacen falta dos fibras: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=55" title="se deben utilizar dos fibras: una para transmisión y otra para">Clase 10 p.55</a>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>DWDM (densa)</th>
+<th>CWDM (gruesa)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rasgos</td>
+<td>amplifica las longitudes de onda a la vez sin pasarlas a eléctrico; admite distintas velocidades y tipos</td>
+<td>menor costo; áreas metropolitanas; limitación en capacidad y alcance</td>
+</tr>
+<tr>
+<td>Sentido</td>
+<td>uni y bidireccional</td>
+<td>no bidireccional</td>
+</tr>
+<tr>
+<td>Longitudes de onda</td>
+<td>de 1530,33 a 1560,61 nm (dentro de la banda C)</td>
+<td>ocho: 1470, 1490, ..., 1610 nm (cada 20 nm)</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=56" title="fig: diapositiva CWDM y DWDM, DWDM Densa permite amplificar las long onda simultáneamente sin convertirlas en señales eléctricas y transmitir señales de distintas velocidades y tipos, uni y bidireccional">Clase 10 p.56</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=56" title="fig: diapositiva CWDM y DWDM, CWDM Gruesa menor costo, áreas metropolitanas, limitación en capacidad y alcance, no bidireccional">Clase 10 p.56</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=58" title="fig: DWDM de 1530.33 a 1560.61 nm y CWDM con ocho longitudes de 1470 a 1610 nm, Cisco">Clase 10 p.58</a>.
+- Capacidad DWDM: 40 canales separados 100 GHz, 80 a 50 GHz y 160 a 25 GHz (todas ocupan 4 000 GHz, cuenta propia); a más canales, menor velocidad por canal: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=60" title="Cuanto mayor es el número de canales, menor es la velocidad a">Clase 10 p.60</a>. Sistemas de fabricantes: 80 canales de 2,5 Gbit/s dan 200 Gbit/s, 40 de 10 dan 400 y 80 de 10 dan 800: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=60" title="80 canales de 10 Gbps">Clase 10 p.60</a>.
+- Amplificadores: los regeneradores convierten óptico a eléctrico y de nuevo a óptico; los amplificadores ópticos no necesitan esa conversión y llegan a distancias mucho mayores. Hay tres tipos: fibra dopada, Raman y semiconductores: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=61" title="Actualmente se usan amplificadores ópticos que no requieren">Clase 10 p.61</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=61" title="Hay de tres tipos:">Clase 10 p.61</a>.
+- EDFA usa fibra dopada con erbio: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=62" title="Usan fibras dopadas con tierras raras, en particular erbio">Clase 10 p.62</a>. Raman usa una interacción no lineal con una bomba de diodos láser: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=63" title="Utilizan el efecto Raman que es una interacción no lineal entre">Clase 10 p.63</a>. El de semiconductores, frente al EDFA, tiene menos ganancia y más ruido: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=64" title="Comparados con los EDFA, tienen menos ganancia, altas">Clase 10 p.64</a>.</p>
+<h3 id="8-wdm-vs-sonet">8. WDM vs SONET<a class="headerlink" href="#8-wdm-vs-sonet" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SONET (y SDH)</th>
+<th>WDM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qué multiplexa</td>
+<td>TDM de órdenes superiores; luego convierte a luz en una longitud de onda</td>
+<td>varias longitudes de onda en una misma fibra</td>
+</tr>
+<tr>
+<td>Equipamiento</td>
+<td>DWDM permite usar menos equipamiento (amplificadores) que en SONET; los regeneradores de TDM pasan óptico a eléctrico y de nuevo a óptico (INFERIDO de p.61, que no nombra SONET)</td>
+<td>amplificadores ópticos, sin conversión óptico-eléctrico-óptico</td>
+</tr>
+<tr>
+<td>Otros rasgos</td>
+<td>trama única de 125 µs, un reloj</td>
+<td>acepta multiprotocolos; add-drop y cross connect ópticos sin alimentación; fibra monomodo</td>
+</tr>
+</tbody>
+</table>
+<p>Fuente: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=51" title="fig: diapositiva WDM con LA DIFERENCIA CON SONET ES QUE ESTÁ ÚLTIMA MPX TDM Y LUEGO CONVIERTE A LUZ EN UNA LONG ONDA">Clase 10 p.51</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=51" title="fig: diapositiva WDM con ACEPTACIÓN DE MULTIPROTOCOLOS, DWDM PERMITE USAR MENOS EQUIPAMIENTO AMPLIFICADORES QUE EN SONET, ADD-DROP Y CROSS CONNECT ÓPTICOS SIN ALIMENTACIÓN, TRABAJA SOBRE FO MONOMODO">Clase 10 p.51</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=34" title="fig: diapositiva SDH con NORMA UIT G.707, MISMO RELOJ EN TODOS LOS NIVELES, DURACIÓN ÚNICA DE LAS TRAMAS 125 µS, PERMITE INCORPORAR PDH MEDIANTE CONTENEDOR VIRTUAL VC, EQUIPOS ADD DROP Y CROSS CONNECT, SONET NORMA AMERICANA">Clase 10 p.34</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=61" title="convierten señales ópticas a eléctricas y nuevamente en">Clase 10 p.61</a>.</p>
+<p>Respuesta oficial del Final 2023-02 ej. 1: las dos usan fibra óptica; SONET usa la técnica TDM y WDM es otra técnica, por división de longitud de onda: <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Si bien las dos usan FO, SONET utiliza la tecnica TDM">Final 2023-02 p.1</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="WDM es otra técnica por división de longitud de">Final 2023-02 p.1</a>.</p>
+<h3 id="9-cdm-y-cdma">9. CDM y CDMA<a class="headerlink" href="#9-cdm-y-cdma" title="Permanent link">&para;</a></h3>
+<ul>
+<li>CDM: todos los usuarios comparten el mismo canal de frecuencia y se distinguen por un código digital; es una técnica de espectro ensanchado y requiere mucha menos potencia que FDM y TDM: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=72" title="fig: diapositiva CDM, Todos los usuarios de CDM pueden compartir el mismo canal de frecuencia debido a que se distinguen por código digital, técnica de espectro ensanchado, Requiere una potencia mucho menor que las tecnologías FDM y TDM">Clase 10 p.72</a>.</li>
+<li>Como método de acceso: FDMA da una frecuencia distinta a cada usuario, TDMA usa el mismo canal en forma secuencial con ranuras que se repiten y CDMA usa la misma banda al mismo tiempo con un código único por usuario: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=74" title="fig: Comparación de Técnicas de Acceso, FDMA una frecuencia distinta por usuario, TDMA mismo canal secuencialmente, CDMA o Spread Spectrum misma banda al mismo tiempo con código único">Clase 10 p.74</a>.</li>
+</ul>
+<h2 id="ejemplo-resuelto">Ejemplo resuelto<a class="headerlink" href="#ejemplo-resuelto" title="Permanent link">&para;</a></h2>
+<p>Ejemplo propio, verificado con test (<code>herramientas/tests/u4-04-multiplexacion.test.js</code>): deducir 2,048, 1,544 y 155,52 Mbit/s a partir de la trama. La cátedra da los datos de cada trama y la velocidad resultante: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadros E1 y T1, bits por trama, 125 µseg y Vtx trama">Clase 10 p.26</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="hay 8 bits por byte y 8.000 tramas por segundo">Clase 10 p.38</a>.</p>
+<p><strong>E1.</strong> Datos: 32 ranuras de 8 bits (30 de información, 1 de sincronismo, 1 de señalización) y 8 000 tramas por segundo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=27" title="fig: PCM 30, 8000 tramos de 256 bits c/u, 30 canales de voz, canal de señalización ch 16, canal de sincronismo ch 0">Clase 10 p.27</a>.</p>
+<div class="arithmatex">\[V_{E1} = 32 \cdot 8 \cdot 8000 = 256 \cdot 8000 = 2\,048\,000\ \text{bit/s} = 2{,}048\ \text{Mbit/s}\]</div>
+<p>Cátedra: 2,048 Mbps: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro E1 con 256 bits por trama 125 µseg, Vtx trama = 2,048 Mbps">Clase 10 p.26</a>.</p>
+<p><strong>T1.</strong> Datos: 24 canales de 8 bits y 1 bit de código de trama, 8 000 tramas por segundo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=28" title="fig: PCM - 24, trama de 193 bits en 125 microsegundos">Clase 10 p.28</a>.</p>
+<div class="arithmatex">\[V_{T1} = (24 \cdot 8 + 1) \cdot 8000 = 193 \cdot 8000 = 1\,544\,000\ \text{bit/s} = 1{,}544\ \text{Mbit/s}\]</div>
+<p>Cátedra: 1,544 Mbps: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro T1 con 193 bits por trama 125 µseg, Vtx trama = 1,544 Mbps">Clase 10 p.26</a>.</p>
+<p><strong>STM-1.</strong> Datos: 9 filas por 270 columnas de bytes, 8 bits por byte, 8 000 tramas por segundo: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="tiene 270 columnas de 9 bytes = 2.430 bytes/trama">Clase 10 p.38</a>.</p>
+<div class="arithmatex">\[V_{STM\text{-}1} = 9 \cdot 270 \cdot 8 \cdot 8000 = 2430 \cdot 64\,000 = 155\,520\,000\ \text{bit/s} = 155{,}52\ \text{Mbit/s}\]</div>
+<p>Cátedra: 155,520 Mbps: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="luego son 2.430 x 64.000 = 155,520 Mbps">Clase 10 p.38</a>. La p.35 dice 155,22: es un error (ver Discrepancias).</p>
+<p><strong>Controles</strong> (cuentas propias):</p>
+<ul>
+<li><span class="arithmatex">\(32 \cdot 64\,000 = 2\,048\,000\)</span>: E1 son 32 canales de 64 kbit/s, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="32 x 64 = 2.048 kbit/s, aproximadamente 2 Mbits/s">Clase 10 p.25</a>.</li>
+<li>De los 32 canales de E1, 30 son útiles: <span class="arithmatex">\(30 \cdot 64\,000 = 1\,920\,000\)</span> bit/s, es decir <span class="arithmatex">\(30/32 = 93{,}75\,\%\)</span> de la velocidad de línea.</li>
+<li>T1: <span class="arithmatex">\(24 \cdot 64\,000 = 1\,536\,000\)</span> bit/s; el bit 193 agrega <span class="arithmatex">\(1 \cdot 8000 = 8000\)</span> bit/s, y suman 1 544 000.</li>
+</ul>
+<h2 id="trampas">Trampas<a class="headerlink" href="#trampas" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>TDM no ahorra ancho de banda: cada terminal usa todo el ancho de banda del canal durante su ranura (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=20" title="En la TDM los equipos terminales toman todo el ancho de">Clase 10 p.20</a>). Remarcado en clase: nota teoria 2026-09-01 07:39 PM: "no te ahorras mucho de banda".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>La ley es salida mayor o igual que la suma de entradas (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=6" title="cuya suma de velocidades no puede superar el valor C.">Clase 10 p.6</a>). Remarcado en clase: nota teoria 2026-09-01 07:10 PM: "la capacidad de la salida del multiplexor tiene que ser mayor igual". Y nota teoria 2026-09-01 07:39 PM: "podés tener menos canales, pero no podés tener más". La excepción es STDM (ver Desarrollo 1).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>E1 tiene 30 canales útiles de 32 ranuras: los otros dos son sincronismo (intervalo 0) y señalización (intervalo 16) (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="adicionales para sincronismo y señalización.">Clase 10 p.25</a>). Remarcado en clase: nota teoria 2026-09-01 07:45 PM: "se forman grupos de 30 canales de voz y dos canales adicionales".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>T1 tiene 24 canales y 193 bits por trama, no 192: el bit 193 es el código de trama (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=28" title="fig: PCM - 24, trama de 193 bits, bit 193 código de la trama">Clase 10 p.28</a>). Remarcado en clase: nota teoria 2026-09-01 07:48 PM: "le agrega el bit 193 que es el bit de fin de trama".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>E1 es la norma de Europa y América del Sur; T1, la de EEUU y Japón (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro E1 con 30 Europa y América del Sur">Clase 10 p.26</a>). Remarcado en clase: nota teoria 2026-09-01 07:46 PM: "En la Argentina manejamos la norma europea".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>STM-1 es 155,52 Mbit/s, no 155,22: la p.35 tiene el error y la cuenta de la p.38 da 155,520 (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="luego son 2.430 x 64.000 = 155,520 Mbps">Clase 10 p.38</a>).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>WDM vs SONET es una pregunta repetida (Final 2020-12, 2021-02 y 2023-02): SONET multiplexa por TDM y luego convierte a luz en una longitud de onda; WDM multiplexa longitudes de onda (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=51" title="fig: diapositiva WDM con LA DIFERENCIA CON SONET ES QUE ESTÁ ÚLTIMA MPX TDM Y LUEGO CONVIERTE A LUZ EN UNA LONG ONDA">Clase 10 p.51</a>). Remarcado en clase sobre esa lámina: nota teoria 2026-09-01 08:19 PM: "Esta filmina es importante porque esto sí lo pregunto".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>SONET es la versión americana del SDH, con distintas tramas y velocidades (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="Es la versión americana del SDH con distintas tramas y">Clase 10 p.42</a>). Remarcado en clase: nota teoria 2026-09-01 07:59 PM: "decime la diferencia y no hay diferencia" (ver Discrepancias).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>De los amplificadores ópticos hay que saber que son tres tipos; probablemente no se pregunte el detalle del Raman (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=61" title="Hay de tres tipos:">Clase 10 p.61</a>). Remarcado en clase: nota teoria 2026-09-01 08:27 PM: "no creo que nadie se lo pregunte".</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trampa</p>
+<p>En PDH, cuentas con los valores exactos de la p.31 (2,048; 8,448; 34,368; 139,264; 564,992). Los de la p.33 (2, 8, 34, 140, 565) y los de la p.32 (34, 140, 560) están redondeados (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=31" title="fig: tabla PDH norma europea con orden, velocidad de transmisión, bits por trama, duración de la trama en µs y número de canales, órdenes 1 a 5">Clase 10 p.31</a>).</p>
+</div>
+<h2 id="practicar">Practicar<a class="headerlink" href="#practicar" title="Permanent link">&para;</a></h2>
+<p>Los finales 2020-12 y 2021-02 se citan por Tema y número de pregunta, como en el PDF. Ningún final del tema trae un ejercicio numérico; el Final 2023-02 trae la única respuesta oficial.</p>
+<table>
+<thead>
+<tr>
+<th>Ejercicio</th>
+<th>Enunciado</th>
+<th>Resolución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Final 2020-12, Tema 1, preg. 5</td>
+<td>Explique la técnica de multiplexación WDM (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique la técnica de multiplexación WDM">Final 2020-12 p.1</a>)</td>
+<td>Sin resolución oficial. Varias longitudes de onda por una misma fibra, de 2,5 a 40 Gbit/s, hasta 160 longitudes de 10 Gbit/s; amplificadores ópticos sin conversión; DWDM densa y CWDM gruesa. Desarrollo 7, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=50" title="fig: diapositiva WDM con varias longitudes de onda, Vtx desde 2,5 a 40 Gbps, 16 a 32 veces, hasta 160 longitudes de onda de 10 Gbps c/u, y esquema transmisor, Mux, fibra con amplificadores ópticos, Demux, receptor">Clase 10 p.50</a>.</td>
+</tr>
+<tr>
+<td>Final 2020-12, Tema 2, preg. 5</td>
+<td>Explique la técnica de multiplexación TDM (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Explique la técnica de multiplexación TDM">Final 2020-12 p.1</a>)</td>
+<td>Sin resolución oficial. Tiempo dividido en ranuras que el multiplexor adjudica a cada subcanal; trama con datos y control; sincronismo entre transmisor y receptor; entramado de bit o de carácter; no ahorra ancho de banda. Desarrollo 3, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=19" title="Se crean ranuras de tiempo que el multiplexor adjudica a los">Clase 10 p.19</a>.</td>
+</tr>
+<tr>
+<td>Final 2020-12, Tema 3, preg. 5</td>
+<td>¿Qué diferencia existe entre SONET y WDM? (<a href="../fuentes/examenes/finales/oficial/Final-2020-12.pdf#page=1" title="Qué diferencia existe entre SONET y WDM">Final 2020-12 p.1</a>)</td>
+<td>Sin resolución oficial en este examen; es la misma pregunta que Final 2023-02 ej. 1, con respuesta oficial citada arriba. Ver Desarrollo 8.</td>
+</tr>
+<tr>
+<td>Final 2021-02, Tema 1, preg. 5</td>
+<td>Explique la técnica de multiplexación TDM (<a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Explique la técnica de multiplexación TDM">Final 2021-02 p.1</a>)</td>
+<td>Sin resolución oficial. Igual a la anterior de TDM.</td>
+</tr>
+<tr>
+<td>Final 2021-02, Tema 2, preg. 5</td>
+<td>Explique PCM-30 (<a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Fibras Ópticas? 5. Explique PCM-30">Final 2021-02 p.1</a>)</td>
+<td>Sin resolución oficial. PCM-30 es la trama E1: 30 canales de voz de 8 bits a 8 000 muestras por segundo más sincronismo y señalización, 256 bits por trama, 2,048 Mbit/s. Desarrollo 4, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=27" title="fig: Distribución de canales Sistema PCM 30">Clase 10 p.27</a>.</td>
+</tr>
+<tr>
+<td>Final 2021-02, Tema 3, preg. 5</td>
+<td>¿Qué diferencia existe entre SONET y WDM? (<a href="../fuentes/examenes/finales/oficial/Final-2021-02.pdf#page=1" title="Qué diferencia existe entre SONET y WDM">Final 2021-02 p.1</a>)</td>
+<td>Sin resolución oficial en este examen; es la misma pregunta que Final 2023-02 ej. 1, con respuesta oficial citada arriba. Ver Desarrollo 8.</td>
+</tr>
+<tr>
+<td>Final 2023-02, ej. 1</td>
+<td>En las técnicas de multiplexación, ¿qué diferencia existe entre SONET y WDM? (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="En las técnicas de multiplexación, ¿Qué diferencia existe entre SONET y WDM?">Final 2023-02 p.1</a>)</td>
+<td>Oficial: las dos usan FO; SONET utiliza TDM y WDM es otra técnica, por división de longitud de onda (<a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Si bien las dos usan FO, SONET utiliza la tecnica TDM">Final 2023-02 p.1</a>).</td>
+</tr>
+<tr>
+<td>TP8 ej. 1 (GUIA-TP-08-Practica-Preguntas y Clase-TP-08-RTAS; ej. 3 en Comunicaciones-TP08). Apoyo</td>
+<td>Señal analógica filtrada a 4000 Hz, PCM con muestras cada 125 microsegundos y 128 niveles: capacidad del vínculo de salida; ídem con 256 niveles (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=6" title="Hallar la capacidad que debe tener el vínculo de salida del modulador.">Clase-TP-08-RTAS p.6</a>)</td>
+<td>128 niveles son 7 bits: <span class="arithmatex">\(8000 \cdot 7 = 56\)</span> kbit/s. 256 niveles son 8 bits: <span class="arithmatex">\(8000 \cdot 8 = 64\)</span> kbit/s. Fórmula de la cátedra: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=6" title="Velocidad Binaria = VMuestreo * bits muestra">Clase-TP-08-RTAS p.6</a>.</td>
+</tr>
+<tr>
+<td>TP8 ej. 8 adicional (solo en Clase-TP-08-RTAS). Apoyo</td>
+<td>Velocidad binaria teórica y ancho de banda de un canal para 30 canales de voz más 2 de señalización y sincronismo, con TDM (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=19" title="Se desea conocer la velocidad binaria teórica y el ancho de banda de un canal que permita">Clase-TP-08-RTAS p.19</a>)</td>
+<td><span class="arithmatex">\(64\,000 \cdot (30 + 2) = 2\,048\,000\)</span> bit/s; ancho de banda <span class="arithmatex">\(32 \cdot 64\,000\ \text{Hz} = 2\,048\,000\ \text{Hz} = 2{,}048\)</span> MHz. La resolución escribe 2048 Mbps y 2048 Mhz: les falta la coma decimal (son 2,048 Mbit/s y 2,048 MHz): <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=19" title="fig: resolución con Vtotal = 64000 bps por 30 más 2 igual 2048 Mbps y Δf = 2048 Mhz">Clase-TP-08-RTAS p.19</a>.</td>
+</tr>
+<tr>
+<td>TP8 ej. 10 adicional (solo en Clase-TP-08-RTAS). Apoyo</td>
+<td>Transmitir 12 señales analógicas con un PCM sencillo, Δf de 2 kHz y 6 bits por muestra: capacidad necesaria (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=21" title="2Khz y se desea una resolución de 6 bits / muestra. Calcular la capacidad necesaria.">Clase-TP-08-RTAS p.21</a>)</td>
+<td><span class="arithmatex">\(2 \cdot 2000 \cdot 6 = 24\,000\)</span> bit/s por canal; <span class="arithmatex">\(12 \cdot 24\,000 = 288\,000\)</span> bit/s. Oficial: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=21" title="Capacidad = 288 Kbps">Clase-TP-08-RTAS p.21</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="autoevaluacion">Autoevaluación<a class="headerlink" href="#autoevaluacion" title="Permanent link">&para;</a></h2>
+<details class="question">
+<summary>¿Qué condición cumple la capacidad de salida de un multiplexor? ¿Y en STDM?</summary>
+<p>La capacidad de salida es mayor o igual que la suma de las capacidades de entrada, <span class="arithmatex">\(C_{sal} \ge \sum C_i\)</span> (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=6" title="cuya suma de velocidades no puede superar el valor C.">Clase 10 p.6</a>). En STDM la suma de las velocidades máximas de entrada puede superar la de salida (<a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/GUIA-TP-08-Teoria-Preguntas-Respuestas-RTAS.pdf#page=6" title="La sumatoria de las velocidades máximas entrantes al multiplexor puede superar a la">Guía TP8 teoría p.6</a>).</p>
+</details>
+<details class="question">
+<summary>¿TDM reduce el ancho de banda necesario?</summary>
+<p>No. Cada terminal usa todo el ancho de banda del canal durante su ranura; lo que se logra es aprovechar mejor el medio (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=2" title="Utilizar al máximo el ancho de banda disponible en el medio">Clase 10 p.2</a>).</p>
+</details>
+<details class="question">
+<summary>¿Cuántos canales útiles tiene un E1 y para qué sirven los otros? ¿Y un T1?</summary>
+<p>E1: 30 de 32. Uno es de sincronismo (intervalo 0) y otro de señalización (intervalo 16). T1: 24 canales de 8 bits más 1 bit de código de trama, 193 bits en total, con la señalización dentro de cada canal (1 de los 8 bits) (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro T1 con 24 EEUU y Japón, 24 c info, 8 bits por canal 7 info + 1 señaliz, + 1 bit cód de trama, 193 bits por trama 125 µseg, Vtx trama = 1,544 Mbps">Clase 10 p.26</a>).</p>
+</details>
+<details class="question">
+<summary>Deducí las velocidades de E1, T1 y STM-1.</summary>
+<p>E1: <span class="arithmatex">\(32 \cdot 8 \cdot 8000 = 2\,048\,000\)</span> bit/s. T1: <span class="arithmatex">\((24 \cdot 8 + 1) \cdot 8000 = 1\,544\,000\)</span> bit/s. STM-1: <span class="arithmatex">\(9 \cdot 270 \cdot 8 \cdot 8000 = 155\,520\,000\)</span> bit/s (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="hay 8 bits por byte y 8.000 tramas por segundo">Clase 10 p.38</a>).</p>
+</details>
+<details class="question">
+<summary>¿Por qué PDH se llama plesiócrono y qué tiene de malo frente a SDH?</summary>
+<p>Cada nivel tiene su reloj, así que las velocidades son casi iguales (p.30) a 4 veces el nivel anterior (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=31" title="fig: tabla PDH norma europea con orden, velocidad de transmisión, bits por trama, duración de la trama en µs y número de canales, órdenes 1 a 5">Clase 10 p.31</a>) pero no iguales (se agrega información adicional); hay que demultiplexar toda la señal para acceder a una tributaria y la capacidad de control y mantenimiento es baja. SDH usa el mismo reloj en todos los niveles y una trama única de 125 µs (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=34" title="fig: diapositiva SDH con MISMO RELOJ EN TODOS LOS NIVELES y DURACIÓN ÚNICA DE LAS TRAMAS 125 µS">Clase 10 p.34</a>; PDH: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=30" title="fig: diapositiva PDH con NORMA UIT G.701, GPO BÁSICO, AGREGADO DE INFO DEL NIVEL SIGUIENTE SINCRONISMO, RELOJES INDEPENDIENTES, POCO FLEXIBLE, BAJA CAPACIDAD DE CONTROL, DURACIÓN DE LA TRAMA VARÍA, TRES TIPOS EUROPEA AMERICANA Y JAPONESA">Clase 10 p.30</a>).</p>
+</details>
+<details class="question">
+<summary>En SDH, ¿qué es un contenedor virtual y qué es un puntero?</summary>
+<p>El contenedor virtual (VC) es lo que transporta la información útil de las señales PDH dentro de la trama. El puntero es un grupo de bytes del encabezado que indica dónde empieza el contenedor y permite el funcionamiento asincrónico en una red sincrónica (<a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=706" title="encabezado de la trama denominados punteros">Libro p.706</a>).</p>
+</details>
+<details class="question">
+<summary>¿Qué diferencia hay entre DWDM y CWDM? ¿Y entre un regenerador y un amplificador óptico?</summary>
+<p>DWDM (densa) amplifica las longitudes de onda a la vez sin pasarlas a eléctrico y es uni y bidireccional; CWDM (gruesa) es de menor costo, metropolitana y no bidireccional (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=56" title="fig: diapositiva CWDM y DWDM, DWDM Densa permite amplificar las long onda simultáneamente sin convertirlas en señales eléctricas y transmitir señales de distintas velocidades y tipos, uni y bidireccional">Clase 10 p.56</a>). El regenerador convierte óptico a eléctrico y de nuevo a óptico; el amplificador óptico no (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=61" title="convierten señales ópticas a eléctricas y nuevamente en">Clase 10 p.61</a>).</p>
+</details>
+<details class="question">
+<summary>Entramado de bit y de carácter en TDM: ¿qué lleva cada ranura y qué exige?</summary>
+<p>Bit: un solo bit de cada terminal; electrónica económica, sin almacenamiento. Carácter: un carácter completo; la llave rotativa se detiene en cada entrada y hace falta almacenamiento local (<a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=24" title="La llave rotativa del multiplexor deberá detenerse en cada">Clase 10 p.24</a>).</p>
+</details>
+<h2 id="discrepancias">Discrepancias<a class="headerlink" href="#discrepancias" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>STM-1: 155,22 contra 155,520 Mbit/s.</strong> La p.35 dice una velocidad básica de 155,22 Mbit/s; la p.38 dice 155,520 y la tabla de la p.42 da OC-3 = 155,520. El recálculo <span class="arithmatex">\(9 \cdot 270 \cdot 8 \cdot 8000 = 155\,520\,000\)</span> bit/s confirma 155,52. La guía usa 155,52: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=35" title="parten de una velocidad básica 155,22 Mbps">Clase 10 p.35</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=38" title="luego son 2.430 x 64.000 = 155,520 Mbps">Clase 10 p.38</a>.</li>
+<li><strong>Canales del E1: 31 contra 32.</strong> La p.27 dice que el primer orden digital posee 31 canales, pero la misma figura numera los intervalos de 0 a 31 (32), y la p.25 dice 30 de voz más dos adicionales, <span class="arithmatex">\(32 \cdot 64 = 2048\)</span> kbit/s. Recálculo: <span class="arithmatex">\(30 + 1 + 1 = 32\)</span> canales de 64 kbit/s: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=27" title="fig: Primer orden digital posee 31 canales y opera a 2048 Kbps, intervalos 0 a 31">Clase 10 p.27</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="Se forman grupos de 30 canales de voz y dos canales">Clase 10 p.25</a>.</li>
+<li><strong>Canal americano: 56 o 64 kbit/s.</strong> La p.25 dice que la voz era de 56 kbit/s y luego pasó a 64 kbit/s; Unidad IV-1 calcula <span class="arithmatex">\(8000 \cdot 7 = 56\)</span> kbit/s; las láminas de T1 muestran 8 bits por canal, 7 de información y 1 de señalización, o sea 64 kbit/s de canal con 56 kbit/s de información. Dicho en clase: nota teoria 2026-09-01 07:46 PM: "pasaron a 64 porque la señalización se la pusieron adentro del Canal". Fuentes: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=25" title="PCM en 56 kbit/s pero luego pasaron a 64 kbit/s">Clase 10 p.25</a>, <a href="../fuentes/teoria/oficial/unidades/Unidad-IV-1.pdf#page=59" title="Cada segundo se generan 8.000 x 7 bits = 56 kbps">Unidad IV-1 p.59</a>.</li>
+<li><strong>Terciario FDM: 1 200 kHz contra 312-1 552 kHz.</strong> En la p.14 el terciario tiene 1 200 kHz de ancho de banda, pero <span class="arithmatex">\(1552 - 312 = 1240\)</span> kHz; el libro escribe en el texto 312 a 1512 kHz, que es <span class="arithmatex">\(312 + 1200\)</span>, y en su figura 312-1552. Los demás grupos cierran (<span class="arithmatex">\(552 - 312 = 240\)</span>, <span class="arithmatex">\(4028 - 312 = 3716\)</span>, <span class="arithmatex">\(12338 - 312 = 12026\)</span>). La guía muestra los valores de la p.14 y no hace cuentas con la banda del terciario: <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=14" title="fig: tabla de grupos primario 60-108, secundario 312-552, terciario 312-1552, cuaternario 312-4028 y quinario 312-12338 kHz">Clase 10 p.14</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=663" title="frecuencias que van de 312 a 1512 kHz.">Libro p.663</a>.</li>
+<li><strong>SONET contra SDH, dicho en clase.</strong> El docente de teoría dice que SONET y SDH son lo mismo con nombre americano y europeo: nota teoria 2026-09-01 07:59 PM: "decime la diferencia y no hay diferencia", y a la vez nota teoria 2026-09-01 07:59 PM: "sí está a diferencia en Cómo se arman". La lámina dice que SONET es la versión americana del SDH con distintas tramas y velocidades (STS-1 de 51,84 contra STM-1 de 155,52): <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=42" title="Es la versión americana del SDH con distintas tramas y">Clase 10 p.42</a>, <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=707" title="Las características de esta norma son muy similares a las definidas para">Libro p.707</a>.</li>
+<li><strong>TP8 ej. 8 adicional: 2048 Mbps y 2048 Mhz contra 2,048.</strong> La resolución de Clase-TP-08-RTAS p.19 escribe Vtotal = 2048 Mbps y Δf = 2048 Mhz; la cuenta <span class="arithmatex">\(64\,000 \cdot 32 = 2\,048\,000\)</span> da 2,048 Mbit/s y 2,048 MHz, igual que E1 en la p.26 de la Clase 10. La guía usa 2,048: <a href="../fuentes/practica/tucu-leppen/TP08-Modulacion-Gray/Clase-TP-08-RTAS.pdf#page=19" title="fig: resolución con Vtotal = 64000 bps por 30 más 2 igual 2048 Mbps y Δf = 2048 Mhz">Clase-TP-08-RTAS p.19</a>, <a href="../fuentes/teoria/oficial/arroyo-arzubi/Clase-10-Multiplexion.pdf#page=26" title="fig: cuadro E1 con 256 bits por trama 125 µseg, Vtx trama = 2,048 Mbps">Clase 10 p.26</a>.</li>
+<li><strong>SONET y SDH y la fibra óptica, dicho en clase.</strong> El docente de teoría dice que SDH puede ir por fibra óptica u otro medio y que solo WDM es exclusivo de fibra: nota teoria 2026-09-01 07:59 PM: "wdm donde Únicamente se usa fibra óptica". El libro dice que SONET solo se puede usar en redes ópticas y la respuesta oficial del Final 2023-02 ej. 1 dice que las dos usan fibra: <a href="../fuentes/teoria/oficial/libro/Castro-Fusario-Comunicaciones-LIBRO-DIGITAL.pdf#page=675" title="Esta tecnología solo se puede utilizar en las redes">Libro p.675</a>, <a href="../fuentes/examenes/finales/oficial/Final-2023-02.pdf#page=1" title="Si bien las dos usan FO, SONET utiliza la tecnica TDM">Final 2023-02 p.1</a>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="./03-digitalizacion.html" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Digitalización: PCM y Delta">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Digitalización: PCM y Delta
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../u5/01-informacion.html" class="md-footer__link md-footer__link--next" aria-label="Siguiente: U5 · Teoría de la información y codificación">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                U5 · Teoría de la información y codificación
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["content.code.copy","content.footnote.tooltips","content.tooltips","navigation.footer","navigation.indexes","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copiado al portapapeles","clipboard.copy":"Copiar al portapapeles","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 más en esta página","search.result.more.other":"# más en esta página","search.result.none":"No se encontraron documentos","search.result.one":"1 documento encontrado","search.result.other":"# documentos encontrados","search.result.placeholder":"Teclee para comenzar búsqueda","search.result.term.missing":"Falta","select.version":"Seleccionar versión"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.67a597eb.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="../javascripts/cdd.js"></script>
+      
+        <script src="../javascripts/widgets.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
